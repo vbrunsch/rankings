@@ -37,7 +37,6 @@ jobs:
     - name: Process Data
       run: |
         python Spain_ranking.py
-        python Germany_ranking.py
         
     - name: commit files
       run: |
