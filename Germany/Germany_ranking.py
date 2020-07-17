@@ -7,7 +7,7 @@ focus = df.copy().drop(['ObjectId','IdBundesland','Altersgruppe','Geschlecht','A
 confirm = focus.groupby('Bundesland').sum().T
 confirm_LK = focus.groupby('Landkreis').sum().T
 
-# Green zone ranking
+
 cols=['District/County Town','COVID-Free Days','New Cases in Last 14 Days']
 import datetime as dt
 collect = []
