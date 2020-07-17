@@ -119,7 +119,6 @@ bottom = """
 """
 
 
-
 styles=[hover(),]
 tab['Rank'] = tab.reset_index().index
 tab['Rank'] = tab['Rank'].add(1)
