@@ -44,7 +44,6 @@ for country in confirm_LK.columns:
                    c,
                    last_forteen))
 
-
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
 fin['week'] = fin['COVID-Free Days'].gt(13) 
