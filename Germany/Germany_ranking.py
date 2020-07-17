@@ -128,8 +128,6 @@ bottom = """
 """
 
 
-# In[20]:
-
 
 styles=[hover(),]
 tab['Rank'] = tab.reset_index().index
