@@ -4,10 +4,8 @@
 name: Update World Country Rankings
 
 on:
-  pull_request:
-    branches: [ master]
-  #push:
-    #branches: [ master ]
+  push:
+    branches: [ master ]
   schedule:
     - cron: '0 */6 * * *'
 
@@ -38,7 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Process Data
       run: |
-        python World/World_Ranking.py
+        python World/World_ranking.py
         
     - name: commit files
       run: |
