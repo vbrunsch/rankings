@@ -4,7 +4,7 @@
 import pandas as pd
 import numpy as np
 
-
+#
 df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/datos_provincias.csv')
 df['provincia_iso'].fillna('NA', inplace = True)
 ab = pd.read_csv(r'Spain_Abbrev.csv')
