@@ -3,7 +3,7 @@
 
 import pandas as pd
 import numpy as np
-#
+
 
 df = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv')
 focus = df.copy().drop(['stato','codice_regione','codice_provincia','sigla_provincia','lat','long','note'], axis=1).set_index(['data'])
