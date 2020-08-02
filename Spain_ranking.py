@@ -13,7 +13,7 @@ ab['Abbrev'].fillna('NA', inplace = True)
 focus = df.copy().drop(['num_casos_prueba_pcr','num_casos_prueba_test_ac','num_casos_prueba_otras','num_casos_prueba_desconocida'], axis=1).set_index(['fecha'])
 confirm = focus.groupby('provincia_iso').sum().T
 
-cols=['Province','COVID-Free Days','New Cases in Last 14 Days']
+cols=['Province','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 for p in confirm.columns:
     n = focus[focus['provincia_iso']==p]
@@ -23,6 +23,16 @@ for p in confirm.columns:
     last_forteen = ave[las:].sum()
     if last_forteen < 0:
         last_forteen = 0
+    last7 = ave[len(ave)-7:].sum() #last week
+    prev7 = ave[len(ave)-14:len(ave)-7].sum() #prev week
+    if last7 < 0:
+        last7 = 0
+    if last7 > last_forteen:
+        last_forteen = last7
+    if prev7 < 0:
+        prev7 = 0
+    if (last7 == 0) & (last_forteen == 0):
+        prev7 = 0
     i = len(ave)-1
     c = 0
     while i > 0:
@@ -34,8 +44,10 @@ for p in confirm.columns:
 
     collect.append((p_long,
                    c,
-                   last_forteen))
-    
+                   last_forteen,
+		   last7,
+	           prev7))
+
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
 fin['week'] = fin['COVID-Free Days'].gt(13) 
@@ -47,36 +59,59 @@ tab_t = tab_t.sort_values(['COVID-Free Days','New Cases in Last 14 Days'], ascen
 tab = tab_t.append(tab_f)
 tab = tab.drop(['week'], axis=1)
 
+#Percent Change
+
+tab['PercentChange'] = 100*(tab['Last7'] - tab['Previous7'])/(tab['Last7']+tab['Previous7'])
+tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
+
+tab = tab.drop(['Previous7'], axis = 1)
+tab.columns = ['Province', 'COVID-Free Days', 'New Cases in Last 14 Days', 'Last 7 Days', 'Pct Change']
 
 def highlighter(s):
     val_1 = s['COVID-Free Days']
     val_2 = s['New Cases in Last 14 Days']
+    
     r=''
     try:
-        if val_1>=14:
-            r = 'background-color: #018001;'
-        elif 20>=val_2 :
-            r = 'background-color: #02be02;'
-        elif 200>=val_2 >=21:
+        if val_1>=14: #More than 14 Covid free days
+            r = 'background-color: #018001; color: #ffffff;'
+        elif 20>=val_2 : # less than 20 in last 2 weeks
+            r = 'background-color: #02be02; color: #ffffff;'
+        elif 200>=val_2 >=21: #Light green
             r = 'background-color: #ffff01;'
-        elif 1000>=val_2 >= 201:
+        elif 1000>=val_2 >= 201: #Yellow
             r = 'background-color: #ffa501;'
-        elif 20000>=val_2 >= 1001:
+        elif 20000>=val_2 >= 1001: #Orange
             r = 'background-color: #ff3434;'
-        elif val_2 > 20001:
+        elif val_2 > 20001: # Red
             r = 'background-color: #990033;'
     except Exception as e:
         r = 'background-color: white'
-    return [r]*len(s)
+    return [r]*(len(s)-2) + ['']*2
 
 def hover(hover_color="#ffff99"):
     return dict(selector="tbody tr:hover td, tbody tr:hover th",
                 props=[("background-color", "rgba(66, 165, 245, 0.2) !important")])
 
 top = """
-
+<!DOCTYPE html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function colorize() {
+var NW = String.fromCharCode(8599);
+var SW = String.fromCharCode(8600);
+$('td').each(function() {
+    $(this).html($(this).html().
+    replace(SW, '<span style="color: green">'+ SW +'</span>').
+    replace(NW, '<span style="color: red">'+ NW +'</span>'))
+    ;
+});
+};
+</script>
 <style>
 
     h2 {
@@ -111,22 +146,28 @@ top = """
 
 </style>
 </head>
-<body>
+<body onload=colorize()>
 """
 bottom = """
 </body>
 </html>
 """
 
-
+arrow = lambda x : ' &#x2197;' if x>0 else (' &#x2192' if x ==0  else ' &#x2198')
 styles=[hover(),]
 tab['Rank'] = tab.reset_index().index
 tab['Rank'] = tab['Rank'].add(1)
-tab = tab[['Rank', 'Province', 'COVID-Free Days', 'New Cases in Last 14 Days']]       
+tab['Trend'] = tab['Pct Change'].map(arrow)
+tab['Percent Change'] = tab['Pct Change'].map('{:,.2f}%'.format) + tab['Trend']
+tab = tab.drop(['Trend','Pct Change'], axis = 1)
+
+tab = tab[['Rank', 'Province', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
+
 try:        
     with open(f'Spain.html', 'w', encoding="utf-8") as out:
         content = top + s.render() + bottom
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
+    
