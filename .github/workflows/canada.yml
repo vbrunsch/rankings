@@ -4,8 +4,8 @@
 name: Update Canada Health Region Rankings
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+    #branches: [ master ]
   schedule:
     - cron: '10 */6 * * *'
 
