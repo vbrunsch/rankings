@@ -10,6 +10,7 @@ focus = pd.read_csv('https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Cov
 focus = focus[['residencia_provincia_nombre', 'residencia_departamento_nombre', 'fecha_apertura','clasificacion_resumen']]
 focus = focus[focus['clasificacion_resumen']=='Confirmado']
 focus['casos'] = 1
+#focus = focus2.set_index(['fecha_apertura'])
 focus = focus[focus.residencia_departamento_nombre != 'SIN ESPECIFICAR']
 focus = focus[focus.residencia_provincia_nombre != 'SIN ESPECIFICAR']
 focus['combined']=focus['residencia_departamento_nombre']+', '+focus['residencia_provincia_nombre']
@@ -18,7 +19,7 @@ confirm = focus.groupby(['combined']).sum().T
 dat = focus.groupby(['fecha_apertura']).sum()
 dat.index = pd.to_datetime(dat.index, dayfirst=True)
 tim = dat.index.max()
-idx = pd.date_range('03-14-2020', tim)
+idx = pd.date_range('03-03-2020', tim)
 cols=['Departamento','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 for d in confirm.columns:
@@ -56,6 +57,18 @@ for d in confirm.columns:
                    last7,
                    prev7))
 
+# Add cases with no COVID till now
+ar_zero = pd.read_csv(r'Argentina_zero.csv')
+co = pd.DataFrame(confirm.columns)
+common = ar_zero.merge(co,on='combined')
+real_zero= ar_zero[(~ar_zero.combined.isin(common.combined))]
+for j in real_zero['combined']:
+    collect.append((j,
+                   idx.size,
+                   0,
+                   0,
+                   0))
+    
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
 fin['week'] = fin['COVID-Free Days'].gt(13) 
