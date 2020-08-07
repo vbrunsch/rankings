@@ -7,9 +7,9 @@ import numpy as np
 
 focus = pd.read_csv('https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv')
 
-focus = focus[['residencia_provincia_nombre', 'residencia_departamento_nombre', 'fecha_apertura']]
+focus = focus[['residencia_provincia_nombre', 'residencia_departamento_nombre', 'fecha_apertura','clasificacion_resumen']]
+focus = focus[focus['clasificacion_resumen']=='Confirmado']
 focus['casos'] = 1
-#focus = focus2.set_index(['fecha_apertura'])
 focus = focus[focus.residencia_departamento_nombre != 'SIN ESPECIFICAR']
 focus = focus[focus.residencia_provincia_nombre != 'SIN ESPECIFICAR']
 focus['combined']=focus['residencia_departamento_nombre']+', '+focus['residencia_provincia_nombre']
@@ -178,3 +178,4 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
+
