@@ -66,7 +66,10 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
     # New Zealand cases are all in managed isolation since 06/17
     if country == 'New Zealand':
         focus['new'].loc['06/17':] = 0
-    
+
+    # Thailand cases are all in managed isolation since 05/26
+    if country == 'Thailand':
+        focus['new'].loc['05/26':] = 0
    
     #correcting country names
     if country == 'Taiwan*':
