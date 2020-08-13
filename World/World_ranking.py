@@ -65,8 +65,8 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         
     # New Zealand cases are all in managed isolation since 06/17
     if country == 'New Zealand':
-        import time
-	day = time.strftime('%d%b',time.localtime(time.time() + 25200))
+        import time 
+        day = time.strftime('%d%b',time.localtime(time.time() + 25200))
         day = day.lower()
         df_nz = pd.read_excel('https://www.health.govt.nz/system/files/documents/pages/covid-cases-{0}20.xlsx'.format(day), sheet_name='Confirmed',skiprows=[0,1,2])
         nz = df_nz.copy()
