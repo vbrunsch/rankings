@@ -63,7 +63,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         focus.at['06/02', 'new'] = 0
         focus.at['06/04', 'new'] = 767
         
-    # New Zealand cases are all in managed isolation since 06/17
+    # New Zealand
     if country == 'New Zealand':
         import time 
         day = time.strftime('%d%b',time.localtime(time.time() + 25200))
