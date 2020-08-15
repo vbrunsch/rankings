@@ -70,9 +70,9 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         day = day.lower()
         df_nz = pd.read_excel('https://www.health.govt.nz/system/files/documents/pages/covid-cases-{0}20.xlsx'.format(day), sheet_name='Confirmed',skiprows=[0,1,2])
         nz = df_nz.copy()
-        nz = nz[['Date notified of potential case','DHB']]
+        nz = nz[['Date notified of potential case','Overseas travel']]
         nz['new'] = 1
-        nz = nz[nz['DHB'] != 'Managed isolation & quarantine']
+        nz = nz[nz['Overseas travel'] != 'Yes']
         tod = pd.to_datetime('today')
         idx = pd.date_range('02-26-2020', tod)
         focus = nz.groupby(['Date notified of potential case']).sum()
