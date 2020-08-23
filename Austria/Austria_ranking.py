@@ -7,6 +7,7 @@ from zipfile import ZipFile
 from urllib.request import urlopen
 import datetime
 from datetime import timedelta
+import pandas as pd
 
 
 bez = pd.DataFrame()
