@@ -181,5 +181,6 @@ try:
         body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
         body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
         content = top + body + bottom
+        out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
