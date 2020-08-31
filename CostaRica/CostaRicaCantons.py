@@ -1,18 +1,32 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import pandas as pd
 import time 
+import time, requests
 yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
 date = "_" + yesterday
+url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
+
+r = requests.get(url)
+i=2
+while r.status_code != 200:
+    print(f'Error requesting url for {yesterday}')
+    yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400*i))
+    print(f'Error requesting URL, trying previous day: {yesterday}')
+    url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
+    r = requests.get(url)
+
+    if i >= 7:
+        print('Database more than 7 days out of date')
+        raise ValueError('Exiting. Database more than 7 days out of date')
+    i += 7
+print(f'{yesterday} successfully requested')
 df = pd.read_excel('http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday), sheet_name='2_1CANT_ACUMULADOS')
+
+
 focus = df.copy().drop(['cod_provin','cod_canton'], axis=1)
 focus['combined'] = focus['canton']+', '+ focus['provincia']
 confirm = focus.groupby('combined').sum().T
-
 cols=['Canton','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
-
 for d in confirm.columns:
     n = confirm[d]
     ave = n.diff()
@@ -41,13 +55,11 @@ for d in confirm.columns:
         else:
             i = 0
         i = i - 1
-
     collect.append((d,
                    c,
                    last_forteen,
                    last7,
                    prev7))
-
     
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
@@ -59,15 +71,11 @@ tab_f = tab_f.sort_values(['New Cases in Last 14 Days','COVID-Free Days'], ascen
 tab_t = tab_t.sort_values(['COVID-Free Days','New Cases in Last 14 Days'], ascending = [False,True])
 tab = tab_t.append(tab_f)
 tab = tab.drop(['week'], axis=1)
-
 #Percent Change
-
 tab['PercentChange'] = 100*(tab['Last7'] - tab['Previous7'])/(tab['Last7']+tab['Previous7'])
 tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
-
 tab = tab.drop(['Previous7'], axis = 1)
 tab.columns = ['Canton', 'COVID-Free Days', 'New Cases in Last 14 Days', 'Last 7 Days', 'Pct Change']
-
 def highlighter(s):
     val_1 = s['COVID-Free Days']
     val_2 = s['New Cases in Last 14 Days']
@@ -89,11 +97,9 @@ def highlighter(s):
     except Exception as e:
         r = 'background-color: white'
     return [r]*(len(s)-2) + ['']*2
-
 def hover(hover_color="#ffff99"):
     return dict(selector="tbody tr:hover td, tbody tr:hover th",
                 props=[("background-color", "rgba(66, 165, 245, 0.2) !important")])
-
 top = """
 <!DOCTYPE html>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -101,7 +107,6 @@ top = """
 <html>
 <head>
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -131,7 +136,6 @@ top = """
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body>
@@ -140,7 +144,6 @@ bottom = """
 </body>
 </html>
 """
-
 arrow = lambda x : ' &#x2197;' if x>0 else (' &#x2192' if x ==0  else ' &#x2198')
 styles=[hover(),]
 tab['Rank'] = tab.reset_index().index
@@ -149,10 +152,8 @@ tab['Rank'] = tab['Rank'].add(1)
 tab['Trend'] = tab['Pct Change'].map(arrow)
 tab['Percent Change'] = tab['Pct Change'].map('{:,.2f}%'.format) + tab['Trend']
 tab = tab.drop(['Trend','Pct Change'], axis = 1)
-
 tab = tab[['Rank', 'Canton', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
-
 try:        
     with open(f'CostaRicaCantons.html', 'w', encoding="utf-8") as out:
         body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
@@ -161,5 +162,3 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
-
-    
