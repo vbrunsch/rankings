@@ -2,10 +2,25 @@
 # coding: utf-8
 
 import pandas as pd
-import time 
+import time, requests
 yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
 date = "_" + yesterday
+url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
+
+r = requests.get(url)
+i=2
+while r.status_code != 200:
+    yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400*i))
+    url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
+    r = requests.get(url)
+
+    if i >= 7:
+        print('Database more than 7 days out of date')
+        raise ValueError('Exiting. Database more than 7 days out of date')
+    i += 7
 df = pd.read_excel('http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday), sheet_name='2_1CANT_ACUMULADOS')
+    
+    
 focus = df.copy().drop(['cod_provin','cod_canton'], axis=1)
 focus['combined'] = focus['canton']+', '+ focus['provincia']
 confirm = focus.groupby('combined').sum().T
