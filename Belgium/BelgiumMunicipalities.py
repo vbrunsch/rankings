@@ -5,10 +5,9 @@ import numpy as np
 from io import BytesIO
 from zipfile import ZipFile
 from urllib.request import urlopen
-import datetime, requests
+import datetime
 from datetime import timedelta
 import pandas as pd
-from time import sleep
 
 
 mun = pd.DataFrame()
@@ -19,14 +18,7 @@ for d in date_list:
     date_time = d.strftime("%Y%m%d")
     url = f"https://epistat.sciensano.be/Data/{date_time}/COVID19BE_CASES_MUNI_CUM_{date_time}.csv"
     print(d)
-    try: 
-        df = pd.read_csv(url)
-        sleep(0.01)
-    except:
-        if d == date_list[-1]:
-            print('Database not up to date to today! Skipping today and moving on')
-        break
-        
+    df = pd.read_csv(url)
     df = df.dropna(subset=['NIS5'])
     df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement d\’', '')
     df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement de', '')
