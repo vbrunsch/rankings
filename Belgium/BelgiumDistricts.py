@@ -8,6 +8,7 @@ from urllib.request import urlopen
 import datetime
 from datetime import timedelta
 import pandas as pd
+from time import sleep
 
 
 mun = pd.DataFrame()
