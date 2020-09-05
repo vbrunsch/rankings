@@ -65,14 +65,19 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         
     # New Zealand
     if country == 'New Zealand':
-        import time 
-        day = time.strftime('%-d%b',time.localtime(time.time() + 25200))
-        day = day.lower()
-        url = f'https://www.health.govt.nz/system/files/documents/pages/covid-cases-{day}t20.xlsx'
-        df_nz = pd.read_excel(url, sheet_name='Confirmed',skiprows=[0,1])
-        #df_nz = pd.read_excel('https://www.health.govt.nz/system/files/documents/pages/covid-cases-{0}t20.xlsx'.format(day), sheet_name='Confirmed',skiprows=[0,1])
-        nz = df_nz.copy()
-        nz = nz[['Date notified of potential case','Overseas travel']]
+        import requests
+        url = 'https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details'
+
+        header = {
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+
+        r = requests.get(url, headers=header)
+
+        dfs = pd.read_html(r.text)
+        hm = dfs[0]
+        nz = hm[['Date notified of potential case','Overseas travel']]
         nz['new'] = 1
         nz = nz[nz['Overseas travel'] != 'Yes']
         tod = pd.to_datetime('today')
