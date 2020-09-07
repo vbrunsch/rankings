@@ -88,7 +88,24 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
 
     # Thailand cases are all in managed isolation since 05/26
     if country == 'Thailand':
-        focus['new'].loc['05/26':] = 0
+        import re
+        import requests
+        import time
+        url_s = 'https://data.go.th/dataset/covid-19-daily'
+        t = requests.get(url_s).text
+        filenames = re.findall('https:(.+?)\.xlsx', t)
+        url = 'https:' + filenames[0] + '.xlsx'
+        df_t = pd.read_excel(url).drop(['no','age','sex','Province of isolation','Notification date','Province of onset','District of onset'], axis = 1).set_index(['Announce Date'])
+        df_t.index.name = None
+        df_t = df_t[df_t['nationality']=='Thailand'].drop(['nationality'], axis = 1)
+        df_t['new'] = 1
+        df_t.loc[df_t['quarantine']=='State Quarantine','new'] = 0
+        df_t = df_t.drop(['quarantine'], axis = 1)
+        tod = pd.to_datetime('today')
+        idx = pd.date_range('01-22-2020', tod)
+        df_t = df_t.groupby(df_t.index).sum()
+        df_t.index = pd.to_datetime(df_t.index, dayfirst=True)
+        focus = df_t.reindex(idx, fill_value=0)
    
     #correcting country names
     if country == 'Taiwan*':
