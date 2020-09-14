@@ -95,12 +95,12 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         t = requests.get(url_s).text
         filenames = re.findall('https:(.+?)\.xlsx', t)
         url = 'https:' + filenames[0] + '.xlsx'
-        df_t = pd.read_excel(url).drop(['no\nc', 'age\ni', 'sex', 'Province of isolation\no', 'Notification date\nb', 'Province of onset\no', 'District of onset\nP'], axis = 1).set_index(['Announce Date\na'])
+        df_t = pd.read_excel(url).drop(['no\nc', 'age\ni', 'sex', 'Province of isolation\nN', 'Notification date\nb', 'Province of onset\no', 'District of onset\nP'], axis = 1).set_index(['Announce Date\na'])
         df_t.index.name = None
         df_t = df_t[df_t['nationality \nk']=='Thailand'].drop(['nationality \nk'], axis = 1)
         df_t['new'] = 1
-        df_t.loc[df_t['quarantine']=='State Quarantine','new'] = 0
-        df_t = df_t.drop(['quarantine'], axis = 1)
+        df_t.loc[df_t['quarantine\nD']=='State Quarantine','new'] = 0
+        df_t = df_t.drop(['quarantine\nD'], axis = 1)
         tod = pd.to_datetime('today')
         idx = pd.date_range('01-22-2020', tod)
         df_t = df_t.groupby(df_t.index).sum()
