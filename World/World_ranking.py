@@ -91,11 +91,17 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         import re
         import requests
         import time
+        import datetime
         url_s = 'https://data.go.th/dataset/covid-19-daily'
         t = requests.get(url_s).text
         filenames = re.findall('https:(.+?)\.xlsx', t)
-        url = 'https:' + filenames[0] + '.xlsx'
+        url = 'https:' + filenames[2] + '.xlsx'
         df_t = pd.read_excel(url)
+        dayt = datetime.date(1899, 12, 30)
+        c = 0
+        for i in df_t[df_t.columns[6]]:
+            df_t[df_t.columns[6]][c] = dayt + datetime.timedelta(days=i)
+            c=c+1
         df_t = df_t.set_index([df_t.columns[6]])
         df_t.index.name = None
         df_t = df_t[df_t[df_t.columns[3]]=='Thailand']
