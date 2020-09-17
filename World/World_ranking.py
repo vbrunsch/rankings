@@ -94,7 +94,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         import datetime
         url_s = 'https://data.go.th/dataset/covid-19-daily'
         t = requests.get(url_s).text
-        filenames = re.findall('https:(.+?)\.xlsx', t)
+        filenames = re.findall('https:(.+?)\.csv', t)
         url = 'https:' + filenames[0] + '.csv'
         df_t = pd.read_csv(url)
         dayt = datetime.date(1899, 12, 30)
