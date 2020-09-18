@@ -50,7 +50,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
 
 
 
-    #leaving out countries which haven't been vetted, or have bad data
+    # leaving out countries which haven't been vetted, or have bad data
     if country in do_not_include:
         continue
         
