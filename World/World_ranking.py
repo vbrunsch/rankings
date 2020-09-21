@@ -105,8 +105,8 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         df_t = df_t.set_index([df_t.columns[6]])
         df_t.index.name = None
         df_t = df_t[df_t[df_t.columns[3]]=='Thailand']
-        df_t['new'] = 1
-        df_t.loc[df_t[df_t.columns[8]]=='State Quarantine','new'] = 0
+        df_t['new'] = 0
+        df_t.loc[pd.isna(df_t[df_t.columns[8]]),'new'] = 1
         tod = pd.to_datetime('today')
         idx = pd.date_range('01-22-2020', tod)
         df_t = df_t.groupby(df_t.index).sum()
