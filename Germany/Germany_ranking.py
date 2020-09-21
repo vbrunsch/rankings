@@ -6,6 +6,7 @@ df = pd.read_csv('https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0
 focus = df.copy().drop(['ObjectId','IdBundesland','Altersgruppe','Geschlecht','AnzahlTodesfall','IdLandkreis','Datenstand','NeuerFall','NeuerTodesfall','Refdatum','NeuGenesen','AnzahlGenesen','IstErkrankungsbeginn','Altersgruppe2'], axis=1)#.set_index(['Meldedatum'])
 confirm = focus.groupby('Bundesland').sum().T
 confirm_LK = focus.groupby('Landkreis').sum().T
+confirm_LK = confirm_LK.drop(['LK Göttingen (alt)'], axis = 1)
 #
 cols=['District/County Town','COVID-Free Days','New Cases in Last 14 Days','Last7','Previous7']
 import datetime as dt
