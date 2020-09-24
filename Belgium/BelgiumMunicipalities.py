@@ -37,7 +37,10 @@ for d in date_list:
     df.loc[df['CASES'] == '<5', 'CASES'] = 1
     df = df.rename(columns={'CASES': d})
     df.index = df['combined']
-    df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'TX_PROV_DESCR_NL', 'TX_PROV_DESCR_FR', 'TX_RGN_DESCR_NL', 'TX_RGN_DESCR_FR', 'mun','arr','combined'], axis = 1)
+    if d < datetime.date(2020, 9, 22):
+        df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'TX_PROV_DESCR_NL', 'TX_PROV_DESCR_FR', 'TX_RGN_DESCR_NL', 'TX_RGN_DESCR_FR', 'mun','arr','combined'], axis = 1)
+    else:
+        df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'PROVINCE', 'REGION', 'mun','arr','combined'], axis = 1)
     if mun.empty:
         mun = df.copy()
     else:
@@ -133,7 +136,6 @@ top = """
 <html>
 <head>
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -163,7 +165,6 @@ top = """
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body>
@@ -193,4 +194,3 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
-    
