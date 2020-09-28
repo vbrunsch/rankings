@@ -4,8 +4,8 @@
 name: Update Japan Prefecture Rankings
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+    #branches: [ master ]
   schedule:
     - cron: '56 */6 * * *'
 
