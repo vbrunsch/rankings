@@ -57,29 +57,36 @@ for date in idx:
     soup = BeautifulSoup(webpage, 'html.parser')
 
     tex = soup.find_all('p')[2].text
+    #if date in [datetime.date(2020,9,3)]:
+    #    tex = soup.find_all('p')[6].text
+    if date in [datetime.date(2020,9,19),datetime.date(2020,8,10)]:
+        tex = soup.find_all('li')[28].text
+    elif date in [datetime.date(2020,7,28),datetime.date(2020,8,2),datetime.date(2020,8,5),datetime.date(2020,9,3)]:
+        tex = soup.find_all('p')[3].text
     tex = tex.replace(u'\xa0', u' ')
 
-    pos = re.compile(r'\d+ casos positivos nuevos') 
+    pos = re.compile(r'\d+ casos? positivos? nuevos?') 
     num = re.compile(r'\d+')
     try:
-        dep = re.compile(r'(\d+) (de ellos )*(son )*de (Artigas|Canelones|Cerro Largo|Colonia|Durazno|Flores|Florida|Lavalleja|Maldonado|Montevideo|Paysandú|Río Negro|Rivera|Rocha|Salto|San José|Soriano|Tacuarembó|Treinta y Tres)')
+        dep = re.compile(r'(\d+) (de ellos )*(corresponden? )*(al departamento )*(son )*(de )*(a )*(Artigas|Canelones|Cerro Largo|Colonia|Durazno|Flores|Florida|Lavalleja|Maldonado|Montevideo|Paysandú|Río Negro|Rivera|Rocha|Salto|San José|Soriano|Tacuarembó|Treinta y Tres)')
+        dep_n = dep.findall(tex)
+        if not dep_n:
+            dep = re.compile(r'(detectaron |detectó )(\d+) .* (Artigas|Canelones|Cerro Largo|Colonia|Durazno|Flores|Florida|Lavalleja|Maldonado|Montevideo|Paysandú|Río Negro|Rivera|Rocha|Salto|San José|Soriano|Tacuarembó|Treinta y Tres)')
+            dep_n = dep.findall(tex)
         new = pos.findall(tex)
         new = num.findall(new[0])
-        dep_n = dep.findall(tex)
         ur.at[date, 'new'] = new[0]
     except:
-        try:
-            dep = re.compile(r'detectaron (\d+) .*de (Artigas|Canelones|Cerro Largo|Colonia|Durazno|Flores|Florida|Lavalleja|Maldonado|Montevideo|Paysandú|Río Negro|Rivera|Rocha|Salto|San José|Soriano|Tacuarembó|Treinta y Tres)')
-            new = pos.findall(tex)
-            new = num.findall(new[0])
-            dep_n = dep.findall(tex)
-            ur.at[date, 'new'] = new[0]
-        except:
-            pass
+        print('error')
+        pass
         
     for da in dep_n:
-        ur.at[date,da[3]] = da[0]
+        if len(dep_n)==1:
+            ur.at[date,da[2]] = da[1]
+        else:
+            ur.at[date,da[7]] = da[0]
         
+    
 ur = ur.drop(['new'], axis = 1)
 cols=['Departamentos','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
