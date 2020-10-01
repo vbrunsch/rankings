@@ -4,10 +4,10 @@
 name: Update Spain Province Rankings
 
 on:
-  #push:
-    #branches: [ master ]
+  push:
+    branches: [ master ]
   schedule:
-    - cron: '40 */6 * * *'
+    - cron: '38 */6 * * *'
 
 jobs:
   build:
