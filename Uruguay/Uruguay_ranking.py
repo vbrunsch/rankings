@@ -11,8 +11,8 @@ import time
 
 tod = datetime.date.today()
 yes = tod - datetime.timedelta(days = 1)
-tod_f = tod.strftime("%d%#m%Y")
-yes_f = yes.strftime("%d%#m%Y")
+tod_f = tod.strftime("%d%-m%Y")
+yes_f = yes.strftime("%d%-m%Y")
 
 try:
     req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{tod_f}',
@@ -21,7 +21,7 @@ try:
     webpage = urlopen(req).read()
     now = tod
 except:
-    tod_f = tod.strftime("%#d%#m%Y")
+    tod_f = tod.strftime("%-d%-m%Y")
     try:
         req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{tod_f}',
                       headers={'User-Agent': 'Mozilla/5.0'})
@@ -36,7 +36,7 @@ except:
             webpage = urlopen(req).read()
             now = yes
         except:
-            yes_f = yes.strftime("%#d%#m%Y")
+            yes_f = yes.strftime("%-d%-m%Y")
             try:
                 req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
                               headers={'User-Agent': 'Mozilla/5.0'})
@@ -67,7 +67,14 @@ for date in idx:
 
             webpage = urlopen(req).read()
         except:
-               pass 
+               try:
+                    cur_date = date.strftime("%-d%-m%Y")
+                    req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{cur_date}',
+                                  headers={'User-Agent': 'Mozilla/5.0'})
+
+                    webpage = urlopen(req).read()
+                    except:
+                        pass 
             
     # Parsing
     soup = BeautifulSoup(webpage, 'html.parser')
