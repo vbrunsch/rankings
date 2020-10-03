@@ -11,8 +11,8 @@ import time
 
 tod = datetime.date.today()
 yes = tod - datetime.timedelta(days = 1)
-tod_f = tod.strftime("%d%-m%Y")
-yes_f = yes.strftime("%d%-m%Y")
+tod_f = tod.strftime("%d%#m%Y")
+yes_f = yes.strftime("%d%#m%Y")
 
 try:
     req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{tod_f}',
@@ -21,14 +21,30 @@ try:
     webpage = urlopen(req).read()
     now = tod
 except:
+    tod_f = tod.strftime("%#d%#m%Y")
     try:
-        req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
+        req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{tod_f}',
                       headers={'User-Agent': 'Mozilla/5.0'})
 
         webpage = urlopen(req).read()
-        now = yes
+        now = tod
     except:
-           pass 
+        try:
+            req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
+                          headers={'User-Agent': 'Mozilla/5.0'})
+
+            webpage = urlopen(req).read()
+            now = yes
+        except:
+            yes_f = yes.strftime("%#d%#m%Y")
+            try:
+                req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
+                              headers={'User-Agent': 'Mozilla/5.0'})
+
+                webpage = urlopen(req).read()
+                now = yes
+            except:
+                   pass 
 
 #idx = pd.date_range('03-13-2020', now)
 idx = pd.date_range('06-27-2020', now)
