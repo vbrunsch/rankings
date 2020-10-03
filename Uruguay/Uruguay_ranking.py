@@ -67,14 +67,14 @@ for date in idx:
 
             webpage = urlopen(req).read()
         except:
-               try:
-                    cur_date = date.strftime("%-d%-m%Y")
-                    req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{cur_date}',
-                                  headers={'User-Agent': 'Mozilla/5.0'})
+            try:
+                cur_date = date.strftime("%-d%-m%Y")
+                req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{cur_date}',
+                              headers={'User-Agent': 'Mozilla/5.0'})
 
-                    webpage = urlopen(req).read()
-                    except:
-                        pass 
+                webpage = urlopen(req).read()
+            except:
+                pass 
             
     # Parsing
     soup = BeautifulSoup(webpage, 'html.parser')
@@ -197,9 +197,7 @@ top = """
 <meta content="utf-8" http-equiv="encoding">
 <html>
 <head>
-
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -229,7 +227,6 @@ top = """
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body>
