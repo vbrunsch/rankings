@@ -21,14 +21,30 @@ try:
     webpage = urlopen(req).read()
     now = tod
 except:
+    tod_f = tod.strftime("%-d%-m%Y")
     try:
-        req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
+        req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{tod_f}',
                       headers={'User-Agent': 'Mozilla/5.0'})
 
         webpage = urlopen(req).read()
-        now = yes
+        now = tod
     except:
-           pass 
+        try:
+            req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
+                          headers={'User-Agent': 'Mozilla/5.0'})
+
+            webpage = urlopen(req).read()
+            now = yes
+        except:
+            yes_f = yes.strftime("%-d%-m%Y")
+            try:
+                req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{yes_f}',
+                              headers={'User-Agent': 'Mozilla/5.0'})
+
+                webpage = urlopen(req).read()
+                now = yes
+            except:
+                   pass 
 
 #idx = pd.date_range('03-13-2020', now)
 idx = pd.date_range('06-27-2020', now)
@@ -51,7 +67,14 @@ for date in idx:
 
             webpage = urlopen(req).read()
         except:
-               pass 
+            try:
+                cur_date = date.strftime("%-d%-m%Y")
+                req = Request(f'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/comunicados/informe-situacion-sobre-coronavirus-covid-19-uruguay-{cur_date}',
+                              headers={'User-Agent': 'Mozilla/5.0'})
+
+                webpage = urlopen(req).read()
+            except:
+                pass 
             
     # Parsing
     soup = BeautifulSoup(webpage, 'html.parser')
@@ -174,9 +197,7 @@ top = """
 <meta content="utf-8" http-equiv="encoding">
 <html>
 <head>
-
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -206,7 +227,6 @@ top = """
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body>
