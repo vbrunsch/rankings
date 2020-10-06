@@ -4,7 +4,7 @@
 import pandas as pd
 import time 
 yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
-date = "_" + yesterday
+date = yesterday
 df = pd.read_excel('http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday), sheet_name='3_1 DIST_ACUM')
 focus = df.copy().drop(['cod_provin','cod_canton','canton','codigo_dta'], axis=1)
 focus['combined'] = focus['distrito']+', '+ focus['provincia']
