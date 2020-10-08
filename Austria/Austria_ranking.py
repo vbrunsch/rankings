@@ -16,10 +16,15 @@ date_list = [now - datetime.timedelta(days=x) for x in range(40)]
 date_list = date_list[::-1]
 for d in date_list:    
     date_time = d.strftime("%Y%m%d")
-    url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_orig_csv.zip"
-    # or: requests.get(url).content
-    #url = 'https://github.com/statistikat/coronaDAT/blob/master/archive/{0}/data/{0}_orig_csv.zip'.format(date_time)
-    resp = urlopen(url)
+    try:
+        url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_orig_csv.zip"
+        resp = urlopen(url)
+    except:
+        try:
+            url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_000200_orig_csv.zip"
+            resp = urlopen(url)
+        except:
+            pass
     zipfile = ZipFile(BytesIO(resp.read()))
     zipfile.namelist()
     df = pd.read_csv(zipfile.open('Bezirke.csv'))
@@ -123,6 +128,19 @@ top = """
 <meta content="utf-8" http-equiv="encoding">
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function colorize() {
+var NW = String.fromCharCode(8599);
+var SW = String.fromCharCode(8600);
+$('td').each(function() {
+    $(this).html($(this).html().
+    replace(SW, '<span style="color: green">'+ SW +'</span>').
+    replace(NW, '<span style="color: red">'+ NW +'</span>'))
+    ;
+});
+};
+</script>
 <style>
 
     h2 {
@@ -157,7 +175,7 @@ top = """
 
 </style>
 </head>
-<body>
+<body onload=colorize()>
 """
 bottom = """
 </body>
@@ -178,9 +196,7 @@ s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
 try:        
     with open(f'Austria.html', 'w', encoding="utf-8") as out:
-        body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
-        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + body + bottom
+        content = top + s.render() + bottom
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
