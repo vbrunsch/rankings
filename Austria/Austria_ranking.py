@@ -40,6 +40,9 @@ for d in date_list:
         bez = bez.join(df2)
 bez = bez.T
 
+bez.loc[datetime.date(2020,10,9),:] = bez.loc[datetime.date(2020,10,8),:]
+bez.at[datetime.date(2020,10,10),'Südoststeiermark'] = 98
+
 
 cols=['District','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
