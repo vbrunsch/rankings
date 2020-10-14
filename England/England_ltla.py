@@ -7,7 +7,7 @@ from datetime import timedelta
 import pandas as pd
 
 
-url = "https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv"
+url = "https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv"
 df = pd.read_csv(url)
 focus = df.copy().drop(['Area code','Cumulative lab-confirmed cases','Cumulative lab-confirmed cases rate'], axis=1).set_index(['Specimen date'])
 #Lower Tier Local Authority
