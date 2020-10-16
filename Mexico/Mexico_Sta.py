@@ -32,7 +32,7 @@ for d in st_lis:
     focus = focus.groupby(['FECHA_INGRESO']).sum()
     focus.index = pd.to_datetime(focus.index, dayfirst=True)
     focus = focus.reindex(idx, fill_value=0)
-    ave = focus[:-2]
+    ave = focus[:-3]
     las = len(ave)-14
     last_forteen = int(ave[las:].sum().item())
     if last_forteen < 0:
