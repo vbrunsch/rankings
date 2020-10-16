@@ -9,8 +9,8 @@ df = df_o[df_o['RESULTADO_LAB']==1]
 df = df[df['ENTIDAD_RES']<33]
 df = df[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
 
-cat_states = pd.read_csv('Mexico_Cat_States.csv')
-cat_muns = pd.read_csv('Mexico_Cat_Municipalities.csv')
+cat_states = pd.read_csv('Mexico/Mexico_Cat_States.csv')
+cat_muns = pd.read_csv('Mexico/Mexico_Cat_Municipalities.csv')
 
 get_st_names = pd.Series(cat_states['ENTIDAD_FEDERATIVA'].values,index=cat_states['CLAVE_ENTIDAD']).to_dict()
 
