@@ -3,65 +3,48 @@
 
 import pandas as pd
 import numpy as np
-import datetime
-import time
+df_o = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1")
 
-tod = datetime.date.today()
-yes = tod - datetime.timedelta(days = 1)
-yes = yes.strftime("%Y%m%d")
+df = df_o[df_o['RESULTADO_LAB']==1]
+df = df[df['ENTIDAD_RES']<33]
+df = df[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
 
-yes2 = tod - datetime.timedelta(days = 2)
-yes2 = yes2.strftime("%Y%m%d")
+cat_states = pd.read_csv('Mexico/Mexico_Cat_States.csv')
+cat_muns = pd.read_csv('Mexico/Mexico_Cat_Municipalities.csv')
+cat_muns = cat_muns[cat_muns['CLAVE_MUNICIPIO']<996]
 
-yes3 = tod - datetime.timedelta(days = 3)
-yes3 = yes3.strftime("%Y%m%d")
+get_st_names = pd.Series(cat_states['ENTIDAD_FEDERATIVA'].values,index=cat_states['CLAVE_ENTIDAD']).to_dict()
+get_st_ab_names = pd.Series(cat_states['ABREVIATURA'].values,index=cat_states['CLAVE_ENTIDAD']).to_dict()
+get_mu_names = pd.Series(cat_muns['MUNICIPIO'].values,index=[cat_muns['CLAVE_ENTIDAD'],cat_muns['CLAVE_MUNICIPIO']]).to_dict()
 
-yes4 = tod - datetime.timedelta(days = 4)
-yes4 = yes4.strftime("%Y%m%d")
+cat_muns['Sta_Ab'] = cat_muns['CLAVE_ENTIDAD'].map(get_st_ab_names)
+cat_muns['Mun_Sta'] = cat_muns['MUNICIPIO'] + ', (' + cat_muns['Sta_Ab'] + ')'
+cat_mu_lis = cat_muns['Mun_Sta'].unique()
 
-tod = tod.strftime("%Y%m%d")
+df['Sta'] = df['ENTIDAD_RES'].map(get_st_names)
+df['Sta_Ab'] = df['ENTIDAD_RES'].map(get_st_ab_names)
+df['Code_Mu'] = df[['ENTIDAD_RES', 'MUNICIPIO_RES']].apply(tuple, axis=1)
+df['Mun'] = df['Code_Mu'].map(get_mu_names)
+df['Mun_Sta'] = df['Mun'] + ', (' + df['Sta_Ab'] + ')'
 
-try:
-    df_mu = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Municipio_Confirmados_{tod}.csv')
-    df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{tod}.csv')
-except:
-    try:
-        df_mu = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Municipio_Confirmados_{yes}.csv')
-        df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes}.csv')
-    except:
-        try:
-            df_mu = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Municipio_Confirmados_{yes2}.csv')
-            df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes2}.csv')
-        except:
-            try:
-                df_mu = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Municipio_Confirmados_{yes3}.csv')
-                df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes3}.csv')
-            except:
-                try:
-                    df_mu = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Municipio_Confirmados_{yes4}.csv')
-                    df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes4}.csv')
-                except:
-                    pass
-        
-import math
-codegetter = lambda x: math.floor(x/1000)
-df_mu['code'] = df_mu['cve_ent'].apply(codegetter)
-#a = df_mu['cve_ent'][0]
-#df_mu['state'] = df_es[df_mu['code']==df_es['cve_ent'],'nombre']
-abbrev = df_es.groupby('cve_ent')['nombre'].apply(list).to_dict()
-df_mu['state'] = df_mu['code'].map(abbrev)
-df_mu['state'] = [''.join(l) for l in df_mu['state']]
-df_mu['mun_sta'] = df_mu['nombre'] + ', (' + df_mu['state'] + ')'
-df_mu = df_mu.drop(['cve_ent','poblacion','nombre','code','state'], axis = 1).set_index('mun_sta')
-df_mu.index.name = None
-df_mu = df_mu.T
+mu = df.copy().drop(['ENTIDAD_RES','MUNICIPIO_RES','Sta', 'Sta_Ab', 'Code_Mu', 'Mun'], axis = 1)
+mu_lis = mu['Mun_Sta'].unique()
+mu_lis = [x for x in mu_lis if not pd.isnull(x)]
+
+tod = pd.to_datetime('today')
+idx = pd.date_range('02-27-2020', tod)
 
 cols=['Municipalities','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 
-for d in df_mu.columns:
-    ave = df_mu[d]
-    ave = ave[:-2]
+for d in mu_lis:
+    focus = mu[mu['Mun_Sta'] == d]
+    focus = focus.drop(['Mun_Sta'], axis = 1)
+    focus['New'] = 1
+    focus = focus.groupby(['FECHA_INGRESO']).sum()
+    focus.index = pd.to_datetime(focus.index, dayfirst=True)
+    focus = focus.reindex(idx, fill_value=0)
+    ave = focus[:-2]
     las = len(ave)-14
     last_forteen = int(ave[las:].sum().item())
     if last_forteen < 0:
@@ -79,7 +62,7 @@ for d in df_mu.columns:
     i = len(ave)-1
     c = 0
     while i > 0:
-        if ave[i] <= 0:
+        if ave.values[i] <= 0:
             c = c + 1
         else:
             i = 0
@@ -91,7 +74,17 @@ for d in df_mu.columns:
                    last7,
                    prev7))
 
+
     
+zer = list(set(cat_mu_lis) - set(mu_lis))
+for d in zer:
+    collect.append((d,
+                   len(idx),
+                   0,
+                   0,
+                   0))
+    
+
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
 fin['week'] = fin['COVID-Free Days'].gt(13) 
@@ -205,3 +198,4 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
+    print(focus)
