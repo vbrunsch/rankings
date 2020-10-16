@@ -4,8 +4,8 @@
 name: Update Mexico States Rankings
 
 on:
-  #push:
-    #branches: [ master ]
+  push:
+    branches: [ master ]
   schedule:
     - cron: '52 */6 * * *'
 
