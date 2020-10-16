@@ -2,55 +2,37 @@
 # coding: utf-8
 
 import pandas as pd
-import numpy as np
-import datetime
-import time
 
-tod = datetime.date.today()
-yes = tod - datetime.timedelta(days = 1)
-yes = yes.strftime("%Y%m%d")
+df_o = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1")
 
-yes2 = tod - datetime.timedelta(days = 2)
-yes2 = yes2.strftime("%Y%m%d")
+df = df_o[df_o['RESULTADO_LAB']==1]
+df = df[df['ENTIDAD_RES']<33]
+df = df[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
 
-yes3 = tod - datetime.timedelta(days = 3)
-yes3 = yes3.strftime("%Y%m%d")
+cat_states = pd.read_csv('Mexico_Cat_States.csv')
+cat_muns = pd.read_csv('Mexico_Cat_Municipalities.csv')
 
-yes4 = tod - datetime.timedelta(days = 4)
-yes4 = yes4.strftime("%Y%m%d")
+get_st_names = pd.Series(cat_states['ENTIDAD_FEDERATIVA'].values,index=cat_states['CLAVE_ENTIDAD']).to_dict()
 
-tod = tod.strftime("%Y%m%d")
+df['Sta'] = df['ENTIDAD_RES'].map(get_st_names)
 
-try:
-    df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{tod}.csv')
-except:
-    try:
-        df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes}.csv')
-    except:
-        try:
-            df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes2}.csv')
-        except:
-            try:
-                df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes3}.csv')
-            except:
-                try:
-                    df_es = pd.read_csv(f'https://coronavirus.gob.mx/datos/Downloads/Files/Casos_Diarios_Estado_Nacional_Confirmados_{yes4}.csv')
-                except:
-                    pass
+st = df.copy().drop(['ENTIDAD_RES','MUNICIPIO_RES'], axis = 1)
+st_lis = st['Sta'].unique()
 
-#lowerc = lambda x: x[0].upper() + x[1:].lower()
-#df_es['nombre'] = df_es['nombre'].apply(lowerc)
-df_es = df_es.drop(['cve_ent','poblacion'], axis = 1).set_index('nombre')
-df_es.index.name = None
-df_es = df_es.T
-df_es = df_es.drop(['Nacional'], axis = 1)
+tod = pd.to_datetime('today')
+idx = pd.date_range('02-27-2020', tod)
 
 cols=['States','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 
-for d in df_es.columns:
-    ave = df_es[d]
-    ave = ave[:-2]
+for d in st_lis:
+    focus = st[st['Sta'] == d]
+    focus = focus.drop(['Sta'], axis = 1)
+    focus['New'] = 1
+    focus = focus.groupby(['FECHA_INGRESO']).sum()
+    focus.index = pd.to_datetime(focus.index, dayfirst=True)
+    focus = focus.reindex(idx, fill_value=0)
+    ave = focus[:-2]
     las = len(ave)-14
     last_forteen = int(ave[las:].sum().item())
     if last_forteen < 0:
@@ -68,7 +50,7 @@ for d in df_es.columns:
     i = len(ave)-1
     c = 0
     while i > 0:
-        if ave[i] <= 0:
+        if ave.values[i] <= 0:
             c = c + 1
         else:
             i = 0
@@ -194,3 +176,4 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
+    print(focus)
