@@ -1,23 +1,35 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import numpy as np
+import json
+import urllib.request
 import pandas as pd
-df = pd.read_csv(r'Australia/Total local transmissions.csv')
-focus = df.set_index('Unnamed: 0')
-focus.index.name = None
-focus = focus.rename({'NSW': 'New South Wales', 'VIC': 'Victoria', 'QLD': 'Queensland', 'SA': 'South Australia', 'WA': 'Western Australia', 'TAS': 'Tasmania', 'NT': 'Northern Territory', 'ACT': 'Australian Capital Territory'}, axis=1)
-focus = focus.dropna()
 
 cols=['States and Territories','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 
-for d in focus.columns:
-    if d in ['New South Wales', 'Victoria']:
-        focus[d] = focus[d].str.replace(',', '')
-        ave = focus[d].astype(float)
-    else:
-        ave = focus[d]
-    ave = ave.diff()
+with urllib.request.urlopen('https://atlas.jifo.co/api/connectors/f202fb3a-c3c1-4c51-aa57-fb82f9cc23cd') as url:
+    data = json.loads(url.read().decode())
+result = pd.DataFrame(data)
+
+ab = 0
+for d in data['sheetNames']:
+    df = result[result['sheetNames']==d]
+    focus = pd.DataFrame(df['data'][ab],columns=df['data'][ab][0])
+    ab = ab + 1
+    focus = focus.iloc[1:].set_index('')
+    focus.index.name = None
+    #focus = focus.rename({focus.columns(0): 'Overseas', focus.columns(1): 'Known Local', focus.columns(2): 'Unknown Local (Community)', focus.columns(3): 'Interstate travel', focus.columns(4): 'Under investigation'}, axis=1)
+    focus.columns = ['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation']
+    focus['Overseas'].replace('', np.nan, inplace=True)
+    focus = focus.dropna()
+    focus['Known Local'] = focus['Known Local'].astype(float)
+    focus['Unknown Local (Community)'] = focus['Unknown Local (Community)'].astype(float)
+    focus['Under investigation'] = focus['Under investigation'].astype(float)
+    focus['local transmission'] = focus['Known Local']+focus['Unknown Local (Community)']+focus['Under investigation']
+    ave = focus.drop(['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation'], axis = 1)
+    ave = ave.values
     las = len(ave)-14
     last_forteen = int(ave[las:].sum().item())
     if last_forteen < 0:
@@ -40,8 +52,25 @@ for d in focus.columns:
         else:
             i = 0
         i = i - 1
+        
+    if d == 'NSW':
+        dname = 'New South Wales'
+    elif d =='VIC':
+        dname = 'Victoria'
+    elif d == 'QLD':
+        dname = 'Queensland'
+    elif d == 'SA':
+        dname = 'South Australia'
+    elif d == 'WA':
+        dname = 'Western Australia'
+    elif d == 'TAS':
+        dname = 'Tasmania'
+    elif d == 'NT':
+        dname = 'Northern Territory'
+    elif d == 'ACT':
+        dname = 'Australian Capital Territory'
 
-    collect.append((d,
+    collect.append((dname,
                    c,
                    last_forteen,
                    last7,
