@@ -112,6 +112,8 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         df_t = df_t.groupby(df_t.index).sum()
         df_t.index = pd.to_datetime(df_t.index, dayfirst=True)
         focus = df_t.reindex(idx, fill_value=0)
+        man1 = pd.to_datetime('2020-10-13')
+        focus.loc[man1,'new'] = 3
    
     #correcting country names
     if country == 'Taiwan*':
