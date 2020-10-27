@@ -9,7 +9,7 @@ import pandas as pd
 cols=['States and Territories','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 
-with urllib.request.urlopen('https://atlas.jifo.co/api/connectors/f202fb3a-c3c1-4c51-aa57-fb82f9cc23cd') as url:
+with urllib.request.urlopen('https://atlas.jifo.co/api/connectors/ba66fc4e-9f3a-43f7-bd7c-190a6f89f183') as url:
     data = json.loads(url.read().decode())
 result = pd.DataFrame(data)
 
@@ -26,16 +26,43 @@ for d in data['sheetNames']:
     focus = focus.dropna()
     focus['Known Local'] = focus['Known Local'].astype(float)
     focus['Unknown Local (Community)'] = focus['Unknown Local (Community)'].astype(float)
+    focus['Under investigation']=focus['Under investigation'].replace(r'\s+',np.nan,regex=True).replace('',np.nan)
+    focus['Under investigation']=focus['Under investigation'].fillna(0)
     focus['Under investigation'] = focus['Under investigation'].astype(float)
-    focus['local transmission'] = focus['Unknown Local (Community)']+focus['Under investigation']#+focus['Known Local']
-    ave = focus.drop(['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation'], axis = 1)
+    #focus['local transmission'] = focus['Unknown Local (Community)']#+focus['Under investigation']+focus['Known Local']
+    ave = focus[['Under investigation']]
     ave = ave.values
+ 
     las = len(ave)-14
-    last_forteen = int(ave[las:].sum().item())
+    m = ave[las:]
+    n = np.tile(0.0, len(m))
+    if m[0]<=0:
+        n[0]= 0
+    else:
+        n[0]=m[0]
+    for i in range(1,len(m)):
+        if n[i-1]+m[i]<0:
+            n[i]=0
+        else:
+            n[i]=n[i-1]+m[i]
+    last_forteen = n[i]
     if last_forteen < 0:
         last_forteen = 0
-    last7 = int(ave[len(ave)-7:].sum().item()) #last week
-    prev7 = int(ave[len(ave)-14:len(ave)-7].sum().item()) #prev week
+    
+    las7 = len(ave)-7
+    m7 = ave[las7:]
+    n7 = np.tile(0.0, len(m7))
+    if m7[0]<=0:
+        n7[0]= 0
+    else:
+        n7[0]=m7[0]
+    for i in range(1,len(m7)):
+        if n7[i-1]+m7[i]<0:
+            n7[i]=0
+        else:
+            n7[i]=n7[i-1]+m7[i]
+    last7 = n7[i]
+    prev7 = last_forteen - last7
     if last7 < 0:
         last7 = 0
     if last7 > last_forteen:
@@ -46,13 +73,17 @@ for d in data['sheetNames']:
         prev7 = 0
     i = len(ave)-1
     c = 0
+    en = ave[i]
     while i > 0:
         if ave[i] <= 0:
-            c = c + 1
+            if en + ave[i-1]<=0:
+                c = c + 1
+                en = en + ave[i-1]
+            else:
+                i = 0
         else:
             i = 0
-        i = i - 1
-        
+        i = i - 1    
     if d == 'NSW':
         dname = 'New South Wales'
     elif d =='VIC':
@@ -70,12 +101,77 @@ for d in data['sheetNames']:
     elif d == 'ACT':
         dname = 'Australian Capital Territory'
 
+    c1=c
+    last_forteen1 = last_forteen
+    last71=last7
+    prev71=prev7
+    
+    
+    ave = focus[['Unknown Local (Community)']]
+    ave = ave.values
+    las = len(ave)-14
+    m = ave[las:]
+    n = np.tile(0.0, len(m))
+    if m[0]<=0:
+        n[0]= 0
+    else:
+        n[0]=m[0]
+    for i in range(1,len(m)):
+        if n[i-1]+m[i]<0:
+            n[i]=0
+        else:
+            n[i]=n[i-1]+m[i]
+    last_forteen = n[i]
+    if last_forteen < 0:
+        last_forteen = 0
+    
+    las7 = len(ave)-7
+    m7 = ave[las7:]
+    n7 = np.tile(0.0, len(m7))
+    if m7[0]<=0:
+        n7[0]= 0
+    else:
+        n7[0]=m7[0]
+    for i in range(1,len(m7)):
+        if n7[i-1]+m7[i]<0:
+            n7[i]=0
+        else:
+            n7[i]=n7[i-1]+m7[i]
+    last7 = n7[i]
+    prev7 = last_forteen - last7
+    if last7 < 0:
+        last7 = 0
+    if last7 > last_forteen:
+        last_forteen = last7
+    if prev7 < 0:
+        prev7 = 0
+    if (last7 == 0) & (last_forteen == 0):
+        prev7 = 0
+    i = len(ave)-1
+    c = 0
+    en = ave[i]
+    while i > 0:
+        if ave[i] <= 0:
+            if en + ave[i-1]<=0:
+                c = c + 1
+                en = en + ave[i-1]
+            else:
+                i = 0
+        else:
+            i = 0
+        i = i - 1   
+     
+    c2=c
+    last_forteen2 = last_forteen
+    last72=last7
+    prev72=prev7
+    
     collect.append((dname,
-                   c,
-                   last_forteen,
-                   last7,
-                   prev7))
-
+                   int(min(c1,c2)),
+                   int(last_forteen1+last_forteen2),
+                   int(last71 + last72),
+                   int(prev71 + prev72)))
+    
     
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
@@ -128,9 +224,7 @@ top = """
 <meta content="utf-8" http-equiv="encoding">
 <html>
 <head>
-
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -160,7 +254,6 @@ top = """
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body>
