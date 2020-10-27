@@ -27,7 +27,7 @@ for d in data['sheetNames']:
     focus['Known Local'] = focus['Known Local'].astype(float)
     focus['Unknown Local (Community)'] = focus['Unknown Local (Community)'].astype(float)
     focus['Under investigation'] = focus['Under investigation'].astype(float)
-    focus['local transmission'] = focus['Unknown Local (Community)']#+focus['Under investigation']+focus['Known Local']
+    focus['local transmission'] = focus['Unknown Local (Community)']+focus['Under investigation']#+focus['Known Local']
     ave = focus.drop(['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation'], axis = 1)
     ave = ave.values
     las = len(ave)-14
