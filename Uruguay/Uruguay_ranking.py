@@ -79,16 +79,21 @@ for date in idx:
     # Parsing
     soup = BeautifulSoup(webpage, 'html.parser')
 
-    tex = soup.find_all('p')[2].text
+    tex = soup.find_all('p')[0].text
     #if date in [datetime.date(2020,9,3)]:
+    #
     #    tex = soup.find_all('p')[6].text
-    if date in [datetime.date(2020,9,19),datetime.date(2020,8,10)]:
+    if date in [datetime.date(2020,10,22),datetime.date(2020,9,19),datetime.date(2020,8,10)]:
         tex = soup.find_all('li')[28].text
-    elif date in [datetime.date(2020,7,28),datetime.date(2020,8,2),datetime.date(2020,8,5),datetime.date(2020,9,3)]:
-        tex = soup.find_all('p')[3].text
+    elif date in [datetime.date(2020,10,15),datetime.date(2020,9,3),datetime.date(2020,8,5),datetime.date(2020,8,2),datetime.date(2020,7,28)]:
+        tex = soup.find_all('p')[1].text
     tex = tex.replace(u'\xa0', u' ')
+    print(tex)
 
     pos = re.compile(r'\d+ casos? positivos? nuevos?') 
+    cas = re.compile(r'\d+ casos? nuevos?')
+    cas2 = re.compile(r'\d+ nuevos? casos?')
+    cau = re.compile(r'\d+ contagios')
     num = re.compile(r'\d+')
     try:
         dep = re.compile(r'(\d+) (de ellos )*(corresponden? )*(al departamento )*(son )*(de )*(a )*(Artigas|Canelones|Cerro Largo|Colonia|Durazno|Flores|Florida|Lavalleja|Maldonado|Montevideo|Paysandú|Río Negro|Rivera|Rocha|Salto|San José|Soriano|Tacuarembó|Treinta y Tres)')
@@ -97,6 +102,12 @@ for date in idx:
             dep = re.compile(r'(detectaron |detectó )(\d+) .* (Artigas|Canelones|Cerro Largo|Colonia|Durazno|Flores|Florida|Lavalleja|Maldonado|Montevideo|Paysandú|Río Negro|Rivera|Rocha|Salto|San José|Soriano|Tacuarembó|Treinta y Tres)')
             dep_n = dep.findall(tex)
         new = pos.findall(tex)
+        if not new:
+            new = cas.findall(tex)
+            if not new:
+                new = cau.findall(tex)
+                if not new:
+                    new = cas2.findall(tex)
         new = num.findall(new[0])
         ur.at[date, 'new'] = new[0]
     except:
