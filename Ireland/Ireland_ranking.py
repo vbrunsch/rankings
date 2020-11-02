@@ -16,7 +16,9 @@ collect = []
 for d in counties:
     fo1 = df[df['CountyName']==d]
     fo1 = fo1.set_index('TimeStamp')
+    fo1 = fo1.sort_values(['TimeStamp'], ascending=[True])
     fo1 = fo1['ConfirmedCovidCases']
+    fo1 = fo1.drop_duplicates()
     
     fo1.index = pd.to_datetime(fo1.index)
     idx = pd.date_range('02/28/2020', ld)
