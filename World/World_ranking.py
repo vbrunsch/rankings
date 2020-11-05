@@ -64,27 +64,27 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         focus.at['06/04', 'new'] = 767
         
     # New Zealand
-    if country == 'New Zealand':
-        import requests
-        url = 'https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details'
+    #if country == 'New Zealand':
+    #    import requests
+    #    url = 'https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details'
 
-        header = {
-          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
-          "X-Requested-With": "XMLHttpRequest"
-        }
+    #    header = {
+    #      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
+    #      "X-Requested-With": "XMLHttpRequest"
+    #    }
 
-        r = requests.get(url, headers=header)
+#        r = requests.get(url, headers=header)
 
-        dfs = pd.read_html(r.text)
-        hm = dfs[0]
-        nz = hm[['Date notified of potential case','Overseas travel']]
-        nz['new'] = 1
-        nz = nz[nz['Overseas travel'] != 'Yes']
-        tod = pd.to_datetime('today')
-        idx = pd.date_range('02-26-2020', tod)
-        focus = nz.groupby(['Date notified of potential case']).sum()
-        focus.index = pd.to_datetime(focus.index, dayfirst=True)
-        focus = focus.reindex(idx, fill_value=0)
+#        dfs = pd.read_html(r.text)
+#        hm = dfs[0]
+#        nz = hm[['Date notified of potential case','Overseas travel']]
+#        nz['new'] = 1
+#        nz = nz[nz['Overseas travel'] != 'Yes']
+#        tod = pd.to_datetime('today')
+#        idx = pd.date_range('02-26-2020', tod)
+#        focus = nz.groupby(['Date notified of potential case']).sum()
+#        focus.index = pd.to_datetime(focus.index, dayfirst=True)
+#        focus = focus.reindex(idx, fill_value=0)
 
     # Thailand cases are all in managed isolation since 05/26
     if country == 'Thailand':
