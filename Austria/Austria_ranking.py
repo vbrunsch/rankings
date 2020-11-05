@@ -24,7 +24,11 @@ for d in date_list:
             url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_000200_orig_csv.zip"
             resp = urlopen(url)
         except:
-            pass
+            try:
+                url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_140201_orig_csv.zip"
+                resp = urlopen(url)
+            except:
+                pass
     zipfile = ZipFile(BytesIO(resp.read()))
     zipfile.namelist()
     df = pd.read_csv(zipfile.open('Bezirke.csv'))
