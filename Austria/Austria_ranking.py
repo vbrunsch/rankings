@@ -12,48 +12,27 @@ import pandas as pd
 
 bez = pd.DataFrame()
 now = datetime.date.today()
-date_list = [now - datetime.timedelta(days=x) for x in range(40)]
-date_list = date_list[::-1]
-for d in date_list:    
-    date_time = d.strftime("%Y%m%d")
-    try:
-        url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_orig_csv.zip"
-        resp = urlopen(url)
-    except:
-        try:
-            url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_000200_orig_csv.zip"
-            resp = urlopen(url)
-        except:
-            try:
-                url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_140201_orig_csv.zip"
-                resp = urlopen(url)
-            except:
-                pass
-    zipfile = ZipFile(BytesIO(resp.read()))
-    zipfile.namelist()
-    df = pd.read_csv(zipfile.open('Bezirke.csv'))
-    df2 = pd.DataFrame(index=df.index)
-    df2.reset_index(level=0, inplace=True)
-    df2 = pd.concat([df2, df2['index'].str.split(';', expand=True)], axis=1)
-    df2.index = df2[0]
-    df2 = df2.drop(['index',0,2], axis = 1)
-    df2.columns = [d]
-    if bez.empty:
-        bez = df2.copy()
-    else:
-        bez = bez.join(df2)
-bez = bez.T
-
-bez.loc[datetime.date(2020,10,9),:] = bez.loc[datetime.date(2020,10,8),:]
-bez.at[datetime.date(2020,10,10),'Südoststeiermark'] = 98
-
+yesterday = now - datetime.timedelta(days=1)
+date_time = yesterday.strftime("%Y%m%d")
+print(date_time)
+try:
+    url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_140201_orig_csv.zip"
+    resp = urlopen(url)
+except:
+    pass
+zipfile = ZipFile(BytesIO(resp.read()))
+zipfile.namelist()
 
 cols=['District','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 
-for d in bez.columns:
-    n = bez[d].astype(str).astype(int)
-    ave = n.diff()
+df = pd.read_csv(zipfile.open('CovidFaelle_Timeline_GKZ.csv'),usecols=["Time;Bezirk;GKZ;AnzEinwohner;AnzahlFaelle;AnzahlFaelleSum;AnzahlFaelle7Tage;SiebenTageInzidenzFaelle;AnzahlTotTaeglich;AnzahlTotSum;AnzahlGeheiltTaeglich;AnzahlGeheiltSum"])
+df2 = df[df.columns[0]].str.split(';', expand=True)
+df2 = df2.set_index(0)
+df2.index.name = None
+for d in df2[1].unique():
+    n = df2[df2[1]==d]
+    ave = n[4].astype(int)
     las = len(ave)-14
     last_forteen = int(ave[las:].sum().item())
     if last_forteen < 0:
@@ -149,7 +128,6 @@ $('td').each(function() {
 };
 </script>
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -179,7 +157,6 @@ $('td').each(function() {
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body onload=colorize()>
