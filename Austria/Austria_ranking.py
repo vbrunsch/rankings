@@ -12,14 +12,17 @@ import pandas as pd
 
 bez = pd.DataFrame()
 now = datetime.date.today()
-yesterday = now - datetime.timedelta(days=1)
-date_time = yesterday.strftime("%Y%m%d")
+date_time = now.strftime("%Y%m%d")
 print(date_time)
 try:
-    url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_140201_orig_csv.zip"
+    url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_000200_orig_csv_gesundheitsministerium.zip"
     resp = urlopen(url)
 except:
-    pass
+    try:
+        url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time}/data/{date_time}_070200_orig_csv_gesundheitsministerium.zip"
+        resp = urlopen(url)
+    except:
+        pass
 zipfile = ZipFile(BytesIO(resp.read()))
 zipfile.namelist()
 
