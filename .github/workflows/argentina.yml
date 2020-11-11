@@ -4,8 +4,8 @@
 name: Update Argentina Departamento Rankings
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+    #branches: [ master ]
   schedule:
     - cron: '12 */6 * * *'
 
