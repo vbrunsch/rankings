@@ -166,11 +166,70 @@ for d in data['sheetNames']:
     last72=last7
     prev72=prev7
     
+    ave = focus[['Known Local']]
+    ave = ave.values
+    las = len(ave)-14
+    m = ave[las:]
+    n = np.tile(0.0, len(m))
+    if m[0]<=0:
+        n[0]= 0
+    else:
+        n[0]=m[0]
+    for i in range(1,len(m)):
+        if n[i-1]+m[i]<0:
+            n[i]=0
+        else:
+            n[i]=n[i-1]+m[i]
+    last_forteen = n[i]
+    if last_forteen < 0:
+        last_forteen = 0
+    
+    las7 = len(ave)-7
+    m7 = ave[las7:]
+    n7 = np.tile(0.0, len(m7))
+    if m7[0]<=0:
+        n7[0]= 0
+    else:
+        n7[0]=m7[0]
+    for i in range(1,len(m7)):
+        if n7[i-1]+m7[i]<0:
+            n7[i]=0
+        else:
+            n7[i]=n7[i-1]+m7[i]
+    last7 = n7[i]
+    prev7 = last_forteen - last7
+    if last7 < 0:
+        last7 = 0
+    if last7 > last_forteen:
+        last_forteen = last7
+    if prev7 < 0:
+        prev7 = 0
+    if (last7 == 0) & (last_forteen == 0):
+        prev7 = 0
+    i = len(ave)-1
+    c = 0
+    en = ave[i]
+    while i > 0:
+        if ave[i] <= 0:
+            if en + ave[i-1]<=0:
+                c = c + 1
+                en = en + ave[i-1]
+            else:
+                i = 0
+        else:
+            i = 0
+        i = i - 1   
+     
+    c3=c
+    last_forteen3 = last_forteen
+    last73=last7
+    prev73=prev7
+    
     collect.append((dname,
-                   int(min(c1,c2)),
-                   int(last_forteen1+last_forteen2),
-                   int(last71 + last72),
-                   int(prev71 + prev72)))
+                   int(min(c1,c2,c3)),
+                   int(last_forteen1+last_forteen2+last_forteen3),
+                   int(last71 + last72 + last73),
+                   int(prev71 + prev72 + prev73)))
     
     
 thr = pd.DataFrame(collect, columns=cols)
