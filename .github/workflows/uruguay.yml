@@ -4,8 +4,8 @@
 name: Update Uruguay Departamento Rankings
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+    #branches: [ master ]
   schedule:
     - cron: '54 */6 * * *'
 
