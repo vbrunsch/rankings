@@ -76,8 +76,8 @@ for d in data['sheetNames']:
     en = ave[i]
     while i > 0:
         if ave[i] <= 0:
+            c = c + 1
             if en + ave[i-1]<=0:
-                c = c + 1
                 en = en + ave[i-1]
             else:
                 i = 0
@@ -152,8 +152,8 @@ for d in data['sheetNames']:
     en = ave[i]
     while i > 0:
         if ave[i] <= 0:
+            c = c + 1
             if en + ave[i-1]<=0:
-                c = c + 1
                 en = en + ave[i-1]
             else:
                 i = 0
@@ -211,8 +211,8 @@ for d in data['sheetNames']:
     en = ave[i]
     while i > 0:
         if ave[i] <= 0:
+            c = c + 1
             if en + ave[i-1]<=0:
-                c = c + 1
                 en = en + ave[i-1]
             else:
                 i = 0
@@ -346,3 +346,4 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
+
