@@ -65,7 +65,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         
     # New Zealand
     if country == 'New Zealand':
-      focus = pd.DataFrame([[0],[1],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]],	columns=['new'])
+      focus = pd.DataFrame([[0],[1],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]],	columns=['new'])
     #    import requests
     #    url = 'https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-situation/covid-19-current-cases/covid-19-current-cases-details'
 
