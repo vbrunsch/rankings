@@ -24,7 +24,11 @@ except:
         url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time_y}/data/{date_time_y}_140202_orig_csv_ages.zip"
         resp = urlopen(url)
     except:
-        pass
+        try:
+            url = f"https://github.com/statistikat/coronaDAT/raw/master/archive/{date_time_y}/data/{date_time_y}_140201_orig_csv_ages.zip"
+            resp = urlopen(url)
+        except:
+            pass
 zipfile = ZipFile(BytesIO(resp.read()))
 zipfile.namelist()
 
