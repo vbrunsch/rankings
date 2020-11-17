@@ -4,8 +4,8 @@
 name: Update Lithuania Municipalities Rankings
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+    #branches: [ master ]
   schedule:
     - cron: '9 */6 * * *'
 
