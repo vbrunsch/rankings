@@ -102,6 +102,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         #for i in df_t[df_t.columns[6]]:
         #    df_t[df_t.columns[6]][c] = dayt + datetime.timedelta(days=i)
         #    c=c+1
+        df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'[0-9][0-9][0-9][0-9]':'2020'},regex=True)
         df_t = df_t.set_index([df_t.columns[6]])
         df_t.index.name = None
         df_t = df_t[df_t[df_t.columns[3]]=='Thailand']
