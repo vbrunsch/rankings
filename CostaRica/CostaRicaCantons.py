@@ -1,12 +1,13 @@
 import pandas as pd
 import time 
 import time, requests
-yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
-date = "_" + yesterday
-url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
+today = time.strftime('%m_%d',time.localtime(time.time()))
+#yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
+date = "_" + today
+url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(today)
 
 r = requests.get(url)
-i=2
+i=1
 while r.status_code != 200:
     print(f'Error requesting url for {yesterday}')
     yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400*i))
