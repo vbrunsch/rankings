@@ -3,6 +3,8 @@
 
 import pandas as pd
 import time 
+import requests
+
 today = time.strftime('%m_%d',time.localtime(time.time()))
 yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
 date = "_" + today
