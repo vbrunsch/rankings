@@ -2,7 +2,7 @@ import pandas as pd
 import time 
 import time, requests
 today = time.strftime('%m_%d',time.localtime(time.time()))
-#yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
+yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
 date = "_" + today
 url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(today)
 
