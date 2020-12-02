@@ -186,4 +186,4 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
-    print(fo1)
+    print(focus)
