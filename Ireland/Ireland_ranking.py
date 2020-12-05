@@ -7,6 +7,7 @@ import numpy as np
 
 df = pd.read_csv('https://opendata-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D')
 
+fd = df['TimeStamp'].iloc[0]
 ld = df['TimeStamp'].iloc[-1]
 
 counties = df['CountyName'].unique()
@@ -21,7 +22,7 @@ for d in counties:
     fo1 = fo1.drop_duplicates()
     
     fo1.index = pd.to_datetime(fo1.index)
-    idx = pd.date_range('02/28/2020', ld)
+    idx = pd.date_range(fd, ld)
     ave = fo1.reindex(idx, fill_value=0)
     
     ave = ave.diff()
