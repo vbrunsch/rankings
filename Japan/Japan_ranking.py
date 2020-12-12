@@ -3,7 +3,7 @@
 
 import pandas as pd
 
-df = pd.read_json('https://github.com/reustle/covid19japan-data/raw/master/docs/patient_data/2020-09-27.json')
+df = pd.read_json('https://github.com/reustle/covid19japan-data/raw/master/docs/patient_data/latest.json')
 df = df[df['confirmedPatient']==True]
 focus = df.drop(['patientId', 'ageBracket', 'gender', 'patientStatus', 'notes', 'mhlwPatientNumber', 'prefecturePatientNumber', 'prefectureSourceURL', 'confirmedPatient', 'residence', 'sourceURL', 'relatedPatients', 'knownCluster', 'charterFlightPassenger', 'cityPrefectureNumber', 'citySourceURL', 'deceasedDate', 'deceasedReportedDate', 'deathSourceURL', 'cruisePassengerDisembarked'], axis = 1)#.set_index('dateAnnounced')
 focus['new'] = 1
