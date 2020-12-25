@@ -5,7 +5,7 @@ import pandas as pd
 
 df = pd.read_json('https://github.com/reustle/covid19japan-data/raw/master/docs/patient_data/latest.json')
 df = df[df['confirmedPatient']==True]
-focus = df.drop(['patientId', 'ageBracket', 'gender', 'patientStatus', 'notes', 'mhlwPatientNumber', 'prefecturePatientNumber', 'prefectureSourceURL', 'confirmedPatient', 'residence', 'sourceURL', 'relatedPatients', 'knownCluster', 'charterFlightPassenger', 'cityPrefectureNumber', 'citySourceURL', 'deceasedDate', 'deceasedReportedDate', 'deathSourceURL', 'cruisePassengerDisembarked'], axis = 1)#.set_index('dateAnnounced')
+focus = df.drop(['patientId', 'ageBracket', 'gender', 'patientStatus', 'notes', 'mhlwPatientNumber', 'prefecturePatientNumber', 'prefectureSourceURL', 'confirmedPatient', 'residence', 'sourceURL', 'relatedPatients', 'knownCluster', 'cityPrefectureNumber', 'citySourceURL', 'deceasedDate', 'deceasedReportedDate', 'deathSourceURL'], axis = 1)#.set_index('dateAnnounced')
 focus['new'] = 1
 pref_only = focus.groupby('detectedPrefecture').sum().T
 pref_only = pref_only.drop(['Unspecified','Port Quarantine'], axis = 1)
