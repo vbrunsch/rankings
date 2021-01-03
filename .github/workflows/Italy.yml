@@ -5,7 +5,7 @@ name: Update Italy Province Rankings
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: '10 */6 * * *'
 
