@@ -5,7 +5,7 @@ name: Update Germany District/County Town Rankings
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: '0 */6 * * *'
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
       with:
         persist-credentials: false 
         fetch-depth: 0 
@@ -44,7 +44,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git commit --allow-empty -m "Auto-update of the data packages" -a   
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
    
