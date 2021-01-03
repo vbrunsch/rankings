@@ -5,7 +5,7 @@ name: Update Costa Rica Cantons Rankings
 
 on:
   #push:
-    #branches: [ master ]
+    #branches: [ main ]
   schedule:
     - cron: '40 */6 * * *'
 
