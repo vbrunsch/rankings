@@ -5,7 +5,8 @@ import pandas as pd
 import numpy as np
 
 #
-df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/datos_provincias.csv')
+#df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/datos_provincias.csv')
+df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/casos_diagnostico_provincia.csv')
 df['provincia_iso'].fillna('NA', inplace = True)
 ab = pd.read_csv(r'Spain_Abbrev.csv')
 ab['Abbrev'].fillna('NA', inplace = True)
