@@ -5,7 +5,7 @@ name: Update England utla Rankings
 
 on:
   #push:
-    #branches: [ master ]
+    #branches: [ main ]
   schedule:
     - cron: '40 */6 * * *'
 
