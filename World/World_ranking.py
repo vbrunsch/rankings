@@ -68,23 +68,26 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
       import requests
       import re
 
-      t = requests.get('https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-data-and-statistics/covid-19-case-demographics').text
-      filename = re.findall('system(.+?)\.csv', t)
-      url = 'https://www.health.govt.nz/system'+filename[0]+'.csv'
-      urlData = requests.get(url).content
+      #t = requests.get('https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-data-and-statistics/covid-19-case-demographics').text
+      #filename = re.findall('system(.+?)\.csv', t)
+      #url = 'https://www.health.govt.nz/system'+filename[0]+'.csv'
+      #urlData = requests.get(url).content
 
-      from io import StringIO
+      #from io import StringIO
 
-      s=str(urlData,'utf-8')
-      data = StringIO(s) 
-      df=pd.read_csv(data)
-      df['new']=1
-      df = df[df['Overseas travel'] != 'Yes']
+      #s=str(urlData,'utf-8')
+      #data = StringIO(s) 
+      #df=pd.read_csv(data)
+      #df['new']=1
+      #df = df[df['Overseas travel'] != 'Yes']
+      #tod = pd.to_datetime('today')
+      #idx = pd.date_range('02-26-2020', tod)
+      #focus = df.groupby(['Report Date']).sum()
+      #focus.index = pd.to_datetime(focus.index, dayfirst=True)
+      #focus = focus.reindex(idx, fill_value=0)
       tod = pd.to_datetime('today')
-      idx = pd.date_range('02-26-2020', tod)
-      focus = df.groupby(['Report Date']).sum()
-      focus.index = pd.to_datetime(focus.index, dayfirst=True)
-      focus = focus.reindex(idx, fill_value=0)
+      idx = pd.date_range('10-22-2020', tod)
+      focus = [0]*len(idx)
 
     # Thailand cases are all in managed isolation since 05/26
     if country == 'Thailand':
@@ -102,8 +105,8 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         #for i in df_t[df_t.columns[6]]:
         #    df_t[df_t.columns[6]][c] = dayt + datetime.timedelta(days=i)
         #    c=c+1
-        df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'[0-9][0-9][0-9][0-9]':'2020'},regex=True)
-        df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'15/15':'15/12'},regex=True)
+        #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'[0-9][0-9][0-9][0-9]':'2020'},regex=True)
+        #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'15/15':'15/12'},regex=True)
         df_t = df_t.set_index([df_t.columns[6]])
         df_t.index.name = None
         #df_t = df_t[df_t[df_t.columns[3]]=='Thailand']
