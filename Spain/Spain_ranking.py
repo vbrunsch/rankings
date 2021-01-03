@@ -18,37 +18,37 @@ cols=['Province','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previo
 collect = []
 for p in confirm.columns:
     if p != 'NC':
-	n = focus[focus['provincia_iso']==p]
-	p_long = ab.loc[ab['Abbrev']==p,'Province'].item()
-	ave = n['num_casos']
-	las = len(ave)-14
-	last_forteen = ave[las:].sum()
-	if last_forteen < 0:
-	    last_forteen = 0
-	last7 = ave[len(ave)-7:].sum() #last week
-	prev7 = ave[len(ave)-14:len(ave)-7].sum() #prev week
-	if last7 < 0:
-	    last7 = 0
-	if last7 > last_forteen:
-	    last_forteen = last7
-	if prev7 < 0:
-	    prev7 = 0
-	if (last7 == 0) & (last_forteen == 0):
-	    prev7 = 0
-	i = len(ave)-1
-	c = 0
-	while i > 0:
-	    if ave[i] <= 0:
-		c = c + 1
-	    else:
-	        i = 0
-	    i = i - 1
+        n = focus[focus['provincia_iso']==p]
+        p_long = ab.loc[ab['Abbrev']==p,'Province'].item()
+        ave = n['num_casos']
+        las = len(ave)-14
+        last_forteen = ave[las:].sum()
+        if last_forteen < 0:
+            last_forteen = 0
+        last7 = ave[len(ave)-7:].sum() #last week
+        prev7 = ave[len(ave)-14:len(ave)-7].sum() #prev week
+        if last7 < 0:
+            last7 = 0
+        if last7 > last_forteen:
+            last_forteen = last7
+        if prev7 < 0:
+            prev7 = 0
+        if (last7 == 0) & (last_forteen == 0):
+            prev7 = 0
+        i = len(ave)-1
+        c = 0
+        while i > 0:
+            if ave[i] <= 0:
+                c = c + 1
+            else:
+                i = 0
+            i = i - 1
 
-	collect.append((p_long,
-	   	       c,
-		       last_forteen,
-		       last7,
-		       prev7))
+        collect.append((p_long,
+                        c,
+                        last_forteen,
+                        last7,
+                        prev7))
 
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
@@ -106,7 +106,6 @@ top = """
 <html>
 <head>
 <style>
-
     h2 {
         text-align: center;
         font-family: Helvetica, Arial, sans-serif;
@@ -136,7 +135,6 @@ top = """
     .wide {
         width: 90%; 
     }
-
 </style>
 </head>
 <body>
@@ -165,4 +163,3 @@ try:
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
-    
