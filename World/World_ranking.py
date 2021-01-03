@@ -87,7 +87,8 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
       #focus = focus.reindex(idx, fill_value=0)
       tod = pd.to_datetime('today')
       idx = pd.date_range('10-22-2020', tod)
-      focus = [0]*len(idx)
+      focus = pd.DataFrame()
+      focus['new'] = [0]*len(idx)
 
     # Thailand cases are all in managed isolation since 05/26
     if country == 'Thailand':
