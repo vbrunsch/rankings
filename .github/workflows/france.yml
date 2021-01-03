@@ -5,7 +5,7 @@ name: Update France Departements Rankings
 #
 on:
   #push:
-    #branches: [ master ]
+    #branches: [ main ]
   schedule:
     - cron: '24 */7 * * *'
 
