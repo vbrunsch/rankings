@@ -5,7 +5,7 @@ name: Update Germany District/County Town Rankings
 
 on:
   #push:
-    #branches: [ master ]
+    #branches: [ main ]
   schedule:
     - cron: '0 */6 * * *'
 
