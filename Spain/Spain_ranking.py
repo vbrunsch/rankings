@@ -11,7 +11,7 @@ df['provincia_iso'].fillna('NA', inplace = True)
 ab = pd.read_csv(r'Spain_Abbrev.csv')
 ab['Abbrev'].fillna('NA', inplace = True)
 
-focus = df.copy().drop(['num_casos_prueba_pcr','num_casos_prueba_test_ac','num_casos_prueba_otras','num_casos_prueba_desconocida'], axis=1).set_index(['fecha'])
+focus = df.copy().drop(['num_casos_prueba_pcr','num_casos_prueba_test_ac','num_casos_prueba_ag','num_casos_prueba_elisa','num_casos_prueba_desconocida'], axis=1).set_index(['fecha'])
 confirm = focus.groupby('provincia_iso').sum().T
 
 cols=['Province','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
