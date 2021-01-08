@@ -4,7 +4,7 @@ import requests
 today = time.strftime('%m_%d',time.localtime(time.time()))
 yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400))
 date = "_" + today
-url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(today)
+url = 'http://geovision.uned.ac.cr/oges/archivos_covid/2021_{0}/{0}_EXCEL_SERIES.xlsx'.format(today)
 
 r = requests.get(url)
 i=1
@@ -12,7 +12,7 @@ while r.status_code != 200:
     print(f'Error requesting url for {yesterday}')
     yesterday = time.strftime('%m_%d',time.localtime(time.time() - 86400*i))
     print(f'Error requesting URL, trying previous day: {yesterday}')
-    url = 'http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
+    url = 'http://geovision.uned.ac.cr/oges/archivos_covid/2021_{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday)
     r = requests.get(url)
 
     if i >= 7:
