@@ -20,7 +20,7 @@ while r.status_code != 200:
         raise ValueError('Exiting. Database more than 7 days out of date')
     i += 1
 print(f'{yesterday} successfully requested')
-df = pd.read_excel('http://geovision.uned.ac.cr/oges/archivos_covid/{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday), sheet_name='2_1CANT_ACUMULADOS')
+df = pd.read_excel('http://geovision.uned.ac.cr/oges/archivos_covid/2021_{0}/{0}_EXCEL_SERIES.xlsx'.format(yesterday), sheet_name='2_1CANT_ACUMULADOS')
 
 
 focus = df.copy().drop(['cod_provin','cod_canton'], axis=1)
