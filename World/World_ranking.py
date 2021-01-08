@@ -110,6 +110,8 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         #    c=c+1
         #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'[0-9][0-9][0-9][0-9]':'2020'},regex=True)
         #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'15/15':'15/12'},regex=True)
+        df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'2564':'2021'},regex=True)
+        df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'2563':'2020'},regex=True)
         df_t = df_t.set_index([df_t.columns[6]])
         df_t.index.name = None
         #df_t = df_t[df_t[df_t.columns[3]]=='Thailand']
@@ -126,7 +128,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         idx = pd.date_range('01-22-2020', tod)
         df_t = df_t.groupby(df_t.index).sum()
         df_t.index = pd.to_datetime(df_t.index, dayfirst=True)
-        df_t = df_t[1:]
+        df_t = df_t[1:-1]
         focus = df_t.reindex(idx, fill_value=0)
    
     #correcting country names
