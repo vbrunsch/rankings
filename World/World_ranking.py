@@ -128,6 +128,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         idx = pd.date_range('01-22-2020', tod)
         df_t = df_t.groupby(df_t.index).sum()
         df_t.index = pd.to_datetime(df_t.index, dayfirst=True)
+        df_t = df_t.sort_index()
         df_t = df_t[1:-1]
         focus = df_t.reindex(idx, fill_value=0)
    
