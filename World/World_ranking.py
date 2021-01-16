@@ -94,6 +94,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
 
     # Thailand cases are all in managed isolation since 05/26
     if country == 'Thailand':
+        import numpy as np
         import re
         import requests
         import time
@@ -109,19 +110,19 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'15/15':'15/12'},regex=True)
         df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'2564':'2021'},regex=True)
         df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'2563':'2020'},regex=True)
-        df_t = df_t.set_index([df_t.columns[6]])
+        df_t = df_t.set_index(['announce_date'])
         df_t.index.name = None
-
         # The nationality column is not important
         #df_t = df_t[df_t[df_t.columns[3]]=='Thailand']
 
         df_t['new'] = 1
-        #df_t.loc[pd.isna(df_t[df_t.columns[8]]),'new'] = 1
-
-        df_t.loc[df_t[df_t.columns[8]]=='ผู้ที่เดินทางมาจากต่างประเทศ และเข้า OQ','new'] = 0
-        df_t.loc[df_t[df_t.columns[8]]=='ผู้ที่เดินทางมาจากต่างประเทศ และเข้า ASQ/ALQ','new'] = 0
-        df_t.loc[df_t[df_t.columns[8]]=='State Quarantine','new'] = 0
-        df_t.loc[df_t[df_t.columns[8]]=='คนต่างชาติเดินทางมาจากต่างประเทศ','new'] = 0
+        print(df_t)
+        #df_t.loc[pd.isna(df_t[df_t['risk']]),'new'] = 1
+        df_t['risk'] = df_t['risk'].replace(np.nan, '', regex=True)
+        df_t.loc[df_t['risk']=='State Quarantine','new'] = 0
+        df_t.loc[df_t['risk']=='ผู้ที่เดินทางมาจากต่างประเทศ และเข้า OQ','new'] = 0
+        df_t.loc[df_t['risk']=='ผู้ที่เดินทางมาจากต่างประเทศ และเข้า ASQ/ALQ','new'] = 0
+        df_t.loc[df_t['risk']=='คนต่างชาติเดินทางมาจากต่างประเทศ','new'] = 0
 
 
         tod = pd.to_datetime('today')
