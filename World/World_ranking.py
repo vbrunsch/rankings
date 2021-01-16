@@ -79,10 +79,10 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
       data = StringIO(s) 
       df=pd.read_csv(data)
       df['new']=1
-      df = df[df['Overseas'] != 'Yes']
+      df = df[df['Overseas travel'] != 'Yes']
       tod = pd.to_datetime('today')
       idx = pd.date_range('02-26-2020', tod)
-      focus = df.groupby(['ReportDate']).sum()
+      focus = df.groupby(['Report Date']).sum()
       focus.index = pd.to_datetime(focus.index, dayfirst=True)
       focus = focus.reindex(idx, fill_value=0)
       
