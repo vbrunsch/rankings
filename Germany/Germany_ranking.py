@@ -16,6 +16,7 @@ for country in confirm_LK.columns:
     bula = focus[focus['Landkreis']==country]
     bula = bula.sort_values(['Meldedatum'], ascending=[True])
     bula['Total'] = bula.groupby(['Landkreis', 'Meldedatum'])['AnzahlFall'].transform('sum')
+    print(bula)
     new_bula = bula.drop_duplicates(subset=['Landkreis', 'Meldedatum'])
 
 
