@@ -18,7 +18,7 @@ collect = []
 for country in confirm_p.columns:
     if country != 'In fase di definizione/aggiornamento':
         bula = focus[focus['denominazione_provincia']==country]
-        bula2 = bula.copy().drop(['denominazione_provincia','denominazione_regione'], axis=1).diff()
+        bula2 = bula.copy().drop(['denominazione_provincia','denominazione_regione','codice_nuts_1','codice_nuts_2','codice_nuts_3'], axis=1).diff()
         ave = bula2['totale_casi']
         las = len(ave)-14
         last_forteen = ave[las:].sum()
