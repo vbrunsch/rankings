@@ -108,6 +108,7 @@ for j, country in enumerate(confirm.iloc[-1].sort_values(ascending=False).index[
         ## fix bad year from dates 2563-11-21 and 1963-10-17 to 2020
         #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'[0-9][0-9][0-9][0-9]':'2020'},regex=True)
         #df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'15/15':'15/12'},regex=True)
+        df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'24/1/0202':'1/24/2021'},regex=True)
         df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'2564':'2021'},regex=True)
         df_t['announce_date'] = df_t['announce_date'].astype(str).replace({'2563':'2020'},regex=True)
         df_t = df_t.set_index(['announce_date'])
