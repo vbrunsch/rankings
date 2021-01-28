@@ -16,14 +16,14 @@ for country in confirm_LK.columns:
     bula = focus[focus['Landkreis']==country]
     bula = bula.sort_values(['Meldedatum'], ascending=[True])
     bula['Total'] = bula.groupby(['Landkreis', 'Meldedatum'])['AnzahlFall'].transform('sum')
-    new_bula = bula.drop_duplicates(subset=['Landkreis', 'Meldedatum'])
+    #new_bula = bula.drop_duplicates(subset=['Landkreis', 'Meldedatum'])
 
 
     bula2 = new_bula.copy().drop(['Bundesland','AnzahlFall'], axis=1)
 
-
+ 
     bula2.set_index('Meldedatum', inplace=True)
-    bula2.index = pd.to_datetime(bula2.index)
+    bula2.index = pd.to_datetime(bula2.index).dt.date
     idx = pd.date_range('01/26/2020', dt.datetime.today().strftime("%m/%d/%Y"))
     bula2 = bula2.reindex(idx, fill_value=0)
     bula2.drop(bula2.tail(2).index,inplace=True)
