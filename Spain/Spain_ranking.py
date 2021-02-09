@@ -21,7 +21,7 @@ for p in confirm.columns:
         n = focus[focus['provincia_iso']==p]
         p_long = ab.loc[ab['Abbrev']==p,'Province'].item()
         ave = n['num_casos']
-        ave = ave.drop(ave.tail(3).index,inplace=True)
+        ave.drop(ave.tail(3).index,inplace=True)
         las = len(ave)-14
         last_forteen = ave[las:].sum()
         if last_forteen < 0:
