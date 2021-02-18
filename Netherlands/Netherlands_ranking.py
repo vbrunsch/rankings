@@ -10,6 +10,7 @@ df = df_new['Date_of_report;Municipality_code;Municipality_name;Province;Total_r
 df.columns = ['Date_of_report','Municipality_code','Municipality_name','Province','Total_reported','Hospital_admission','Deceased']
 focus = df.copy().drop(['Municipality_code','Hospital_admission','Deceased'], axis=1).set_index(['Date_of_report'])
 focus = focus[focus.Municipality_name != '']
+focus['Province'] = focus['Province'].replace('Fryslân','Friesland')
 focus['combined'] = focus['Municipality_name'] + ', '+ focus['Province']
 focus = focus.drop(['Municipality_name', 'Province'], axis = 1)
 confirm = focus.groupby('combined').sum().T
