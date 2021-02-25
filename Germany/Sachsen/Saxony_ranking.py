@@ -51,13 +51,13 @@ df = df.iloc[:,1]
 #df = df['Neuzugänge letzten 7 Tage']
 print(df)
 
-df.to_csv(f'Sachsen_Staedte_for_rankings_{da}.csv')
+df.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{da}.csv')
 
 from datetime import datetime, timedelta
 datum = pd.to_datetime(da)
 d = datum - timedelta(days=6)
 
-old = pd.read_csv(f'Sachsen_Staedte_for_rankings_{d.date()}.csv')
+old = pd.read_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{d.date()}.csv')
 print(old)
 
 import numpy as np
