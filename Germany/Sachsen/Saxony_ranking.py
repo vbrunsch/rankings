@@ -55,7 +55,7 @@ df.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{da}.csv')
 
 from datetime import datetime, timedelta
 datum = pd.to_datetime(da)
-d = datum - timedelta(days=6)
+d = datum - timedelta(days=7)
 
 old = pd.read_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{d.date()}.csv')
 print(old)
