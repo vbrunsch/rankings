@@ -14,6 +14,62 @@ matches = re.findall('LastUpdated: (...........)', h)
 da = matches[0][:-1]
 print(da)
 
+# For Datawrapper Map
+
+kfs = df_list[-12]
+dre = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Landeshauptstadt Dresden', kfs.columns[1]].item()/10 * 5.5678))
+lei = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Stadt Leipzig', kfs.columns[1]].item()/10 * 5.93145))
+che = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Stadt Chemnitz', kfs.columns[1]].item()/10 * 2.46334))
+
+df = df_list[-11]
+df1 = df_list[-10]
+df2 = df_list[-9]
+df3 = df_list[-8]
+df4 = df_list[-7]
+df5 = df_list[-6]
+df6 = df_list[-5]
+df7 = df_list[-4]
+df8 = df_list[-3]
+df9 = df_list[-2]
+
+df = df.append(df1)
+df = df.append(df2)
+df = df.append(df3)
+df = df.append(df4)
+df = df.append(df5)
+df = df.append(df6)
+df = df.append(df7)
+df = df.append(df8)
+df = df.append(df9)
+
+df['Gemeinde'] = df['Gemeinde'].str.replace(r', Stadt', '')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r', Kurort', '')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r', Hochschulstadt', '')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r', Universitätsstadt', '')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r'a. d.', 'a.d.')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r' \(.*', '')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r'Verwaltungsgemeinschaft Nünchritz/Glaubitz', 'Glaubitz')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r'Verwaltungsgemeinschaft Röderaue/Wülknitz', 'Wülknitz')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r'Verwaltungsgemeinschaft Schönfeld/Lampertswalde', 'Lampertswalde')
+df = df.append(df.loc[df['Gemeinde'] == 'Glaubitz'], ignore_index = True)
+df.at[len(df)-1,'Gemeinde']= 'Nünchritz'
+df = df.append(df.loc[df['Gemeinde'] == 'Wülknitz'], ignore_index = True)
+df.at[len(df)-1,'Gemeinde']= 'Röderaue'
+df = df.append(df.loc[df['Gemeinde'] == 'Lampertswalde'], ignore_index = True)
+df.at[len(df)-1,'Gemeinde']= 'Schönfeld'
+df.loc[len(df.index)] = [0,'Dresden', dre,0,0]
+df.loc[len(df.index)] = [0,'Leipzig', lei,0,0] 
+df.loc[len(df.index)] = [0,'Chemnitz', che,0,0] 
+
+df = df.set_index('Gemeinde')
+df = df.iloc[:,1]
+#df = df['Neuzugänge letzten 7 Tage']
+print(df)
+
+df.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_dw.csv')
+
+
+# For Rankings
 
 kfs = df_list[-12]
 dre = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Landeshauptstadt Dresden', kfs.columns[1]].item()/10 * 5.5678))
