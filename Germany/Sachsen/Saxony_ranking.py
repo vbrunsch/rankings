@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+pip install gitpython
 import requests
 import pandas as pd
 
