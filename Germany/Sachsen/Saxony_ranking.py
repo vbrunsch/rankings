@@ -108,20 +108,6 @@ print(df)
 
 df.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{da}.csv')
 
-from git import Repo
-
-repo_dir = 'rankings'
-repo = Repo(repo_dir)
-file_list = [f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{da}.csv']
-commit_message = 'Add csv file'
-print(repo.remote)
-print(repo.index)
-#repo.index.add(file_list)
-#repo.index.commit(commit_message)
-#origin = repo.remote('origin')
-#origin.push()
-
-
 
 from datetime import datetime, timedelta
 datum = pd.to_datetime(da)
