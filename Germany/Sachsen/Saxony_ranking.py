@@ -95,8 +95,8 @@ old.at[len(old)-1,'Gemeinde']= 'Schönfeld'
 
 mdf = df.to_frame().merge(old, on='Gemeinde')
 mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
-print(mdf)
-mdf.drop(['Neuzugänge letzten 7 Tage_x', 'Neuzugänge letzten 7 Tage_y'], axis = 1)
+#print(mdf)
+mdf = mdf.drop(['Neuzugänge letzten 7 Tage_x', 'Neuzugänge letzten 7 Tage_y'], axis = 1)
 
 mdf.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_dw_14_Tage.csv')
 
