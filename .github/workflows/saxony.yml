@@ -4,10 +4,10 @@
 name: Update Saxony Communities Rankings
 #
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '33 12 * * *'
 
 jobs:
   build:
