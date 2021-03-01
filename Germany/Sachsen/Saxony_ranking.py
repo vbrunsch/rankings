@@ -67,6 +67,39 @@ print(df)
 
 df.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_dw.csv')
 
+# For 14-Day-Map
+from datetime import datetime, timedelta
+import numpy as np
+
+datum = pd.to_datetime(da)
+d = datum - timedelta(days=7)
+
+old = pd.read_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{d.date()}.csv')
+
+old['Gemeinde'] = old['Gemeinde'].str.replace(r', Stadt', '')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r', Kurort', '')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r', Hochschulstadt', '')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r', Universitätsstadt', '')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r'a. d.', 'a.d.')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r' \(.*', '')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r'Verwaltungsgemeinschaft Nünchritz/Glaubitz', 'Glaubitz')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r'Verwaltungsgemeinschaft Röderaue/Wülknitz', 'Wülknitz')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r'Verwaltungsgemeinschaft Schönfeld/Lampertswalde', 'Lampertswalde')
+old = old.append(old.loc[old['Gemeinde'] == 'Glaubitz'], ignore_index = True)
+old.at[len(old)-1,'Gemeinde']= 'Nünchritz'
+old = old.append(old.loc[old['Gemeinde'] == 'Wülknitz'], ignore_index = True)
+old.at[len(old)-1,'Gemeinde']= 'Röderaue'
+old = old.append(old.loc[old['Gemeinde'] == 'Lampertswalde'], ignore_index = True)
+old.at[len(old)-1,'Gemeinde']= 'Schönfeld'
+
+
+mdf = df.to_frame().merge(old, on='Gemeinde')
+mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
+print(mdf)
+mdf.drop(['Neuzugänge letzten 7 Tage_x', 'Neuzugänge letzten 7 Tage_y'], axis = 1)
+
+mdf.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_dw_14_Tage.csv')
+
 
 # For Rankings
 
@@ -109,14 +142,12 @@ print(df)
 df.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{da}.csv')
 
 
-from datetime import datetime, timedelta
-datum = pd.to_datetime(da)
-d = datum - timedelta(days=7)
+
 
 old = pd.read_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{d.date()}.csv')
 print(old)
 
-import numpy as np
+
 mdf = df.to_frame().merge(old, on='Gemeinde')
 mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
 mdf['Covid-freie Wochen'] = 0
