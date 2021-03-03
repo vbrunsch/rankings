@@ -112,13 +112,8 @@ class VisualizationServer:
 
     def __calculate_ratios__(self):
         num_entries = len(self.input_table)
-        self.ratios = [
-            len(self.categorized_entries[0]) / num_entries,
-            len(self.categorized_entries[1]) / num_entries,
-            len(self.categorized_entries[2]) / num_entries,
-            len(self.categorized_entries[3]) / num_entries,
-            len(self.categorized_entries[4]) / num_entries,
-        ]
+        for i in range(self.num_categories):
+            self.ratios.append(len(self.categorized_entries[i]) / num_entries)
 
     def __init_sorting_criteria__(self):
         for i in range(self.num_categories):
