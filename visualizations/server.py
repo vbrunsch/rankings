@@ -368,7 +368,7 @@ class VisualizationServer:
         return column(reset_button, text_input, sizing_mode="scale_width")
 
     def __adjust_branches__(self, data, direction):
-        # Post-processing, first to calculate horizontal adjustments, then isolate the searched district
+        # Adjusts "branches" horizontally to ensure no overlaps
         consecutive_branches = 0
         for i in reversed(range(len(data["line_x_points"]))):
             # Skip if no line exists (this occurs when drawing the phase boxes)
