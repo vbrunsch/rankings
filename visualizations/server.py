@@ -3,7 +3,7 @@ from bokeh.layouts import column, row
 from bokeh.plotting import figure, curdoc
 from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, HoverTool, MultiLine, Legend, LegendItem
 
-DISTRICT_KEY = 'District/County Town'
+REGION_KEY = 'District/County Town'
 CASES_14_DAYS_KEY = 'New Cases in Last 14 Days'
 CASES_7_DAYS_KEY = 'Last 7 Days'
 COVID_FREE_DAYS_KEY = "COVID-Free Days"
@@ -35,12 +35,14 @@ class VisualizationServer:
            for reference, the box's height is 1 and it spans y = [0, 1]
     :param min_space_x is the minimum horizontal space in between each "branched" line (default: 0.075)
     :param min_space_y is the minimum vertical space in between each county's text and line elements (default: 0.033)
-    :param num_top_districts is the number of districts that appear per phase (excluding searched districts) (default = 6)
-    :param district_key is used to access a district's name
+    :param num_top_regions is the number of regions that appear per phase (excluding searched regions) (default = 6)
+    :param region_type describes the granularity of the input data. (default: "Region")
+           for example, input "City" for city-level data. this is used in the hover tooltips.
+    :param region_key is used to access a region's name
     :param incidence_key is used to access the disease incidence. it can be case numbers or case/population, etc.
            it is used to calculate the phase categorizations, sorting, etc.
-    :param time_safe_key is used to access the number of days a district has been disease-free
-    :param postcode_key is used to access a district's postcode
+    :param time_safe_key is used to access the number of days a region has been disease-free
+    :param postcode_key is used to access a region's postcode
     :param percent_change_key is used to access the calculated percent change in incidence over a given timeframe
     """
 
@@ -49,8 +51,9 @@ class VisualizationServer:
                  legend_width=300, legend_height=200,
                  x_range=(-3, 5), y_range=(-0.1, 1.1),
                  min_space_x=0.075, min_space_y=0.033,
-                 num_top_districts=6,
-                 district_key=DISTRICT_KEY,
+                 num_top_regions=6,
+                 region_type="Region",
+                 region_key=REGION_KEY,
                  incidence_key=CASES_14_DAYS_KEY,
                  time_safe_key=COVID_FREE_DAYS_KEY,
                  postcode_key=POSTCODE_KEY,
@@ -64,6 +67,8 @@ class VisualizationServer:
         self.lower_bounds_adj.append(self.input_table[CASES_14_DAYS_KEY].max())
         self.colors = colors
         self.title = title
+        self.region_type = region_type
+        self.num_categories = len(labels)
 
         # Initialize sizing stuff
         self.width = width
@@ -74,11 +79,10 @@ class VisualizationServer:
         self.y_range = y_range
         self.min_space_x = min_space_x
         self.min_space_y = min_space_y
-        self.num_top_districts = num_top_districts
-        self.num_categories = len(labels)
+        self.num_top_regions = num_top_regions
 
         # Initialize keys
-        self.district_key = district_key
+        self.region_key = region_key
         self.incidence_key = incidence_key
         self.time_safe_key = time_safe_key
         self.postcode_key = postcode_key
@@ -87,7 +91,7 @@ class VisualizationServer:
         # Initialize class members which will store calculation data
         self.ratios = []
         self.categorized_entries = []
-        self.top_districts = [pd.DataFrame()] * self.num_categories
+        self.top_regions = [pd.DataFrame()] * self.num_categories
         self.sort_criterias = []
         self.criteria_units = []
         self.last_searched = ""
@@ -99,7 +103,7 @@ class VisualizationServer:
         self.__categorize_entries__()
         self.__calculate_ratios__()
         self.__init_sorting_criteria__()
-        self.__build_top_districts__()
+        self.__build_top_regions__()
 
     def __categorize_entries__(self):
         for i in range(self.num_categories):
@@ -124,28 +128,28 @@ class VisualizationServer:
                 self.sort_criterias.append(CASES_14_DAYS_KEY)
                 self.criteria_units.append("case")
 
-    def __build_top_districts__(self):
+    def __build_top_regions__(self):
         for i in range(self.num_categories):
             if self.sort_criterias[i] == COVID_FREE_DAYS_KEY:
-                self.top_districts[i] = self.categorized_entries[i].nlargest(
-                    self.num_top_districts, self.sort_criterias[i])
+                self.top_regions[i] = self.categorized_entries[i].nlargest(
+                    self.num_top_regions, self.sort_criterias[i])
             else:
-                self.top_districts[i] = self.categorized_entries[i].nsmallest(
-                    self.num_top_districts, self.sort_criterias[i])
+                self.top_regions[i] = self.categorized_entries[i].nsmallest(
+                    self.num_top_regions, self.sort_criterias[i])
 
-    def __add_searched_district__(self, query):
+    def __add_searched_region__(self, query):
         # Set last searched
         self.last_searched = query
-        # Add searched district to appropriate top_districts element, then sort
-        search_type = POSTCODE_KEY if query.isnumeric() else DISTRICT_KEY
+        # Add searched region to appropriate top_regions element, then sort
+        search_type = POSTCODE_KEY if query.isnumeric() else REGION_KEY
         for i in range(self.num_categories):
-            searched_district_entry = \
+            searched_region_entry = \
                 self.categorized_entries[i][self.categorized_entries[i][search_type] == query]
             if (query != "") and \
-                    (len(searched_district_entry) != 0) and \
-                    (len(self.top_districts[i][self.top_districts[i][search_type] == query]) == 0):
-                self.top_districts[i] = self.top_districts[i].append(searched_district_entry)
-                self.top_districts[i] = self.top_districts[i]. \
+                    (len(searched_region_entry) != 0) and \
+                    (len(self.top_regions[i][self.top_regions[i][search_type] == query]) == 0):
+                self.top_regions[i] = self.top_regions[i].append(searched_region_entry)
+                self.top_regions[i] = self.top_regions[i]. \
                     sort_values(self.sort_criterias[i],
                                 ascending=(self.sort_criterias[i] == CASES_14_DAYS_KEY))
                 break
@@ -158,7 +162,7 @@ class VisualizationServer:
                 "text_x": [],
                 "text_y": [],
                 "text": [],
-                "district_name": [],
+                "region_name": [],
                 "category": [],
                 "postcode": [],
                 "covid_free_days": [],
@@ -172,7 +176,7 @@ class VisualizationServer:
         plot_data = self.__new_plot_data_map__()
         searched_plot_data = self.__new_plot_data_map__()
         for i in range(len(self.ratios)):
-            curr_top = self.top_districts[i]
+            curr_top = self.top_regions[i]
             sort_criteria = self.sort_criterias[i]
             criteria_unit = self.criteria_units[i]
 
@@ -180,20 +184,20 @@ class VisualizationServer:
             if box_size == 0:
                 continue
 
-            # Iterate through each district, calculate their plot positions with padding
-            top_district_datum = curr_top[sort_criteria].max()
-            bot_district_datum = curr_top[sort_criteria].min()
+            # Iterate through each region, calculate their plot positions with padding
+            top_region_datum = curr_top[sort_criteria].max()
+            bot_region_datum = curr_top[sort_criteria].min()
             padding = box_size * 0.1
-            for district, datum, postcode, covid_free_days, cases_last_14, cases_last_7, percent_change in zip(
-                    curr_top[DISTRICT_KEY],
+            for region, datum, postcode, covid_free_days, cases_last_14, cases_last_7, percent_change in zip(
+                    curr_top[REGION_KEY],
                     curr_top[sort_criteria],
                     curr_top[POSTCODE_KEY],
                     curr_top[COVID_FREE_DAYS_KEY],
                     curr_top[CASES_14_DAYS_KEY],
                     curr_top[CASES_7_DAYS_KEY],
                     curr_top[PERCENT_CHANGE_KEY]):
-                line_y_relative = ((datum - bot_district_datum) / (top_district_datum - bot_district_datum)) \
-                    if top_district_datum != bot_district_datum else 0.5
+                line_y_relative = ((datum - bot_region_datum) / (top_region_datum - bot_region_datum)) \
+                    if top_region_datum != bot_region_datum else 0.5
                 line_y = box_top_y - ((box_size - (padding * 2)) * line_y_relative) - padding
 
                 # Calculate necessary vertical adjustments to line and text
@@ -210,8 +214,8 @@ class VisualizationServer:
                 plot_data["line_color"].append(self.colors[i])
                 plot_data["text_x"].append(line_x_points[3])
                 plot_data["text_y"].append(text_y)
-                plot_data["text"].append([f"{district}: {datum} {criteria_unit}{'s' if datum != 1 else ''}"])
-                plot_data["district_name"].append(district)
+                plot_data["text"].append([f"{region}: {datum} {criteria_unit}{'s' if datum != 1 else ''}"])
+                plot_data["region_name"].append(region)
                 plot_data["category"].append(self.labels[i])
                 plot_data["postcode"].append(postcode)
                 plot_data["covid_free_days"].append(covid_free_days)
@@ -224,9 +228,9 @@ class VisualizationServer:
         # Postprocessing to adjust lines horizontally, ensuring no overlapping branches
         self.__adjust_branches__(data=plot_data, direction="right")
 
-        # Isolate searched district
+        # Isolate searched region
         for i in reversed(range(len(plot_data["postcode"]))):
-            if (plot_data["district_name"][i] == self.last_searched) or \
+            if (plot_data["region_name"][i] == self.last_searched) or \
                     (plot_data["postcode"][i] == self.last_searched):
                 for key in plot_data:
                     searched_plot_data[key] = [plot_data[key][i]]
@@ -325,9 +329,9 @@ class VisualizationServer:
         text_renderer = plot.add_glyph(self.source, text)
         searched_text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="bold")
         searched_text_renderer = plot.add_glyph(self.searched_source, searched_text)
-        tooltips = [("District Name", "@{district_name}"),
+        tooltips = [(f"{self.region_type} Name", "@{region_name}"),
                     ("Category", "@{category}"),
-                    ("District Code", "@{postcode}"),
+                    (f"{self.region_type} Code", "@{postcode}"),
                     ("COVID-Free Days", "@{covid_free_days}"),
                     ("New Cases in Last 7 Days", "@{cases_last_7}"),
                     ("New Cases in Last 14 Days", "@{cases_last_14}"),
@@ -339,21 +343,21 @@ class VisualizationServer:
     def __build_input_layout__(self):
         # Callbacks for the searchbar and reset button
         def handle_search(attr, old, new):
-            self.__add_searched_district__(new)
+            self.__add_searched_region__(new)
             self.__build_plot_data__()
 
         def handle_reset(event):
             text_input.value = ""
             self.last_searched = ""
-            self.__build_top_districts__()
+            self.__build_top_regions__()
             self.__build_plot_data__()
 
         # Builds input with autocompletion
         completions = []
-        completions.extend(self.input_table[DISTRICT_KEY].tolist())
+        completions.extend(self.input_table[REGION_KEY].tolist())
         completions.extend(self.input_table[self.input_table[POSTCODE_KEY] != 0][POSTCODE_KEY].tolist())
         text_input = AutocompleteInput(completions=completions, min_characters=5, case_sensitive=False,
-                                       placeholder="Search for a district...")
+                                       placeholder="Search for a region...")
         text_input.on_change('value', handle_search)
 
         # Reset button
