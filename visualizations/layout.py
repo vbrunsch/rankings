@@ -3,18 +3,12 @@ from bokeh.layouts import column, row
 from bokeh.plotting import figure, curdoc
 from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, HoverTool, MultiLine, Legend, LegendItem
 
-REGION_KEY = 'District/County Town'
-CASES_14_DAYS_KEY = 'New Cases in Last 14 Days'
-CASES_7_DAYS_KEY = 'Last 7 Days'
-COVID_FREE_DAYS_KEY = "COVID-Free Days"
-POSTCODE_KEY = 'Postcode'
-PERCENT_CHANGE_KEY = 'Percent Change'
 
-
-class VisualizationServer:
+class VisualizationLayout:
     """ This server generates and serves visualizations of the COVID ranking data.
 
     Data should be input as a .pkl file. It should have the columns corresponding to the keys listed in the constants.
+    The parameter defaults are set in accordance with ECV's use case. Adjust as necessary.
     :param input_path is where the .pkl file is located
     :param labels are the phases' labels. the first element is always the "Green Zone" and is sorted in descending order
            with elements in time_safe_key.
@@ -25,6 +19,7 @@ class VisualizationServer:
            first element of lower_bounds to an arbitrarily high number.
     :param colors are the colors of each phase
     :param title is the title of the visualization
+
     :param width is the plot width, in pixels (default: 750)
     :param height is the plot height, in pixels (default: 800)
     :param width is the legend and input area width, in pixels (default: 300)
@@ -36,35 +31,84 @@ class VisualizationServer:
     :param min_space_x is the minimum horizontal space in between each "branched" line (default: 0.075)
     :param min_space_y is the minimum vertical space in between each county's text and line elements (default: 0.033)
     :param num_top_regions is the number of regions that appear per phase (excluding searched regions) (default = 6)
-    :param region_type describes the granularity of the input data. (default: "Region")
+
+    :param region_type should describe the granularity of the input data. (default: "Region")
            for example, input "City" for city-level data. this is used in the hover tooltips.
+    :param time_safe_unit should describe the unit used to count the time a region has been "safe" (e.g. day)
+    :param time_safe_plural_unit should be same as time_safe_unit but plural (e.g. days)
+    :param incidence_unit should describe the unit used to represent incidence (e.g. case, case per 100,000)
+    :param incidence_plural_unit should be same as incidence_unit but plural (e.g. cases, cases per 100,000)
+
     :param region_key is used to access a region's name
-    :param incidence_key is used to access the disease incidence. it can be case numbers or case/population, etc.
-           it is used to calculate the phase categorizations, sorting, etc.
+    :param primary_incidence_key is used to access the disease incidence. incidence can be in case numbers, etc.
+           the data stored under the primary key is used to calculate the phase categorizations, sorting, etc.
+    :param secondary_incidence_key is used to access the disease incidence. incidence can be in case numbers, etc.
+           the data stored under the secondary key is used just for display, unless you override it
     :param time_safe_key is used to access the number of days a region has been disease-free
     :param postcode_key is used to access a region's postcode
     :param percent_change_key is used to access the calculated percent change in incidence over a given timeframe
+    :param calc_with_secondary_incidence is used as an override, with index i = True forcing the calculations for the
+           category at index i to be done using the secondary incidence data. (default: [False] * number of categories)
+
+    # the following variables modify the display strings. useful for translation.
+    :param legend_title is the title displayed above the legend
+    :param searchbar_placeholder is used as the placeholder for the region search bar
+    :param reset_button_text is used as the text for the reset button
+    :param region_name_tooltip is used to display the region name in the hovering tooltip
+    :param category_tooltip is used to display the region's category in the hovering tooltip
+    :param region_code_tooltip is used to display the region's code in the hovering tooltip
+    :param time_safe_tooltip is used to display the time a region has been "safe" in the hovering tooltip
+    :param primary_incidence_tooltip= is used to display incidence within one timeframe in the hovering tooltip
+    :param secondary_incidence_tooltip= is used to display incidence within another timeframe in the hovering tooltip
+    :param percent_change_tooltip= is used to display percent change between the timeframes in the hovering tooltip
     """
 
-    def __init__(self, input_path, labels, descriptions, lower_bounds, colors, title,
+    def __init__(self,
+                 # metadata
+                 input_path, labels, descriptions, lower_bounds, colors, title,
+
+                 # sizing stuff
                  width=700, height=800,
                  legend_width=300, legend_height=200,
                  x_range=(-3, 5), y_range=(-0.1, 1.1),
                  min_space_x=0.075, min_space_y=0.033,
                  num_top_regions=6,
+
+                 # keys
+                 region_key="District/County Town",
+                 primary_incidence_key="New Cases in Last 14 Days",
+                 secondary_incidence_key="Last 7 Days",
+                 time_safe_key="COVID-Free Days",
+                 postcode_key="Postcode",
+                 percent_change_key="Pct Change",
+
+                 # units
                  region_type="Region",
-                 region_key=REGION_KEY,
-                 incidence_key=CASES_14_DAYS_KEY,
-                 time_safe_key=COVID_FREE_DAYS_KEY,
-                 postcode_key=POSTCODE_KEY,
-                 percent_change_key=PERCENT_CHANGE_KEY):
+                 time_safe_unit="day",
+                 time_safe_plural_unit="days",
+                 incidence_unit="case",
+                 incidence_plural_unit="cases",
+                 calc_with_secondary_incidence=None,
+
+                 # strings
+                 legend_title="Legend",
+                 searchbar_placeholder="Search for a region...",
+                 reset_button_text="Reset",
+                 region_name_tooltip="Region Name",
+                 category_tooltip="Category",
+                 region_code_tooltip="Region Code",
+                 time_safe_tooltip="COVID-Free Days",
+                 primary_incidence_tooltip="New Cases in Last 14 Days",
+                 secondary_incidence_tooltip="New Cases in Last 7 Days",
+                 percent_change_tooltip="Weekly Percent Change"
+                 ):
 
         # Initialize metadata-like input data
         self.input_table = pd.read_pickle(input_path)
         self.labels = labels
         self.descriptions = descriptions
         self.lower_bounds_adj = lower_bounds
-        self.lower_bounds_adj.append(self.input_table[CASES_14_DAYS_KEY].max())
+        self.lower_bounds_adj.append(self.input_table[primary_incidence_key].max())
         self.colors = colors
         self.title = title
         self.region_type = region_type
@@ -83,10 +127,32 @@ class VisualizationServer:
 
         # Initialize keys
         self.region_key = region_key
-        self.incidence_key = incidence_key
+        self.primary_incidence_key = primary_incidence_key
+        self.secondary_incidence_key = secondary_incidence_key
         self.time_safe_key = time_safe_key
         self.postcode_key = postcode_key
         self.percent_change_key = percent_change_key
+
+        # Initialize unit stuff
+        self.region_type = region_type
+        self.time_safe_unit = time_safe_unit
+        self.time_safe_plural_unit = time_safe_plural_unit
+        self.incidence_unit = incidence_unit
+        self.incidence_plural_unit = incidence_plural_unit
+        self.calc_with_secondary_incidence = (calc_with_secondary_incidence if calc_with_secondary_incidence is not None
+                                              else [False] * self.num_categories)
+
+        # Initialize tooltip strings
+        self.legend_title = legend_title
+        self.searchbar_placeholder = searchbar_placeholder
+        self.reset_button_text = reset_button_text
+        self.region_name_tooltip = region_name_tooltip
+        self.category_tooltip = category_tooltip
+        self.region_code_tooltip = region_code_tooltip
+        self.time_safe_tooltip = time_safe_tooltip
+        self.primary_incidence_tooltip = primary_incidence_tooltip
+        self.secondary_incidence_tooltip = secondary_incidence_tooltip
+        self.percent_change_tooltip = percent_change_tooltip
 
         # Initialize class members which will store calculation data
         self.ratios = []
@@ -107,11 +173,12 @@ class VisualizationServer:
 
     def __categorize_entries__(self):
         for i in range(self.num_categories):
+            incidence_key = self.__get_incidence_key__(i)
             self.categorized_entries.append(
                 self.input_table.loc[
-                    (self.input_table[CASES_14_DAYS_KEY] >=
+                    (self.input_table[incidence_key] >=
                      self.lower_bounds_adj[i]) &
-                    (self.input_table[CASES_14_DAYS_KEY] <
+                    (self.input_table[incidence_key] <
                      self.lower_bounds_adj[i + 1])])
 
     def __calculate_ratios__(self):
@@ -122,15 +189,20 @@ class VisualizationServer:
     def __init_sorting_criteria__(self):
         for i in range(self.num_categories):
             if i == 0:
-                self.sort_criterias.append(COVID_FREE_DAYS_KEY)
-                self.criteria_units.append("day")
+                self.sort_criterias.append(self.time_safe_key)
+                self.criteria_units.append(self.time_safe_unit)
             else:
-                self.sort_criterias.append(CASES_14_DAYS_KEY)
-                self.criteria_units.append("case")
+                self.sort_criterias.append(self.__get_incidence_key__(i))
+                self.criteria_units.append(self.incidence_unit)
+
+    def __get_incidence_key__(self, category_index):
+        if self.calc_with_secondary_incidence[category_index]:
+            return self.secondary_incidence_key
+        return self.primary_incidence_key
 
     def __build_top_regions__(self):
         for i in range(self.num_categories):
-            if self.sort_criterias[i] == COVID_FREE_DAYS_KEY:
+            if self.sort_criterias[i] == self.time_safe_key:
                 self.top_regions[i] = self.categorized_entries[i].nlargest(
                     self.num_top_regions, self.sort_criterias[i])
             else:
@@ -141,7 +213,7 @@ class VisualizationServer:
         # Set last searched
         self.last_searched = query
         # Add searched region to appropriate top_regions element, then sort
-        search_type = POSTCODE_KEY if query.isnumeric() else REGION_KEY
+        search_type = self.postcode_key if query.isnumeric() else self.region_key
         for i in range(self.num_categories):
             searched_region_entry = \
                 self.categorized_entries[i][self.categorized_entries[i][search_type] == query]
@@ -151,7 +223,7 @@ class VisualizationServer:
                 self.top_regions[i] = self.top_regions[i].append(searched_region_entry)
                 self.top_regions[i] = self.top_regions[i]. \
                     sort_values(self.sort_criterias[i],
-                                ascending=(self.sort_criterias[i] == CASES_14_DAYS_KEY))
+                                ascending=(self.sort_criterias[i] == self.__get_incidence_key__(i)))
                 break
 
     @staticmethod
@@ -165,9 +237,9 @@ class VisualizationServer:
                 "region_name": [],
                 "category": [],
                 "postcode": [],
-                "covid_free_days": [],
-                "cases_last_14": [],
-                "cases_last_7": [],
+                "time_safe": [],
+                "primary_incidence": [],
+                "secondary_incidence": [],
                 "percent_change": []}
 
     def __build_plot_data__(self):
@@ -188,14 +260,14 @@ class VisualizationServer:
             top_region_datum = curr_top[sort_criteria].max()
             bot_region_datum = curr_top[sort_criteria].min()
             padding = box_size * 0.1
-            for region, datum, postcode, covid_free_days, cases_last_14, cases_last_7, percent_change in zip(
-                    curr_top[REGION_KEY],
+            for region, datum, postcode, time_safe, primary_incidence, secondary_incidence, percent_change in zip(
+                    curr_top[self.region_key],
                     curr_top[sort_criteria],
-                    curr_top[POSTCODE_KEY],
-                    curr_top[COVID_FREE_DAYS_KEY],
-                    curr_top[CASES_14_DAYS_KEY],
-                    curr_top[CASES_7_DAYS_KEY],
-                    curr_top[PERCENT_CHANGE_KEY]):
+                    curr_top[self.postcode_key],
+                    curr_top[self.time_safe_key],
+                    curr_top[self.primary_incidence_key],
+                    curr_top[self.secondary_incidence_key],
+                    curr_top[self.percent_change_key]):
                 line_y_relative = ((datum - bot_region_datum) / (top_region_datum - bot_region_datum)) \
                     if top_region_datum != bot_region_datum else 0.5
                 line_y = box_top_y - ((box_size - (padding * 2)) * line_y_relative) - padding
@@ -214,13 +286,13 @@ class VisualizationServer:
                 plot_data["line_color"].append(self.colors[i])
                 plot_data["text_x"].append(line_x_points[3])
                 plot_data["text_y"].append(text_y)
-                plot_data["text"].append([f"{region}: {datum} {criteria_unit}{'s' if datum != 1 else ''}"])
+                plot_data["text"].append([f"{region}: {datum} {self.__determine_unit__(criteria_unit, datum)}"])
                 plot_data["region_name"].append(region)
                 plot_data["category"].append(self.labels[i])
                 plot_data["postcode"].append(postcode)
-                plot_data["covid_free_days"].append(covid_free_days)
-                plot_data["cases_last_14"].append(cases_last_14)
-                plot_data["cases_last_7"].append(cases_last_7)
+                plot_data["time_safe"].append(time_safe)
+                plot_data["primary_incidence"].append(primary_incidence)
+                plot_data["secondary_incidence"].append(secondary_incidence)
                 plot_data["percent_change"].append('{:.1%}'.format(percent_change / 100))
 
             box_top_y -= box_size
@@ -240,6 +312,13 @@ class VisualizationServer:
         self.source.data = plot_data
         self.searched_source.data = searched_plot_data
 
+    def __determine_unit__(self, unit, quantity):
+        if quantity == 1:
+            return unit
+        if unit == self.time_safe_unit:
+            return self.time_safe_plural_unit
+        return self.incidence_plural_unit
+
     def __build_layout__(self):
         # Initialize plot
         plot = figure(
@@ -249,6 +328,7 @@ class VisualizationServer:
             x_range=self.x_range,
             y_range=self.y_range,
             toolbar_location=None,
+            align="center"
         )
         plot.xaxis.visible = False
         plot.yaxis.visible = False
@@ -329,13 +409,13 @@ class VisualizationServer:
         text_renderer = plot.add_glyph(self.source, text)
         searched_text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="bold")
         searched_text_renderer = plot.add_glyph(self.searched_source, searched_text)
-        tooltips = [(f"{self.region_type} Name", "@{region_name}"),
-                    ("Category", "@{category}"),
-                    (f"{self.region_type} Code", "@{postcode}"),
-                    ("COVID-Free Days", "@{covid_free_days}"),
-                    ("New Cases in Last 7 Days", "@{cases_last_7}"),
-                    ("New Cases in Last 14 Days", "@{cases_last_14}"),
-                    ("Percent Change", "@{percent_change}")]
+        tooltips = [(f"{self.region_name_tooltip}", "@{region_name}"),
+                    (f"{self.category_tooltip}", "@{category}"),
+                    (f"{self.region_code_tooltip}", "@{postcode}"),
+                    (f"{self.time_safe_tooltip}", "@{time_safe}"),
+                    (f"{self.primary_incidence_tooltip}", "@{primary_incidence}"),
+                    (f"{self.secondary_incidence_tooltip}", "@{secondary_incidence}"),
+                    (f"{self.percent_change_tooltip}", "@{percent_change}")]
         text_hover = HoverTool(renderers=[text_renderer, searched_text_renderer], tooltips=tooltips,
                                anchor="bottom_center", attachment="above", point_policy="follow_mouse")
         plot.add_tools(text_hover)
@@ -354,14 +434,14 @@ class VisualizationServer:
 
         # Builds input with autocompletion
         completions = []
-        completions.extend(self.input_table[REGION_KEY].tolist())
-        completions.extend(self.input_table[self.input_table[POSTCODE_KEY] != 0][POSTCODE_KEY].tolist())
+        completions.extend(self.input_table[self.region_key].tolist())
+        completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
         text_input = AutocompleteInput(completions=completions, min_characters=5, case_sensitive=False,
-                                       placeholder="Search for a region...")
+                                       placeholder=self.searchbar_placeholder)
         text_input.on_change('value', handle_search)
 
         # Reset button
-        reset_button = Button(label="Reset")
+        reset_button = Button(label=self.reset_button_text)
         reset_button.on_click(handle_reset)
 
         return column(reset_button, text_input, sizing_mode="scale_width")
@@ -403,10 +483,11 @@ class VisualizationServer:
         legend.items = legend_items
         legend.location = "center"
         legend_plot = figure(
-            title="Legend",
+            title=self.legend_title,
             plot_width=self.legend_width,
             plot_height=self.legend_height,
-            toolbar_location=None
+            toolbar_location=None,
+            align="center"
         )
         legend_plot.xaxis.visible = False
         legend_plot.yaxis.visible = False
@@ -414,7 +495,10 @@ class VisualizationServer:
         legend_plot.add_layout(legend)
         return legend_plot
 
-    def start(self):
+    def add_to_curdoc(self):
+        """ add_to_curdoc displays the visualization on Bokeh's current document.
+        :return: nothing
+        """
         self.__build_plot_data__()
         layout = self.__build_layout__()
         curdoc().add_root(layout)
