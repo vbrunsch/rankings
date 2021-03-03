@@ -5,7 +5,8 @@ from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, Hove
 
 
 class VisualizationLayout:
-    """ This server generates and serves visualizations of the COVID ranking data.
+    """ VisualizationLayout generates visualizations of the COVID ranking data. It should be served with Bokeh's
+        serve command.
 
     Data should be input as a .pkl file. It should have the columns corresponding to the keys listed in the constants.
     The parameter defaults are set in accordance with ECV's use case. Adjust as necessary.
@@ -50,7 +51,6 @@ class VisualizationLayout:
     :param calc_with_secondary_incidence is used as an override, with index i = True forcing the calculations for the
            category at index i to be done using the secondary incidence data. (default: [False] * number of categories)
 
-    # the following variables modify the display strings. useful for translation.
     :param legend_title is the title displayed above the legend
     :param searchbar_placeholder is used as the placeholder for the region search bar
     :param reset_button_text is used as the text for the reset button
