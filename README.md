@@ -13,6 +13,6 @@ Visualizations and integration created by: Jason Li
     * Modify the units and strings configuration variables for translation
 * If a country's ranking.py is not yet integrated, please see the Germany_ranking.py git blame for a reference point
 * To deploy using Docker, override the following environment variables:
-  * REGION (e.g. REGION="germany")
-  * BOKEH_ALLOW_WS_ORIGIN (e.g. BOKEH_ALLOW_WS_ORIGIN="localhost:5006")
+  * REGION (e.g. REGION=germany)
+  * BOKEH_ALLOW_WS_ORIGIN (e.g. BOKEH_ALLOW_WS_ORIGIN=localhost:5006,localhost:8080)
     * Multiple origins can be added, separated by comma
