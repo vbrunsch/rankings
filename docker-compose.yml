@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  germany_visualization:
+    build: .
+    image: germany_visualization
+    environment:
+      - REGION=germany
+      - BOKEH_ALLOW_WS_ORIGIN=localhost:${GERMANY_PORT},${SERVER_HOST}:${GERMANY_PORT}
+    ports:
+      - ${GERMANY_PORT}:5006
