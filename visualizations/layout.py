@@ -3,43 +3,88 @@ from bokeh.layouts import column, row
 from bokeh.plotting import figure, curdoc
 from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, HoverTool, MultiLine, Legend, LegendItem
 
+#
+# Default configuration values
+#
+
+# sizing stuff
+DEFAULT_WIDTH = 700
+DEFAULT_HEIGHT = 800
+DEFAULT_LEGEND_WIDTH = 300
+DEFAULT_LEGEND_HEIGHT = 200
+DEFAULT_X_RANGE = (-3, 5)
+DEFAULT_Y_RANGE = (-0.1, 1.1)
+DEFAULT_MIN_SPACE_X = 0.075
+DEFAULT_MIN_SPACE_Y = 0.033
+DEFAULT_NUM_TOP_REGIONS = 6
+# keys
+DEFAULT_REGION_KEY = "District/County Town"
+DEFAULT_PRIMARY_INCIDENCE_KEY = "New Cases in Last 14 Days"
+DEFAULT_SECONDARY_INCIDENCE_KEY = "Last 7 Days"
+DEFAULT_TIME_SAFE_KEY = "COVID-Free Days"
+DEFAULT_POSTCODE_KEY = "Postcode"
+DEFAULT_PERCENT_CHANGE_KEY = "Pct Change"
+# units
+DEFAULT_REGION_TYPE = "Region"
+DEFAULT_TIME_SAFE_UNIT = "day"
+DEFAULT_TIME_SAFE_PLURAL_UNIT = "days"
+DEFAULT_INCIDENCE_UNIT = "case"
+DEFAULT_INCIDENCE_PLURAL_UNIT = "cases"
+DEFAULT_CALC_WITH_SECONDARY_INCIDENCE = None
+# strings
+DEFAULT_LEGEND_TITLE = "Legend"
+DEFAULT_SEARCHBAR_PLACEHOLDER = "Search for a region..."
+DEFAULT_RESET_BUTTON_TEXT = "Reset"
+DEFAULT_REGION_NAME_TOOLTIP = "Region Name"
+DEFAULT_CATEGORY_TOOLTIP = "Category"
+DEFAULT_REGION_CODE_TOOLTIP = "Region Code"
+DEFAULT_TIME_SAFE_TOOLTIP = "COVID-Free Days"
+DEFAULT_PRIMARY_INCIDENCE_TOOLTIP = "New Cases in Last 14 Days"
+DEFAULT_SECONDARY_INCIDENCE_TOOLTIP = "New Cases in Last 7 Days"
+DEFAULT_PERCENT_CHANGE_TOOLTIP = "Weekly Percent Change"
+
 
 class VisualizationLayout:
     """ VisualizationLayout generates visualizations of the COVID ranking data. It should be served with Bokeh's
         serve command.
 
     Data should be input as a .pkl file. It should have the columns corresponding to the keys listed in the constants.
-    The parameter defaults are set in accordance with ECV's use case. Adjust as necessary.
+    The parameter defaults are set in accordance to ECV's use case and can be seen above.
+
+    --- Required Configuration ---
+    :param title is the title of the visualization
     :param input_path is where the .pkl file is located
     :param labels are the phases' labels. the first element is always the "Green Zone" and is sorted in descending order
-           with elements in time_safe_key.
+           with elements in time_safe_key. (required argument)
     :param descriptions are used to display the legend
     :param lower_bounds are the lower bounds, inclusive, of the phases. an example is [0, 1, 20], where phase 1 only
            includes 0 incidence (>= 0 and < 1, phase 2 includes incidence >= 1 and < 20, etc.
            if you do not want a "Green Zone," you should set the first element of the labels to a dummy label and the
            first element of lower_bounds to an arbitrarily high number.
     :param colors are the colors of each phase
-    :param title is the title of the visualization
 
-    :param width is the plot width, in pixels (default: 750)
-    :param height is the plot height, in pixels (default: 800)
-    :param width is the legend and input area width, in pixels (default: 300)
-    :param height is the legend height, in pixels (default: 200)
-    :param x_range represents the range of x values represented in the plot. (default: (-3, 5))
+    --- Sizing Stuff ---
+    :param width is the plot width, in pixels
+    :param height is the plot height, in pixels
+    :param width is the legend and input area width, in pixels
+    :param height is the legend height, in pixels
+    :param x_range represents the range of x values represented in the plot.
            for reference, the box's width is 1 and it spans x = [0, 1]
-    :param y_range represents the range of y values represented in the plot. (default: (-0.1, 1.1))
+    :param y_range represents the range of y values represented in the plot.
            for reference, the box's height is 1 and it spans y = [0, 1]
-    :param min_space_x is the minimum horizontal space in between each "branched" line (default: 0.075)
-    :param min_space_y is the minimum vertical space in between each county's text and line elements (default: 0.033)
-    :param num_top_regions is the number of regions that appear per phase (excluding searched regions) (default = 6)
+    :param min_space_x is the minimum horizontal space in between each "branched" line
+    :param min_space_y is the minimum vertical space in between each county's text and line elements
+    :param num_top_regions is the number of regions that appear per phase (excluding searched regions)
 
-    :param region_type should describe the granularity of the input data. (default: "Region")
+    --- Units ---
+    :param region_type should describe the granularity of the input data.
            for example, input "City" for city-level data. this is used in the hover tooltips.
     :param time_safe_unit should describe the unit used to count the time a region has been "safe" (e.g. day)
     :param time_safe_plural_unit should be same as time_safe_unit but plural (e.g. days)
     :param incidence_unit should describe the unit used to represent incidence (e.g. case, case per 100,000)
     :param incidence_plural_unit should be same as incidence_unit but plural (e.g. cases, cases per 100,000)
 
+    --- Keys ---
     :param region_key is used to access a region's name
     :param primary_incidence_key is used to access the disease incidence. incidence can be in case numbers, etc.
            the data stored under the primary key is used to calculate the phase categorizations, sorting, etc.
@@ -49,8 +94,9 @@ class VisualizationLayout:
     :param postcode_key is used to access a region's postcode
     :param percent_change_key is used to access the calculated percent change in incidence over a given timeframe
     :param calc_with_secondary_incidence is used as an override, with index i = True forcing the calculations for the
-           category at index i to be done using the secondary incidence data. (default: [False] * number of categories)
+           category at index i to be done using the secondary incidence data.
 
+    --- Strings ---
     :param legend_title is the title displayed above the legend
     :param searchbar_placeholder is used as the placeholder for the region search bar
     :param reset_button_text is used as the text for the reset button
@@ -63,96 +109,21 @@ class VisualizationLayout:
     :param percent_change_tooltip= is used to display percent change between the timeframes in the hovering tooltip
     """
 
-    def __init__(self,
-                 # metadata
-                 input_path, labels, descriptions, lower_bounds, colors, title,
-
-                 # sizing stuff
-                 width=700, height=800,
-                 legend_width=300, legend_height=200,
-                 x_range=(-3, 5), y_range=(-0.1, 1.1),
-                 min_space_x=0.075, min_space_y=0.033,
-                 num_top_regions=6,
-
-                 # keys
-                 region_key="District/County Town",
-                 primary_incidence_key="New Cases in Last 14 Days",
-                 secondary_incidence_key="Last 7 Days",
-                 time_safe_key="COVID-Free Days",
-                 postcode_key="Postcode",
-                 percent_change_key="Pct Change",
-
-                 # units
-                 region_type="Region",
-                 time_safe_unit="day",
-                 time_safe_plural_unit="days",
-                 incidence_unit="case",
-                 incidence_plural_unit="cases",
-                 calc_with_secondary_incidence=None,
-
-                 # strings
-                 legend_title="Legend",
-                 searchbar_placeholder="Search for a region...",
-                 reset_button_text="Reset",
-                 region_name_tooltip="Region Name",
-                 category_tooltip="Category",
-                 region_code_tooltip="Region Code",
-                 time_safe_tooltip="COVID-Free Days",
-                 primary_incidence_tooltip="New Cases in Last 14 Days",
-                 secondary_incidence_tooltip="New Cases in Last 7 Days",
-                 percent_change_tooltip="Weekly Percent Change"
-                 ):
-
-        # Initialize metadata-like input data
+    def __init__(self, title, input_path, labels, descriptions, lower_bounds, colors, **kwargs):
+        # Initialize required parameters
+        self.title = title
         self.input_table = pd.read_pickle(input_path)
         self.labels = labels
         self.descriptions = descriptions
-        self.lower_bounds_adj = lower_bounds
-        self.lower_bounds_adj.append(self.input_table[primary_incidence_key].max())
+        self.lower_bounds = lower_bounds
         self.colors = colors
-        self.title = title
-        self.region_type = region_type
-        self.num_categories = len(labels)
+        self.num_categories = len(self.labels)
 
-        # Initialize sizing stuff
-        self.width = width
-        self.height = height
-        self.legend_width = legend_width
-        self.legend_height = legend_height
-        self.x_range = x_range
-        self.y_range = y_range
-        self.min_space_x = min_space_x
-        self.min_space_y = min_space_y
-        self.num_top_regions = num_top_regions
+        # Read in kwargs
+        self.__read_config__(kwargs)
 
-        # Initialize keys
-        self.region_key = region_key
-        self.primary_incidence_key = primary_incidence_key
-        self.secondary_incidence_key = secondary_incidence_key
-        self.time_safe_key = time_safe_key
-        self.postcode_key = postcode_key
-        self.percent_change_key = percent_change_key
-
-        # Initialize unit stuff
-        self.region_type = region_type
-        self.time_safe_unit = time_safe_unit
-        self.time_safe_plural_unit = time_safe_plural_unit
-        self.incidence_unit = incidence_unit
-        self.incidence_plural_unit = incidence_plural_unit
-        self.calc_with_secondary_incidence = (calc_with_secondary_incidence if calc_with_secondary_incidence is not None
-                                              else [False] * self.num_categories)
-
-        # Initialize tooltip strings
-        self.legend_title = legend_title
-        self.searchbar_placeholder = searchbar_placeholder
-        self.reset_button_text = reset_button_text
-        self.region_name_tooltip = region_name_tooltip
-        self.category_tooltip = category_tooltip
-        self.region_code_tooltip = region_code_tooltip
-        self.time_safe_tooltip = time_safe_tooltip
-        self.primary_incidence_tooltip = primary_incidence_tooltip
-        self.secondary_incidence_tooltip = secondary_incidence_tooltip
-        self.percent_change_tooltip = percent_change_tooltip
+        # Adjust lower bounds!
+        self.lower_bounds.append(self.input_table[self.primary_incidence_key].max())
 
         # Initialize class members which will store calculation data
         self.ratios = []
@@ -171,15 +142,56 @@ class VisualizationLayout:
         self.__init_sorting_criteria__()
         self.__build_top_regions__()
 
+    def __read_config__(self, config):
+        # Initialize sizing stuff
+        self.width = config.get("width", DEFAULT_WIDTH)
+        self.height = config.get("height", DEFAULT_HEIGHT)
+        self.legend_width = config.get("legend_width", DEFAULT_LEGEND_WIDTH)
+        self.legend_height = config.get("legend_height", DEFAULT_LEGEND_HEIGHT)
+        self.x_range = config.get("x_range", DEFAULT_X_RANGE)
+        self.y_range = config.get("y_range", DEFAULT_Y_RANGE)
+        self.min_space_x = config.get("min_space_x", DEFAULT_MIN_SPACE_X)
+        self.min_space_y = config.get("min_space_y", DEFAULT_MIN_SPACE_Y)
+        self.num_top_regions = config.get("num_top_regions", DEFAULT_NUM_TOP_REGIONS)
+
+        # Initialize keys
+        self.region_key = config.get("region_key", DEFAULT_REGION_KEY)
+        self.primary_incidence_key = config.get("primary_incidence_key", DEFAULT_PRIMARY_INCIDENCE_KEY)
+        self.secondary_incidence_key = config.get("secondary_incidence_key", DEFAULT_SECONDARY_INCIDENCE_KEY)
+        self.time_safe_key = config.get("time_safe_key", DEFAULT_TIME_SAFE_KEY)
+        self.postcode_key = config.get("postcode_key", DEFAULT_POSTCODE_KEY)
+        self.percent_change_key = config.get("percent_change_key", DEFAULT_PERCENT_CHANGE_KEY)
+
+        # Initialize unit stuff
+        self.region_type = config.get("region_type", DEFAULT_REGION_TYPE)
+        self.time_safe_unit = config.get("time_safe_unit", DEFAULT_TIME_SAFE_UNIT)
+        self.time_safe_plural_unit = config.get("time_safe_plural_unit", DEFAULT_TIME_SAFE_PLURAL_UNIT)
+        self.incidence_unit = config.get("incidence_unit", DEFAULT_INCIDENCE_UNIT)
+        self.incidence_plural_unit = config.get("incidence_plural_unit", DEFAULT_INCIDENCE_PLURAL_UNIT)
+        self.calc_with_secondary_incidence = config.get("calc_with_secondary_incidence", [False] * self.num_categories)
+
+        # Initialize strings
+        self.legend_title = config.get("legend_title", DEFAULT_LEGEND_TITLE)
+        self.searchbar_placeholder = config.get("searchbar_placeholder", DEFAULT_SEARCHBAR_PLACEHOLDER)
+        self.reset_button_text = config.get("reset_button_text", DEFAULT_RESET_BUTTON_TEXT)
+        self.region_name_tooltip = config.get("region_name_tooltip", DEFAULT_REGION_NAME_TOOLTIP)
+        self.category_tooltip = config.get("category_tooltip", DEFAULT_CATEGORY_TOOLTIP)
+        self.region_code_tooltip = config.get("region_code_tooltip", DEFAULT_REGION_CODE_TOOLTIP)
+        self.time_safe_tooltip = config.get("time_safe_tooltip", DEFAULT_TIME_SAFE_TOOLTIP)
+        self.primary_incidence_tooltip = config.get("primary_incidence_tooltip", DEFAULT_PRIMARY_INCIDENCE_TOOLTIP)
+        self.secondary_incidence_tooltip = config.get("secondary_incidence_tooltip",
+                                                      DEFAULT_SECONDARY_INCIDENCE_TOOLTIP)
+        self.percent_change_tooltip = config.get("percent_change_tooltip", DEFAULT_PERCENT_CHANGE_TOOLTIP)
+
     def __categorize_entries__(self):
         for i in range(self.num_categories):
             incidence_key = self.__get_incidence_key__(i)
             self.categorized_entries.append(
                 self.input_table.loc[
                     (self.input_table[incidence_key] >=
-                     self.lower_bounds_adj[i]) &
+                     self.lower_bounds[i]) &
                     (self.input_table[incidence_key] <
-                     self.lower_bounds_adj[i + 1])])
+                     self.lower_bounds[i + 1])])
 
     def __calculate_ratios__(self):
         num_entries = len(self.input_table)
@@ -386,17 +398,18 @@ class VisualizationLayout:
             if box_data["box_top_y"][i] is None:
                 continue
 
-            # if there is a line, that means the label is offset
+            # if there is a line, that means the label is offset. in that case, render a line
             is_offset = box_data["line_x_points"][i] is not None
+            if is_offset:
+                plot.line(x=box_data["line_x_points"][i], y=box_data["line_y_points"][i], color=self.colors[i])
 
-            # Render text, the y_offset ensures that the line points to text and not the empty space between the text
+            # Render box and text, y_offset ensures the line points to text and not the empty space between the text
             plot.vbar(0, 2, box_data["box_top_y"][i], fill_color=self.colors[i], line_color="#000000")
             plot.text(x=box_data["text_x"][i], y=box_data["text_y"][i],
                       text=box_data["text"][i],
                       text_baseline="middle",
                       y_offset=(10 if is_offset else 0),
                       text_align=("right" if is_offset else "center"))
-            plot.line(x=box_data["line_x_points"][i], y=box_data["line_y_points"][i], color=self.colors[i])
 
     def __draw_glyphs__(self, plot):
         # Add lines
