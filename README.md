@@ -16,3 +16,5 @@ Visualizations and integration created by: Jason Li
   * REGION (e.g. REGION=germany)
   * BOKEH_ALLOW_WS_ORIGIN (e.g. BOKEH_ALLOW_WS_ORIGIN=localhost:5006,localhost:8080)
     * Multiple origins can be added, separated by comma
+### Example
+![visualization example](https://raw.githubusercontent.com/aochen-jli/rankings/main/visualization_img.png)
