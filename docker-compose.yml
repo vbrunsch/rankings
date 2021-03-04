@@ -7,5 +7,6 @@ services:
     environment:
       - REGION=germany
       - BOKEH_ALLOW_WS_ORIGIN=localhost:${GERMANY_PORT},${SERVER_HOST}:${GERMANY_PORT}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
     ports:
       - ${GERMANY_PORT}:5006

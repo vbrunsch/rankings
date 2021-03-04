@@ -1,6 +1,4 @@
 FROM continuumio/miniconda3:4.9.2-alpine
-ENV REGION=""
-ENV BOKEH_ALLOW_WS_ORIGIN="localhost:5006"
 
 RUN conda install bokeh pandas pyyaml -y
 WORKDIR /app
