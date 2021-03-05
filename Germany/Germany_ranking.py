@@ -105,7 +105,11 @@ tab.columns = ['District/County Town', 'COVID-Free Days', 'New Cases in Last 14 
                'Population', 'Pct Change', 'Cases per 100k (Last 7 Days)', 'Cases per 100k (Last 14 Days)']
 
 # Save dataframe for the visualization, then reset table for the rankings page
-tab.to_pickle("germany.pkl")
+districts_formatted = tab['District/County Town'].str.split(" ").\
+    map(lambda split: f'{" ".join(split[1:])}, {split[0]}')
+tab_formatted = tab
+tab_formatted['District/County Town'] = districts_formatted
+tab_formatted.to_pickle("../visualizations/pickles/germany.pkl")
 tab = tab.drop(['Postcode', 'Population', 'Cases per 100k (Last 7 Days)', 'Cases per 100k (Last 14 Days)'], axis=1)
 
 def highlighter(s):
