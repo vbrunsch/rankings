@@ -6,7 +6,7 @@ services:
     restart: on-failure
     environment:
       - REGION=germany
-      - BOKEH_ALLOW_WS_ORIGIN=localhost:${GERMANY_PORT},${SERVER_HOST}:${GERMANY_PORT}
+      - BOKEH_ALLOW_WS_ORIGIN=localhost:${GERMANY_PORT},${SERVER_HOST}:${GERMANY_PORT},${GLOBAL_WHITELIST}
       - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
       - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
     ports:
@@ -17,7 +17,7 @@ services:
     restart: on-failure
     environment:
       - REGION=saxony
-      - BOKEH_ALLOW_WS_ORIGIN=localhost:${SAXONY_PORT},${SERVER_HOST}:${SAXONY_PORT}
+      - BOKEH_ALLOW_WS_ORIGIN=localhost:${SAXONY_PORT},${SERVER_HOST}:${SAXONY_PORT},${GLOBAL_WHITELIST}
       - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
       - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
     ports:

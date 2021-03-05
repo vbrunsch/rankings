@@ -4,3 +4,4 @@ visualizations/__pycache__
 .idea/inspectionProfiles
 .idea
 .DS_Store
+certs/
