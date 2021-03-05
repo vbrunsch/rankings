@@ -16,7 +16,7 @@ DEFAULT_X_RANGE = (-3, 5)
 DEFAULT_Y_RANGE = (-0.1, 1.1)
 DEFAULT_MIN_SPACE_X = 0.075
 DEFAULT_MIN_SPACE_Y = 0.033
-DEFAULT_NUM_TOP_REGIONS = 6
+DEFAULT_NUM_DISPLAY_REGIONS = 5
 # keys
 DEFAULT_REGION_KEY = "District/County Town"
 DEFAULT_PRIMARY_INCIDENCE_KEY = "New Cases in Last 14 Days"
@@ -74,7 +74,7 @@ class VisualizationLayout:
            for reference, the box's height is 1 and it spans y = [0, 1]
     :param min_space_x is the minimum horizontal space in between each "branched" line
     :param min_space_y is the minimum vertical space in between each county's text and line elements
-    :param num_top_regions is the number of regions that appear per phase (excluding searched regions)
+    :param num_display_regions is the number of regions that appear per phase (excluding searched regions)
 
     --- Units ---
     :param region_type should describe the granularity of the input data.
@@ -128,7 +128,7 @@ class VisualizationLayout:
         # Initialize class members which will store calculation data
         self.ratios = []
         self.categorized_entries = []
-        self.top_regions = [pd.DataFrame()] * self.num_categories
+        self.display_regions = [pd.DataFrame()] * self.num_categories
         self.sort_criterias = []
         self.criteria_units = []
         self.last_searched = ""
@@ -140,7 +140,7 @@ class VisualizationLayout:
         self.__categorize_entries__()
         self.__calculate_ratios__()
         self.__init_sorting_criteria__()
-        self.__build_top_regions__()
+        self.__build_display_regions__()
 
     def __read_config__(self, config):
         # Initialize sizing stuff
@@ -152,7 +152,7 @@ class VisualizationLayout:
         self.y_range = config.get("y_range", DEFAULT_Y_RANGE)
         self.min_space_x = config.get("min_space_x", DEFAULT_MIN_SPACE_X)
         self.min_space_y = config.get("min_space_y", DEFAULT_MIN_SPACE_Y)
-        self.num_top_regions = config.get("num_top_regions", DEFAULT_NUM_TOP_REGIONS)
+        self.num_display_regions = config.get("num_display_regions", DEFAULT_NUM_DISPLAY_REGIONS)
 
         # Initialize keys
         self.region_key = config.get("region_key", DEFAULT_REGION_KEY)
@@ -212,28 +212,35 @@ class VisualizationLayout:
             return self.secondary_incidence_key
         return self.primary_incidence_key
 
-    def __build_top_regions__(self):
+    def __build_display_regions__(self):
         for i in range(self.num_categories):
+            sort_ascending = True
             if self.sort_criterias[i] == self.time_safe_key:
-                self.top_regions[i] = self.categorized_entries[i].nlargest(
-                    self.num_top_regions, self.sort_criterias[i])
-            else:
-                self.top_regions[i] = self.categorized_entries[i].nsmallest(
-                    self.num_top_regions, self.sort_criterias[i])
+                sort_ascending = False
+
+            # add top regions
+            sorted_entries = self.categorized_entries[i].\
+                sort_values(by=self.sort_criterias[i], axis=0, ascending=sort_ascending)
+            self.display_regions[i] = sorted_entries.head(self.num_display_regions)
+
+            # replace the tail with the worst region
+            if len(sorted_entries) > self.num_display_regions:
+                self.display_regions[i] = self.display_regions[i].head(-1)
+                self.display_regions[i] = self.display_regions[i].append(sorted_entries.tail(1))
 
     def __add_searched_region__(self, query):
         # Set last searched
         self.last_searched = query
-        # Add searched region to appropriate top_regions element, then sort
+        # Add searched region to appropriate display_regions element, then sort
         search_type = self.postcode_key if query.isnumeric() else self.region_key
         for i in range(self.num_categories):
             searched_region_entry = \
                 self.categorized_entries[i][self.categorized_entries[i][search_type] == query]
             if (query != "") and \
                     (len(searched_region_entry) != 0) and \
-                    (len(self.top_regions[i][self.top_regions[i][search_type] == query]) == 0):
-                self.top_regions[i] = self.top_regions[i].append(searched_region_entry)
-                self.top_regions[i] = self.top_regions[i]. \
+                    (len(self.display_regions[i][self.display_regions[i][search_type] == query]) == 0):
+                self.display_regions[i] = self.display_regions[i].append(searched_region_entry)
+                self.display_regions[i] = self.display_regions[i]. \
                     sort_values(self.sort_criterias[i],
                                 ascending=(self.sort_criterias[i] == self.__get_incidence_key__(i)))
                 break
@@ -260,7 +267,7 @@ class VisualizationLayout:
         plot_data = self.__new_plot_data_map__()
         searched_plot_data = self.__new_plot_data_map__()
         for i in range(len(self.ratios)):
-            curr_top = self.top_regions[i]
+            curr_top = self.display_regions[i]
             sort_criteria = self.sort_criterias[i]
             criteria_unit = self.criteria_units[i]
 
@@ -442,7 +449,7 @@ class VisualizationLayout:
         def handle_reset(event):
             text_input.value = ""
             self.last_searched = ""
-            self.__build_top_regions__()
+            self.__build_display_regions__()
             self.__build_plot_data__()
 
         # Builds input with autocompletion
