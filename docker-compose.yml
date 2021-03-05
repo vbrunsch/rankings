@@ -11,3 +11,14 @@ services:
       - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
     ports:
       - ${GERMANY_PORT}:5006
+  saxony_visualization:
+    build: .
+    image: saxony_visualization
+    restart: on-failure
+    environment:
+      - REGION=saxony
+      - BOKEH_ALLOW_WS_ORIGIN=localhost:${SAXONY_PORT},${SERVER_HOST}:${SAXONY_PORT}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    ports:
+      - ${SAXONY_PORT}:5006
