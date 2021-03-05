@@ -59,8 +59,7 @@ class VisualizationLayout:
     :param descriptions are used to display the legend
     :param lower_bounds are the lower bounds, inclusive, of the phases. an example is [0, 1, 20], where phase 1 only
            includes 0 incidence (>= 0 and < 1, phase 2 includes incidence >= 1 and < 20, etc.
-           if you do not want a "Green Zone," you should set the first element of the labels to a dummy label and the
-           first element of lower_bounds to an arbitrarily high number.
+           if you do not want a "Green Zone," set the first element of each labels, colors, etc. to None (~ in yaml).
     :param colors are the colors of each phase
 
     --- Sizing Stuff ---
@@ -219,7 +218,7 @@ class VisualizationLayout:
                 sort_ascending = False
 
             # add top regions
-            sorted_entries = self.categorized_entries[i].\
+            sorted_entries = self.categorized_entries[i]. \
                 sort_values(by=self.sort_criterias[i], axis=0, ascending=sort_ascending)
             self.display_regions[i] = sorted_entries.head(self.num_display_regions)
 
@@ -266,27 +265,23 @@ class VisualizationLayout:
         last_text_y = float('inf')
         plot_data = self.__new_plot_data_map__()
         searched_plot_data = self.__new_plot_data_map__()
-        for i in range(len(self.ratios)):
-            curr_top = self.display_regions[i]
-            sort_criteria = self.sort_criterias[i]
-            criteria_unit = self.criteria_units[i]
+        for category_i in range(len(self.ratios)):
+            curr_top = self.display_regions[category_i]
+            sort_criteria = self.sort_criterias[category_i]
+            criteria_unit = self.criteria_units[category_i]
 
-            box_size = self.ratios[i]
+            box_size = self.ratios[category_i]
             if box_size == 0:
                 continue
 
             # Iterate through each region, calculate their plot positions with padding
+            # Also, process the data fields, allowing for empty defaults on the optional fields
             top_region_datum = curr_top[sort_criteria].max()
             bot_region_datum = curr_top[sort_criteria].min()
             padding = box_size * 0.1
-            for region, datum, postcode, time_safe, primary_incidence, secondary_incidence, percent_change in zip(
-                    curr_top[self.region_key],
-                    curr_top[sort_criteria],
-                    curr_top[self.postcode_key],
-                    curr_top[self.time_safe_key],
-                    curr_top[self.primary_incidence_key],
-                    curr_top[self.secondary_incidence_key],
-                    curr_top[self.percent_change_key]):
+            for region_i in range(len(curr_top[self.region_key])):
+                region = curr_top[self.region_key].values[region_i]
+                datum = curr_top[self.sort_criterias[category_i]].values[region_i]
                 line_y_relative = ((datum - bot_region_datum) / (top_region_datum - bot_region_datum)) \
                     if top_region_datum != bot_region_datum else 0.5
                 line_y = box_top_y - ((box_size - (padding * 2)) * line_y_relative) - padding
@@ -302,17 +297,25 @@ class VisualizationLayout:
                 # Store plot data for post-processing
                 plot_data["line_x_points"].append(line_x_points)
                 plot_data["line_y_points"].append(line_y_points)
-                plot_data["line_color"].append(self.colors[i])
+                plot_data["line_color"].append(self.colors[category_i])
                 plot_data["text_x"].append(line_x_points[3])
                 plot_data["text_y"].append(text_y)
                 plot_data["text"].append([f"{region}: {datum} {self.__determine_unit__(criteria_unit, datum)}"])
                 plot_data["region_name"].append(region)
-                plot_data["category"].append(self.labels[i])
-                plot_data["postcode"].append(postcode)
-                plot_data["time_safe"].append(time_safe)
-                plot_data["primary_incidence"].append(primary_incidence)
-                plot_data["secondary_incidence"].append(secondary_incidence)
-                plot_data["percent_change"].append('{:.1%}'.format(percent_change / 100))
+                plot_data["category"].append(self.labels[category_i])
+                plot_data["time_safe"].append(curr_top[self.time_safe_key].values[region_i])
+                plot_data["primary_incidence"].append(curr_top[self.primary_incidence_key].values[region_i])
+
+                # Add optional values (if they don't exist, add None to ensure the ColumnDataSource doesn't complain)
+                plot_data["postcode"].append(
+                    curr_top[self.postcode_key].values[region_i]
+                    if self.postcode_key in curr_top else None)
+                plot_data["secondary_incidence"].append(
+                    curr_top[self.secondary_incidence_key].values[region_i]
+                    if self.secondary_incidence_key in curr_top else None)
+                plot_data["percent_change"].append(
+                    '{:.1%}'.format(curr_top[self.percent_change_key].values[region_i] / 100)
+                    if self.percent_change_key in curr_top else None)
 
             box_top_y -= box_size
 
@@ -320,12 +323,12 @@ class VisualizationLayout:
         self.__adjust_branches__(data=plot_data, direction="right")
 
         # Isolate searched region
-        for i in reversed(range(len(plot_data["postcode"]))):
-            if (plot_data["region_name"][i] == self.last_searched) or \
-                    (plot_data["postcode"][i] == self.last_searched):
+        for category_i in reversed(range(len(plot_data["postcode"]))):
+            if (plot_data["region_name"][category_i] == self.last_searched) or \
+                    (plot_data["postcode"][category_i] == self.last_searched):
                 for key in plot_data:
-                    searched_plot_data[key] = [plot_data[key][i]]
-                    del plot_data[key][i]
+                    searched_plot_data[key] = [plot_data[key][category_i]]
+                    del plot_data[key][category_i]
                 break
 
         self.source.data = plot_data
@@ -424,18 +427,24 @@ class VisualizationLayout:
         plot.add_glyph(self.source, line)
         plot.add_glyph(self.searched_source, line)
 
-        # Add text and hover functionality
+        # Add text
         text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="normal")
         text_renderer = plot.add_glyph(self.source, text)
         searched_text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="bold")
         searched_text_renderer = plot.add_glyph(self.searched_source, searched_text)
-        tooltips = [(f"{self.region_name_tooltip}", "@{region_name}"),
-                    (f"{self.category_tooltip}", "@{category}"),
-                    (f"{self.region_code_tooltip}", "@{postcode}"),
-                    (f"{self.time_safe_tooltip}", "@{time_safe}"),
-                    (f"{self.primary_incidence_tooltip}", "@{primary_incidence}"),
-                    (f"{self.secondary_incidence_tooltip}", "@{secondary_incidence}"),
-                    (f"{self.percent_change_tooltip}", "@{percent_change}")]
+
+        # add the hover functionality, filtering out optional fields
+        tooltips = [(f"{self.region_name_tooltip}", "@{region_name}")]
+        if self.postcode_key in self.input_table.columns:
+            tooltips.append((f"{self.region_code_tooltip}", "@{postcode}"))
+        tooltips.append((f"{self.category_tooltip}", "@{category}"))
+        tooltips.append((f"{self.time_safe_tooltip}", "@{time_safe}"))
+        tooltips.append((f"{self.primary_incidence_tooltip}", "@{primary_incidence}"))
+        if self.secondary_incidence_key in self.input_table.columns:
+            tooltips.append((f"{self.secondary_incidence_tooltip}", "@{secondary_incidence}"))
+        if self.percent_change_key in self.input_table.columns:
+            tooltips.append((f"{self.percent_change_tooltip}", "@{percent_change}"))
+
         text_hover = HoverTool(renderers=[text_renderer, searched_text_renderer], tooltips=tooltips,
                                anchor="bottom_center", attachment="above", point_policy="follow_mouse")
         plot.add_tools(text_hover)
@@ -452,10 +461,11 @@ class VisualizationLayout:
             self.__build_display_regions__()
             self.__build_plot_data__()
 
-        # Builds input with autocompletion
+        # Builds input with autocompletion, adding in postcodes if they exist
         completions = []
         completions.extend(self.input_table[self.region_key].tolist())
-        completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
+        if self.postcode_key in self.input_table.columns:
+            completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
         text_input = AutocompleteInput(completions=completions, min_characters=5, case_sensitive=False,
                                        placeholder=self.searchbar_placeholder)
         text_input.on_change('value', handle_search)
@@ -495,11 +505,12 @@ class VisualizationLayout:
         legend = Legend()
         legend_items = []
         for i in range(self.num_categories):
-            legend_items.append(
-                LegendItem(
-                    label=f"{self.labels[i]}: {self.descriptions[i]}"
+            if self.labels[i] is not None:
+                legend_items.append(
+                    LegendItem(
+                        label=f"{self.labels[i]}: {self.descriptions[i]}"
+                    )
                 )
-            )
         legend.items = legend_items
         legend.location = "center"
         legend_plot = figure(
@@ -515,10 +526,9 @@ class VisualizationLayout:
         legend_plot.add_layout(legend)
         return legend_plot
 
-    def add_to_curdoc(self):
-        """ add_to_curdoc displays the visualization on Bokeh's current document.
-        :return: nothing
+    def generate(self):
+        """ generate builds the visualization's layout
+        :return: the layout
         """
         self.__build_plot_data__()
-        layout = self.__build_layout__()
-        curdoc().add_root(layout)
+        return self.__build_layout__()
