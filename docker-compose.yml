@@ -8,5 +8,6 @@ services:
       - REGION=germany
       - BOKEH_ALLOW_WS_ORIGIN=localhost:${GERMANY_PORT},${SERVER_HOST}:${GERMANY_PORT}
       - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
     ports:
       - ${GERMANY_PORT}:5006
