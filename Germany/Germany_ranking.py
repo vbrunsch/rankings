@@ -94,10 +94,10 @@ tab = tab.drop(['week'], axis=1)
 tab['PercentChange'] = 100*(tab['Last7'] - tab['Previous7'])/(tab['Last7']+tab['Previous7'])
 tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
 
-# Cases per 100k (hacky fix to remove floating points)
-tab['Cases per 100k (Last 7 Days)'] = (tab['Last7'] * (tab['Population'] / 100000)).\
+# Cases per 100k (with hacky fix to remove floating points)
+tab['Cases per 100k (Last 7 Days)'] = ((tab['Last7'] / tab['Population']) * 100000).\
     apply('{:.2f}'.format).astype('float')
-tab['Cases per 100k (Last 14 Days)'] = ((tab['Last7'] + tab['Previous7']) * (tab['Population'] / 100000)).\
+tab['Cases per 100k (Last 14 Days)'] = (((tab['Last7'] + tab['Previous7']) / tab['Population']) * 100000).\
     apply('{:.2f}'.format).astype('float')
 
 tab = tab.drop(['Previous7'], axis=1)
