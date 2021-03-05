@@ -6,7 +6,7 @@ import numpy as np
 
 #
 #df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/datos_provincias.csv')
-df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/casos_diagnostico_provincia.csv')
+df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/casos_tecnica_provincia.csv')
 df['provincia_iso'].fillna('NA', inplace = True)
 ab = pd.read_csv(r'Spain_Abbrev.csv')
 ab['Abbrev'].fillna('NA', inplace = True)
@@ -21,6 +21,7 @@ for p in confirm.columns:
         n = focus[focus['provincia_iso']==p]
         p_long = ab.loc[ab['Abbrev']==p,'Province'].item()
         ave = n['num_casos']
+        ave.drop(ave.tail(3).index,inplace=True)
         las = len(ave)-14
         last_forteen = ave[las:].sum()
         if last_forteen < 0:
