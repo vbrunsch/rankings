@@ -25,7 +25,7 @@ old_uck.index.name = None
 old_uck = old_uck.join(new)
 #print(old_uck)
 
-tod = pd.Timestamp.today().strftime('%#m/%#d/%Y')
+tod = pd.Timestamp.today().strftime('%-m/%-d/%Y')
 
 print(tod)
 if tod == old_uck.columns[-2]:
