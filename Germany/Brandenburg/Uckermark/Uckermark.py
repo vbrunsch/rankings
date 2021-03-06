@@ -188,7 +188,7 @@ except Exception as e:
 
     
 ## For Datawrapper
-ags = pd.read_csv(r'Germany\Brandenburg\Uckermark\data\AGS2.csv')
+ags = pd.read_csv(f'Germany\Brandenburg\Uckermark\data\AGS2.csv')
 
 get_ags = pd.Series(ags['AGS'].values,index=ags['Gemeinde']).to_dict()
 
