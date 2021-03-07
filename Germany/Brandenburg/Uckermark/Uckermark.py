@@ -2,6 +2,7 @@
 # coding: utf-8
 import requests
 import pandas as pd
+from datetime import timedelta
 
 url = 'https://www.uckermark.de/index.phtml?La=1&mNavID=1897.1&object=tx,2203.741.1&kat=&kuo=2&sub=0'
 html = requests.get(url).content
