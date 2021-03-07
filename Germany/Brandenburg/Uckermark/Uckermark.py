@@ -29,7 +29,7 @@ old_uck = old_uck.join(new)
 tod = pd.Timestamp.today()- timedelta(hours=5)
 tod = tod.date()
 tod2 = tod.strftime('%m/%d/%Y')
-tod = tod.strftime('%#m/%#d/%Y')
+tod = tod.strftime('%-m/%-d/%Y')
 
 print(tod)
 print(tod2)
