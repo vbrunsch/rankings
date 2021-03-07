@@ -27,9 +27,12 @@ old_uck = old_uck.join(new)
 #print(old_uck)
 
 tod = pd.Timestamp.today()- timedelta(hours=5)
+tod = tod.date()
 tod = tod.strftime('%#m/%#d/%Y')
+tod2 = tod.strftime('%m/%d/%Y')
 
 print(tod)
+print(tod2)
 if tod == old_uck.columns[-2]:
     old_uck = old_uck.drop(old_uck.columns[-2], axis = 1)
 #print(old_uck)
