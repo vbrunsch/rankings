@@ -35,6 +35,46 @@ if tod == old_uck.columns[-2]:
 old_uck = old_uck.rename(columns={'Neue Fälle': tod})
 #print(old_uck)
 
+import re
+h = html.decode("ISO-8859-1")
+matches = re.findall('Stand: (.*),', h)
+day = re.findall('(..)\. ', matches[0])[0]
+mon = re.findall('\. (.*) ', matches[0])[0]
+yea = re.findall('\. .* (....)', matches[0])[0]
+
+
+if mon == 'Januar':
+    mon = '01'
+elif mon == 'Februar':
+    mon = '02'
+elif mon == 'M&auml;rz':
+    mon = '03'
+elif mon == 'April':
+    mon = '04'
+elif mon == 'Mai':
+    mon = '05'
+elif mon == 'Juni':
+    mon = '06'
+elif mon == 'Juli':
+    mon = '07'
+elif mon == 'August':
+    mon = '08'
+elif mon == 'September':
+    mon = '09'
+elif mon == 'Oktober':
+    mon = '10'
+elif mon == 'November':
+    mon = '11'
+elif mon == 'Dezember':
+    mon = '12'
+
+sta = mon+day+yea
+import datetime
+dtsta = datetime.datetime.strptime(sta, '%m%d%Y').date()
+dtold = datetime.datetime.strptime(old_uck.columns[-1], '%m/%d/%Y').date()
+if dtsta != dtold:
+    old_uck[old_uck.columns[-1]]= 0
+
 old_uck.to_csv(f'Germany/Brandenburg/Uckermark/data/Uckermark old csv just new cases.csv')
 
 l7 = list(old_uck)[-7:]
