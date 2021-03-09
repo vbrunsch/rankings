@@ -116,6 +116,10 @@ mdf['Neuzugänge letzten 7 Tage_x'] = mdf['Neuzugänge letzten 7 Tage_x']*10
 
 mdf.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_dw_14_Tage_neu.csv')
 
+# Map for Görlitz only
+goe_only = mdf[mdf['Landkreis']=='Görlitz']
+goe_only.to_csv(f'Germany/Sachsen/data/Sachsen_Görlitz_for_dw_14_Tage_neu.csv')
+
 # For Rankings
 jsp = pd.read_json('https://www.coronavirus.sachsen.de/corona-statistics/rest/infectionOverview.jsp')
 dres = jsp[jsp.columns[0]].to_frame()
@@ -298,6 +302,21 @@ s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 try:        
     with open(f'Sachsen_neu.html', 'w', encoding="utf-8") as out:
         body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
+        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
+        content = top + body + bottom
+        out.write(content)
+except Exception as e:
+    print(f'Error:\n{e}')
+
+    
+# Goerlitz Tabelle
+goe_gems = goe_only['Gemeinde'].unique()
+goe_tab = tab[tab['Stadt/Gemeinde'].isin(goe_gems)]
+goe_s = goe_tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
+
+try:        
+    with open(f'Görlitz_neu.html', 'w', encoding="utf-8") as out:
+        body = goe_s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
         body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
         content = top + body + bottom
         out.write(content)
