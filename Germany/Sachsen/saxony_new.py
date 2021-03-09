@@ -107,6 +107,7 @@ old.at[len(old)-1,'Gemeinde']= 'Schönfeld'
 
 
 mdf = df.merge(old, on='Gemeinde')
+mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
 
 # Map for Görlitz only
 goe_only = mdf[mdf['Landkreis']=='Görlitz']
@@ -117,7 +118,7 @@ goe_only['Neuzugänge letzten 7 Tage_x'] = goe_only['Neuzugänge letzten 7 Tage_
 goe_only.to_csv(f'Germany/Sachsen/data/Sachsen_Görlitz_for_dw_14_Tage_neu.csv')
 
 
-mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
+
 mdf['Neuzugänge letzten 7 Tage_x'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, mdf['Neuzugänge letzten 7 Tage_x'])
 mdf['Neuzugänge letzten 7 Tage_x'] = np.where(mdf['Neuzugänge letzten 14 Tage'] == 0, 0.2, mdf['Neuzugänge letzten 7 Tage_x'])
 mdf['Neuzugänge letzten 7 Tage_x'] = mdf['Neuzugänge letzten 7 Tage_x']*10
