@@ -85,7 +85,7 @@ from datetime import datetime, timedelta
 import numpy as np
 
 datum = pd.to_datetime(da)
-d = datum - timedelta(days=7)
+d = datum - timedelta(days=6)
 
 old = pd.read_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{d.date()}.csv')
 
