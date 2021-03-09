@@ -320,7 +320,7 @@ except Exception as e:
 
     
 # Goerlitz Tabelle
-goe_gems = goe_only['Gemeinde'].unique()
+goe_gems = df2['Gemeinde'].unique()
 goe_tab = tab[tab['Stadt/Gemeinde'].isin(goe_gems)]
 goe_s = goe_tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
