@@ -221,7 +221,10 @@ def highlighter(s):
             r = 'background-color: #36124B; color: #ffffff;'
     except Exception as e:
         r = 'background-color: white'
-    return [r]*(len(s)-2) + ['']*2
+    if 0 == val_2:
+        return [r]*(len(s)-2) + ['']*2
+    else:
+        return [r]*(len(s)-3) + [''] + [r] + ['']
 
 def hover(hover_color="#ffff99"):
     return dict(selector="tbody tr:hover td, tbody tr:hover th",
@@ -287,7 +290,7 @@ tab.rename(columns = {'Percent Change':'Trend'}, inplace = True)
 tab.rename(columns = {'Gemeinde':'Stadt/Gemeinde'}, inplace = True)
 
 
-tab = tab[['Platz', 'Stadt/Gemeinde', 'Covid-freie Wochen', 'Letzte 7 Tage','Neue Fälle letzte 14 Tage','Trend']]
+tab = tab[['Platz', 'Stadt/Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage','Trend']]
 tab = tab.drop('Covid-freie Wochen', axis = 1)
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
