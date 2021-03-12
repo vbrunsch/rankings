@@ -118,6 +118,14 @@ goe_only['Neuzugänge letzten 7 Tage_x'] = np.where(goe_only['Neuzugänge letzte
 goe_only['Neuzugänge letzten 7 Tage_x'] = goe_only['Neuzugänge letzten 7 Tage_x']*10
 goe_only.to_csv(f'Germany/Sachsen/data/Sachsen_Görlitz_for_dw_14_Tage_neu.csv')
 
+# Map for Mittelsachsen only
+mit_only = mdf[mdf['Landkreis']=='Mittelsachsen']
+mit_only['Neuzugänge letzten 7 Tage'] = mit_only['Neuzugänge letzten 7 Tage_x']
+mit_only['Neuzugänge letzten 7 Tage_x'] = np.where(mit_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, mit_only['Neuzugänge letzten 7 Tage_x'])
+mit_only['Neuzugänge letzten 7 Tage_x'] = np.where(mit_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, mit_only['Neuzugänge letzten 7 Tage_x'])
+mit_only['Neuzugänge letzten 7 Tage_x'] = mit_only['Neuzugänge letzten 7 Tage_x']*10
+mit_only.to_csv(f'Germany/Sachsen/data/Sachsen_Mittelsachsen_for_dw_14_Tage_neu.csv')
+
 
 
 mdf['Neuzugänge letzten 7 Tage_x'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, mdf['Neuzugänge letzten 7 Tage_x'])
@@ -329,6 +337,20 @@ goe_s = goe_tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide
 try:        
     with open(f'Görlitz_neu.html', 'w', encoding="utf-8") as out:
         body = goe_s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
+        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
+        content = top + body + bottom
+        out.write(content)
+except Exception as e:
+    print(f'Error:\n{e}')
+    
+# Mittelsachsen Tabelle
+mit_gems = df5['Gemeinde'].unique()
+mit_tab = tab[tab['Stadt/Gemeinde'].isin(mit_gems)]
+mit_s = mit_tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
+
+try:        
+    with open(f'Mittelsachsen_neu.html', 'w', encoding="utf-8") as out:
+        body = mit_s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
         body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
         content = top + body + bottom
         out.write(content)
