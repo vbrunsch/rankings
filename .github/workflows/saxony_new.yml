@@ -44,11 +44,10 @@ jobs:
         git config --local user.name "GitHub Action"
         git add .
         git commit --allow-empty -m "Auto-update of the data packages" -a
-        #git config pull.rebase false
-        #git fetch
-        #git pull      
+        git config pull.rebase false
+        git fetch
+        git pull      
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        branch: "main"
         github_token: ${{ secrets.GITHUB_TOKEN }}
