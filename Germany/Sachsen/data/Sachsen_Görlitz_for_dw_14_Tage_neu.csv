@@ -1,42 +1,42 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-116,Gablenz,1,280.0,1.595,1.7555,Görlitz,27,55,28
+116,Gablenz,1,180.0,1.595,1.1285,Görlitz,35,53,18
 117,Kodersdorf,2,200.0,2.4219999999999997,8258.0,Görlitz,8,28,20
-118,Bertsdorf-Hörnitz,3,110.0,2.086,5273.0,Görlitz,0,11,11
+118,Bertsdorf-Hörnitz,3,140.0,2.086,6711.0,Görlitz,0,14,14
 119,Beiersdorf,4,50.0,1.14,4386.0,Görlitz,0,5,5
 120,Trebendorf,5,30.0,854.0,3513.0,Görlitz,0,3,3
-121,Schleife,6,70.0,2.4,2917.0,Görlitz,1,8,7
-122,Rosenbach,7,40.0,1.571,2546.0,Görlitz,1,5,4
-123,Königshain,8,30.0,1.179,2545.0,Görlitz,0,3,3
-124,Neusalza-Spremberg,9,80.0,3.3,2424.0,Görlitz,4,12,8
+121,Neusalza-Spremberg,6,100.0,3.3,3030.0,Görlitz,4,14,10
+122,Schleife,7,70.0,2.4,2917.0,Görlitz,0,7,7
+123,Rosenbach,8,40.0,1.571,2546.0,Görlitz,1,5,4
+124,Königshain,9,30.0,1.179,2545.0,Görlitz,0,3,3
 125,Quitzdorf am See,10,30.0,1.24,2419.0,Görlitz,0,3,3
-126,Bad Muskau,11,80.0,3.6860000000000004,2170.0,Görlitz,0,8,8
-127,Bernstadt a.d. Eigen,12,70.0,3.3539999999999996,2087.0,Görlitz,0,7,7
-128,Rietschen,13,50.0,2.529,1977.0,Görlitz,0,5,5
-129,Ebersbach-Neugersdorf,14,230.0,11.853,1940.0,Görlitz,21,44,23
-130,Weißkeißel,15,20.0,1.284,1558.0,Görlitz,0,2,2
-131,Kottmar,16,110.0,7.236000000000001,1520.0,Görlitz,11,22,11
-132,Weißwasser/O.L.,17,210.0,15.886,1322.0,Görlitz,23,44,21
-133,Vierkirchen,18,20.0,1.663,1203.0,Görlitz,3,5,2
+126,Bernstadt a.d. Eigen,11,80.0,3.3539999999999996,2385.0,Görlitz,1,9,8
+127,Rietschen,12,50.0,2.529,1977.0,Görlitz,0,5,5
+128,Ebersbach-Neugersdorf,13,230.0,11.853,1940.0,Görlitz,24,47,23
+129,Weißkeißel,14,20.0,1.284,1558.0,Görlitz,0,2,2
+130,Kottmar,15,100.0,7.236000000000001,1382.0,Görlitz,12,22,10
+131,Weißwasser/O.L.,16,200.0,15.886,1259.0,Görlitz,19,39,20
+132,Schöpstal,17,30.0,2.396,1252.0,Görlitz,1,4,3
+133,Vierkirchen,18,20.0,1.663,1203.0,Görlitz,4,6,2
 134,Neißeaue,19,20.0,1.706,1172.0,Görlitz,2,4,2
-135,Großschönau,20,60.0,5.3629999999999995,1119.0,Görlitz,9,15,6
+135,Großschönau,20,60.0,5.3629999999999995,1119.0,Görlitz,10,16,6
 136,Mittelherwigsdorf,21,40.0,3.634,1101.0,Görlitz,1,5,4
-137,Dürrhennersdorf,22,10.0,986.0,1014.0,Görlitz,0,1,1
-138,Schöpstal,23,20.0,2.396,835.0,Görlitz,1,3,2
-139,Oderwitz,24,40.0,5.002,800.0,Görlitz,3,7,4
-140,Großschweidnitz,25,10.0,1.2590000000000001,794.0,Görlitz,1,2,1
-141,Görlitz,26,410.0,55.98,732.0,Görlitz,29,70,41
-142,Löbau,27,100.0,14.456,692.0,Görlitz,3,13,10
-143,Olbersdorf,28,30.0,4.663,643.0,Görlitz,3,6,3
-144,Niesky,29,60.0,9.343,642.0,Görlitz,3,9,6
-145,Zittau,30,160.0,25.086,638.0,Görlitz,8,24,16
-146,Horka,31,10.0,1.694,590.0,Görlitz,0,1,1
-147,Seifhennersdorf,32,20.0,3.66,546.0,Görlitz,5,7,2
-148,Lawalde,33,10.0,1.835,545.0,Görlitz,1,2,1
-149,Markersdorf,34,20.0,3.9010000000000002,513.0,Görlitz,1,3,2
-150,Oppach,35,10.0,2.3280000000000003,430.0,Görlitz,2,3,1
-151,Herrnhut,36,20.0,5.837000000000001,343.0,Görlitz,8,10,2
-152,Krauschwitz i.d. O.L.,37,10.0,3.469,288.0,Görlitz,5,6,1
-153,Leutersdorf,38,10.0,3.483,287.0,Görlitz,2,3,1
+137,Lawalde,22,20.0,1.835,1090.0,Görlitz,1,3,2
+138,Bad Muskau,23,40.0,3.6860000000000004,1085.0,Görlitz,4,8,4
+139,Dürrhennersdorf,24,10.0,986.0,1014.0,Görlitz,0,1,1
+140,Oderwitz,25,50.0,5.002,1000.0,Görlitz,4,9,5
+141,Görlitz,26,450.0,55.98,804.0,Görlitz,31,76,45
+142,Großschweidnitz,27,10.0,1.2590000000000001,794.0,Görlitz,1,2,1
+143,Löbau,28,110.0,14.456,761.0,Görlitz,5,16,11
+144,Niesky,29,70.0,9.343,749.0,Görlitz,3,10,7
+145,Zittau,30,180.0,25.086,718.0,Görlitz,9,27,18
+146,Olbersdorf,31,30.0,4.663,643.0,Görlitz,3,6,3
+147,Horka,32,10.0,1.694,590.0,Görlitz,0,1,1
+148,Krauschwitz i.d. O.L.,33,20.0,3.469,577.0,Görlitz,4,6,2
+149,Seifhennersdorf,34,20.0,3.66,546.0,Görlitz,4,6,2
+150,Markersdorf,35,20.0,3.9010000000000002,513.0,Görlitz,1,3,2
+151,Oppach,36,10.0,2.3280000000000003,430.0,Görlitz,3,4,1
+152,Herrnhut,37,20.0,5.837000000000001,343.0,Görlitz,7,9,2
+153,Leutersdorf,38,10.0,3.483,287.0,Görlitz,1,2,1
 154,Boxberg/O.L.,39,6.0,4.402,0.0,Görlitz,2,2,0
 155,Groß Düben,39,6.0,1.069,0.0,Görlitz,1,1,0
 156,Hähnichen,39,2.0,1.247,0.0,Görlitz,0,0,0
