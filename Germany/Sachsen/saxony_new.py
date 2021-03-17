@@ -108,6 +108,7 @@ old.at[len(old)-1,'Gemeinde']= 'Schönfeld'
 
 mdf = df.merge(old, on='Gemeinde')
 mdf['Neuzugänge letzten 7 Tage_x'] = mdf['Neuzugänge letzten 7 Tage_x'].astype(int)
+mdf['Neuzugänge letzten 7 Tage_y'] = mdf['Neuzugänge letzten 7 Tage_y'].astype(int)
 mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
 
 # Map for Görlitz only
@@ -194,6 +195,7 @@ print(old)
 
 mdf = df.to_frame().merge(old, on='Gemeinde')
 mdf['Neuzugänge letzten 7 Tage_x'] = mdf['Neuzugänge letzten 7 Tage_x'].astype(int)
+mdf['Neuzugänge letzten 7 Tage_y'] = mdf['Neuzugänge letzten 7 Tage_y'].astype(int)
 mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
 mdf['Covid-freie Wochen'] = 0
 mdf['Covid-freie Wochen'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 1, mdf['Covid-freie Wochen'])
