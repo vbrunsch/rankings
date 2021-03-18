@@ -26,7 +26,7 @@ old_uck.index.name = None
 old_uck = old_uck.join(new)
 #print(old_uck)
 
-tod = pd.Timestamp.today()- timedelta(hours=8)
+tod = pd.Timestamp.today()- timedelta(hours=3)
 tod = tod.date()
 tod2 = tod.strftime('%m/%d/%Y')
 tod = tod.strftime('%-m/%-d/%Y')
