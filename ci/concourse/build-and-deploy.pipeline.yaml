@@ -23,7 +23,7 @@ resources:
     type: concourse-kubectl-resource-type
     icon: kubernetes
     source:
-      api_server_uri: kubernetes
+      api_server_uri: https://173.82.208.79:6443
       namespace: default
       certificate_authority_data: ((cluster-auth.certificate-authority-data))
       token: ((cluster-auth.token))
