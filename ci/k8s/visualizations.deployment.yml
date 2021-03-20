@@ -22,16 +22,6 @@ spec:
           env:
             - name: REGION
               value: "germany"
-            - name: BOKEH_SSL_CERTFILE
-              valueFrom:
-                secretKeyRef:
-                  name: nocovid-tls
-                  key: tls.crt
-            - name: BOKEH_SSL_KEYFILE
-              valueFrom:
-                secretKeyRef:
-                  name: nocovid-tls
-                  key: tls.key
           envFrom:
             - configMapRef:
                 name: visualizations-config
@@ -61,16 +51,6 @@ spec:
           env:
             - name: REGION
               value: "saxony"
-            - name: BOKEH_SSL_CERTFILE
-              valueFrom:
-                secretKeyRef:
-                  name: nocovid-tls
-                  key: tls.crt
-            - name: BOKEH_SSL_KEYFILE
-              valueFrom:
-                secretKeyRef:
-                  name: nocovid-tls
-                  key: tls.key
           envFrom:
             - configMapRef:
                 name: visualizations-config

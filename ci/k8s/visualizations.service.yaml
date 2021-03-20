@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: visualizations-germany
+spec:
+  selector:
+    app: visualizations-germany
+  ports:
+    - name: http
+      protocol: TCP
+      port: 5006
+      targetPort: 5006
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: visualizations-saxony
+spec:
+  selector:
+    app: visualizations-saxony
+  ports:
+    - name: http
+      protocol: TCP
+      port: 5006
+      targetPort: 5006
