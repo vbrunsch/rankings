@@ -1,6 +1,6 @@
 import os
 import yaml
-import logging
+from bokeh.util import logconfig
 from bokeh.io import curdoc
 from bokeh.layouts import row
 from bokeh.models import Spacer
@@ -9,9 +9,7 @@ from visualizations.layout import VisualizationLayout
 
 # Read and start visualization server with yaml config
 config_file_path = os.getenv("CONFIG_PATH")
-logging.getLogger().setLevel(logging.INFO)
-logging.info(f"Using visualization config file at {config_file_path}")
-
+logconfig.log.info(f"Using config file at {config_file_path}")
 with open(config_file_path, 'r') as stream:
     config_data = yaml.safe_load(stream)
 # Render with horizontal spacers on the sides and vertical spacers in between visualizations
