@@ -10,16 +10,22 @@ spec:
     http:
       paths:
       - path: /germany
+        pathType: Prefix
         backend:
-          serviceName: visualizations-germany
-          servicePort: 5006
+          service:
+            name: visualizations-germany
+            port:
+              number: 5006
   - host: nocovid.group
     http:
       paths:
-        - path: /saxony
-          backend:
-            serviceName: visualizations-saxony
-            servicePort: 5006
+      - path: /saxony
+        pathType: Prefix
+        backend:
+          service:
+            name: visualizations-saxony
+            port:
+              number: 5006
   tls:
     - hosts:
         - nocovid.group
