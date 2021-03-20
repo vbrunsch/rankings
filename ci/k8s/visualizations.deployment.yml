@@ -20,6 +20,8 @@ spec:
           ports:
             - containerPort: 5006
           env:
+            - name: REGION
+              value: "germany"
             - name: BOKEH_SSL_CERTFILE
               valueFrom:
                 secretKeyRef:
@@ -33,6 +35,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: visualizations-config
+      imagePullSecrets:
+        - name: regcred
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -55,6 +59,8 @@ spec:
           ports:
             - containerPort: 5006
           env:
+            - name: REGION
+              value: "saxony"
             - name: BOKEH_SSL_CERTFILE
               valueFrom:
                 secretKeyRef:
@@ -68,3 +74,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: visualizations-config
+      imagePullSecrets:
+        - name: regcred
