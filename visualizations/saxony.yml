@@ -2,7 +2,7 @@ page_title: "Phasen bis zur Grünen Zone in Sachsen"
 visualizations:
   - case:
       title: "Phasen bis zur Grünen Zone in Sachsen"
-      input_path: ./visualizations/pickles/saxony.pkl
+      input_path: ./pickles/saxony.pkl
       legend_title: "Legende"
       legend_width: 400
       region_key: "Gemeinde"
