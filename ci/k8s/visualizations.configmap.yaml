@@ -4,6 +4,4 @@ kind: ConfigMap
 metadata:
   name: visualizations-config
 data:
-  SERVER_HOST: nocovid.group
-  OTHER_HOSTS: ec19.org,endcoronavirus.org
-  BOKEH_ALLOW_WS_ORIGIN: $(OTHER_HOSTS),$(SERVER_HOST),localhost
+  BOKEH_ALLOW_WS_ORIGIN: localhost,nocovid.group,ec19.org,endcoronavirus.org
