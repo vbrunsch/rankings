@@ -1,0 +1,48 @@
+---
+resource_types:
+  - name: concourse-kubectl-resource-type
+    type: docker-image
+    source:
+      repository: jmkarthik/concourse-kubectl-resource
+      tag: latest
+
+resources:
+  - name: rankings-git
+    type: git
+    icon: github
+    source:
+      uri: https://github.com/aochen-jli/rankings
+  - name: visualizations-image
+    type: docker-image
+    icon: docker
+    source:
+      repository: vis-docker-registry:5000/visualizations
+      insecure_registries: ["vis-docker-registry:5000"]
+      tag_as_latest: true
+  - name: nocovid-kubectl
+    type: concourse-kubectl-resource-type
+    icon: kubernetes
+    source:
+      api_server_uri: kubernetes
+      namespace: default
+      certificate_authority_data: ((cluster-auth.certificate-authority-data))
+      token: ((cluster-auth.token))
+
+jobs:
+  - name: build-and-push
+    plan:
+      - get: rankings-git
+        trigger: true
+      - put: visualizations-image
+        params:
+          image: image/image.tar
+          build: rankings-git
+
+  - name: apply-to-k8s
+    plan:
+      - get: rankings-git
+        passed: [build-and-push]
+        trigger: true
+      - put: nocovid-kubectl
+        params:
+          file: "rankings-git/ci/k8s/"

@@ -1,0 +1,70 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visualizations-germany
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: visualizations-germany
+  template:
+    metadata:
+      labels:
+        app: visualizations-germany
+    spec:
+      containers:
+        - name: visualizations
+          image: vis-docker-registry:5000/visualizations:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5006
+          env:
+            - name: BOKEH_SSL_CERTFILE
+              valueFrom:
+                secretKeyRef:
+                  name: nocovid-tls
+                  key: tls.crt
+            - name: BOKEH_SSL_KEYFILE
+              valueFrom:
+                secretKeyRef:
+                  name: nocovid-tls
+                  key: tls.key
+          envFrom:
+            - configMapRef:
+                name: visualizations-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visualizations-saxony
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: visualizations-saxony
+  template:
+    metadata:
+      labels:
+        app: visualizations-saxony
+    spec:
+      containers:
+        - name: visualizations-saxony
+          image: vis-docker-registry:5000/visualizations:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5006
+          env:
+            - name: BOKEH_SSL_CERTFILE
+              valueFrom:
+                secretKeyRef:
+                  name: nocovid-tls
+                  key: tls.crt
+            - name: BOKEH_SSL_KEYFILE
+              valueFrom:
+                secretKeyRef:
+                  name: nocovid-tls
+                  key: tls.key
+          envFrom:
+            - configMapRef:
+                name: visualizations-config
