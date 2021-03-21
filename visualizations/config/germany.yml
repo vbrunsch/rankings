@@ -1,0 +1,59 @@
+page_title: "Germany Visualizations"
+visualizations:
+  - case:
+      title: "COVID Phases in Germany"
+      input_path: ./pickles/germany.pkl
+      labels:
+        - "Green Zone"
+        - "Phase 4"
+        - "Phase 3"
+        - "Phase 2"
+        - "Phase 1"
+      descriptions:
+        - "0 cases in 14 days"
+        - "<20 new cases in 14 days"
+        - "<200 new cases in 14 days"
+        - "<1000 new cases in 14 days"
+        - ">1000 new cases in 14 days"
+      lower_bounds:
+        - 0
+        - 1
+        - 20
+        - 200
+        - 1000
+      colors:
+        - "#25773b"
+        - "#8ac541"
+        - "#f9cc3c"
+        - "#f8961d"
+        - "#ef3e24"
+
+  - incidence:
+      title: "COVID Phases in Germany (Cases per 100,000)"
+      input_path: ./pickles/germany.pkl
+      primary_incidence_key: "Cases per 100k (Last 7 Days)"
+      secondary_incidence_key: "Cases per 100k (Last 14 Days)"
+      primary_incidence_tooltip: "Cases per 100,000 (Last 7 Days)"
+      secondary_incidence_tooltip: "Cases per 100,000 (Last 14 Days)"
+      calc_with_secondary_incidence:
+        - True
+        - False
+        - False
+      legend_width: 325
+      legend_height: 150
+      labels:
+        - "Green Zone"
+        - "Phase 2"
+        - "Phase 1"
+      descriptions:
+        - "0 cases in 14 days"
+        - "<10 cases per 100,000 people"
+        - ">=10 cases per 100,000 people"
+      lower_bounds:
+        - 0
+        - 1
+        - 10
+      colors:
+        - "#25773b"
+        - "#f9cc3c"
+        - "#ef3e24"
