@@ -401,9 +401,11 @@ class VisualizationLayout:
                 box_data["line_x_points"].append(None)
                 box_data["line_y_points"].append(None)
             else:
+                # need to multiply the minimum space since the phase box text is two lines
+                min_space_multiplier = 2
                 # override if last label will overlap with the default text location (box's middle)
-                if last_text_y - box_middle < self.min_space_y:
-                    box_data["text_y"][i] = last_text_y - (self.min_space_y * 2.25)
+                if (last_text_y - box_middle) / min_space_multiplier < self.min_space_y:
+                    box_data["text_y"][i] = last_text_y - (self.min_space_y * min_space_multiplier)
 
                 box_data["text_x"].append(-1.5)
                 box_data["line_x_points"].append([-1.475, -1.25, -1.25, -1])
