@@ -14,9 +14,9 @@ DEFAULT_LEGEND_WIDTH = 300
 DEFAULT_LEGEND_HEIGHT = 200
 DEFAULT_X_RANGE = (-3, 5)
 DEFAULT_Y_RANGE = (-0.1, 1.1)
-DEFAULT_MIN_SPACE_X = 0.075
-DEFAULT_MIN_SPACE_Y = 0.033
-DEFAULT_NUM_DISPLAY_REGIONS = 5
+DEFAULT_MIN_SPACE_X = 0.0825
+DEFAULT_MIN_SPACE_Y = 0.0425
+DEFAULT_NUM_DISPLAY_REGIONS = 3
 # keys
 DEFAULT_REGION_KEY = "District/County Town"
 DEFAULT_PRIMARY_INCIDENCE_KEY = "New Cases in Last 14 Days"
@@ -233,8 +233,8 @@ class VisualizationLayout:
                 sort_ascending = False
 
             # add top regions
-            sorted_entries = self.categorized_entries[i]. \
-                sort_values(by=self.sort_criterias[i], axis=0, ascending=sort_ascending)
+            sorted_entries = self.categorized_entries[i] \
+                .sort_values(by=self.sort_criterias[i], axis=0, ascending=sort_ascending)
             self.display_regions[i] = sorted_entries.head(self.num_display_regions)
 
             # replace the tail with the worst region
@@ -254,9 +254,9 @@ class VisualizationLayout:
                     (len(searched_region_entry) != 0) and \
                     (len(self.display_regions[i][self.display_regions[i][search_type] == query]) == 0):
                 self.display_regions[i] = self.display_regions[i].append(searched_region_entry)
-                self.display_regions[i] = self.display_regions[i]. \
-                    sort_values(self.sort_criterias[i],
-                                ascending=(self.sort_criterias[i] == self.__get_incidence_key__(i)))
+                self.display_regions[i] = self.display_regions[i] \
+                    .sort_values(self.sort_criterias[i],
+                                 ascending=(self.sort_criterias[i] == self.__get_incidence_key__(i)))
                 break
 
     @staticmethod
