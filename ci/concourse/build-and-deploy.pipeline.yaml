@@ -84,7 +84,7 @@ jobs:
 
   - name: restart-deployments
     plan:
-      - get: rankings-git
+      - get: nocovid-helm
         passed: [upgrade-deployments]
         trigger: true
       - put: nocovid-k8s
