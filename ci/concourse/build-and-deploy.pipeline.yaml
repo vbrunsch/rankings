@@ -40,7 +40,6 @@ resources:
       cluster_ca: ((cluster-auth.certificate-authority-data))
       token: ((cluster-auth.token))
 
-
 jobs:
   - name: build-and-push
     plan:
@@ -62,8 +61,9 @@ jobs:
             exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
             --
             /bin/registry garbage-collect /etc/docker/registry/config.yml --delete-untagged
+          wait_until_ready: 300
 
-  - name: upgrade-helm
+  - name: upgrade-deployments
     plan:
       - get: rankings-git
         passed: [build-and-push]
@@ -77,11 +77,11 @@ jobs:
   - name: restart-deployments
     plan:
       - get: rankings-git
-        passed: [build-and-push]
+        passed: [upgrade-deployments]
         trigger: true
       - put: nocovid-k8s
         params:
           kubectl: >
             rollout restart deployment
             $(kubectl get deployment -l app.kubernetes.io/name=visualizations -o custom-columns=:metadata.name)
-          wait_until_ready: 120
+          wait_until_ready: 300
