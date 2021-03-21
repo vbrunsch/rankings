@@ -6,8 +6,8 @@ https://github.com/TrevorWinstral/County_Ranking
 Generates the rankings at https://www.endcoronavirus.org/green-zone-rankings
 ## Visualizations
 Visualizations, integration, and deployment pipeline created by: Jason Li
-* Pipeline is available for monitoring at concourse.nocovid.group
-* Visualizations are available at nocovid.group/{region name}
+* Pipeline is available for monitoring at https://concourse.nocovid.group
+* Visualizations are available at https://nocovid.group/{region}
 ### Adding new regions
 1. Modify a country's ranking.py to generate a .pkl with the required and/or optional columns.
     * Required columns are region name, category, time safe, and primary incidence
