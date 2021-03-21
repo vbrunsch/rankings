@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  germany-visualization:
+    build: .
+    image: germany-visualization:latest
+    restart: on-failure
+    environment:
+      - REGION=germany
+      - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    ports:
+      - ${GERMANY_PORT}:5006
+  saxony-visualization:
+    build: .
+    image: saxony-visualization:latest
+    restart: on-failure
+    environment:
+      - REGION=saxony
+      - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    ports:
+      - ${SAXONY_PORT}:5006

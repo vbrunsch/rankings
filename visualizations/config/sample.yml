@@ -1,0 +1,35 @@
+page_title: "Germany Visualizations"  # the HTML page title
+horizontal_margin: 25  # the side margins
+between_margin: 25  # the margin in between visualizations
+visualizations:  # visualization config, please look in layout.py for other config options
+  - case:
+      title: "Sample"
+      input_path: ./visualizations/pickles/sample.pkl  # context should be the current working directory when run
+      labels:
+        - ~  # if you don't want the first category to be displayed by COVID-free days, you can add tildes accordingly
+        - "Grüne Zone"
+        - "Phase 4"
+        - "Phase 3"
+        - "Phase 2"
+        - "Phase 1"
+      descriptions:
+        - ~
+        - "0 Fälle in den letzten 14 Tagen"
+        - "<20 neue Fälle in den letzten 14 Tagen"
+        - "<200 neue Fälle in den letzten 14 Tagen"
+        - "<1000 neue Fälle in den letzten 14 Tagen"
+        - ">1000 neue Fälle in den letzten 14 Tagen"
+      lower_bounds:
+        - ~
+        - 0
+        - 1
+        - 20
+        - 200
+        - 1000
+      colors:
+        - ~
+        - "#25773b"
+        - "#8ac541"
+        - "#f9cc3c"
+        - "#f8961d"
+        - "#ef3e24"

@@ -1,0 +1,95 @@
+---
+resource_types:
+  - name: kubernetes
+    type: docker-image
+    source:
+      repository: zlabjp/kubernetes-resource
+      tag: "1.17"
+  - name: helm
+    type: docker-image
+    source:
+      repository: typositoire/concourse-helm3-resource
+
+resources:
+  - name: rankings-git
+    type: git
+    icon: github
+    source:
+      uri: https://github.com/vbrunsch/rankings
+  - name: visualizations-image
+    type: docker-image
+    icon: docker
+    source:
+      repository: vis-docker-registry:5000/visualizations
+      insecure_registries: ["vis-docker-registry:5000"]
+      tag_as_latest: true
+  - name: nocovid-k8s
+    type: kubernetes
+    icon: kubernetes
+    source:
+      server: https://kubernetes:443
+      namespace: default
+      certificate_authority: ((cluster-auth.certificate-authority-data))
+      token: ((cluster-auth.token))
+  - name: nocovid-helm
+    type: helm
+    icon: ship-wheel
+    source:
+      cluster_url: https://kubernetes:443
+      namespace: default
+      cluster_ca: ((cluster-auth.certificate-authority-data))
+      token: ((cluster-auth.token))
+
+jobs:
+  - name: upgrade-pipeline
+    plan:
+      - get: rankings-git
+        trigger: true
+      - set_pipeline: build-and-deploy
+        file: rankings-git/ci/concourse/build-and-deploy.pipeline.yaml
+
+  - name: build-and-push
+    plan:
+      - get: rankings-git
+        passed: [upgrade-pipeline]
+        trigger: true
+      - put: visualizations-image
+        params:
+          image: image/image.tar
+          build: rankings-git
+
+  - name: registry-garbage-collect
+    plan:
+      - get: visualizations-image
+        passed: [build-and-push]
+        trigger: true
+      - put: nocovid-k8s
+        params:
+          kubectl: >
+            exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
+            --
+            /bin/registry garbage-collect /etc/docker/registry/config.yml --delete-untagged
+          wait_until_ready: 300
+
+  - name: upgrade-deployments
+    plan:
+      - get: rankings-git
+        passed: [build-and-push]
+        trigger: true
+      - put: nocovid-helm
+        params:
+          chart: rankings-git/ci/helm/visualizations/
+          values: rankings-git/ci/helm/visualizations/values.yaml
+          release: visualizations
+
+  - name: restart-deployments
+    plan:
+      - get: rankings-git
+        passed: [upgrade-deployments]
+        trigger: true
+      - put: nocovid-k8s
+        params:
+          kubectl: >
+            rollout restart deployment
+            $(kubectl get deployment -l app.kubernetes.io/name=visualizations -o custom-columns=:metadata.name)
+          wait_until_ready: 300

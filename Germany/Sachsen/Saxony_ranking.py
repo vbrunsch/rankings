@@ -97,7 +97,7 @@ old.at[len(old)-1,'Gemeinde']= 'Schönfeld'
 
 
 mdf = df.to_frame().merge(old, on='Gemeinde')
-mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
+mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'].astype(int) + mdf['Neuzugänge letzten 7 Tage_y'].astype(int)
 #print(mdf)
 mdf = mdf.drop(['Neuzugänge letzten 7 Tage_x', 'Neuzugänge letzten 7 Tage_y'], axis = 1)
 
@@ -155,7 +155,7 @@ print(old)
 
 
 mdf = df.to_frame().merge(old, on='Gemeinde')
-mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'] + mdf['Neuzugänge letzten 7 Tage_y']
+mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 7 Tage_x'].astype(int) + mdf['Neuzugänge letzten 7 Tage_y'].astype(int)
 mdf['Covid-freie Wochen'] = 0
 mdf['Covid-freie Wochen'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 1, mdf['Covid-freie Wochen'])
 mdf['Covid-freie Wochen'] = np.where(mdf['Neuzugänge letzten 14 Tage'] == 0 , 2, mdf['Covid-freie Wochen'])
@@ -176,11 +176,13 @@ tab = tab.drop(['week'], axis=1)
 
 #Percent Change
 
-tab['PercentChange'] = 100*(tab['Neuzugänge letzten 7 Tage_x'] - tab['Neuzugänge letzten 7 Tage_y'])/(tab['Neuzugänge letzten 7 Tage_x']+tab['Neuzugänge letzten 7 Tage_y'])
+tab['PercentChange'] = 100*(tab['Neuzugänge letzten 7 Tage_x'].astype(int) - tab['Neuzugänge letzten 7 Tage_y'].astype(int))/(tab['Neuzugänge letzten 7 Tage_x'].astype(int)+tab['Neuzugänge letzten 7 Tage_y'].astype(int))
 tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
 
 tab = tab.drop(['Neuzugänge letzten 7 Tage_y'], axis = 1)
 #tab.columns = ['Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage', 'Pct Change']
+
+tab.to_pickle("visualizations/pickles/saxony.pkl")
 
 def highlighter(s):
     #val_1 = s['Covid-freie Wochen']
