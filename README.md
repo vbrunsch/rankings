@@ -7,8 +7,8 @@ Generates the rankings at https://www.endcoronavirus.org/green-zone-rankings
 ## Visualizations
 Visualizations, integration, and deployment pipeline created by: Jason Li
 * All changed pushed to Git are automatically deployed
-* Pipeline is available for monitoring at concourse.nocovid.group
-* Visualizations are served at nocovid.group/{region name}
+* Pipeline is available for monitoring at https://concourse.nocovid.group
+* Visualizations are served at https://nocovid.group/{region}
 ### Adding new regions
 1. Modify a country's ranking.py to generate a .pkl with the required and/or optional columns.
     * Required columns are region name, category, time safe, and primary incidence (e.g. cases in 7 days)
@@ -21,7 +21,7 @@ Visualizations, integration, and deployment pipeline created by: Jason Li
     * Must be .yml, not .yaml
 3. Add the region to the regions section of ci/helm/visualizations/values.yaml
     * It should be typed exactly the same as the filename of the region's .yml config file, just without the .yml extension (e.g. germany.yml -> germany)
-4. After the pipeline finishes running, the visualization should be available at nocovid.group/{region name}.
+4. After the pipeline finishes running, the visualization should be available at https://nocovid.group/{region}.
 ### Modifying or translating regions
 * To modify a region's visualization, you just need to modify the region's config file (or the .pkl generation) and changes will automatically be applied
 * To translate a region, please use the label and string configuration options accordingly. Consult the saxony.yml config file for reference.
