@@ -25,6 +25,7 @@ visualizations:
       labels:
         - ~
         - "Grüne Zone"
+        - "Phase 5"
         - "Phase 4"
         - "Phase 3"
         - "Phase 2"
@@ -32,17 +33,19 @@ visualizations:
       descriptions:
         - ~
         - "0 Fälle in den letzten 14 Tagen"
-        - "<20 neue Fälle in den letzten 14 Tagen"
-        - "<200 neue Fälle in den letzten 14 Tagen"
-        - "<1000 neue Fälle in den letzten 14 Tagen"
-        - ">1000 neue Fälle in den letzten 14 Tagen"
+        - "0 Fälle in den letzten 7 Tagen"
+        - "1-10 neue Fälle in den letzten 7 Tagen"
+        - "11-35 neue Fälle in den letzten 7 Tagen"
+        - "36-100 neue Fälle in den letzten 7 Tagen"
+        - ">100 neue Fälle in den letzten 7 Tagen"
       lower_bounds:
         - ~
         - 0
+        - 0
         - 1
-        - 20
-        - 200
-        - 1000
+        - 11
+        - 36
+        - 101
       colors:
         - ~
         - "#25773b"
@@ -50,3 +53,4 @@ visualizations:
         - "#f9cc3c"
         - "#f8961d"
         - "#ef3e24"
+        - "#b12025"
