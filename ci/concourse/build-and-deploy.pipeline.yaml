@@ -41,9 +41,17 @@ resources:
       token: ((cluster-auth.token))
 
 jobs:
+  - name: upgrade-pipeline
+    plan:
+      - get: rankings-git
+        trigger: true
+      - set_pipeline: build-and-deploy
+        file: rankings-git/ci/concourse/build-and-deploy.pipeline.yaml
+
   - name: build-and-push
     plan:
       - get: rankings-git
+        passed: [upgrade-pipeline]
         trigger: true
       - put: visualizations-image
         params:
