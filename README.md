@@ -10,8 +10,8 @@ Visualizations, integration, and deployment pipeline created by: Jason Li
 * Visualizations are available at nocovid.group/{region name}
 ### Adding new regions
 1. Modify a country's ranking.py to generate a .pkl with the required and/or optional columns.
-    * Required columns are region name, category, time safe, and primary incidence
-    * Optional columns are postcode, secondary incidence, and percent change
+    * Required columns are region name, category, time safe, and primary incidence (e.g. cases in 7 days)
+    * Optional columns are postcode, secondary incidence (e.g. cases per 100k in 14 days), and percent change (use if primary and secondary incidence are of the same unit and measured over different periods of time)
     * The .pkl file should be saved to the visualizations/pickles folder
 2. Create a .yml file in the visualizations/config folder containing the required configuration.
     * Documentation of all configuration options is available in visualizations/layout.py
