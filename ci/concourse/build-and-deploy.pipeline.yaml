@@ -69,7 +69,7 @@ jobs:
             exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
             --
             /bin/registry garbage-collect /etc/docker/registry/config.yml --delete-untagged
-          wait_until_ready: 300
+          wait_until_ready: 0
 
   - name: upgrade-deployments
     plan:
