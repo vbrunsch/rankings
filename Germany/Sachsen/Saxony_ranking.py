@@ -14,11 +14,14 @@ da = matches[0][:-1]
 print(da)
 
 # For Datawrapper Map
+jsp = pd.read_json('https://www.coronavirus.sachsen.de/corona-statistics/rest/infectionOverview.jsp')
+dres = jsp[jsp.columns[0]].to_frame()
+leip = jsp[jsp.columns[1]].to_frame()
+chem = jsp[jsp.columns[2]].to_frame()
 
-kfs = df_list[-12]
-dre = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Landeshauptstadt Dresden', kfs.columns[1]].item()/10 * 5.5678))
-lei = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Stadt Leipzig', kfs.columns[1]].item()/10 * 5.93145))
-che = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Stadt Chemnitz', kfs.columns[1]].item()/10 * 2.46334))
+dre = int(round(dres.at['incidence',dres.columns[0]] * 5.5678))
+lei = int(round(leip.at['incidence',leip.columns[0]] * 5.93145))
+che = int(round(chem.at['incidence',chem.columns[0]] * 2.46334))
 
 df = df_list[-11]
 df1 = df_list[-10]
@@ -102,11 +105,14 @@ mdf.to_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_dw_14_Tage.csv')
 
 
 # For Rankings
+jsp = pd.read_json('https://www.coronavirus.sachsen.de/corona-statistics/rest/infectionOverview.jsp')
+dres = jsp[jsp.columns[0]].to_frame()
+leip = jsp[jsp.columns[1]].to_frame()
+chem = jsp[jsp.columns[2]].to_frame()
 
-kfs = df_list[-12]
-dre = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Landeshauptstadt Dresden', kfs.columns[1]].item()/10 * 5.5678))
-lei = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Stadt Leipzig', kfs.columns[1]].item()/10 * 5.93145))
-che = int(round(kfs.loc[kfs['Unnamed: 0'] == 'Stadt Chemnitz', kfs.columns[1]].item()/10 * 2.46334))
+dre = int(round(dres.at['incidence',dres.columns[0]] * 5.5678))
+lei = int(round(leip.at['incidence',leip.columns[0]] * 5.93145))
+che = int(round(chem.at['incidence',chem.columns[0]] * 2.46334))
 
 df = df_list[-11]
 df1 = df_list[-10]
