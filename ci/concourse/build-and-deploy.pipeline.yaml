@@ -23,20 +23,19 @@ resources:
       repository: vis-docker-registry:5000/visualizations
       insecure_registries: ["vis-docker-registry:5000"]
       tag_as_latest: true
-  - name: nocovid-kubernetes
+  - name: nocovid-k8s
     type: kubernetes
     icon: kubernetes
     source:
-      server: https://173.82.208.79:6443
+      server: https://kubernetes:443
       namespace: default
+      certificate_authority: ((cluster-auth.certificate-authority-data))
       token: ((cluster-auth.token))
-      # certificate_authority: ((cluster-auth.certificate-authority-data))
-      insecure_skip_tls_verify: true
   - name: nocovid-helm
     type: helm
     icon: ship-wheel
     source:
-      cluster_url: https://173.82.208.79:6443
+      cluster_url: https://kubernetes:443
       namespace: default
       cluster_ca: ((cluster-auth.certificate-authority-data))
       token: ((cluster-auth.token))
@@ -57,7 +56,7 @@ jobs:
       - get: visualizations-image
         passed: [build-and-push]
         trigger: true
-      - put: nocovid-kubernetes
+      - put: nocovid-k8s
         params:
           kubectl: >
             exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
@@ -73,13 +72,16 @@ jobs:
         params:
           chart: rankings-git/ci/helm/visualizations/
           values: rankings-git/ci/helm/visualizations/values.yaml
+          release: visualizations
 
   - name: restart-deployments
     plan:
       - get: rankings-git
         passed: [build-and-push]
         trigger: true
-      - put: nocovid-kubernetes
+      - put: nocovid-k8s
         params:
-          kubectl: rollout restart -f rankings-git/ci/k8s/visualizations.deployment.yml
+          kubectl: >
+            rollout restart deployment
+            $(kubectl get deployment -l app.kubernetes.io/name=visualizations -o custom-columns=:metadata.name)
           wait_until_ready: 120
