@@ -187,10 +187,25 @@ class VisualizationLayout:
             incidence_key = self.__get_incidence_key__(i)
             self.categorized_entries.append(
                 self.input_table.loc[
-                    (self.input_table[incidence_key] >=
-                     self.lower_bounds[i]) &
-                    (self.input_table[incidence_key] <
-                     self.lower_bounds[i + 1])])
+                    # Add region to category if incidence is greater than or equal to the category's lower bound,
+                    (self.input_table[incidence_key] >= self.lower_bounds[i]) &
+                    (
+                        # AND if less than the next category's lower bound,
+                            (self.input_table[incidence_key] < self.lower_bounds[i + 1]) |
+                            # OR, when next lower bound is equal to the current lower bound (e.g. two green zones),
+                            # if equal to the next lower bound
+                            ((self.lower_bounds[i] == self.lower_bounds[i + 1]) &
+                             (self.input_table[incidence_key] == self.lower_bounds[i + 1]))
+                    )
+                    ]
+            )
+
+        # Remove regions that may fit into multiple categories, favoring the best category
+        for i in reversed(range(1, self.num_categories)):
+            self.categorized_entries[i] = \
+                pd.merge(self.categorized_entries[i], self.categorized_entries[i - 1], indicator=True, how='outer') \
+                .query('_merge=="left_only"') \
+                .drop('_merge', axis=1)
 
     def __calculate_ratios__(self):
         num_entries = len(self.input_table)
