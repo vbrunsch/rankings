@@ -3,6 +3,7 @@ visualizations:
   - case:
       title: "COVID Phases in Germany"
       input_path: ./pickles/germany.pkl
+      num_display_regions: 5
       labels:
         - "Green Zone"
         - "Phase 4"
@@ -35,6 +36,7 @@ visualizations:
       secondary_incidence_key: "Cases per 100k (Last 14 Days)"
       primary_incidence_tooltip: "Cases per 100,000 (Last 7 Days)"
       secondary_incidence_tooltip: "Cases per 100,000 (Last 14 Days)"
+      num_display_regions: 10
       calc_with_secondary_incidence:
         - True
         - False
