@@ -4,7 +4,7 @@ between_margin: 25  # the margin in between visualizations (if you have multiple
 visualizations:  # visualization config, please look in layout.py for other config options
   - case:  # the label for this visualization, only used for organization. it can be anything (e.g. incidence, foo, bar)
       title: "Sample"  # the title that shows up above the actual graph
-      input_path: ./visualizations/pickles/sample.pkl  # relative to the run context (which should be the repo root)
+      input_path: ./pickles/sample.pkl  # should be written relative to the visualizations folder (the application's working directory)
       labels:
         - ~  # if you don't want the first category to be displayed & sorted by time safe, use a tilde in its place
         - "Grüne Zone"
