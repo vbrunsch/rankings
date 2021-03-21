@@ -26,4 +26,3 @@ for i, vis_config in enumerate(config_data['visualizations']):
         curdoc().add_root(Spacer(height=between_margin))
 
 curdoc().title = config_data.get("page_title", "Green Zone Visualizations")
-
