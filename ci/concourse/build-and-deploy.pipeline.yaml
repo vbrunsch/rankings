@@ -15,7 +15,7 @@ resources:
     type: git
     icon: github
     source:
-      uri: https://github.com/aochen-jli/rankings
+      uri: https://github.com/vbrunsch/rankings
   - name: visualizations-image
     type: docker-image
     icon: docker
