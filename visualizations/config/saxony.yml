@@ -10,10 +10,10 @@ visualizations:
       category_tooltip: "Kategorie"
       time_safe_key: "Covid-freie Wochen"
       time_safe_tooltip: "Covid-freie Wochen"
-      primary_incidence_key: "Neuzugänge letzten 14 Tage"
-      primary_incidence_tooltip: "Neuzugänge letzten 14 Tage"
-      secondary_incidence_key: "Neuzugänge letzten 7 Tage_x"
-      secondary_incidence_tooltip: "Neuzugänge letzten 7 Tage"
+      primary_incidence_key: "Neuzugänge letzten 7 Tage_x"
+      primary_incidence_tooltip: "Neuzugänge letzten 7 Tage"
+      secondary_incidence_key: "Neuzugänge letzten 14 Tage"
+      secondary_incidence_tooltip: "Neuzugänge letzten 14 Tage"
       percent_change_key: "PercentChange"
       percent_change_tooltip: "Trend zur Vorwoche"
       reset_button_text: "Reset"
@@ -22,6 +22,14 @@ visualizations:
       incidence_plural_unit: "Fälle"
       time_safe_unit: "Woche"
       time_safe_plural_unit: "Wochen"
+      calc_with_secondary_incidence:
+        - ~
+        - True
+        - False
+        - False
+        - False
+        - False
+        - False
       labels:
         - ~
         - "Grüne Zone"

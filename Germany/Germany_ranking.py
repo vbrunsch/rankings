@@ -109,7 +109,7 @@ districts_formatted = tab['District/County Town'].str.split(" ").\
     map(lambda split: f'{" ".join(split[1:])}, {split[0]}')
 tab_formatted = tab
 tab_formatted['District/County Town'] = districts_formatted
-tab_formatted.to_pickle("../visualizations/pickles/germany.pkl")
+tab_formatted.to_pickle("visualizations/pickles/germany.pkl")
 tab = tab.drop(['Postcode', 'Population', 'Cases per 100k (Last 7 Days)', 'Cases per 100k (Last 14 Days)'], axis=1)
 
 def highlighter(s):
