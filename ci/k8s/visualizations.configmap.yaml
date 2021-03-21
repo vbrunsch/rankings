@@ -1,7 +1,0 @@
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: visualizations-config
-data:
-  BOKEH_ALLOW_WS_ORIGIN: localhost,nocovid.group,ec19.org,endcoronavirus.org

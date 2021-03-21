@@ -1,10 +1,14 @@
 ---
 resource_types:
-  - name: concourse-kubectl-resource-type
+  - name: kubernetes
     type: docker-image
     source:
-      repository: jmkarthik/concourse-kubectl-resource
-      tag: latest
+      repository: zlabjp/kubernetes-resource
+      tag: "1.17"
+  - name: helm
+    type: docker-image
+    source:
+      repository: typositoire/concourse-helm3-resource
 
 resources:
   - name: rankings-git
@@ -19,14 +23,24 @@ resources:
       repository: vis-docker-registry:5000/visualizations
       insecure_registries: ["vis-docker-registry:5000"]
       tag_as_latest: true
-  - name: nocovid-kubectl
-    type: concourse-kubectl-resource-type
+  - name: nocovid-kubernetes
+    type: kubernetes
     icon: kubernetes
     source:
-      api_server_uri: https://173.82.208.79:6443
+      server: https://173.82.208.79:6443
       namespace: default
-      certificate_authority_data: ((cluster-auth.certificate-authority-data))
       token: ((cluster-auth.token))
+      # certificate_authority: ((cluster-auth.certificate-authority-data))
+      insecure_skip_tls_verify: true
+  - name: nocovid-helm
+    type: helm
+    icon: ship-wheel
+    source:
+      cluster_url: https://173.82.208.79:6443
+      namespace: default
+      cluster_ca: ((cluster-auth.certificate-authority-data))
+      token: ((cluster-auth.token))
+
 
 jobs:
   - name: build-and-push
@@ -38,11 +52,34 @@ jobs:
           image: image/image.tar
           build: rankings-git
 
-  - name: apply-to-k8s
+  - name: garbage-collect-registry
+    plan:
+      - get: visualizations-image
+        passed: [build-and-push]
+        trigger: true
+      - put: nocovid-kubernetes
+        params:
+          kubectl: >
+            exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
+            --
+            /bin/registry garbage-collect /etc/docker/registry/config.yml --delete-untagged
+
+  - name: upgrade-helm
     plan:
       - get: rankings-git
         passed: [build-and-push]
         trigger: true
-      - put: nocovid-kubectl
+      - put: nocovid-helm
         params:
-          file: "rankings-git/ci/k8s/"
+          chart: rankings-git/ci/helm/visualizations/
+          values: rankings-git/ci/helm/visualizations/values.yaml
+
+  - name: restart-deployments
+    plan:
+      - get: rankings-git
+        passed: [build-and-push]
+        trigger: true
+      - put: nocovid-kubernetes
+        params:
+          kubectl: rollout restart -f rankings-git/ci/k8s/visualizations.deployment.yml
+          wait_until_ready: 120
