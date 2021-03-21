@@ -5,12 +5,12 @@ Created by: Trevor Winstral and Vincent Brunsch, see source code here
 https://github.com/TrevorWinstral/County_Ranking
 Generates the rankings at https://www.endcoronavirus.org/green-zone-rankings
 ## Visualizations
-Visualizations, integration, and deployment pipeline created by: Jason Li
-* All changed pushed to Git are automatically deployed
+Visualizations, integration, and deployment pipeline created by Jason Li
+* All changes pushed to this repository are automatically deployed
 * Pipeline is available for monitoring at https://concourse.nocovid.group
 * Visualizations are served at https://nocovid.group/{region}
 ### Adding new regions
-1. Modify a country's ranking.py to generate a .pkl with the required and/or optional columns.
+1. Modify a region's ranking.py to generate a .pkl with the required and/or optional columns.
     * Required columns are region name, category, time safe, and primary incidence (e.g. cases in 7 days)
     * Optional columns are postcode, secondary incidence (e.g. cases per 100k in 14 days), and percent change (use if primary and secondary incidence are of the same unit and measured over different periods of time)
     * The .pkl file should be saved to the visualizations/pickles folder
@@ -24,7 +24,7 @@ Visualizations, integration, and deployment pipeline created by: Jason Li
 4. After the pipeline finishes running, the visualization should be available at https://nocovid.group/{region}.
 ### Modifying or translating regions
 * To modify a region's visualization, you just need to modify the region's config file (or the .pkl generation) and changes will automatically be applied
-* To translate a region, please use the label and string configuration options accordingly. Consult the saxony.yml config file for reference.
+* To translate a region, use the label and string configuration options. Consult the saxony.yml config file for reference.
 ### Deployment with Docker
 * To deploy using the Dockerfile, override the following environment variables:
   * REGION (e.g. REGION=germany)
