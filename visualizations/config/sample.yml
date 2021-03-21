@@ -1,12 +1,12 @@
 page_title: "Germany Visualizations"  # the HTML page title
-horizontal_margin: 25  # the side margins
-between_margin: 25  # the margin in between visualizations
+horizontal_margin: 25  # the margins on the side of the graph
+between_margin: 25  # the margin in between visualizations (if you have multiple)
 visualizations:  # visualization config, please look in layout.py for other config options
-  - case:
-      title: "Sample"
-      input_path: ./visualizations/pickles/sample.pkl  # context should be the current working directory when run
+  - case:  # the label for this visualization, only used for organization. it can be anything (e.g. incidence, foo, bar)
+      title: "Sample"  # the title that shows up above the actual graph
+      input_path: ./visualizations/pickles/sample.pkl  # relative to the run context (which should be the repo root)
       labels:
-        - ~  # if you don't want the first category to be displayed by COVID-free days, you can add tildes accordingly
+        - ~  # if you don't want the first category to be displayed & sorted by time safe, use a tilde in its place
         - "Grüne Zone"
         - "Phase 4"
         - "Phase 3"
