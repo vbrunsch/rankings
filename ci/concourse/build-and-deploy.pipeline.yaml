@@ -51,7 +51,7 @@ jobs:
           image: image/image.tar
           build: rankings-git
 
-  - name: garbage-collect-registry
+  - name: registry-garbage-collect
     plan:
       - get: visualizations-image
         passed: [build-and-push]
