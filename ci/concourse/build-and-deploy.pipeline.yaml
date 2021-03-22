@@ -11,19 +11,19 @@ resource_types:
       repository: typositoire/concourse-helm3-resource
 
 resources:
-  - name: rankings-git
+  - name: git
     type: git
     icon: github
     source:
       uri: https://github.com/vbrunsch/rankings
-  - name: visualizations-image
+  - name: docker
     type: docker-image
     icon: docker
     source:
       repository: vis-docker-registry:5000/visualizations
       insecure_registries: ["vis-docker-registry:5000"]
       tag_as_latest: true
-  - name: nocovid-k8s
+  - name: kubectl
     type: kubernetes
     icon: kubernetes
     source:
@@ -31,7 +31,7 @@ resources:
       namespace: default
       certificate_authority: ((cluster-auth.certificate-authority-data))
       token: ((cluster-auth.token))
-  - name: nocovid-helm
+  - name: helm
     type: helm
     icon: ship-wheel
     source:
@@ -43,27 +43,27 @@ resources:
 jobs:
   - name: upgrade-pipeline
     plan:
-      - get: rankings-git
+      - get: git
         trigger: true
       - set_pipeline: build-and-deploy
-        file: rankings-git/ci/concourse/build-and-deploy.pipeline.yaml
+        file: git/ci/concourse/build-and-deploy.pipeline.yaml
 
-  - name: build-and-push
+  - name: build-image
     plan:
-      - get: rankings-git
+      - get: git
         passed: [upgrade-pipeline]
         trigger: true
-      - put: visualizations-image
+      - put: docker
         params:
           image: image/image.tar
-          build: rankings-git
+          build: git
 
-  - name: registry-garbage-collect
+  - name: purge-registry
     plan:
-      - get: visualizations-image
-        passed: [build-and-push]
+      - get: docker
+        passed: [build-image]
         trigger: true
-      - put: nocovid-k8s
+      - put: kubectl
         params:
           kubectl: >
             exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
@@ -73,21 +73,21 @@ jobs:
 
   - name: upgrade-deployments
     plan:
-      - get: rankings-git
-        passed: [build-and-push]
+      - get: git
+        passed: [build-image]
         trigger: true
-      - put: nocovid-helm
+      - put: helm
         params:
-          chart: rankings-git/ci/helm/visualizations/
-          values: rankings-git/ci/helm/visualizations/values.yaml
+          chart: git/ci/helm/visualizations/
+          values: git/ci/helm/visualizations/values.yaml
           release: visualizations
 
   - name: restart-deployments
     plan:
-      - get: nocovid-helm
+      - get: helm
         passed: [upgrade-deployments]
         trigger: true
-      - put: nocovid-k8s
+      - put: kubectl
         params:
           kubectl: >
             rollout restart deployment
