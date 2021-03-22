@@ -5,6 +5,3 @@ xlrd==1.2.0
 requests==2.23.0
 lxml==4.6.2
 bs4==0.0.1
-bokeh==2.3.0
-yaml==5.4.1
-yaml==5.4.1
