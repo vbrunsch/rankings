@@ -190,7 +190,7 @@ class VisualizationLayout:
                     # Add region to category if incidence is greater than or equal to the category's lower bound,
                     (self.input_table[incidence_key] >= self.lower_bounds[i]) &
                     (
-                        # AND if less than the next category's lower bound,
+                            # AND if less than the next category's lower bound,
                             (self.input_table[incidence_key] < self.lower_bounds[i + 1]) |
                             # OR, when next lower bound is equal to the current lower bound (e.g. two green zones),
                             # if equal to the next lower bound
@@ -396,11 +396,14 @@ class VisualizationLayout:
             box_data["box_top_y"].append(box_top_y)
             box_data["text_y"].append(box_middle)
             box_data["text"].append([f"{self.labels[i]}\n{'{:.1%}'.format(box_size)}"])
-            if box_size >= 0.066:
+            if box_size >= 0.075:
+                # if phase is large enough, render it in the center of the box
                 box_data["text_x"].append(0)
                 box_data["line_x_points"].append(None)
                 box_data["line_y_points"].append(None)
             else:
+                # small phase, need to render text on a branch
+
                 # need to multiply the minimum space since the phase box text is two lines
                 min_space_multiplier = 2
                 # override if last label will overlap with the default text location (box's middle)
