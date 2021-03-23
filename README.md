@@ -4,7 +4,7 @@ Green-zone Rankings — EndCoronavirus.org
 Created by: Trevor Winstral and Vincent Brunsch, see source code here
 https://github.com/TrevorWinstral/County_Ranking
 Generates the rankings at https://www.endcoronavirus.org/green-zone-rankings
-## Visualizations
+# Green-zone Visualizations
 Visualizations, integration, and deployment pipeline created by Jason Li
 * All changes pushed to this repository are automatically deployed
 * Pipeline is available for monitoring at https://concourse.nocovid.group
@@ -35,5 +35,7 @@ Visualizations, integration, and deployment pipeline created by Jason Li
   * Optional, but allows for SSL termination:
       * BOKEH_SSL_CERTFILE (path to public cert, e.g. BOKEH_SSL_CERTFILE=cert.pem)
       * BOKEH_SSL_KEYFILE (path to private key, e.g. BOKEH_KEY_CERTFILE=key.pem)
+### Kubernetes Deployment
+* All deployments should be handled by the CI/CD pipeline. To set up the pipeline, see [here](https://github.com/aochen-jli/rankings-cicd).
 ### Example
 ![visualization example](https://raw.githubusercontent.com/vbrunsch/rankings/main/visualization_img.png)
