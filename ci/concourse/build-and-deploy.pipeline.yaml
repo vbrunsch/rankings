@@ -41,7 +41,7 @@ resources:
       token: ((cluster-auth.token))
 
 jobs:
-  - name: upgrade-pipeline
+  - name: set-pipeline  # TODO: move to separate repository
     plan:
       - get: git
         trigger: true
@@ -51,43 +51,40 @@ jobs:
   - name: build-image
     plan:
       - get: git
-        passed: [upgrade-pipeline]
+        passed: [set-pipeline]
         trigger: true
-      - put: docker
+      - put: prune-system
+        resource: kubectl
         params:
-          image: image/image.tar
-          build: git
-
-  - name: purge-registry
-    plan:
-      - get: docker
-        passed: [build-image]
-        trigger: true
-      - put: kubectl
+          kubectl: >
+            apply -f git/ci/concourse/prune-host-docker-system.job.yaml
+          wait_until_ready: 300
+      - put: prune-registry
+        resource: kubectl
         params:
           kubectl: >
             exec -it $(kubectl get pods -l app=docker-registry -o custom-columns=:metadata.name)
             --
             /bin/registry garbage-collect /etc/docker/registry/config.yml --delete-untagged
-          wait_until_ready: 0
+          wait_until_ready: 300
+      - put: docker
+        params:
+          build: git
+        get_params: {skip_download: true}
 
-  - name: upgrade-deployments
+  - name: deploy
     plan:
       - get: git
         passed: [build-image]
         trigger: true
-      - put: helm
+      - put: upgrade-deployments
+        resource: helm
         params:
           chart: git/ci/helm/visualizations/
           values: git/ci/helm/visualizations/values.yaml
           release: visualizations
-
-  - name: restart-deployments
-    plan:
-      - get: helm
-        passed: [upgrade-deployments]
-        trigger: true
-      - put: kubectl
+      - put: restart-deployments
+        resource: kubectl
         params:
           kubectl: >
             rollout restart deployment
