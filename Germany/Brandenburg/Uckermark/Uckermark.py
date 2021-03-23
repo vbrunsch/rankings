@@ -224,12 +224,15 @@ tab = tab[['Platz', 'Stadt/Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 
 tab = tab.drop('Covid-freie Wochen', axis = 1)
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
+import time
+toti = time.strftime('%m/%d/%Y %H:%M:%S')
+toti = "<center><caption>Last Update: " + toti + " UTC</caption></center>"
 
 try:        
     with open(f'Uckermark.html', 'w', encoding="utf-8") as out:
         body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
         body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + body + bottom
+        content = top + toti + body + bottom
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
