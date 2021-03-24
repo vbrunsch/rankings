@@ -1,20 +1,20 @@
 page_title: "Germany Visualizations"
 visualizations:
   - case:
-      title: "COVID Phases in Germany"
+      title: "COVID Phasen in Deutschland"
       input_path: ./pickles/germany.pkl
       labels:
-        - "Green Zone"
+        - "Grüne Zone"
         - "Phase 4"
         - "Phase 3"
         - "Phase 2"
         - "Phase 1"
       descriptions:
-        - "0 cases in 14 days"
-        - "<20 new cases in 14 days"
-        - "<200 new cases in 14 days"
-        - "<1000 new cases in 14 days"
-        - ">1000 new cases in 14 days"
+        - "0 neue Fälle in den letzten 14 Tagen"
+        - "<20 neue Fälle in den letzten 14 Tagen"
+        - "<200 neue Fälle in den letzten 14 Tagen"
+        - "<1000 neue Fälle in den letzten 14 Tagen"
+        - ">1000 neue Fälle in den letzten 14 Tagen"
       lower_bounds:
         - 0
         - 1
