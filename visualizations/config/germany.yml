@@ -3,6 +3,16 @@ visualizations:
   - case:
       title: "COVID Phasen in Deutschland"
       input_path: ./pickles/germany.pkl
+      legend_title: "Legende"
+      legend_width: 400
+      region_name_tooltip: "Name"
+      category_tooltip: "Kategorie"
+      incidence_unit: "Fall"
+      incidence_plural_unit: "Fälle"
+      percent_change_key: "PercentChange"
+      percent_change_tooltip: "Trend zur Vorwoche"
+      reset_button_text: "Reset"
+      searchbar_placeholder: "Suche Gemeinde/Stadt"
       labels:
         - "Grüne Zone"
         - "Phase 4"
