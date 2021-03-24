@@ -29,7 +29,7 @@ Visualizations, integration, and deployment pipeline created by Jason Li
 ### Local Testing
 1. Install Docker and Docker Compose.
 2. You can follow the Deployment with Docker instructions below or use the docker-compose.yml
-3. To use Docker Compose, add a service using the following template, replacing ((region)) with the region (e.g. saxony) and ((REGION)) with the region in all caps
+3. To use Docker Compose, add a service using the following template, replacing ((region)) with the region (e.g. saxony) and ((REGION)) with the region in all caps (e.g. SAXONY)
 ```yaml
 ((region))-visualization:
     build: .
@@ -44,7 +44,8 @@ Visualizations, integration, and deployment pipeline created by Jason Li
       - ${((REGION))_PORT}:5006
 ```
 4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. AUSTRALIA_PORT=5008
-5. Run `docker-compose up --build` in the root folder of the repository, and once your server is up, go to `http://localhost:((port))/((region))`, replacing ((port)) with the port you used in step 4 and ((region)) with the region name.
+5. Run `docker-compose up --build` in the root folder of the repository, and once the server is up, go to `http://localhost:((port))/((region))`, replacing ((port)) with the port you used in step 4 and ((region)) with the region name.
+6. Every time you want to reload your changes, you need to stop the previous containers and re-run `docker-compose up --build`
 ### Deployment with Docker
 * To deploy using the Dockerfile, override the following environment variables:
   * REGION (e.g. REGION=germany)
