@@ -2,6 +2,9 @@
 
 <!-- goes in head -->
 {% block preamble %}
+<!-- Stylesheet -->
+<link rel="stylesheet" href="./visualizations/static/styles.css">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3199FDHZ3"></script>
 <script>
@@ -11,4 +14,13 @@
 
     gtag('config', 'G-G3199FDHZ3');
 </script>
+{% endblock %}
+
+<!-- goes in body -->
+{% block contents %}
+<div class="visualization">
+    <div class="plot-wrapper"> {{ embed(roots.plot) }} </div>
+    <div class="button-wrapper"> {{ embed(roots.reset_button) }} </div>
+    <div class="searchbar-wrapper"> {{ embed(roots.searchbar) }} </div>
+</div>
 {% endblock %}

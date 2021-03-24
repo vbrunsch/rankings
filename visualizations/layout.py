@@ -1,22 +1,28 @@
 import math
 import pandas as pd
-from bokeh.layouts import column, row
-from bokeh.plotting import figure, curdoc
-from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, HoverTool, MultiLine, Legend, LegendItem
+from bokeh.io import curdoc
+from bokeh.plotting import figure
+from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, HoverTool, MultiLine
+
+#
+# Constants needed for Jinja templating, should equal the identifiers within templates/index.html
+#
+PLOT_NAME = "plot"
+SEARCHBAR_NAME = "searchbar"
+RESET_BUTTON_NAME = "reset_button"
 
 #
 # Default configuration values
 #
 
 # sizing stuff
-DEFAULT_WIDTH = 700
-DEFAULT_HEIGHT = 800
-DEFAULT_LEGEND_WIDTH = 300
-DEFAULT_LEGEND_HEIGHT = 200
+DEFAULT_ASPECT_RATIO = 0.8
 DEFAULT_X_RANGE = (-3, 5)
-DEFAULT_Y_RANGE = (-0.1, 1.1)
 DEFAULT_MIN_SPACE_X = 0.0825
 DEFAULT_MIN_SPACE_Y = 0.0425
+DEFAULT_Y_RANGE = (-0.125, 1.125)
+DEFAULT_FONT_SIZE = 20
+DEFAULT_TITLE_FONT_SIZE = 22
 DEFAULT_TOTAL_DISPLAY_REGIONS = 15
 DEFAULT_MIN_DISPLAY_REGIONS = 2
 # keys
@@ -34,7 +40,6 @@ DEFAULT_INCIDENCE_UNIT = "case"
 DEFAULT_INCIDENCE_PLURAL_UNIT = "cases"
 DEFAULT_CALC_WITH_SECONDARY_INCIDENCE = None
 # strings
-DEFAULT_LEGEND_TITLE = "Legend"
 DEFAULT_SEARCHBAR_PLACEHOLDER = "Search for a region..."
 DEFAULT_RESET_BUTTON_TEXT = "Reset"
 DEFAULT_REGION_NAME_TOOLTIP = "Region Name"
@@ -65,10 +70,8 @@ class VisualizationLayout:
     :param colors are the colors of each phase
 
     --- Sizing Stuff ---
-    :param width is the plot width, in pixels
-    :param height is the plot height, in pixels
-    :param width is the legend and input area width, in pixels
-    :param height is the legend height, in pixels
+    :param aspect_ratio is the width/height of the plot. the ultimate size in pixels will be determined
+           by the page it is embeded on.
     :param x_range represents the range of x values represented in the plot.
            for reference, the box's width is 1 and it spans x = [0, 1]
     :param y_range represents the range of y values represented in the plot.
@@ -78,6 +81,8 @@ class VisualizationLayout:
     :param total_display_regions is the number of regions that appear in total (excluding searched regions).
            it will be divided proportionally among the categories, based on how many regions are in that category.
     :param min_display_regions is the minimum number of regions that will be displayed for a category (if possible)
+    :param font_size is the font size, in pixels, of the text rendered on the plot
+    :param title_font_size is the font size, in pixels, of the title of the plot
 
     --- Units ---
     :param region_type should describe the granularity of the input data.
@@ -145,18 +150,22 @@ class VisualizationLayout:
         self.__init_sorting_criteria__()
         self.__build_display_regions__()
 
+        self.__init_plot__()
+        self.__init_inputs__()
+
     def __read_config__(self, config):
         # Initialize sizing stuff
-        self.width = config.get("width", DEFAULT_WIDTH)
-        self.height = config.get("height", DEFAULT_HEIGHT)
-        self.legend_width = config.get("legend_width", DEFAULT_LEGEND_WIDTH)
-        self.legend_height = config.get("legend_height", DEFAULT_LEGEND_HEIGHT)
+        self.aspect_ratio = config.get("aspect_ratio", DEFAULT_ASPECT_RATIO)
         self.x_range = config.get("x_range", DEFAULT_X_RANGE)
         self.y_range = config.get("y_range", DEFAULT_Y_RANGE)
         self.min_space_x = config.get("min_space_x", DEFAULT_MIN_SPACE_X)
         self.min_space_y = config.get("min_space_y", DEFAULT_MIN_SPACE_Y)
         self.total_display_regions = config.get("total_display_regions", DEFAULT_TOTAL_DISPLAY_REGIONS)
         self.min_display_regions = config.get("min_display_regions", DEFAULT_MIN_DISPLAY_REGIONS)
+        self.font_size = config.get("font_size", DEFAULT_FONT_SIZE)
+        self.title_font_size = config.get("title_font_size", DEFAULT_TITLE_FONT_SIZE)
+        self.font_size_str = str(self.font_size) + 'px'
+        self.title_font_size_str = str(self.title_font_size) + 'px'
 
         # Initialize keys
         self.region_key = config.get("region_key", DEFAULT_REGION_KEY)
@@ -175,7 +184,6 @@ class VisualizationLayout:
         self.calc_with_secondary_incidence = config.get("calc_with_secondary_incidence", [False] * self.num_categories)
 
         # Initialize strings
-        self.legend_title = config.get("legend_title", DEFAULT_LEGEND_TITLE)
         self.searchbar_placeholder = config.get("searchbar_placeholder", DEFAULT_SEARCHBAR_PLACEHOLDER)
         self.reset_button_text = config.get("reset_button_text", DEFAULT_RESET_BUTTON_TEXT)
         self.region_name_tooltip = config.get("region_name_tooltip", DEFAULT_REGION_NAME_TOOLTIP)
@@ -225,6 +233,64 @@ class VisualizationLayout:
             else:
                 self.sort_criterias.append(self.__get_incidence_key__(i))
                 self.criteria_units.append(self.incidence_unit)
+
+    def __init_plot__(self):
+        # Initialize plot
+        plot = figure(
+            name=PLOT_NAME,
+            title=self.title,
+            aspect_ratio=self.aspect_ratio,
+            sizing_mode="scale_both",
+            x_range=self.x_range,
+            y_range=self.y_range,
+            toolbar_location=None,
+            align="center"
+        )
+        plot.xaxis.visible = False
+        plot.yaxis.visible = False
+        plot.grid.visible = False
+        plot.title.text_font_size = self.font_size_str
+
+        self.__build_plot_data__()
+        self.__draw_phase_boxes__(plot)
+        self.__draw_glyphs__(plot)
+
+        self.plot = plot
+
+    def __init_inputs__(self):
+        # Callbacks for the searchbar and reset button
+        def handle_search(attr, old, new):
+            self.__add_searched_region__(new)
+            self.__build_plot_data__()
+
+        def handle_reset(event):
+            searchbar.value = ""
+            self.last_searched = ""
+            self.__build_display_regions__()
+            self.__build_plot_data__()
+
+        # Builds input with autocompletion, adding in postcodes if they exist
+        completions = []
+        completions.extend(self.input_table[self.region_key].tolist())
+        if self.postcode_key in self.input_table.columns:
+            completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
+        searchbar = AutocompleteInput(
+            name=SEARCHBAR_NAME,
+            completions=completions,
+            min_characters=5,
+            case_sensitive=False,
+            placeholder=self.searchbar_placeholder)
+        searchbar.on_change('value', handle_search)
+
+        # Reset button
+        reset_button = Button(
+            name=RESET_BUTTON_NAME,
+            label=self.reset_button_text
+        )
+        reset_button.on_click(handle_reset)
+
+        self.reset_button = reset_button
+        self.searchbar = searchbar
 
     def __get_incidence_key__(self, category_index):
         if self.calc_with_secondary_incidence[category_index]:
@@ -364,28 +430,6 @@ class VisualizationLayout:
             return self.time_safe_plural_unit
         return self.incidence_plural_unit
 
-    def __build_layout__(self):
-        # Initialize plot
-        plot = figure(
-            title=self.title,
-            plot_width=self.width,
-            plot_height=self.height,
-            x_range=self.x_range,
-            y_range=self.y_range,
-            toolbar_location=None,
-            align="center"
-        )
-        plot.xaxis.visible = False
-        plot.yaxis.visible = False
-        plot.grid.visible = False
-
-        self.__draw_phase_boxes__(plot)
-        self.__draw_glyphs__(plot)
-        input_layout = self.__build_input_layout__()
-        legend = self.__build_legend__()
-
-        return row(plot, column(legend, input_layout))
-
     def __draw_phase_boxes__(self, plot):
         box_top_y = 1
         box_data = self.__new_plot_data_map__()
@@ -446,8 +490,9 @@ class VisualizationLayout:
             plot.text(x=box_data["text_x"][i], y=box_data["text_y"][i],
                       text=box_data["text"][i],
                       text_baseline="middle",
-                      y_offset=(10 if is_offset else 0),
-                      text_align=("right" if is_offset else "center"))
+                      y_offset=(8 if is_offset else 0),
+                      text_align=("right" if is_offset else "center"),
+                      text_font_size=self.font_size_str)
 
     def __draw_glyphs__(self, plot):
         # Add lines
@@ -456,9 +501,13 @@ class VisualizationLayout:
         plot.add_glyph(self.searched_source, line)
 
         # Add text
-        text = Text(x="text_x", y="text_y", text="text", text_baseline="bottom", y_offset=8, text_font_style="normal")
+        text = Text(x="text_x", y="text_y", text="text",
+                    text_baseline="bottom", y_offset=8,
+                    text_font_style="normal", text_font_size=self.font_size_str)
         text_renderer = plot.add_glyph(self.source, text)
-        searched_text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="bold")
+        searched_text = Text(x="text_x", y="text_y", text="text",
+                             text_baseline="middle", y_offset=8,
+                             text_font_style="bold", text_font_size=self.font_size_str)
         searched_text_renderer = plot.add_glyph(self.searched_source, searched_text)
 
         # add the hover functionality, filtering out optional fields
@@ -476,33 +525,6 @@ class VisualizationLayout:
         text_hover = HoverTool(renderers=[text_renderer, searched_text_renderer], tooltips=tooltips,
                                anchor="bottom_center", attachment="above", point_policy="follow_mouse")
         plot.add_tools(text_hover)
-
-    def __build_input_layout__(self):
-        # Callbacks for the searchbar and reset button
-        def handle_search(attr, old, new):
-            self.__add_searched_region__(new)
-            self.__build_plot_data__()
-
-        def handle_reset(event):
-            text_input.value = ""
-            self.last_searched = ""
-            self.__build_display_regions__()
-            self.__build_plot_data__()
-
-        # Builds input with autocompletion, adding in postcodes if they exist
-        completions = []
-        completions.extend(self.input_table[self.region_key].tolist())
-        if self.postcode_key in self.input_table.columns:
-            completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
-        text_input = AutocompleteInput(completions=completions, min_characters=5, case_sensitive=False,
-                                       placeholder=self.searchbar_placeholder)
-        text_input.on_change('value', handle_search)
-
-        # Reset button
-        reset_button = Button(label=self.reset_button_text)
-        reset_button.on_click(handle_reset)
-
-        return column(reset_button, text_input, sizing_mode="scale_width")
 
     def __adjust_branches__(self, data, direction):
         # Adjusts "branches" horizontally to ensure no overlaps
@@ -529,34 +551,11 @@ class VisualizationLayout:
             if not is_branched:
                 consecutive_branches = 0
 
-    def __build_legend__(self):
-        legend = Legend()
-        legend_items = []
-        for i in range(self.num_categories):
-            if self.labels[i] is not None:
-                legend_items.append(
-                    LegendItem(
-                        label=f"{self.labels[i]}: {self.descriptions[i]}"
-                    )
-                )
-        legend.items = legend_items
-        legend.location = "center"
-        legend_plot = figure(
-            title=self.legend_title,
-            plot_width=self.legend_width,
-            plot_height=self.legend_height,
-            toolbar_location=None,
-            align="center"
-        )
-        legend_plot.xaxis.visible = False
-        legend_plot.yaxis.visible = False
-        legend_plot.grid.visible = False
-        legend_plot.add_layout(legend)
-        return legend_plot
+    def get_plot(self):
+        return self.plot
 
-    def generate(self):
-        """ generate builds the visualization's layout
-        :return: the layout
-        """
-        self.__build_plot_data__()
-        return self.__build_layout__()
+    def get_searchbar(self):
+        return self.searchbar
+
+    def get_reset_button(self):
+        return self.reset_button
