@@ -15,12 +15,13 @@ Visualizations, integration, and deployment pipeline created by Jason Li
     * Optional columns are postcode, secondary incidence (e.g. cases per 100k in 14 days), and percent change (use if primary and secondary incidence are of the same unit and measured over different periods of time)
     * The .pkl file should be saved to the visualizations/pickles folder
 2. Create a .yml file in the visualizations/config folder containing the required configuration.
-    * Documentation of all configuration options is available in visualizations/layout.py
+    * Documentation of all configuration options is available in [visualizations/layout.py](https://github.com/vbrunsch/rankings/blob/6eba3b322aaf5939d9c0ae9c02862b57094059fe/visualizations/layout.py#L49)
         * Make sure the required configuration options are set!
     * You can refer to the sample.yml or germany.yml for an example
     * Must be .yml, not .yaml
 3. Add the region to the regions section of ci/helm/visualizations/values.yaml
     * It should be typed exactly the same as the filename of the region's .yml config file, just without the .yml extension (e.g. germany.yml -> germany)
+    * Additionally, you should add any websites you will embed the visualization on in the allowedOrigins section
 4. After the pipeline finishes running, the visualization should be available at https://nocovid.group/{region}.
 ### Modifying or translating regions
 * To modify a region's visualization, you just need to modify the region's config file (or the .pkl generation) and changes will automatically be applied
