@@ -26,6 +26,25 @@ Visualizations, integration, and deployment pipeline created by Jason Li
 ### Modifying or translating regions
 * To modify a region's visualization, you just need to modify the region's config file (or the .pkl generation) and changes will automatically be applied
 * To translate a region, use the label and string configuration options. Consult the saxony.yml config file for reference.
+### Local Testing
+1. Install Docker and Docker Compose.
+2. You can follow the Deployment with Docker instructions below or use the docker-compose.yml
+3. To use Docker Compose, add a service using the following template, replacing ((region)) with the region (e.g. saxony) and ((REGION)) with the region in all caps
+```yaml
+((region))-visualization:
+    build: .
+    image: ((region))-visualization:latest
+    restart: on-failure
+    environment:
+      - REGION=((region))
+      - BOKEH_ALLOW_WS_ORIGIN=${ALLOWED_HOSTS}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    ports:
+      - ${((REGION))_PORT}:5006
+```
+4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. AUSTRALIA_PORT=5008
+5. Run `docker-compose up --build` in the root folder of the repository, and once your server is up, go to `http://localhost:((port))/((region))`, replacing ((port)) with the port you used in step 4 and ((region)) with the region name.
 ### Deployment with Docker
 * To deploy using the Dockerfile, override the following environment variables:
   * REGION (e.g. REGION=germany)
