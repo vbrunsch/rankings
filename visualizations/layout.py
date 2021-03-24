@@ -1,3 +1,4 @@
+import math
 import pandas as pd
 from bokeh.layouts import column, row
 from bokeh.plotting import figure, curdoc
@@ -16,7 +17,8 @@ DEFAULT_X_RANGE = (-3, 5)
 DEFAULT_Y_RANGE = (-0.1, 1.1)
 DEFAULT_MIN_SPACE_X = 0.0825
 DEFAULT_MIN_SPACE_Y = 0.0425
-DEFAULT_NUM_DISPLAY_REGIONS = 3
+DEFAULT_TOTAL_DISPLAY_REGIONS = 15
+DEFAULT_MIN_DISPLAY_REGIONS = 2
 # keys
 DEFAULT_REGION_KEY = "District/County Town"
 DEFAULT_PRIMARY_INCIDENCE_KEY = "New Cases in Last 14 Days"
@@ -73,7 +75,9 @@ class VisualizationLayout:
            for reference, the box's height is 1 and it spans y = [0, 1]
     :param min_space_x is the minimum horizontal space in between each "branched" line
     :param min_space_y is the minimum vertical space in between each county's text and line elements
-    :param num_display_regions is the number of regions that appear per phase (excluding searched regions)
+    :param total_display_regions is the number of regions that appear in total (excluding searched regions).
+           it will be divided proportionally among the categories, based on how many regions are in that category.
+    :param min_display_regions is the minimum number of regions that will be displayed for a category (if possible)
 
     --- Units ---
     :param region_type should describe the granularity of the input data.
@@ -151,7 +155,8 @@ class VisualizationLayout:
         self.y_range = config.get("y_range", DEFAULT_Y_RANGE)
         self.min_space_x = config.get("min_space_x", DEFAULT_MIN_SPACE_X)
         self.min_space_y = config.get("min_space_y", DEFAULT_MIN_SPACE_Y)
-        self.num_display_regions = config.get("num_display_regions", DEFAULT_NUM_DISPLAY_REGIONS)
+        self.total_display_regions = config.get("total_display_regions", DEFAULT_TOTAL_DISPLAY_REGIONS)
+        self.min_display_regions = config.get("min_display_regions", DEFAULT_MIN_DISPLAY_REGIONS)
 
         # Initialize keys
         self.region_key = config.get("region_key", DEFAULT_REGION_KEY)
@@ -226,6 +231,9 @@ class VisualizationLayout:
             return self.secondary_incidence_key
         return self.primary_incidence_key
 
+    def __get_num_display_regions_for_category__(self, category_index):
+        return max(math.floor(self.total_display_regions * self.ratios[category_index]), self.min_display_regions)
+
     def __build_display_regions__(self):
         for i in range(self.num_categories):
             sort_ascending = True
@@ -235,10 +243,10 @@ class VisualizationLayout:
             # add top regions
             sorted_entries = self.categorized_entries[i] \
                 .sort_values(by=self.sort_criterias[i], axis=0, ascending=sort_ascending)
-            self.display_regions[i] = sorted_entries.head(self.num_display_regions)
+            self.display_regions[i] = sorted_entries.head(self.__get_num_display_regions_for_category__(i))
 
             # replace the tail with the worst region
-            if len(sorted_entries) > self.num_display_regions:
+            if len(sorted_entries) > self.__get_num_display_regions_for_category__(i):
                 self.display_regions[i] = self.display_regions[i].head(-1)
                 self.display_regions[i] = self.display_regions[i].append(sorted_entries.tail(1))
 
@@ -448,7 +456,7 @@ class VisualizationLayout:
         plot.add_glyph(self.searched_source, line)
 
         # Add text
-        text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="normal")
+        text = Text(x="text_x", y="text_y", text="text", text_baseline="bottom", y_offset=8, text_font_style="normal")
         text_renderer = plot.add_glyph(self.source, text)
         searched_text = Text(x="text_x", y="text_y", text="text", text_baseline="middle", text_font_style="bold")
         searched_text_renderer = plot.add_glyph(self.searched_source, searched_text)
