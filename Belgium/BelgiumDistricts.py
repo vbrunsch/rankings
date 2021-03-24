@@ -16,7 +16,7 @@ yesterday = now - timedelta(days=1)
 start = datetime.date(2020, 6, 10)
 date_list = pd.date_range(start=start,end=yesterday).tolist()
 for d in date_list:    
-    if d!= datetime.date(2020, 12, 18):
+    if d!= datetime.date(2020, 12, 18) and d!= datetime.date(2021, 3, 21):
         date_time = d.strftime("%Y%m%d")
         url = f"https://epistat.sciensano.be/Data/{date_time}/COVID19BE_CASES_MUNI_CUM_{date_time}.csv"
         print(d)
