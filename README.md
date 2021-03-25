@@ -15,16 +15,37 @@ Visualizations, integration, and deployment pipeline created by Jason Li
     * Optional columns are postcode, secondary incidence (e.g. cases per 100k in 14 days), and percent change (use if primary and secondary incidence are of the same unit and measured over different periods of time)
     * The .pkl file should be saved to the visualizations/pickles folder
 2. Create a .yml file in the visualizations/config folder containing the required configuration.
-    * Documentation of all configuration options is available in visualizations/layout.py
+    * Documentation of all configuration options is available in [visualizations/layout.py](https://github.com/vbrunsch/rankings/blob/6eba3b322aaf5939d9c0ae9c02862b57094059fe/visualizations/layout.py#L49)
         * Make sure the required configuration options are set!
     * You can refer to the sample.yml or germany.yml for an example
     * Must be .yml, not .yaml
 3. Add the region to the regions section of ci/helm/visualizations/values.yaml
     * It should be typed exactly the same as the filename of the region's .yml config file, just without the .yml extension (e.g. germany.yml -> germany)
+    * Additionally, you should add any websites you will embed the visualization on in the allowedOrigins section
 4. After the pipeline finishes running, the visualization should be available at https://nocovid.group/{region}.
 ### Modifying or translating regions
 * To modify a region's visualization, you just need to modify the region's config file (or the .pkl generation) and changes will automatically be applied
 * To translate a region, use the label and string configuration options. Consult the saxony.yml config file for reference.
+### Local Testing
+1. Install Docker and Docker Compose.
+2. You can follow the Deployment with Docker instructions below or use the docker-compose.yml
+3. To use Docker Compose, add a service using the following template, replacing ((region)) with the region (e.g. saxony) and ((REGION)) with the region in all caps (e.g. SAXONY)
+```yaml
+((region))-visualization:
+    build: .
+    image: ((region))-visualization:latest
+    restart: on-failure
+    environment:
+      - REGION=((region))
+      - BOKEH_ALLOW_WS_ORIGIN=${ALLOWED_HOSTS}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    ports:
+      - ${((REGION))_PORT}:5006
+```
+4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. AUSTRALIA_PORT=5008
+5. Run `docker-compose up --build` in the root folder of the repository, and once the server is up, go to `http://localhost:((port))/((region))`, replacing ((port)) with the port you used in step 4 and ((region)) with the region name.
+6. Every time you want to reload your changes, you need to stop the previous containers and re-run `docker-compose up --build`
 ### Deployment with Docker
 * To deploy using the Dockerfile, override the following environment variables:
   * REGION (e.g. REGION=germany)
