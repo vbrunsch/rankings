@@ -6,4 +6,7 @@ WORKDIR /visualizations
 COPY ./visualizations ./
 EXPOSE 5006
 
-CMD ["sh", "-c", "PYTHONPATH=\"${PYTHONPATH}:$(cd ../ && pwd)\" CONFIG_PATH=./config/${REGION}.yml bokeh serve ./ --prefix=${REGION}"]
+CMD ["sh", "-c", "PYTHONPATH=\"${PYTHONPATH}:$(cd ../ && pwd)\" \
+CONFIG_PATH=./config/${REGION}.yml \
+LAST_UPDATED_PATH=./last-updated/${REGION} \
+bokeh serve ./ --prefix=${REGION}"]

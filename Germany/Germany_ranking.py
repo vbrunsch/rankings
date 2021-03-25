@@ -1,3 +1,4 @@
+from datetime import datetime
 import logging
 
 import pandas as pd
@@ -109,7 +110,12 @@ districts_formatted = tab['District/County Town'].str.split(" ").\
     map(lambda split: f'{" ".join(split[1:])}, {split[0]}')
 tab_formatted = tab
 tab_formatted['District/County Town'] = districts_formatted
+
+# Save pickle and last updated time for visualizations
 tab_formatted.to_pickle("visualizations/pickles/germany.pkl")
+with open('visualizations/last-updated/germany', 'w') as file:
+    file.write(datetime.utcnow().strftime("%m/%d/%Y %H:%M:%S UTC"))
+
 tab = tab.drop(['Postcode', 'Population', 'Cases per 100k (Last 7 Days)', 'Cases per 100k (Last 14 Days)'], axis=1)
 
 def highlighter(s):

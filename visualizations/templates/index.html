@@ -19,8 +19,26 @@
 <!-- goes in body -->
 {% block contents %}
 <div class="visualization">
+    <div class="title-wrapper">
+        <h3>{{ title }}</h3>
+        {% if last_updated_time != None %}
+        <p>{{ last_updated_text }}: {{ last_updated_time }}</p>
+        {% endif %}
+    </div>
+    <div class="legend-wrapper">
+        <p>
+            <b>{{ legend_title }}</b>
+        </p>
+        {% for desc in descriptions %}
+        {% if desc != None %}
+        <div class="color-box" style="background-color: {{ colors[loop.index - 1] }};"></div>
+        <b>{{ labels[loop.index - 1] }}</b>: {{ desc }}<br/>
+        {% endif %}
+        {% endfor %}
+    </div>
     <div class="plot-wrapper"> {{ embed(roots.plot) }} </div>
-    <div class="button-wrapper"> {{ embed(roots.reset_button) }} </div>
-    <div class="searchbar-wrapper"> {{ embed(roots.searchbar) }} </div>
+    <div class="inputs-wrapper">
+        {{ embed(roots.inputs) }}
+    </div>
 </div>
 {% endblock %}

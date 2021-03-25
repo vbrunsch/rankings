@@ -4,7 +4,6 @@ visualizations:
       title: "COVID Phasen in Deutschland"
       input_path: ./pickles/germany.pkl
       legend_title: "Legende"
-      legend_width: 400
       region_name_tooltip: "Name"
       category_tooltip: "Kategorie"
       incidence_unit: "Fall"

@@ -1,6 +1,7 @@
 import math
 import pandas as pd
 from bokeh.io import curdoc
+from bokeh.layouts import column
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, HoverTool, MultiLine
 
@@ -8,23 +9,21 @@ from bokeh.models import ColumnDataSource, AutocompleteInput, Button, Text, Hove
 # Constants needed for Jinja templating, should equal the identifiers within templates/index.html
 #
 PLOT_NAME = "plot"
-SEARCHBAR_NAME = "searchbar"
-RESET_BUTTON_NAME = "reset_button"
+INPUTS_NAME = "inputs"
 
 #
 # Default configuration values
 #
 
 # sizing stuff
-DEFAULT_ASPECT_RATIO = 0.8
-DEFAULT_X_RANGE = (-3, 5)
+DEFAULT_ASPECT_RATIO = 0.9
+DEFAULT_X_RANGE = (-4, 7)
+DEFAULT_Y_RANGE = (-0.2, 1.125)
 DEFAULT_MIN_SPACE_X = 0.0825
-DEFAULT_MIN_SPACE_Y = 0.0425
-DEFAULT_Y_RANGE = (-0.125, 1.125)
-DEFAULT_FONT_SIZE = 20
-DEFAULT_TITLE_FONT_SIZE = 22
-DEFAULT_TOTAL_DISPLAY_REGIONS = 15
+DEFAULT_MIN_SPACE_Y = 0.06
+DEFAULT_TOTAL_DISPLAY_REGIONS = 12
 DEFAULT_MIN_DISPLAY_REGIONS = 2
+DEFAULT_FONT_SIZE = 20
 # keys
 DEFAULT_REGION_KEY = "District/County Town"
 DEFAULT_PRIMARY_INCIDENCE_KEY = "New Cases in Last 14 Days"
@@ -40,6 +39,8 @@ DEFAULT_INCIDENCE_UNIT = "case"
 DEFAULT_INCIDENCE_PLURAL_UNIT = "cases"
 DEFAULT_CALC_WITH_SECONDARY_INCIDENCE = None
 # strings
+DEFAULT_LAST_UPDATED_TEXT = "Last updated"
+DEFAULT_LEGEND_TITLE = "Legend"
 DEFAULT_SEARCHBAR_PLACEHOLDER = "Search for a region..."
 DEFAULT_RESET_BUTTON_TEXT = "Reset"
 DEFAULT_REGION_NAME_TOOLTIP = "Region Name"
@@ -62,7 +63,7 @@ class VisualizationLayout:
     :param title is the title of the visualization
     :param input_path is where the .pkl file is located
     :param labels are the phases' labels. the first element is always the "Green Zone" and is sorted in descending order
-           with elements in time_safe_key. (required argument)
+           with elements in time_safe_key.
     :param descriptions are used to display the legend
     :param lower_bounds are the lower bounds, inclusive, of the phases. an example is [0, 1, 20], where phase 1 only
            includes 0 incidence (>= 0 and < 1, phase 2 includes incidence >= 1 and < 20, etc.
@@ -76,13 +77,13 @@ class VisualizationLayout:
            for reference, the box's width is 1 and it spans x = [0, 1]
     :param y_range represents the range of y values represented in the plot.
            for reference, the box's height is 1 and it spans y = [0, 1]
-    :param min_space_x is the minimum horizontal space in between each "branched" line
-    :param min_space_y is the minimum vertical space in between each county's text and line elements
+    :param min_space_x is the minimum horizontal space in between each "branched" line. it is proportional to x_range.
+    :param min_space_y is the minimum vertical space in between each county's text and line elements.
+           it is proportional to y_range.
     :param total_display_regions is the number of regions that appear in total (excluding searched regions).
            it will be divided proportionally among the categories, based on how many regions are in that category.
     :param min_display_regions is the minimum number of regions that will be displayed for a category (if possible)
     :param font_size is the font size, in pixels, of the text rendered on the plot
-    :param title_font_size is the font size, in pixels, of the title of the plot
 
     --- Units ---
     :param region_type should describe the granularity of the input data.
@@ -105,6 +106,9 @@ class VisualizationLayout:
            category at index i to be done using the secondary incidence data.
 
     --- Strings ---
+    :param last_updated_text is the label used to display the last updated date
+    :param last_updated_time is the actual time that the data was last updated. This generally should not be hardcoded
+           and should be dynamically set when the server launches.
     :param legend_title is the title displayed above the legend
     :param searchbar_placeholder is used as the placeholder for the region search bar
     :param reset_button_text is used as the text for the reset button
@@ -163,9 +167,7 @@ class VisualizationLayout:
         self.total_display_regions = config.get("total_display_regions", DEFAULT_TOTAL_DISPLAY_REGIONS)
         self.min_display_regions = config.get("min_display_regions", DEFAULT_MIN_DISPLAY_REGIONS)
         self.font_size = config.get("font_size", DEFAULT_FONT_SIZE)
-        self.title_font_size = config.get("title_font_size", DEFAULT_TITLE_FONT_SIZE)
         self.font_size_str = str(self.font_size) + 'px'
-        self.title_font_size_str = str(self.title_font_size) + 'px'
 
         # Initialize keys
         self.region_key = config.get("region_key", DEFAULT_REGION_KEY)
@@ -184,6 +186,9 @@ class VisualizationLayout:
         self.calc_with_secondary_incidence = config.get("calc_with_secondary_incidence", [False] * self.num_categories)
 
         # Initialize strings
+        self.last_updated_text = config.get("last_updated_text", DEFAULT_LAST_UPDATED_TEXT)
+        self.last_updated_time = config.get("last_updated_time")
+        self.legend_title = config.get("legend_title", DEFAULT_LEGEND_TITLE)
         self.searchbar_placeholder = config.get("searchbar_placeholder", DEFAULT_SEARCHBAR_PLACEHOLDER)
         self.reset_button_text = config.get("reset_button_text", DEFAULT_RESET_BUTTON_TEXT)
         self.region_name_tooltip = config.get("region_name_tooltip", DEFAULT_REGION_NAME_TOOLTIP)
@@ -238,7 +243,6 @@ class VisualizationLayout:
         # Initialize plot
         plot = figure(
             name=PLOT_NAME,
-            title=self.title,
             aspect_ratio=self.aspect_ratio,
             sizing_mode="scale_both",
             x_range=self.x_range,
@@ -249,7 +253,6 @@ class VisualizationLayout:
         plot.xaxis.visible = False
         plot.yaxis.visible = False
         plot.grid.visible = False
-        plot.title.text_font_size = self.font_size_str
 
         self.__build_plot_data__()
         self.__draw_phase_boxes__(plot)
@@ -275,22 +278,20 @@ class VisualizationLayout:
         if self.postcode_key in self.input_table.columns:
             completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
         searchbar = AutocompleteInput(
-            name=SEARCHBAR_NAME,
             completions=completions,
             min_characters=5,
             case_sensitive=False,
-            placeholder=self.searchbar_placeholder)
+            placeholder=self.searchbar_placeholder
+        )
         searchbar.on_change('value', handle_search)
 
         # Reset button
         reset_button = Button(
-            name=RESET_BUTTON_NAME,
             label=self.reset_button_text
         )
         reset_button.on_click(handle_reset)
 
-        self.reset_button = reset_button
-        self.searchbar = searchbar
+        self.inputs = column(reset_button, searchbar, sizing_mode="stretch_width", name=INPUTS_NAME)
 
     def __get_incidence_key__(self, category_index):
         if self.calc_with_secondary_incidence[category_index]:
@@ -489,8 +490,7 @@ class VisualizationLayout:
             plot.vbar(0, 2, box_data["box_top_y"][i], fill_color=self.colors[i], line_color="#000000")
             plot.text(x=box_data["text_x"][i], y=box_data["text_y"][i],
                       text=box_data["text"][i],
-                      text_baseline="middle",
-                      y_offset=(8 if is_offset else 0),
+                      y_offset=(self.font_size * 1.9 if is_offset else self.font_size),
                       text_align=("right" if is_offset else "center"),
                       text_font_size=self.font_size_str)
 
@@ -502,11 +502,11 @@ class VisualizationLayout:
 
         # Add text
         text = Text(x="text_x", y="text_y", text="text",
-                    text_baseline="bottom", y_offset=8,
+                    y_offset=self.font_size / 2,
                     text_font_style="normal", text_font_size=self.font_size_str)
         text_renderer = plot.add_glyph(self.source, text)
         searched_text = Text(x="text_x", y="text_y", text="text",
-                             text_baseline="middle", y_offset=8,
+                             y_offset=self.font_size / 2,
                              text_font_style="bold", text_font_size=self.font_size_str)
         searched_text_renderer = plot.add_glyph(self.searched_source, searched_text)
 
@@ -523,7 +523,7 @@ class VisualizationLayout:
             tooltips.append((f"{self.percent_change_tooltip}", "@{percent_change}"))
 
         text_hover = HoverTool(renderers=[text_renderer, searched_text_renderer], tooltips=tooltips,
-                               anchor="bottom_center", attachment="above", point_policy="follow_mouse")
+                               attachment="above", point_policy="follow_mouse")
         plot.add_tools(text_hover)
 
     def __adjust_branches__(self, data, direction):
@@ -551,11 +551,16 @@ class VisualizationLayout:
             if not is_branched:
                 consecutive_branches = 0
 
-    def get_plot(self):
-        return self.plot
+    def render(self):
+        # Set template variables
+        curdoc().template_variables["title"] = self.title
+        curdoc().template_variables["last_updated_text"] = self.last_updated_text
+        curdoc().template_variables["last_updated_time"] = self.last_updated_time
+        curdoc().template_variables["legend_title"] = self.legend_title
+        curdoc().template_variables["colors"] = self.colors
+        curdoc().template_variables["descriptions"] = self.descriptions
+        curdoc().template_variables["labels"] = self.labels
 
-    def get_searchbar(self):
-        return self.searchbar
-
-    def get_reset_button(self):
-        return self.reset_button
+        # Add figures to curdoc
+        curdoc().add_root(self.plot)
+        curdoc().add_root(self.inputs)
