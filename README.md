@@ -44,7 +44,7 @@ Visualizations, integration, and deployment pipeline created by Jason Li
     ports:
       - ${((REGION))_PORT}:5006
 ```
-4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. AUSTRALIA_PORT=5008
+4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. `AUSTRALIA_PORT=5008`
 5. Run `docker-compose up --build` in the root folder of the repository, and once the server is up, go to `http://localhost:((port))/((region))`, replacing ((port)) with the port you used in step 4 and ((region)) with the region name.
 6. Every time you want to reload your changes, you need to stop the previous containers and re-run `docker-compose up --build`
 ### Deployment with Docker
