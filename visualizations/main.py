@@ -1,7 +1,7 @@
 import os
 import yaml
 from bokeh.util import logconfig
-from bokeh.io import curdoc, show
+from bokeh.io import curdoc
 
 from visualizations.layout import VisualizationLayout
 
