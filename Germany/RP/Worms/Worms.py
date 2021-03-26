@@ -22,12 +22,12 @@ kon = pd.DataFrame()
 zus = pd.DataFrame()
 we = 0
 
-for x in range(0,13):
+for x in range(1,14):
     x = x + we*2
     m = 0
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
-    while m == 0 and x < 14:
+    while m == 0 and x < 15:
         for url in ['https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=2#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=3#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=4#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=5#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=6#list_586a9b2b']:
             html = urllib.request.urlopen(url)
             htmlParse = BeautifulSoup(html, 'html.parser')
@@ -226,7 +226,7 @@ zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 
 zus['last7_risk'] = unb[unb.columns[0]]+unb[unb.columns[1]]+unb[unb.columns[2]]+unb[unb.columns[3]]+unb[unb.columns[4]]+unb[unb.columns[5]]+unb[unb.columns[6]]
-zus['last14_risk'] = zus['last7'] + unb[unb.columns[7]]+unb[unb.columns[8]]+unb[unb.columns[9]]+unb[unb.columns[10]]+unb[unb.columns[11]]+unb[unb.columns[12]]+unb[unb.columns[13]]
+zus['last14_risk'] = zus['last7_risk'] + unb[unb.columns[7]]+unb[unb.columns[8]]+unb[unb.columns[9]]+unb[unb.columns[10]]+unb[unb.columns[11]]+unb[unb.columns[12]]+unb[unb.columns[13]]
 zus['mix_risk'] = np.where(zus['last7_risk'] == 0, 0.6, zus['last7_risk'])
 zus['mix_risk'] = np.where(zus['last14_risk'] == 0, 0.2, zus['mix_risk'])
 
