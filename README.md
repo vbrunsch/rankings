@@ -62,9 +62,6 @@ Visualizations, integration, and deployment pipeline created by Jason Li
 ```html
 <iframe class="vis-embed" src="https://nocovid.group/saxony/visualizations"></iframe>
 <style>
-.bk {
-    margin: auto !important;
-}
 .vis-embed {
     display: block;
     width: 600px;
