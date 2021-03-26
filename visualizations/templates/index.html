@@ -31,14 +31,16 @@
         </p>
         {% for desc in descriptions %}
         {% if desc != None %}
-        <div class="color-box" style="background-color: {{ colors[loop.index - 1] }};"></div>
-        <b>{{ labels[loop.index - 1] }}</b>: {{ desc }}<br/>
+        <div class="legend-item">
+            <div class="color-box" style="background-color: {{ colors[loop.index - 1] }};"></div>
+            <p><b>{{ labels[loop.index - 1] }}</b>: {{ desc }}</p>
+        </div>
         {% endif %}
         {% endfor %}
     </div>
-    <div class="plot-wrapper"> {{ embed(roots.plot) }} </div>
     <div class="inputs-wrapper">
         {{ embed(roots.inputs) }}
     </div>
+    <div class="plot-wrapper"> {{ embed(roots.plot) }} </div>
 </div>
 {% endblock %}
