@@ -18,7 +18,7 @@ INPUTS_NAME = "inputs"
 # sizing stuff
 DEFAULT_ASPECT_RATIO = 0.9
 DEFAULT_X_RANGE = (-4, 7)
-DEFAULT_Y_RANGE = (-0.2, 1.125)
+DEFAULT_Y_RANGE = (-0.075, 1.075)
 DEFAULT_MIN_SPACE_X = 0.0825
 DEFAULT_MIN_SPACE_Y = 0.06
 DEFAULT_TOTAL_DISPLAY_REGIONS = 12
@@ -328,6 +328,8 @@ class VisualizationLayout:
                 line_y_points = [line_y, line_y, text_y, text_y]
                 last_text_y = text_y
 
+                self.__attempt_adjust_y_range__(last_text_y)
+
                 # Store plot data for post-processing
                 plot_data["line_x_points"].append(line_x_points)
                 plot_data["line_y_points"].append(line_y_points)
@@ -416,6 +418,8 @@ class VisualizationLayout:
             last_text_y = box_data["text_y"][i]
             box_top_y -= box_size
 
+            self.__attempt_adjust_y_range__(last_text_y)
+
         # Post-process to ensure labels and branches don't overlap
         self.__adjust_branches__(box_data, "left")
 
@@ -437,6 +441,13 @@ class VisualizationLayout:
                       y_offset=(self.font_size * 1.9 if is_offset else self.font_size),
                       text_align=("right" if is_offset else "center"),
                       text_font_size=self.font_size_str)
+
+    # This function expands the y_range to prevent text from being cut off.
+    # If the inputted y_value is outside of the current y_range, it will adjust such that the new
+    # y_value is at the bottom of the graph, then add padding equal to the top padding
+    def __attempt_adjust_y_range__(self, y_value):
+        if y_value < self.y_range[0]:
+            self.y_range = (y_value - (self.y_range[1] - 1), self.y_range[1])
 
     def __draw_glyphs__(self, plot):
         # Add lines
