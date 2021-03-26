@@ -230,13 +230,12 @@ zus['last14_risk'] = zus['last7'] + unb[unb.columns[7]]+unb[unb.columns[8]]+unb[
 zus['mix_risk'] = np.where(zus['last7_risk'] == 0, 0.6, zus['last7_risk'])
 zus['mix_risk'] = np.where(zus['last14_risk'] == 0, 0.2, zus['mix_risk'])
 
-
+zus['Gemeinde'] = cop[['Unnamed: 0']]
 zus.to_csv(f'Germany/RP/Worms/data/Worms_for_dw14_7.csv')
 print(zus)      
 
 # For Rankings
 mdf = zus.copy()
-mdf['Gemeinde'] = cop[['Unnamed: 0']]
 mdf = mdf.drop_duplicates()
 mdf['Neuzugänge letzten 7 Tage_x'] = mdf['last7']
 mdf['Neuzugänge letzten 14 Tage'] = mdf['last14']
