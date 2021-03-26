@@ -57,6 +57,28 @@ Visualizations, integration, and deployment pipeline created by Jason Li
   * Optional, but allows for SSL termination:
       * BOKEH_SSL_CERTFILE (path to public cert, e.g. BOKEH_SSL_CERTFILE=cert.pem)
       * BOKEH_SSL_KEYFILE (path to private key, e.g. BOKEH_KEY_CERTFILE=key.pem)
+### Embedding
+* Using the default sizing and font configuration, this HTML and CSS is a good place to start when embedding the visualizations.
+```html
+<iframe class="vis-embed" src="https://nocovid.group/saxony/visualizations"></iframe>
+<style>
+.bk {
+    margin: auto !important;
+}
+.vis-embed {
+    display: block;
+    width: 600px;
+    height: 1200px;
+    margin: auto;
+}
+@media (min-width: 768px) { 
+    .vis-embed {
+        width: 700px;
+        height: 1300px;
+    }
+}
+</style>
+```
 ### Kubernetes Deployment
 * All deployments should be handled by the CI/CD pipeline. To set up the pipeline, see [here](https://github.com/aochen-jli/rankings-cicd).
 ### Example
