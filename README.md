@@ -49,14 +49,14 @@ Visualizations, integration, and deployment pipeline created by Jason Li
 6. Every time you want to reload your changes, you need to stop the previous containers and re-run `docker-compose up --build`
 ### Deployment with Docker
 * To deploy using the Dockerfile, override the following environment variables:
-  * REGION (e.g. REGION=germany)
+  * `REGION` (e.g. `REGION=germany`)
     * Set this equal to the filename of the .yml (excluding the .yml extension)
-  * BOKEH_ALLOW_WS_ORIGIN (e.g. BOKEH_ALLOW_WS_ORIGIN=localhost,endcoronavirus.org)
+  * `BOKEH_ALLOW_WS_ORIGIN` (e.g. `BOKEH_ALLOW_WS_ORIGIN=localhost,endcoronavirus.org`)
     * This should contain all the origins that will be used to access the server. Everything not listed will be blocked.
     * Multiple origins can be added, separated by comma
   * Optional, but allows for SSL termination:
-      * BOKEH_SSL_CERTFILE (path to public cert, e.g. BOKEH_SSL_CERTFILE=cert.pem)
-      * BOKEH_SSL_KEYFILE (path to private key, e.g. BOKEH_KEY_CERTFILE=key.pem)
+      * `BOKEH_SSL_CERTFILE` (path to public cert, e.g. `BOKEH_SSL_CERTFILE=cert.pem`)
+      * `BOKEH_SSL_KEYFILE` (path to private key, e.g. `BOKEH_KEY_CERTFILE=key.pem`)
 ### Embedding
 * Using the default sizing and font configuration, this HTML and CSS is a good place to start when embedding the visualizations.
 ```html
