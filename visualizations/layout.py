@@ -523,7 +523,7 @@ class VisualizationLayout:
             tooltips.append((f"{self.percent_change_tooltip}", "@{percent_change}"))
 
         text_hover = HoverTool(renderers=[text_renderer, searched_text_renderer], tooltips=tooltips,
-                               attachment="above", point_policy="follow_mouse")
+                               attachment="below", point_policy="follow_mouse")
         plot.add_tools(text_hover)
 
     def __adjust_branches__(self, data, direction):
