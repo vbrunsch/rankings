@@ -153,9 +153,7 @@ class VisualizationLayout:
         self.__calculate_ratios__()
         self.__init_sorting_criteria__()
         self.__build_display_regions__()
-
-        self.__init_plot__()
-        self.__init_inputs__()
+        self.__build_plot_data__()
 
     def __read_config__(self, config):
         # Initialize sizing stuff
@@ -238,60 +236,6 @@ class VisualizationLayout:
             else:
                 self.sort_criterias.append(self.__get_incidence_key__(i))
                 self.criteria_units.append(self.incidence_unit)
-
-    def __init_plot__(self):
-        # Initialize plot
-        plot = figure(
-            name=PLOT_NAME,
-            aspect_ratio=self.aspect_ratio,
-            sizing_mode="scale_both",
-            x_range=self.x_range,
-            y_range=self.y_range,
-            toolbar_location=None,
-            align="center"
-        )
-        plot.xaxis.visible = False
-        plot.yaxis.visible = False
-        plot.grid.visible = False
-
-        self.__build_plot_data__()
-        self.__draw_phase_boxes__(plot)
-        self.__draw_glyphs__(plot)
-
-        self.plot = plot
-
-    def __init_inputs__(self):
-        # Callbacks for the searchbar and reset button
-        def handle_search(attr, old, new):
-            self.__add_searched_region__(new)
-            self.__build_plot_data__()
-
-        def handle_reset(event):
-            searchbar.value = ""
-            self.last_searched = ""
-            self.__build_display_regions__()
-            self.__build_plot_data__()
-
-        # Builds input with autocompletion, adding in postcodes if they exist
-        completions = []
-        completions.extend(self.input_table[self.region_key].tolist())
-        if self.postcode_key in self.input_table.columns:
-            completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
-        searchbar = AutocompleteInput(
-            completions=completions,
-            min_characters=5,
-            case_sensitive=False,
-            placeholder=self.searchbar_placeholder
-        )
-        searchbar.on_change('value', handle_search)
-
-        # Reset button
-        reset_button = Button(
-            label=self.reset_button_text
-        )
-        reset_button.on_click(handle_reset)
-
-        self.inputs = column(reset_button, searchbar, sizing_mode="stretch_width", name=INPUTS_NAME)
 
     def __get_incidence_key__(self, category_index):
         if self.calc_with_secondary_incidence[category_index]:
@@ -551,6 +495,59 @@ class VisualizationLayout:
             if not is_branched:
                 consecutive_branches = 0
 
+    def __generate_plot__(self):
+        # Initialize plot
+        plot = figure(
+            name=PLOT_NAME,
+            aspect_ratio=self.aspect_ratio,
+            sizing_mode="scale_both",
+            x_range=self.x_range,
+            y_range=self.y_range,
+            toolbar_location=None,
+            align="center"
+        )
+        plot.xaxis.visible = False
+        plot.yaxis.visible = False
+        plot.grid.visible = False
+
+        self.__draw_phase_boxes__(plot)
+        self.__draw_glyphs__(plot)
+
+        return plot
+
+    def __generate_inputs__(self):
+        # Callbacks for the searchbar and reset button
+        def handle_search(attr, old, new):
+            self.__add_searched_region__(new)
+            self.__build_plot_data__()
+
+        def handle_reset(event):
+            searchbar.value = ""
+            self.last_searched = ""
+            self.__build_display_regions__()
+            self.__build_plot_data__()
+
+        # Builds input with autocompletion, adding in postcodes if they exist
+        completions = []
+        completions.extend(self.input_table[self.region_key].tolist())
+        if self.postcode_key in self.input_table.columns:
+            completions.extend(self.input_table[self.input_table[self.postcode_key] != 0][self.postcode_key].tolist())
+        searchbar = AutocompleteInput(
+            completions=completions,
+            min_characters=5,
+            case_sensitive=False,
+            placeholder=self.searchbar_placeholder
+        )
+        searchbar.on_change('value', handle_search)
+
+        # Reset button
+        reset_button = Button(
+            label=self.reset_button_text
+        )
+        reset_button.on_click(handle_reset)
+
+        return column(reset_button, searchbar, sizing_mode="stretch_width", name=INPUTS_NAME)
+
     def render(self):
         # Set template variables
         curdoc().template_variables["title"] = self.title
@@ -561,6 +558,8 @@ class VisualizationLayout:
         curdoc().template_variables["descriptions"] = self.descriptions
         curdoc().template_variables["labels"] = self.labels
 
-        # Add figures to curdoc
-        curdoc().add_root(self.plot)
-        curdoc().add_root(self.inputs)
+        # Add figures to document
+        plot = self.__generate_plot__()
+        inputs = self.__generate_inputs__()
+        curdoc().add_root(plot)
+        curdoc().add_root(inputs)
