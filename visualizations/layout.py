@@ -79,7 +79,7 @@ class VisualizationLayout:
            for reference, the box's height is 1 and it spans y = [0, 1]
     :param min_space_x is the minimum horizontal space in between each "branched" line. it is proportional to x_range.
     :param min_space_y is the minimum vertical space in between each county's text and line elements.
-           it is proportional to y_range.
+           it is proportional to y_range, and should be about the height of one line of text.
     :param total_display_regions is the number of regions that appear in total (excluding searched regions).
            it will be divided proportionally among the categories, based on how many regions are in that category.
     :param min_display_regions is the minimum number of regions that will be displayed for a category (if possible)
@@ -395,7 +395,7 @@ class VisualizationLayout:
             box_data["box_top_y"].append(box_top_y)
             box_data["text_y"].append(box_middle)
             box_data["text"].append([f"{self.labels[i]}\n{'{:.1%}'.format(box_size)}"])
-            if box_size >= 0.075:
+            if box_size >= self.min_space_y * 2.5:
                 # if phase is large enough, render it in the center of the box
                 box_data["text_x"].append(0)
                 box_data["line_x_points"].append(None)
