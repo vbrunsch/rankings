@@ -8,7 +8,7 @@ Generates the rankings at https://www.endcoronavirus.org/green-zone-rankings
 # Green-zone Ranking Visualizations
 Visualizations, integration, and deployment pipeline created by Jason Li
 
-All changes pushed to this repository are automatically deployed: https://nocovid.group/{region}
+All changes pushed to this repository are automatically deployed here: https://nocovid.group/{region}  
 Pipeline is available for monitoring at https://concourse.nocovid.group
 
 Application code is available [here](https://github.com/aochen-jli/visualizations)
