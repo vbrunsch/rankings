@@ -1,24 +1,30 @@
 version: '3.8'
 services:
   germany-visualization:
-    build: .
-    image: germany-visualization:latest
+    image: registry.nocovid.group/visualizations:latest
     restart: on-failure
     environment:
       - REGION=germany
       - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - REPOSITORY_PATH=${REPOSITORY_PATH}
+      - DOWNLOAD=${DOWNLOAD}
       - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
       - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    volumes:
+      - ./visualizations:/visualizations/data
     ports:
       - ${GERMANY_PORT}:5006
   saxony-visualization:
-    build: .
-    image: saxony-visualization:latest
+    image: registry.nocovid.group/visualizations:latest
     restart: on-failure
     environment:
       - REGION=saxony
       - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - REPOSITORY_PATH=${REPOSITORY_PATH}
+      - DOWNLOAD=${DOWNLOAD}
       - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
       - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    volumes:
+      - ./visualizations:/visualizations/data
     ports:
       - ${SAXONY_PORT}:5006

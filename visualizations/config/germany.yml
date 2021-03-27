@@ -2,7 +2,6 @@ page_title: "Germany Visualizations"
 visualizations:
   - case:
       title: "COVID Phasen in Deutschland"
-      input_path: https://raw.githubusercontent.com/vbrunsch/rankings/main/visualizations/pickles/germany.pkl
       legend_title: "Legende"
       region_name_tooltip: "Name"
       category_tooltip: "Kategorie"
