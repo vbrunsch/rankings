@@ -14,7 +14,7 @@ Visualizations, integration, and deployment pipeline created by Jason Li
     * Required columns are region name, category, time safe, and primary incidence (e.g. cases in 7 days)
     * Optional columns are postcode, secondary incidence (e.g. cases per 100k in 14 days), and percent change (use if primary and secondary incidence are of the same unit and measured over different periods of time)
     * The .pkl file should be saved to visualizations/pickles/{region}.yml
-    * You should also simultaneously save a file like visualizations/last-updated/{region}
+    * You should also simultaneously save a file like visualizations/last-updated/{region} containing the date and time at which the .pkl file was generated
 2. Create a .yml file in the visualizations/config folder containing the required configuration.
     * Documentation of all configuration options is available in [visualizations/layout.py](https://github.com/vbrunsch/rankings/blob/6eba3b322aaf5939d9c0ae9c02862b57094059fe/visualizations/layout.py#L49)
         * Make sure the required configuration options are set!
@@ -44,19 +44,38 @@ Visualizations, integration, and deployment pipeline created by Jason Li
     ports:
       - ${((REGION))_PORT}:5006
 ```
-4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. AUSTRALIA_PORT=5008
+4. Finally, add an environment variable for your region's port in the .env using an unused port, e.g. `AUSTRALIA_PORT=5008`
 5. Run `docker-compose up --build` in the root folder of the repository, and once the server is up, go to `http://localhost:((port))/((region))`, replacing ((port)) with the port you used in step 4 and ((region)) with the region name.
 6. Every time you want to reload your changes, you need to stop the previous containers and re-run `docker-compose up --build`
 ### Deployment with Docker
 * To deploy using the Dockerfile, override the following environment variables:
-  * REGION (e.g. REGION=germany)
+  * `REGION` (e.g. `REGION=germany`)
     * Set this equal to the filename of the .yml (excluding the .yml extension)
-  * BOKEH_ALLOW_WS_ORIGIN (e.g. BOKEH_ALLOW_WS_ORIGIN=localhost,endcoronavirus.org)
+  * `BOKEH_ALLOW_WS_ORIGIN` (e.g. `BOKEH_ALLOW_WS_ORIGIN=localhost,endcoronavirus.org`)
     * This should contain all the origins that will be used to access the server. Everything not listed will be blocked.
     * Multiple origins can be added, separated by comma
   * Optional, but allows for SSL termination:
-      * BOKEH_SSL_CERTFILE (path to public cert, e.g. BOKEH_SSL_CERTFILE=cert.pem)
-      * BOKEH_SSL_KEYFILE (path to private key, e.g. BOKEH_KEY_CERTFILE=key.pem)
+      * `BOKEH_SSL_CERTFILE` (path to public cert, e.g. `BOKEH_SSL_CERTFILE=cert.pem`)
+      * `BOKEH_SSL_KEYFILE` (path to private key, e.g. `BOKEH_KEY_CERTFILE=key.pem`)
+### Embedding
+* Using the default sizing and font configuration, this HTML and CSS is a good place to start when embedding the visualizations.
+```html
+<iframe class="vis-embed" src="https://nocovid.group/saxony/visualizations"></iframe>
+<style>
+.vis-embed {
+    display: block;
+    width: 600px;
+    height: 1200px;
+    margin: auto;
+}
+@media (min-width: 768px) { 
+    .vis-embed {
+        width: 700px;
+        height: 1300px;
+    }
+}
+</style>
+```
 ### Kubernetes Deployment
 * All deployments should be handled by the CI/CD pipeline. To set up the pipeline, see [here](https://github.com/aochen-jli/rankings-cicd).
 ### Example
