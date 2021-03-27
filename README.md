@@ -11,5 +11,5 @@ Visualizations, integration, and deployment pipeline created by Jason Li
 All changes pushed to this repository are automatically deployed here: https://nocovid.group/{region}  
 Pipeline is available for monitoring at https://concourse.nocovid.group
 
-Application code is available [here](https://github.com/aochen-jli/visualizations)
+Application code is available [here](https://github.com/aochen-jli/visualizations)  
 CI/CD pipeline is available [here](https://github.com/aochen-jli/visualizations-cicd)
