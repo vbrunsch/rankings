@@ -35,7 +35,7 @@ for x in range(1,15):
     tod = tod.strftime('%d.%m.%Y')
     pdf_path = "https://www.kvmyk.de/kv_myk/Corona/Corona-Statistiken/" + mon + "/Fallzahlen%20" + tod + ".pdf"
     print(pdf_path)
-    dfs = wrapper.read_pdf(pdf_path, stream=True)
+    dfs = tabula.read_pdf(pdf_path, stream=True)
     df = dfs[0].set_index('Stadt / VG')
     df[tod] = df['+-']
     df = df[[tod]]
