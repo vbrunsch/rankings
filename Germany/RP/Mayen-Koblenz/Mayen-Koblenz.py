@@ -1,3 +1,4 @@
+!pip install -q tabula-py
 import tabula
 from datetime import timedelta
 
