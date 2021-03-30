@@ -5,4 +5,4 @@ xlrd==1.2.0
 requests==2.23.0
 lxml==4.6.3
 bs4==0.0.1
-tabula==1.2.1
+tabula==1.0.2
