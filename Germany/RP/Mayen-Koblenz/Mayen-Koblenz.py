@@ -52,7 +52,7 @@ neu = neu.replace({'\-':''}, regex=True)
 neu = neu.astype(int)
 neu = neu[:-1]
 
-neu['Stadt/VG'] = neu.index
+neu['Gemeinde'] = neu.index
 neu['AGS'] = ['07137003','07137203','07111000','07137068','07137023','07137008','07137056','07137201','07137218','07137001','07137202']
 
 #VG Maifeld
