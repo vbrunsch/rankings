@@ -1,6 +1,5 @@
 
-#import tabula
-from tabula import wrapper
+import tabula
 from datetime import timedelta
 
 import pandas as pd
