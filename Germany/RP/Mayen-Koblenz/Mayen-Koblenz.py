@@ -232,7 +232,7 @@ zus['last7'] = neu[neu.columns[0]]+neu[neu.columns[1]]+neu[neu.columns[2]]+neu[n
 zus['last14'] = zus['last7'] + neu[neu.columns[7]]+neu[neu.columns[8]]+neu[neu.columns[9]]+neu[neu.columns[10]]+neu[neu.columns[11]]+neu[neu.columns[12]]+neu[neu.columns[13]]
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
-
+zus['Gemeinde'] = neu['Gemeinde']
 zus.to_csv(f'Germany/RP/Mayen-Koblenz/data/Mayen_for_dw14_7.csv')
 print(zus)      
 
