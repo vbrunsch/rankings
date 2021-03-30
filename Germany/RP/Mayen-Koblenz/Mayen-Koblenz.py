@@ -1,7 +1,7 @@
 
 #pip install -q tabula-py
 from datetime import timedelta
-
+import tabula
 import pandas as pd
 neu = pd.DataFrame()
 
