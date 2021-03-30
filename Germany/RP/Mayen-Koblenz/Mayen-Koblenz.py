@@ -1,5 +1,5 @@
 
-pip install -q tabula-py
+#pip install -q tabula-py
 from datetime import timedelta
 
 import pandas as pd
