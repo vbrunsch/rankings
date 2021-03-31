@@ -22,7 +22,7 @@ kon = pd.DataFrame()
 zus = pd.DataFrame()
 we = 0
 
-for x in range(0,13):
+for x in range(0,14):
     x = x + we*2
     m = 0
     tod = pd.Timestamp.today() -timedelta(days=x)
