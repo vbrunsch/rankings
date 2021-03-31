@@ -14,11 +14,11 @@ services:
       - ./visualizations:/visualizations/data
     ports:
       - ${GERMANY_PORT}:5006
-  saxony-visualization:
+  germany-saxony-visualization:
     image: registry.nocovid.group/visualizations:latest
     restart: on-failure
     environment:
-      - REGION=saxony
+      - REGION=germany/saxony
       - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
       - REPOSITORY_PATH=${REPOSITORY_PATH}
       - DOWNLOAD=${DOWNLOAD}

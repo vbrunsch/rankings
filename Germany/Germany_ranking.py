@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 import logging
 
@@ -112,8 +113,12 @@ tab_formatted = tab
 tab_formatted['District/County Town'] = districts_formatted
 
 # Save pickle and last updated time for visualizations
-tab_formatted.to_pickle("visualizations/pickles/germany.pkl")
-with open('visualizations/last-updated/germany', 'w') as file:
+pickle_file = "visualizations/pickles/germany.pkl"
+last_updated_file = "visualizations/last-updated/germany.log"
+os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
+os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
+tab_formatted.to_pickle(pickle_file)
+with open(last_updated_file, 'w') as file:
     file.write(datetime.utcnow().strftime("%m/%d/%Y %H:%M:%S UTC"))
 
 tab = tab.drop(['Postcode', 'Population', 'Cases per 100k (Last 7 Days)', 'Cases per 100k (Last 14 Days)'], axis=1)

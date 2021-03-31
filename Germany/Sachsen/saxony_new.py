@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
+import os
+
 import requests
 import pandas as pd
 
@@ -224,8 +226,12 @@ tab = tab.drop(['Neuzugänge letzten 7 Tage_y'], axis = 1)
 #tab.columns = ['Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage', 'Pct Change']
 
 # Save pickle and last updated time for visualizations
-tab.to_pickle("visualizations/pickles/saxony.pkl")
-with open('visualizations/last-updated/saxony', 'w') as file:
+pickle_file = "visualizations/pickles/germany/saxony.pkl"
+last_updated_file = "visualizations/last-updated/germany/saxony.log"
+os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
+os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
+tab.to_pickle(pickle_file)
+with open(last_updated_file, 'w') as file:
     file.write(datetime.utcnow().strftime("%m/%d/%Y %H:%M:%S UTC"))
 
 def highlighter(s):
