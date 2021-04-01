@@ -226,8 +226,8 @@ tab = tab.drop(['Neuzugänge letzten 7 Tage_y'], axis = 1)
 #tab.columns = ['Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage', 'Pct Change']
 
 # Save pickle and last updated time for visualizations
-pickle_file = "visualizations/pickles/germany/saxony.pkl"
-last_updated_file = "visualizations/last-updated/germany/saxony.log"
+pickle_file = "visualizations/pickles/Germany/Saxony.pkl"
+last_updated_file = "visualizations/last-updated/Germany/Saxony.log"
 os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
 os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
 tab.to_pickle(pickle_file)
