@@ -43,9 +43,16 @@ old_uck = old_uck.rename(columns={'Neue Fälle': tod})
 import re
 h = html.decode("ISO-8859-1")
 matches = re.findall('Stand: (.*),', h)
-day = re.findall('(..)\. ', matches[0])[0]
-mon = re.findall('\. (.*) ', matches[0])[0]
-yea = re.findall('\. .* (....)', matches[0])[0]
+try:
+    day = re.findall('(..)\. ', matches[0])[0]
+    mon = re.findall('\. (.*) ', matches[0])[0]
+    yea = re.findall('\. .* (....)', matches[0])[0]
+except:
+    day = re.findall('(..)\.', matches[0])[0]
+    mon = re.findall('\.(.*) ', matches[0])[0]
+    yea = re.findall('\..* (....)', matches[0])[0]
+
+
 
 
 if mon == 'Januar':
