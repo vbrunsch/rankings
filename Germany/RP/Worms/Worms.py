@@ -36,7 +36,7 @@ for x in range(0,14):
                 #print(t)
                 matches = re.findall(tod, t)
                 if matches:
-                    if re.findall('Corona-?: Heute',t) or re.findall('Corona: Seit',t):
+                    if re.findall('Corona: Heute',t) or re.findall('Corona-: Heute',t) or re.findall('Corona: Seit',t):
                         m = m + 1
                         print(matches[0])
                         lin = re.findall('href="(.*)">Corona', str(para))
