@@ -312,9 +312,9 @@ bottom = """
 """
 
 # Save visualization data and HTML tables
-tables = [[tab, "Sachsen_neu.html", "germany/saxony"],
-          [goe_tab, "Görlitz_neu.html", "germany/saxony/goerlitz"],
-          [mit_tab, "Mittelsachsen_neu.html", "germany/saxony/mittelsachsen"]]
+tables = [[tab.copy(), "Sachsen_neu.html", "germany/saxony"],
+          [goe_tab.copy(), "Görlitz_neu.html", "germany/saxony/goerlitz"],
+          [mit_tab.copy(), "Mittelsachsen_neu.html", "germany/saxony/mittelsachsen"]]
 
 for table in tables:
     toti = datetime.utcnow().strftime('%m/%d/%Y %H:%M:%S UTC')
@@ -323,7 +323,7 @@ for table in tables:
     last_updated_file = f"visualizations/last-updated/{table[2]}.log"
     os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
     os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
-    mit_tab.to_pickle(pickle_file)
+    table[0].to_pickle(pickle_file)
     with open(last_updated_file, 'w') as file:
         file.write(toti)
 
