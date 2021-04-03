@@ -28,3 +28,31 @@ services:
       - ./visualizations:/visualizations/data
     ports:
       - ${SAXONY_PORT}:5006
+  germany-saxony-mittelsachsen-visualization:
+    image: registry.nocovid.group/visualizations:latest
+    restart: on-failure
+    environment:
+      - REGION=germany/saxony/mittelsachsen
+      - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - REPOSITORY_PATH=${REPOSITORY_PATH}
+      - DOWNLOAD=${DOWNLOAD}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    volumes:
+      - ./visualizations:/visualizations/data
+    ports:
+      - ${MITTELSACHSEN_PORT}:5006
+  germany-saxony-goerlitz-visualization:
+    image: registry.nocovid.group/visualizations:latest
+    restart: on-failure
+    environment:
+      - REGION=germany/saxony/goerlitz
+      - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - REPOSITORY_PATH=${REPOSITORY_PATH}
+      - DOWNLOAD=${DOWNLOAD}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    volumes:
+      - ./visualizations:/visualizations/data
+    ports:
+      - ${GOERLITZ_PORT}:5006

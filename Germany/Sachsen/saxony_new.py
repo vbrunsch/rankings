@@ -225,14 +225,13 @@ tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
 tab = tab.drop(['Neuzugänge letzten 7 Tage_y'], axis = 1)
 #tab.columns = ['Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage', 'Pct Change']
 
-# Save pickle and last updated time for visualizations
-pickle_file = "visualizations/pickles/germany/saxony.pkl"
-last_updated_file = "visualizations/last-updated/germany/saxony.log"
-os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
-os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
-tab.to_pickle(pickle_file)
-with open(last_updated_file, 'w') as file:
-    file.write(datetime.utcnow().strftime("%m/%d/%Y %H:%M:%S UTC"))
+# Goerlitz Tabelle
+goe_gems = df2['Gemeinde'].unique()
+goe_tab = tab[tab['Gemeinde'].isin(goe_gems)]
+
+# Mittelsachsen Tabelle
+mit_gems = df5['Gemeinde'].unique()
+mit_tab = tab[tab['Gemeinde'].isin(mit_gems)]
 
 def highlighter(s):
     val_1 = s['Letzte 7 Tage']
@@ -312,63 +311,46 @@ bottom = """
 </html>
 """
 
-arrow = lambda x : ' &#x2197;' if x>0 else (' &#x2192' if x ==0  else ' &#x2198')
-styles=[hover(),]
-tab['Platz'] = tab.reset_index().index
-tab['Platz'] = tab['Platz'].add(1)
-tab['Platz'] = np.where(tab['Neuzugänge letzten 14 Tage'] == 0 , 1, tab['Platz'])
-tab['Trend'] = tab['PercentChange'].map(arrow)
-tab['Percent Change'] = tab['PercentChange'].map('{:,.2f}%'.format) + tab['Trend']
-tab = tab.drop(['Trend','PercentChange'], axis = 1)
+# Save visualization data and HTML tables
+tables = [[tab, "Sachsen_neu.html", "germany/saxony"],
+          [goe_tab, "Görlitz_neu.html", "germany/saxony/goerlitz"],
+          [mit_tab, "Mittelsachsen_neu.html", "germany/saxony/mittelsachsen"]]
 
-tab.rename(columns = {'Neuzugänge letzten 14 Tage':'Neue Fälle letzte 14 Tage'}, inplace = True)
-tab.rename(columns = {'Neuzugänge letzten 7 Tage_x':'Letzte 7 Tage'}, inplace = True)
-tab.rename(columns = {'Percent Change':'Trend'}, inplace = True)
-tab.rename(columns = {'Gemeinde':'Stadt/Gemeinde'}, inplace = True)
+for table in tables:
+    toti = datetime.utcnow().strftime('%m/%d/%Y %H:%M:%S UTC')
+    # Save pickle and last updated time for visualizations
+    pickle_file = f"visualizations/pickles/{table[2]}.pkl"
+    last_updated_file = f"visualizations/last-updated/{table[2]}.log"
+    os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
+    os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
+    mit_tab.to_pickle(pickle_file)
+    with open(last_updated_file, 'w') as file:
+        file.write(toti)
 
+    toti = "<center><caption>Last Update: " + toti + "</caption></center>"
+    arrow = lambda x : ' &#x2197;' if x>0 else (' &#x2192' if x ==0  else ' &#x2198')
+    styles=[hover(),]
+    table[0]['Platz'] = table[0].reset_index().index
+    table[0]['Platz'] = table[0]['Platz'].add(1)
+    table[0]['Platz'] = np.where(table[0]['Neuzugänge letzten 14 Tage'] == 0 , 1, table[0]['Platz'])
+    table[0]['Trend'] = table[0]['PercentChange'].map(arrow)
+    table[0]['Percent Change'] = table[0]['PercentChange'].map('{:,.2f}%'.format) + table[0]['Trend']
+    table[0] = table[0].drop(['Trend','PercentChange'], axis = 1)
 
-tab = tab[['Platz', 'Stadt/Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage','Trend']]
-tab = tab.drop('Covid-freie Wochen', axis = 1)
-s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
+    table[0].rename(columns = {'Neuzugänge letzten 14 Tage':'Neue Fälle letzte 14 Tage'}, inplace = True)
+    table[0].rename(columns = {'Neuzugänge letzten 7 Tage_x':'Letzte 7 Tage'}, inplace = True)
+    table[0].rename(columns = {'Percent Change':'Trend'}, inplace = True)
+    table[0].rename(columns = {'Gemeinde':'Stadt/Gemeinde'}, inplace = True)
 
-import time
-toti = time.strftime('%m/%d/%Y %H:%M:%S')
-toti = "<center><caption>Last Update: " + toti + " UTC</caption></center>"
+    table[0] = table[0][['Platz', 'Stadt/Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage','Trend']]
+    table[0] = table[0].drop('Covid-freie Wochen', axis = 1)
+    s = table[0].style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
-try:        
-    with open(f'Sachsen_neu.html', 'w', encoding="utf-8") as out:
-        body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
-        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + toti + body + bottom
-        out.write(content)
-except Exception as e:
-    print(f'Error:\n{e}')
-
-    
-# Goerlitz Tabelle
-goe_gems = df2['Gemeinde'].unique()
-goe_tab = tab[tab['Stadt/Gemeinde'].isin(goe_gems)]
-goe_s = goe_tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
-
-try:        
-    with open(f'Görlitz_neu.html', 'w', encoding="utf-8") as out:
-        body = goe_s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
-        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + toti + body + bottom
-        out.write(content)
-except Exception as e:
-    print(f'Error:\n{e}')
-    
-# Mittelsachsen Tabelle
-mit_gems = df5['Gemeinde'].unique()
-mit_tab = tab[tab['Stadt/Gemeinde'].isin(mit_gems)]
-mit_s = mit_tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
-
-try:        
-    with open(f'Mittelsachsen_neu.html', 'w', encoding="utf-8") as out:
-        body = mit_s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
-        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + toti + body + bottom
-        out.write(content)
-except Exception as e:
-    print(f'Error:\n{e}')
+    try:
+        with open(table[1], 'w', encoding="utf-8") as out:
+            body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
+            body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
+            content = top + toti + body + bottom
+            out.write(content)
+    except Exception as e:
+        print(f'Error:\n{e}')

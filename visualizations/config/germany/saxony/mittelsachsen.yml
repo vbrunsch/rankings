@@ -1,0 +1,62 @@
+page_title: "Phasen bis zur Grünen Zone in Mittelsachsen"
+visualizations:
+  - case:
+      title: "Phasen bis zur Grünen Zone in Mittelsachsen"
+      legend_title: "Legende"
+      region_key: "Gemeinde"
+      region_name_tooltip: "Name"
+      category_tooltip: "Kategorie"
+      time_safe_key: "Covid-freie Wochen"
+      time_safe_tooltip: "Covid-freie Wochen"
+      primary_incidence_key: "Neuzugänge letzten 7 Tage_x"
+      primary_incidence_tooltip: "Neuzugänge letzten 7 Tage"
+      secondary_incidence_key: "Neuzugänge letzten 14 Tage"
+      secondary_incidence_tooltip: "Neuzugänge letzten 14 Tage"
+      percent_change_key: "PercentChange"
+      percent_change_tooltip: "Trend zur Vorwoche"
+      reset_button_text: "Reset"
+      searchbar_placeholder: "Suche Gemeinde/Stadt"
+      incidence_unit: "Fall"
+      incidence_plural_unit: "Fälle"
+      time_safe_unit: "Woche"
+      time_safe_plural_unit: "Wochen"
+      calc_with_secondary_incidence:
+        - ~
+        - True
+        - False
+        - False
+        - False
+        - False
+        - False
+      labels:
+        - ~
+        - "Grüne Zone"
+        - "Phase 5"
+        - "Phase 4"
+        - "Phase 3"
+        - "Phase 2"
+        - "Phase 1"
+      descriptions:
+        - ~
+        - "0 Fälle in den letzten 14 Tagen"
+        - "0 Fälle in den letzten 7 Tagen"
+        - "1-10 neue Fälle in den letzten 7 Tagen"
+        - "11-35 neue Fälle in den letzten 7 Tagen"
+        - "36-100 neue Fälle in den letzten 7 Tagen"
+        - ">100 neue Fälle in den letzten 7 Tagen"
+      lower_bounds:
+        - ~
+        - 0
+        - 0
+        - 1
+        - 11
+        - 36
+        - 101
+      colors:
+        - ~
+        - "#25773b"
+        - "#8ac541"
+        - "#f9cc3c"
+        - "#f8961d"
+        - "#ef3e24"
+        - "#b12025"
