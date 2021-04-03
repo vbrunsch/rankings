@@ -12,5 +12,5 @@ All changes pushed to this repository are automatically deployed here: https://n
 Pipeline is available for monitoring at https://concourse.nocovid.group
 
 Application code and instructions to add new regions are both available [here](https://github.com/aochen-jli/visualizations)  
-Homepage code is available [here](https://github.com/aochen-jli/visualizations-home)
+Homepage code is available [here](https://github.com/aochen-jli/visualizations-home)  
 CI/CD pipeline is available [here](https://github.com/aochen-jli/visualizations-cicd)
