@@ -13,6 +13,11 @@ regions:
     path: germany/saxony/goerlitz
   - name: LK Mittelsachsen
     path: germany/saxony/mittelsachsen
+  - name: Brandenburg
+    path: germany/brandenburg
+    fake: true
+  - name: LK Uckermark
+    path: germany/brandenburg/uckermark
 
 # This is the list of origins that will be allowed to connect to the visualization server. Any domains used
 # to view the visualizations should be listed here, otherwise the requests will be blocked.

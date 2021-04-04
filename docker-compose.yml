@@ -56,3 +56,17 @@ services:
       - ./visualizations:/visualizations/data
     ports:
       - ${GOERLITZ_PORT}:5006
+  germany-brandenburg-uckermark-visualization:
+    image: registry.nocovid.group/visualizations:latest
+    restart: on-failure
+    environment:
+      - REGION=germany/brandenburg/uckermark
+      - BOKEH_ALLOW_WS_ORIGIN=localhost,${SERVER_HOST},${GLOBAL_WHITELIST}
+      - REPOSITORY_PATH=${REPOSITORY_PATH}
+      - DOWNLOAD=${DOWNLOAD}
+      - BOKEH_SSL_CERTFILE=${SSL_CERTFILE}
+      - BOKEH_SSL_KEYFILE=${SSL_KEYFILE}
+    volumes:
+      - ./visualizations:/visualizations/data
+    ports:
+      - ${UCKERMARK_PORT}:5006
