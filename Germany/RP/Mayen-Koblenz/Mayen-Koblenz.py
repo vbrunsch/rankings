@@ -1,5 +1,7 @@
 
 #pip install -q tabula-py
+import os
+
 from datetime import timedelta
 import tabula
 import pandas as pd
@@ -267,6 +269,17 @@ tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
 
 tab = tab.drop(['Neuzugänge letzten 7 Tage_y'], axis = 1)
 #tab.columns = ['Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage', 'Pct Change']
+
+# Save pickle and last updated time for visualizations
+region_path = "germany/rp/mayenkoblenz"
+config_path = "visualizations"
+pickle_file = f"{config_path}/pickles/{region_path}.pkl"
+last_updated_file = f"{config_path}/last-updated/{region_path}.log"
+os.makedirs(os.path.dirname(pickle_file), exist_ok=True)
+os.makedirs(os.path.dirname(last_updated_file), exist_ok=True)
+tab.to_pickle(pickle_file)
+with open(last_updated_file, 'w') as file:
+    file.write(datetime.datetime.utcnow().strftime('%m/%d/%Y %H:%M:%S UTC'))
 
 def highlighter(s):
     val_1 = s['Letzte 7 Tage']
