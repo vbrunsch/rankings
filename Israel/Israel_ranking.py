@@ -24,7 +24,7 @@ options = webdriver.ChromeOptions()
 options.add_argument("--disable-blink-features")
 options.add_argument("--disable-blink-features=AutomationControlled")
 currentDirectory = os.getcwd()
-pat = currentDirectory+'\chromedriver'
+pat = currentDirectory+'/chromedriver'
 print(pat)
 driver = webdriver.Chrome(options=options, executable_path=pat)
 url = "https://data.gov.il/dataset/covid-19"
