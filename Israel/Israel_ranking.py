@@ -1,208 +1,55 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+import numpy as np
+from io import BytesIO
+from zipfile import ZipFile
+from urllib.request import urlopen
+import datetime
+from datetime import timedelta
 import pandas as pd
 
-df = pd.read_json('https://raw.githubusercontent.com/obuchel/classification/master/municipalities_new.json')
 
-df['Name'] = 'unnamed'
-for i in df.index:
-    df['Name'][i] = df['features'][i]['properties']['name']
+url1 = f"https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip"
+resp = urlopen(url1)
 
-df = df[df['Name']!= 'ללא שיפוט, No Jurisdiction']    
-    
-df['Values'] = 'none'
-for i in df.index:
-    v = df['features'][i]['properties']['values']
-    if type(v) == list:
-        if len(v) == 14:
-            df['Values'][i] = v
-
-mu = df[df['Values'] != 'none']
-mul = mu['Name'].unique()
-mu_lis = df['Name'].unique()
-
-
-cols=['Municipalities','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
-collect = []
-
-mu_lis = df['Name'].unique()
-
-mu = df[df['Values'] != 'none']
-
-for d in mu_lis:
-    if d not in mul:
-        collect.append((d,
-                       14,
-                       0,
-                       0,
-                       0))
-    else:
-        focus = mu[mu['Name']==d]
-        v = focus['Values'].iloc[0]
-            
-        if type(v) == list:
-            ave = v
-            las = len(ave)-14
-            #last_forteen = int(ave[las:].sum().item())
-            last_forteen = sum(ave[las:])
-            if last_forteen < 0:
-                last_forteen = 0
-            #last7 = int(ave[len(ave)-7:].sum().item()) #last week
-            #prev7 = int(ave[len(ave)-14:len(ave)-7].sum().item()) #prev week
-            last7 = sum(ave[len(ave)-7:]) #last week
-            prev7 = sum(ave[len(ave)-14:len(ave)-7]) #prev week
-            if last7 < 0:
-                last7 = 0
-            if last7 > last_forteen:
-                last_forteen = last7
-            if prev7 < 0:
-                prev7 = 0
-            if (last7 == 0) & (last_forteen == 0):
-                prev7 = 0
-            i = len(ave)-1
-            c = 0
-            while i > -1:
-                if ave[i] <= 0:
-                    c = c + 1
-                else:
-                    i = 0
-                i = i - 1
-
-            collect.append((d,
-                           int(c),
-                           int(last_forteen),
-                           int(last7),
-                           int(prev7)))
-        else:
-            collect.append((d,
-                           14,
-                           0,
-                           0,
-                           0))
-
-
-    
-#zer = list(set(cat_mu_lis) - set(mu_lis))
-#for d in zer:
-#    collect.append((d,
-#                   len(idx),
-#                   0,
-#                   0,
-#                   0))
-    
-
-thr = pd.DataFrame(collect, columns=cols)
-fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
-fin['week'] = fin['COVID-Free Days'].gt(13) 
-tab = fin.sort_values(['week'], ascending=[False])
-tab_t = tab[tab['week']==True]
-tab_f = tab[tab['week']==False]
-tab_f = tab_f.sort_values(['New Cases in Last 14 Days','COVID-Free Days'], ascending = [True,False])
-tab_t = tab_t.sort_values(['COVID-Free Days','New Cases in Last 14 Days'], ascending = [False,True])
-tab = tab_t.append(tab_f)
-tab = tab.drop(['week'], axis=1)
-
-#Percent Change
-
-tab['PercentChange'] = 100*(tab['Last7'] - tab['Previous7'])/(tab['Last7']+tab['Previous7'])
-tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
-
-tab = tab.drop(['Previous7'], axis = 1)
-tab.columns = ['Municipalities', 'COVID-Free Days', 'New Cases in Last 14 Days', 'Last 7 Days', 'Pct Change']
-
-def highlighter(s):
-    val_1 = s['COVID-Free Days']
-    val_2 = s['New Cases in Last 14 Days']
-    
-    r=''
-    try:
-        if val_1>=14: #More than 14 Covid free days
-            r = 'background-color: #018001; color: #ffffff;'
-        elif 20>=val_2 : # less than 20 in last 2 weeks
-            r = 'background-color: #02be02; color: #ffffff;'
-        elif 200>=val_2 >=21: #Light green
-            r = 'background-color: #ffff01;'
-        elif 1000>=val_2 >= 201: #Yellow
-            r = 'background-color: #ffa501;'
-        elif 20000>=val_2 >= 1001: #Orange
-            r = 'background-color: #ff3434;'
-        elif val_2 > 20001: # Red
-            r = 'background-color: #990033;'
-    except Exception as e:
-        r = 'background-color: white'
-    return [r]*(len(s)-2) + ['']*2
-
-def hover(hover_color="#ffff99"):
-    return dict(selector="tbody tr:hover td, tbody tr:hover th",
-                props=[("background-color", "rgba(66, 165, 245, 0.2) !important")])
-
-top = """
-<!DOCTYPE html>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<html>
-<head>
-
-<style>
-
-    h2 {
-        text-align: center;
-        font-family: Helvetica, Arial, sans-serif;
+with ZipFile(BytesIO(resp.read()), 'r') as zipObj:
+   # Extract all the contents of zip file in current directory
+   zipObj.extractall()
+#zipfile = ZipFile(BytesIO(resp.read()))
+#print(zipfile)
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+options = webdriver.ChromeOptions()
+options.add_argument("--disable-blink-features")
+options.add_argument("--disable-blink-features=AutomationControlled")
+currentDirectory = os.getcwd()
+pat = currentDirectory+'\chromedriver'
+print(pat)
+driver = webdriver.Chrome(options=options, executable_path=pat)
+url = "https://data.gov.il/dataset/covid-19"
+driver.get(url)
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "content")))
+csv_url = driver.execute_script("""
+let allLinks = document.querySelectorAll("a");
+let targetLink;
+for (let i = 0; i < allLinks.length; i++) {
+    currTitle = allLinks[i].getAttribute("title");
+    if (currTitle === "טבלת ישובים") {
+        targetLink = allLinks[i];
+        break;
     }
-    table { 
-        margin-left: auto;
-        margin-right: auto;
+}
+let resource = targetLink;
+while (resource.className != "resource-item") {
+    resource = resource.parentElement;
+}
+let resourceLinks = resource.querySelectorAll("a");
+for (let i = 0; i < resourceLinks.length; i++) {
+    if (resourceLinks[i].innerText.includes("להורדת המאגר")) {
+        return resourceLinks[i].href;
     }
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-    th, td {
-        padding: 5px;
-        text-align: center;
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 90%;
-    }
-    table tbody tr:hover {
-        background-color: #dddddd;
-    }
-    /*
-    table tbody tr:hover td, table tbody tr:hover th {
-  background-color: #dddddd !important;
-    }
-    /*
-    .wide {
-        width: 90%; 
-    }
+}
+""")
 
-</style>
-</head>
-<body>
-"""
-bottom = """
-</body>
-</html>
-"""
-
-arrow = lambda x : ' &#x2197;' if x>0 else (' &#x2192' if x ==0  else ' &#x2198')
-styles=[hover(),]
-tab['Rank'] = tab.reset_index().index
-tab['Rank'] = tab['Rank'].add(1)
-#tab.loc[tab['COVID-Free Days']==idx.size,['Rank']] = 1 
-tab['Trend'] = tab['Pct Change'].map(arrow)
-tab['Percent Change'] = tab['Pct Change'].map('{:,.2f}%'.format) + tab['Trend']
-tab = tab.drop(['Trend','Pct Change'], axis = 1)
-
-tab = tab[['Rank', 'Municipalities', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
-s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
-
-try:        
-    with open(f'Israel.html', 'w', encoding="utf-8") as out:
-        body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
-        body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + body + bottom
-        out.write(content)
-except Exception as e:
-    print(f'Error:\n{e}')
-    print(focus)
+print(csv_url)
