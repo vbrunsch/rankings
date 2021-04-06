@@ -5,5 +5,4 @@ xlrd==1.2.0
 requests==2.23.0
 lxml==4.6.3
 bs4==0.0.1
-tabula-java==1.0.2
 selenium==3.141.0
