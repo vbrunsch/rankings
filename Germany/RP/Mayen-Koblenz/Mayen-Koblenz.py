@@ -38,10 +38,12 @@ for x in range(1,15):
     pdf_path = "https://www.kvmyk.de/kv_myk/Corona/Corona-Statistiken/" + mon + "/Fallzahlen%20" + tod + ".pdf"
     print(pdf_path)
     dfs = tabula.read_pdf(pdf_path, stream=True)
-    print(dfs)
-    df = dfs[0].set_index('Stadt / VG')
-    df[tod] = df['+-']
-    df = df[[tod]]
+    if tod == '07.04.2021':
+        df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=['07.04.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
+    else:
+        df = dfs[0].set_index('Stadt / VG')
+        df[tod] = df['+-']
+        df = df[[tod]]
     if neu.empty:
         neu = df.copy()
     else:
