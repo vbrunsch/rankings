@@ -21,8 +21,8 @@ jobs:
         fetch-depth: 0 
     - name: Install Chromium
       run: |
-        apt-get update
-        apt-get install chromium-browser=1:85.0.4183.83-0ubuntu0.20.04.2
+        sudo apt-get update
+        sudo apt-get install chromium-browser=1:85.0.4183.83-0ubuntu0.20.04.2
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
