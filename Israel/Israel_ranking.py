@@ -230,7 +230,7 @@ if not df_new.equals(df_old):
             out.write(content)
     except Exception as e:
         print(f'Error:\n{e}')
-        print(focus)
+        print(df1)
 
 
     ## old
@@ -410,7 +410,7 @@ if not df_new.equals(df_old):
             out.write(content)
     except Exception as e:
         print(f'Error:\n{e}')
-        print(focus)
+        print(df1)
     
     df_old.to_csv('israel_data_old.csv')
     df_new.to_csv('israel_data.csv')
