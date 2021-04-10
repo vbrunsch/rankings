@@ -9,12 +9,11 @@ import pandas as pd
 
 url1 = f"https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip"
 resp = urlopen(url1)
-
 with ZipFile(BytesIO(resp.read()), 'r') as zipObj:
-   # Extract all the contents of zip file in current directory
    zipObj.extractall()
-#zipfile = ZipFile(BytesIO(resp.read()))
-#print(zipfile)
+mode = os.stat('./chromedriver').st_mode
+os.chmod('./chromedriver', mode | 0o111)
+
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -23,10 +22,7 @@ from selenium.webdriver.support import expected_conditions as EC
 options = webdriver.ChromeOptions()
 options.add_argument("--disable-blink-features")
 options.add_argument("--disable-blink-features=AutomationControlled")
-currentDirectory = os.getcwd()
-pat = currentDirectory+'/chromedriver'
-print(pat)
-driver = webdriver.Chrome(options=options, executable_path=pat)
+driver = webdriver.Chrome(options=options, executable_path='./chromedriver')
 url = "https://data.gov.il/dataset/covid-19"
 driver.get(url)
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "content")))
