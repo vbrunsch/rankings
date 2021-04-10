@@ -21,6 +21,8 @@ mode = os.stat('./chromedriver').st_mode
 os.chmod('./chromedriver', mode | 0o111)
 
 options = webdriver.ChromeOptions()
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-blink-features")
 options.add_argument("--disable-blink-features=AutomationControlled")
 driver = webdriver.Chrome(options=options, executable_path=r'./chromedriver')
