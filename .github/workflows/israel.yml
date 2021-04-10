@@ -13,8 +13,6 @@ jobs:
   build:
 
     runs-on: ubuntu-20.04
-    container:
-      options: --user 1001
 
     steps:
     - uses: actions/checkout@master
@@ -42,6 +40,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Process Data
       run: |
+        useradd chrome
+        su chrome
         python Israel/Israel_ranking.py
         
 #     - name: commit files
