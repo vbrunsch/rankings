@@ -22,7 +22,7 @@ jobs:
     - name: Install Chromium
       run: |
         sudo apt-get update
-        sudo apt-get install chromium-browser=1:85.0.4183.83-0ubuntu0.20.04.2
+        sudo apt-get install xvfb chromium-browser=1:85.0.4183.83-0ubuntu0.20.04.2
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -40,7 +40,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Process Data
       run: |
-        python Israel/Israel_ranking.py
+        xvfb python Israel/Israel_ranking.py
         
 #     - name: commit files
 #       run: |
