@@ -4,6 +4,7 @@ from datetime import timedelta
 import pandas as pd
 
 import os
+import time
 from io import BytesIO
 from urllib.request import urlopen
 from zipfile import ZipFile
