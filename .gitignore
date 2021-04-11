@@ -5,4 +5,4 @@ visualizations/__pycache__
 .idea
 .DS_Store
 certs/
-Israel/chromedriver
+chromedriver
