@@ -230,7 +230,7 @@ if not df_new.equals(df_old):
         toti = "<center><caption>Sunday, " + str(toti) + "</caption></center>"
 
     try:        
-        with open(f'Israel_new2.html', 'w', encoding="utf-8") as out:
+        with open(f'Israel_new.html', 'w', encoding="utf-8") as out:
             body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
             body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
             content = top + toti + body + bottom
@@ -410,7 +410,7 @@ if not df_new.equals(df_old):
         told = "<center><caption>Wednesday, " + str(told) + "</caption></center>"
 
     try:        
-        with open(f'Israel_old2.html', 'w', encoding="utf-8") as out:
+        with open(f'Israel_old.html', 'w', encoding="utf-8") as out:
             body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
             body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
             content = top + told + body + bottom
