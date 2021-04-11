@@ -27,6 +27,7 @@ options.add_argument("--disable-setuid-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-blink-features")
 options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_experimental_option("prefs", {"download.default_directory": os.getcwd()})
 driver = webdriver.Chrome(options=options, executable_path=r'./chromedriver')
 
 url = "https://data.gov.il/dataset/covid-19"
@@ -54,7 +55,12 @@ for (let i = 0; i < resourceLinks.length; i++) {
 }
 """)
 
-df_new = pd.read_csv(csv_url)
+driver.get(csv_url)
+time.sleep(15)  # wait for download to complete
+driver.close()
+csv_path = f"./{os.path.basename(csv_url)}"
+
+df_new = pd.read_csv(csv_path)
 df_old = pd.read_csv(r'israel_data.csv')
 if not df_new.equals(df_old):
 
