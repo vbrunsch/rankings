@@ -25,25 +25,25 @@ dre = int(round(dres.at['incidence',dres.columns[0]] * 5.5678))
 lei = int(round(leip.at['incidence',leip.columns[0]] * 5.93145))
 che = int(round(chem.at['incidence',chem.columns[0]] * 2.46334))
 
-df = df_list[-11]
+df = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14625&_=1618533867674')[0].set_index('Unnamed: 0')#df_list[-11]
 df['Landkreis'] = 'Bautzen'
-df1 = df_list[-10]
+df1 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14521&_=1618533867675')[0].set_index('Unnamed: 0')#df_list[-10]
 df1['Landkreis'] = 'Erzgebirgskreis'
-df2 = df_list[-9]
+df2 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14626&_=1618533867676')[0].set_index('Unnamed: 0')#df_list[-9]
 df2['Landkreis'] = 'Görlitz'
-df3 = df_list[-8]
+df3 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14729&_=1618533867677')[0].set_index('Unnamed: 0')#df_list[-8]
 df3['Landkreis'] = 'Leipzig'
-df4 = df_list[-7]
+df4 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14627&_=1618533867678')[0].set_index('Unnamed: 0')#df_list[-7]
 df4['Landkreis'] = 'Meißen'
-df5 = df_list[-6]
+df5 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14522&_=1618533867679')[0].set_index('Unnamed: 0')#df_list[-6]
 df5['Landkreis'] = 'Mittelsachsen'
-df6 = df_list[-5]
+df6 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14730&_=1618533867680')[0].set_index('Unnamed: 0')#df_list[-5]
 df6['Landkreis'] = 'Nordsachsen'
-df7 = df_list[-4]
+df7 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14628&_=1618533867681')[0].set_index('Unnamed: 0')#df_list[-4]
 df7['Landkreis'] = 'Sächsische Schweiz-Osterzgebirge'
-df8 = df_list[-3]
+df8 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14523&_=1618533867682')[0].set_index('Unnamed: 0')#df_list[-3]
 df8['Landkreis'] = 'Vogtlandkreis'
-df9 = df_list[-2]
+df9 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14524&_=1618533867683')[0].set_index('Unnamed: 0')#df_list[-2]
 df9['Landkreis'] = 'Zwickau'
 
 df = df.append(df1)
@@ -71,9 +71,9 @@ df = df.append(df.loc[df['Gemeinde'] == 'Wülknitz'], ignore_index = True)
 df.at[len(df)-1,'Gemeinde']= 'Röderaue'
 df = df.append(df.loc[df['Gemeinde'] == 'Lampertswalde'], ignore_index = True)
 df.at[len(df)-1,'Gemeinde']= 'Schönfeld'
-df.loc[len(df.index)] = [0,'Dresden', dre,556780,0,'Landeshauptstadt Dresden']
-df.loc[len(df.index)] = [0,'Leipzig', lei,593145,0,'Stadt Leipzig'] 
-df.loc[len(df.index)] = [0,'Chemnitz', che,246334,0,'Stadt Chemnitz'] 
+df.loc[len(df.index)] = ['Dresden', dre,556780,0,'Landeshauptstadt Dresden']
+df.loc[len(df.index)] = ['Leipzig', lei,593145,0,'Stadt Leipzig'] 
+df.loc[len(df.index)] = ['Chemnitz', che,246334,0,'Stadt Chemnitz'] 
 
 df = df.set_index('Gemeinde')
 #df = df.iloc[:,1]
@@ -155,16 +155,26 @@ che = int(round(chem.at['incidence',chem.columns[0]] * 2.46334))
 
 df_list = pd.read_html(html)
 
-df = df_list[-11]
-df1 = df_list[-10]
-df2 = df_list[-9]
-df3 = df_list[-8]
-df4 = df_list[-7]
-df5 = df_list[-6]
-df6 = df_list[-5]
-df7 = df_list[-4]
-df8 = df_list[-3]
-df9 = df_list[-2]
+df = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14625&_=1618533867674')[0].set_index('Unnamed: 0')#df_list[-11]
+df1 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14521&_=1618533867675')[0].set_index('Unnamed: 0')#df_list[-10]
+df2 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14626&_=1618533867676')[0].set_index('Unnamed: 0')#df_list[-9]
+df3 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14729&_=1618533867677')[0].set_index('Unnamed: 0')#df_list[-8]
+df4 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14627&_=1618533867678')[0].set_index('Unnamed: 0')#df_list[-7]
+df5 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14522&_=1618533867679')[0].set_index('Unnamed: 0')#df_list[-6]
+df6 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14730&_=1618533867680')[0].set_index('Unnamed: 0')#df_list[-5]
+df7 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14628&_=1618533867681')[0].set_index('Unnamed: 0')#df_list[-4]
+df8 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14523&_=1618533867682')[0].set_index('Unnamed: 0')#df_list[-3]
+df9 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14524&_=1618533867683')[0].set_index('Unnamed: 0')#df_list[-2]
+#df = df_list[-11]
+#df1 = df_list[-10]
+#df2 = df_list[-9]
+#df3 = df_list[-8]
+#df4 = df_list[-7]
+#df5 = df_list[-6]
+#df6 = df_list[-5]
+#df7 = df_list[-4]
+#df8 = df_list[-3]
+#df9 = df_list[-2]
 
 df = df.append(df1)
 df = df.append(df2)
@@ -177,9 +187,9 @@ df = df.append(df8)
 df = df.append(df9)
 
 
-df.loc[len(df.index)] = [0,'Dresden', dre,0,0]
-df.loc[len(df.index)] = [0,'Leipzig', lei,0,0] 
-df.loc[len(df.index)] = [0,'Chemnitz', che,0,0] 
+df.loc[len(df.index)] = ['Dresden', dre,0,0]
+df.loc[len(df.index)] = ['Leipzig', lei,0,0] 
+df.loc[len(df.index)] = ['Chemnitz', che,0,0] 
 
 df = df.set_index('Gemeinde')
 df = df.iloc[:,1]
