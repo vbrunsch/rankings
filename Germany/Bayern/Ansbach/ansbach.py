@@ -13,7 +13,7 @@ url = 'https://www.landkreis-ansbach.de/Corona'
 html = requests.get(url).content
 df_list = pd.read_html(html)
 
-pdf_path = "https://www.landkreis-ansbach.de/output/download.php?fid=2238.7461.1."
+pdf_path = "https://www.landkreis-ansbach.de/output/download.php?fid=2238.7553.1."
 dfs = tabula.read_pdf(pdf_path, stream=True)
 
 pdf_path_old = "https://www.landkreis-ansbach.de/output/download.php?fid=2238.7543.1."
