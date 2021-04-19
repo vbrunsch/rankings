@@ -24,7 +24,7 @@ neu = df.copy()
 neu.fillna(0, inplace=True)
 neu = neu.replace({'\+ ':''}, regex=True)
 neu = neu.set_index(neu.columns[0])
-neu = neu[[neu.columns[2]]]
+neu = neu[[neu.columns[1]]]
 neu = neu.astype(int)
 print(neu)
 
