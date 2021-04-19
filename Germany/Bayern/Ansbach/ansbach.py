@@ -47,7 +47,7 @@ zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
 
 AGS = pd.read_csv('Germany/Bayern/Ansbach/Ansbach_AGS.csv')
-get_ags = pd.Series(AGS['AGS'].values,index=AGS.index).to_dict()
+get_ags = pd.Series(AGS['AGS'].values,index=AGS['Gemeinde']).to_dict()
 zus['AGS'] = zus['Gemeinde'].map(get_ags)
 zus.set_index('AGS', inplace = True)
 
