@@ -46,6 +46,7 @@ zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
 zus.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_for_dw14_7.csv')
+zus.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
 print(zus) 
 
 # For Rankings
