@@ -2,7 +2,15 @@ import os
 
 from datetime import timedelta
 import tabula
+import bs4
+import urllib
+import urllib.request  
+from bs4 import BeautifulSoup
+#import requests
 import pandas as pd
+
+
+import re
 import requests
 neu = pd.DataFrame()
 
@@ -10,10 +18,11 @@ tod = pd.Timestamp.today()
 tod = tod.strftime('%d.%m.%Y')
 
 url = 'https://www.landkreis-ansbach.de/Corona'
-html = requests.get(url).content
-df_list = pd.read_html(html)
+html = urllib.request.urlopen(url)
+htmlParse = BeautifulSoup(html, 'html.parser')
+lin = re.findall('class="csslink_PDF" href="/output/download.php(.*)" target="_blank">', str(htmlParse))
+pdf_path = 'https://www.landkreis-ansbach.de/output/download.php' + lin[0]
 
-pdf_path = "https://www.landkreis-ansbach.de/output/download.php?fid=2238.7553.1."
 dfs = tabula.read_pdf(pdf_path, stream=True)
 
 pdf_path_old = "https://www.landkreis-ansbach.de/output/download.php?fid=2238.7543.1."
@@ -27,6 +36,7 @@ neu = neu.set_index(neu.columns[0])
 neu = neu[[neu.columns[1]]]
 neu = neu.astype(int)
 print(neu)
+neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
 
 df_old = dfs_old[0][:-2]
 alt = df_old.copy()
@@ -52,7 +62,6 @@ zus['AGS'] = zus['Gemeinde'].map(get_ags)
 zus.set_index('AGS', inplace = True)
 
 zus.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_for_dw14_7.csv')
-zus.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
 print(zus) 
 
 # For Rankings
