@@ -129,6 +129,69 @@ mit_only['Neuzugänge letzten 7 Tage_x'] = np.where(mit_only['Neuzugänge letzte
 mit_only['Neuzugänge letzten 7 Tage_x'] = mit_only['Neuzugänge letzten 7 Tage_x']*10
 mit_only.to_csv(f'Germany/Sachsen/data/Sachsen_Mittelsachsen_for_dw_14_Tage_neu.csv')
 
+# Map for Bautzen only
+bau_only = mdf[mdf['Landkreis']=='Bautzen']
+bau_only['Neuzugänge letzten 7 Tage'] = bau_only['Neuzugänge letzten 7 Tage_x']
+bau_only['Neuzugänge letzten 7 Tage_x'] = np.where(bau_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, bau_only['Neuzugänge letzten 7 Tage_x'])
+bau_only['Neuzugänge letzten 7 Tage_x'] = np.where(bau_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, bau_only['Neuzugänge letzten 7 Tage_x'])
+bau_only['Neuzugänge letzten 7 Tage_x'] = bau_only['Neuzugänge letzten 7 Tage_x']*10
+bau_only.to_csv(f'Germany/Sachsen/data/Sachsen_Bautzen_for_dw_14_Tage_neu.csv')
+
+# Map for Erzgebirgskreis only
+erz_only = mdf[mdf['Landkreis']=='Erzgebirgskreis']
+erz_only['Neuzugänge letzten 7 Tage'] = erz_only['Neuzugänge letzten 7 Tage_x']
+erz_only['Neuzugänge letzten 7 Tage_x'] = np.where(erz_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, erz_only['Neuzugänge letzten 7 Tage_x'])
+erz_only['Neuzugänge letzten 7 Tage_x'] = np.where(erz_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, erz_only['Neuzugänge letzten 7 Tage_x'])
+erz_only['Neuzugänge letzten 7 Tage_x'] = erz_only['Neuzugänge letzten 7 Tage_x']*10
+erz_only.to_csv(f'Germany/Sachsen/data/Sachsen_Erzgebirgskreis_for_dw_14_Tage_neu.csv')
+
+# Map for Leipzig only
+lei_only = mdf[mdf['Landkreis']=='Leipzig']
+lei_only['Neuzugänge letzten 7 Tage'] = lei_only['Neuzugänge letzten 7 Tage_x']
+lei_only['Neuzugänge letzten 7 Tage_x'] = np.where(lei_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, lei_only['Neuzugänge letzten 7 Tage_x'])
+lei_only['Neuzugänge letzten 7 Tage_x'] = np.where(lei_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, lei_only['Neuzugänge letzten 7 Tage_x'])
+lei_only['Neuzugänge letzten 7 Tage_x'] = lei_only['Neuzugänge letzten 7 Tage_x']*10
+lei_only.to_csv(f'Germany/Sachsen/data/Sachsen_Leipzig_for_dw_14_Tage_neu.csv')
+
+# Map for Meißen only
+mei_only = mdf[mdf['Landkreis']=='Meißen']
+mei_only['Neuzugänge letzten 7 Tage'] = mei_only['Neuzugänge letzten 7 Tage_x']
+mei_only['Neuzugänge letzten 7 Tage_x'] = np.where(mei_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, mei_only['Neuzugänge letzten 7 Tage_x'])
+mei_only['Neuzugänge letzten 7 Tage_x'] = np.where(mei_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, mei_only['Neuzugänge letzten 7 Tage_x'])
+mei_only['Neuzugänge letzten 7 Tage_x'] = mei_only['Neuzugänge letzten 7 Tage_x']*10
+mei_only.to_csv(f'Germany/Sachsen/data/Sachsen_Meißen_for_dw_14_Tage_neu.csv')
+
+# Map for Nordsachsen only
+nor_only = mdf[mdf['Landkreis']=='Nordsachsen']
+nor_only['Neuzugänge letzten 7 Tage'] = nor_only['Neuzugänge letzten 7 Tage_x']
+nor_only['Neuzugänge letzten 7 Tage_x'] = np.where(nor_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, nor_only['Neuzugänge letzten 7 Tage_x'])
+nor_only['Neuzugänge letzten 7 Tage_x'] = np.where(nor_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, nor_only['Neuzugänge letzten 7 Tage_x'])
+nor_only['Neuzugänge letzten 7 Tage_x'] = nor_only['Neuzugänge letzten 7 Tage_x']*10
+nor_only.to_csv(f'Germany/Sachsen/data/Sachsen_Nordsachsen_for_dw_14_Tage_neu.csv')
+
+# Map for Sächsische Schweiz-Osterzgebirge only
+ost_only = mdf[mdf['Landkreis']=='Sächsische Schweiz-Osterzgebirge']
+ost_only['Neuzugänge letzten 7 Tage'] = ost_only['Neuzugänge letzten 7 Tage_x']
+ost_only['Neuzugänge letzten 7 Tage_x'] = np.where(ost_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, ost_only['Neuzugänge letzten 7 Tage_x'])
+ost_only['Neuzugänge letzten 7 Tage_x'] = np.where(ost_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, ost_only['Neuzugänge letzten 7 Tage_x'])
+ost_only['Neuzugänge letzten 7 Tage_x'] = ost_only['Neuzugänge letzten 7 Tage_x']*10
+ost_only.to_csv(f'Germany/Sachsen/data/Sachsen_Osterzgebirge_for_dw_14_Tage_neu.csv')
+
+# Map for Vogtlandkreis only
+vog_only = mdf[mdf['Landkreis']=='Vogtlandkreis']
+vog_only['Neuzugänge letzten 7 Tage'] = vog_only['Neuzugänge letzten 7 Tage_x']
+vog_only['Neuzugänge letzten 7 Tage_x'] = np.where(vog_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, vog_only['Neuzugänge letzten 7 Tage_x'])
+vog_only['Neuzugänge letzten 7 Tage_x'] = np.where(vog_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, vog_only['Neuzugänge letzten 7 Tage_x'])
+vog_only['Neuzugänge letzten 7 Tage_x'] = vog_only['Neuzugänge letzten 7 Tage_x']*10
+vog_only.to_csv(f'Germany/Sachsen/data/Sachsen_Vogtlandkreis_for_dw_14_Tage_neu.csv')
+
+# Map for Zwickau only
+zwi_only = mdf[mdf['Landkreis']=='Zwickau']
+zwi_only['Neuzugänge letzten 7 Tage'] = zwi_only['Neuzugänge letzten 7 Tage_x']
+zwi_only['Neuzugänge letzten 7 Tage_x'] = np.where(zwi_only['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, zwi_only['Neuzugänge letzten 7 Tage_x'])
+zwi_only['Neuzugänge letzten 7 Tage_x'] = np.where(zwi_only['Neuzugänge letzten 14 Tage'] == 0, 0.2, zwi_only['Neuzugänge letzten 7 Tage_x'])
+zwi_only['Neuzugänge letzten 7 Tage_x'] = zwi_only['Neuzugänge letzten 7 Tage_x']*10
+zwi_only.to_csv(f'Germany/Sachsen/data/Sachsen_Zwickau_for_dw_14_Tage_neu.csv')
 
 
 mdf['Neuzugänge letzten 7 Tage_x'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 0.6, mdf['Neuzugänge letzten 7 Tage_x'])
@@ -156,6 +219,7 @@ che = int(round(chem.at['incidence',chem.columns[0]] * 2.46334))
 df_list = pd.read_html(html)
 
 df = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14625&_=1618533867674', encoding = 'utf-8')[0]#.set_index('Unnamed: 0')#df_list[-11]
+bau_gems = df['Gemeinde'].unique()
 df1 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14521&_=1618533867675', encoding = 'utf-8')[0]#.set_index('Unnamed: 0')#df_list[-10]
 df2 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14626&_=1618533867676', encoding = 'utf-8')[0]#.set_index('Unnamed: 0')#df_list[-9]
 df3 = pd.read_html('https://www.coronavirus.sachsen.de/corona-statistics/rest/communitySituation.jsp?boundaryId=14729&_=1618533867677', encoding = 'utf-8')[0]#.set_index('Unnamed: 0')#df_list[-8]
@@ -243,6 +307,39 @@ goe_tab = tab[tab['Gemeinde'].isin(goe_gems)]
 mit_gems = df5['Gemeinde'].unique()
 mit_tab = tab[tab['Gemeinde'].isin(mit_gems)]
 
+# Bautzen Tabelle
+
+bau_tab = tab[tab['Gemeinde'].isin(bau_gems)]
+
+# Erzgebirgskreis Tabelle
+erz_gems = df1['Gemeinde'].unique()
+erz_tab = tab[tab['Gemeinde'].isin(erz_gems)]
+
+# Leipzig Tabelle
+lei_gems = df3['Gemeinde'].unique()
+lei_tab = tab[tab['Gemeinde'].isin(lei_gems)]
+
+# Meißen Tabelle
+mei_gems = df4['Gemeinde'].unique()
+mei_tab = tab[tab['Gemeinde'].isin(mei_gems)]
+
+# Nordsachsen Tabelle
+nor_gems = df6['Gemeinde'].unique()
+nor_tab = tab[tab['Gemeinde'].isin(nor_gems)]
+
+# Sächsische Schweiz-Osterzgebirge Tabelle
+ost_gems = df7['Gemeinde'].unique()
+ost_tab = tab[tab['Gemeinde'].isin(ost_gems)]
+
+# Vogtlandkreis Tabelle
+vog_gems = df8['Gemeinde'].unique()
+vog_tab = tab[tab['Gemeinde'].isin(vog_gems)]
+
+# Zwickau Tabelle
+zwi_gems = df9['Gemeinde'].unique()
+zwi_tab = tab[tab['Gemeinde'].isin(zwi_gems)]
+
+
 def highlighter(s):
     val_1 = s['Letzte 7 Tage']
     val_2 = s['Neue Fälle letzte 14 Tage']
@@ -324,7 +421,15 @@ bottom = """
 # Save visualization data and HTML tables
 tables = [[tab.copy(), "Sachsen_neu.html", "germany/saxony"],
           [goe_tab.copy(), "Görlitz_neu.html", "germany/saxony/goerlitz"],
-          [mit_tab.copy(), "Mittelsachsen_neu.html", "germany/saxony/mittelsachsen"]]
+          [mit_tab.copy(), "Mittelsachsen_neu.html", "germany/saxony/mittelsachsen"],
+          [bau_tab.copy(), "Bautzen_neu.html", "germany/saxony/bautzen"],
+          [erz_tab.copy(), "Erzgebirgskreis_neu.html", "germany/saxony/erzgebirgskreis"],
+          [lei_tab.copy(), "Leipzig_neu.html", "germany/saxony/leipzig"],
+          [mei_tab.copy(), "Meißen_neu.html", "germany/saxony/meißen"],
+          [nor_tab.copy(), "Nordsachsen_neu.html", "germany/saxony/nordsachsen"],
+          [ost_tab.copy(), "Osterzgebirge_neu.html", "germany/saxony/osterzgebirge"],
+          [vog_tab.copy(), "Vogtlandkreis_neu.html", "germany/saxony/vogtlandkreis"],
+          [zwi_tab.copy(), "Zwickau_neu.html", "germany/saxony/zwickau"]]
 
 for table in tables:
     toti = datetime.utcnow().strftime('%m/%d/%Y %H:%M:%S UTC')
