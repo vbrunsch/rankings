@@ -52,7 +52,7 @@ for r in range(14):
     cur_ans = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{cda}.csv')
   except:
     cur_ans = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
-  cur_ans.columns = ['Stadt/Markt/Gemeinde',cda]
+  cur_ans.rename(columns = {cur_ans.columns[1]:cda}, inplace = True)
 
   cur_ans = cur_ans.set_index('Stadt/Markt/Gemeinde')
     
