@@ -39,7 +39,7 @@ if day[0] == tod[1]:
     neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
 else:
     df = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
-    df.columns = ['Stadt/Markt/Gemeinde',tod]
+    df.set_index('Stadt/Markt/Gemeinde', inplace = True)
     neu = df.copy()
     neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
     
@@ -48,6 +48,7 @@ tog = pd.DataFrame()
 for r in range(14):
   cda = pd.Timestamp.today() - timedelta(days = r)
   cda = cda.strftime('%d.%m.%Y')
+  print(cda)
   try:
     cur_ans = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{cda}.csv')
   except:
