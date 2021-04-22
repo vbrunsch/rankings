@@ -32,6 +32,7 @@ df = dfs[0][:-2]
 neu = df.copy()
 neu.fillna(0, inplace=True)
 neu = neu.replace({'\+ ':''}, regex=True)
+neu = neu.replace({'\- ':'-'}, regex=True)
 neu = neu.set_index(neu.columns[0])
 neu = neu[[neu.columns[1]]]
 neu = neu.astype(int)
@@ -42,6 +43,7 @@ df_old = dfs_old[0][:-2]
 alt = df_old.copy()
 alt.fillna(0, inplace=True)
 alt = alt.replace({'\+ ':''}, regex=True)
+alt = alt.replace({'\- ':'-'}, regex=True)
 alt = alt.set_index(alt.columns[0])
 alt = alt[[alt.columns[2]]]
 alt = alt.astype(int)
