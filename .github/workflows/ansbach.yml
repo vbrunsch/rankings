@@ -4,10 +4,10 @@
 name: Update Ansbach Communities Rankings
 
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
-    - cron: '48 12 * * *'
+    - cron: '48 13 * * *'
 
 jobs:
   build:
