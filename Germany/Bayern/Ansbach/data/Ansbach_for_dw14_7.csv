@@ -1,60 +1,60 @@
 AGS,last7,last14,mix,Gemeinde
 9571111,2,3,2.0,Adelshofen
 9571113,0,0,0.2,Arberg
-9571114,2,3,2.0,Aurach
-9571115,14,37,14.0,Bechhofen
+9571114,4,5,4.0,Aurach
+9571115,17,40,17.0,Bechhofen
 9571122,0,3,0.6,Bruckberg
-9571125,1,2,1.0,Buch a.Wald
+9571125,2,3,2.0,Buch a.Wald
 9571127,4,5,4.0,Burgoberbach
 9571128,7,9,7.0,Burk
-9571130,3,6,3.0,Colmberg
-9571132,6,28,6.0,Dentlein
+9571130,4,7,4.0,Colmberg
+9571132,7,29,7.0,Dentlein
 9571134,3,10,3.0,Diebach
 9571135,8,25,8.0,Dietenhofen
-9571136,32,56,32.0,Dinkelsbühl
-9571137,15,54,15.0,Dombühl
+9571136,44,68,44.0,Dinkelsbühl
+9571137,17,56,17.0,Dombühl
 9571139,3,4,3.0,Dürrwangen
 9571141,4,14,4.0,Ehingen
-9571145,59,88,59.0,Feuchtwangen
-9571146,1,1,1.0,Flachslanden
-9571152,4,10,4.0,Gebsattel
-9571154,3,3,3.0,Gerolfingen
+9571145,74,103,74.0,Feuchtwangen
+9571146,2,2,2.0,Flachslanden
+9571152,5,11,5.0,Gebsattel
+9571154,4,4,4.0,Gerolfingen
 9571155,1,2,1.0,Geslau
-9571165,12,32,12.0,Heilsbronn
-9571166,6,28,6.0,Herrieden
-9571169,0,2,0.6,Insingen
+9571165,17,37,17.0,Heilsbronn
+9571166,17,39,17.0,Herrieden
+9571169,5,7,5.0,Insingen
 9571170,5,9,5.0,Langfurth
-9571171,5,11,5.0,Lehrberg
-9571174,4,8,4.0,Leutershausen
+9571171,6,12,6.0,Lehrberg
+9571174,5,9,5.0,Leutershausen
 9571175,1,2,1.0,Lichtenau
 9571177,4,14,4.0,Merkendorf
 9571178,2,3,2.0,Mitteleschenbach
-9571179,0,2,0.6,Mönchsroth
-9571180,11,16,11.0,Neuendettelsau
+9571179,2,4,2.0,Mönchsroth
+9571180,14,19,14.0,Neuendettelsau
 9571181,2,7,2.0,"Neusitz, Mittelfr"
 9571183,4,10,4.0,Oberdachstetten
 9571188,1,4,1.0,Ohrenbach
 9571189,2,5,2.0,Ornbau
-9571190,5,7,5.0,Petersaurach
+9571190,7,9,7.0,Petersaurach
 9571192,0,1,0.6,Röckingen
-9571193,13,40,13.0,Rothenburg ob der Tauber
+9571193,14,41,14.0,Rothenburg ob der Tauber
 9571194,0,1,0.6,Rügland
-9571196,4,8,4.0,Sachsen b. Ansbach
-9571198,12,33,12.0,Schillingsfürst
-9571199,11,38,11.0,Schnelldorf
-9571200,5,9,5.0,Schopfloch
+9571196,5,9,5.0,Sachsen b. Ansbach
+9571198,14,35,14.0,Schillingsfürst
+9571199,16,43,16.0,Schnelldorf
+9571200,8,12,8.0,Schopfloch
 9571205,2,2,2.0,Steinsfeld
 9571208,0,3,0.6,Unterschwaningen
-9571214,17,51,17.0,Wassertrüdingen
-9571216,3,10,3.0,Weidenbach
+9571214,25,59,25.0,Wassertrüdingen
+9571216,4,11,4.0,Weidenbach
 9571217,0,2,0.6,Weihenzell
-9571218,9,13,9.0,Weiltingen
+9571218,12,16,12.0,Weiltingen
 9571222,2,3,2.0,Wettringen
-9571223,5,16,5.0,Wieseth
+9571223,8,19,8.0,Wieseth
 9571224,1,7,1.0,Wilburgstetten
-9571225,0,0,0.2,Windelsbach
-9571226,7,15,7.0,Windsbach
+9571225,1,1,1.0,Windelsbach
+9571226,11,19,11.0,Windsbach
 9571227,2,5,2.0,Wittelshofen
-9571229,4,13,4.0,Wolframs-Eschenbach
-9571228,7,19,7.0,Wörnitz
-9561000,72,133,72.0,Stadt Ansbach
+9571229,6,15,6.0,Wolframs-Eschenbach
+9571228,8,20,8.0,Wörnitz
+9561000,92,153,92.0,Stadt Ansbach
