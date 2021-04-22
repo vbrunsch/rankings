@@ -21,38 +21,51 @@ url = 'https://www.landkreis-ansbach.de/Corona'
 html = urllib.request.urlopen(url)
 htmlParse = BeautifulSoup(html, 'html.parser')
 lin = re.findall('class="csslink_PDF" href="/output/download.php(.*)" target="_blank">', str(htmlParse))
-pdf_path = 'https://www.landkreis-ansbach.de/output/download.php' + lin[0]
 
-dfs = tabula.read_pdf(pdf_path, stream=True)
+lind = re.findall('class="csslink_PDF" href="/output/download.php(.*)', str(htmlParse))
+day = re.findall('Stand .?(.)\.',lind[0])
 
-pdf_path_old = "https://www.landkreis-ansbach.de/output/download.php?fid=2238.7543.1."
-dfs_old = tabula.read_pdf(pdf_path_old, stream=True)
+if day[0] == tod[1]:
+    pdf_path = 'https://www.landkreis-ansbach.de/output/download.php' + lin[0]
+    dfs = tabula.read_pdf(pdf_path, stream=True)
+    df = dfs[0][:-2]
+    neu = df.copy()
+    neu.fillna(0, inplace=True)
+    neu = neu.replace({'\+ ':''}, regex=True)
+    neu = neu.replace({'\- ':'-'}, regex=True)
+    neu = neu.set_index(neu.columns[0])
+    neu = neu[[neu.columns[1]]]
+    neu = neu.astype(int)
+    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
+else:
+    df = pd.read_csv(f'Ansbach_Null.csv')
+    df.columns = ['Stadt/Markt/Gemeinde',tod]
+    neu = df.copy()
+    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
+    
 
-df = dfs[0][:-2]
-neu = df.copy()
-neu.fillna(0, inplace=True)
-neu = neu.replace({'\+ ':''}, regex=True)
-neu = neu.replace({'\- ':'-'}, regex=True)
-neu = neu.set_index(neu.columns[0])
-neu = neu[[neu.columns[1]]]
-neu = neu.astype(int)
-print(neu)
-neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
+tog = pd.DataFrame()
+for r in range(14):
+  cda = pd.Timestamp.today() - timedelta(days = r)
+  cda = cda.strftime('%d.%m.%Y')
+  try:
+    cur_ans = pd.read_csv(f'Ansbach_{cda}.csv')
+  except:
+    cur_ans = pd.read_csv(f'Ansbach_Null.csv')
+  cur_ans.columns = ['Stadt/Markt/Gemeinde',cda]
 
-df_old = dfs_old[0][:-2]
-alt = df_old.copy()
-alt.fillna(0, inplace=True)
-alt = alt.replace({'\+ ':''}, regex=True)
-alt = alt.replace({'\- ':'-'}, regex=True)
-alt = alt.set_index(alt.columns[0])
-alt = alt[[alt.columns[2]]]
-alt = alt.astype(int)
-print(alt)
+  cur_ans = cur_ans.set_index('Stadt/Markt/Gemeinde')
+    
+  if tog.empty:
+    tog = cur_ans.copy()
+  else:
+    tog = tog.join(cur_ans)
+tog.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_current.csv')
 
 import numpy as np
 zus = pd.DataFrame()
-zus['last7'] = neu[neu.columns[0]]
-zus['last14'] = zus['last7'] + alt[alt.columns[0]]
+zus['last7'] = tog[tog.columns[0]]+tog[tog.columns[1]]+tog[tog.columns[2]]+tog[tog.columns[3]]+tog[tog.columns[4]]+tog[tog.columns[5]]+tog[tog.columns[6]]
+zus['last14'] = zus['last7'] + tog[tog.columns[7]]+tog[tog.columns[8]]+tog[tog.columns[9]]+tog[tog.columns[10]]+tog[tog.columns[11]]+tog[tog.columns[12]]+tog[tog.columns[13]]
 zus = zus.drop(zus.index[-2])
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
