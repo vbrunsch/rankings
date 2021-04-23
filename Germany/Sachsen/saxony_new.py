@@ -56,6 +56,8 @@ df = df.append(df7)
 df = df.append(df8)
 df = df.append(df9)
 
+df['Gemeinde'] = df['Gemeinde'].str.replace(r'Bernsdorf, Stadt (Landkreis Bautzen)', 'Bernsdorf - Bautzen')
+df['Gemeinde'] = df['Gemeinde'].str.replace(r'Bernsdorf (Landkreis Zwickau)', 'Bernsdorf - Zwickau')
 df['Gemeinde'] = df['Gemeinde'].str.replace(r', Stadt', '')
 df['Gemeinde'] = df['Gemeinde'].str.replace(r', Kurort', '')
 df['Gemeinde'] = df['Gemeinde'].str.replace(r', Hochschulstadt', '')
@@ -91,6 +93,8 @@ d = datum - timedelta(days=7)
 
 old = pd.read_csv(f'Germany/Sachsen/data/Sachsen_Staedte_for_rankings_{d.date()}.csv')
 
+old['Gemeinde'] = old['Gemeinde'].str.replace(r'Bernsdorf, Stadt (Landkreis Bautzen)', 'Bernsdorf - Bautzen')
+old['Gemeinde'] = old['Gemeinde'].str.replace(r'Bernsdorf (Landkreis Zwickau)', 'Bernsdorf - Zwickau')
 old['Gemeinde'] = old['Gemeinde'].str.replace(r', Stadt', '')
 old['Gemeinde'] = old['Gemeinde'].str.replace(r', Kurort', '')
 old['Gemeinde'] = old['Gemeinde'].str.replace(r', Hochschulstadt', '')
