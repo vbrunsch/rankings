@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today() - timedelta(days=1)
+tod = pd.Timestamp.today()
 tod = tod.strftime('%d.%m.%Y')
 
 url = 'https://www.landkreis-ansbach.de/Corona'
