@@ -29,6 +29,14 @@ for x in range(1,15):
     tod = tod.strftime('%d.%m.%Y')
     while m == 0 and x < 15:
         for url in ['https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=2#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=3#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=4#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=5#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=6#list_586a9b2b']:
+            if tod == '27.04.2021':
+              m = m + 1
+              neu[tod] = 0
+              unb[tod] = 0
+              #rei[tod] = 0
+              kon[tod] = 0
+
+            print(url)
             html = urllib.request.urlopen(url)
             htmlParse = BeautifulSoup(html, 'html.parser')
             for para in htmlParse.find_all("li"): 
@@ -42,12 +50,34 @@ for x in range(1,15):
                         lin = re.findall('href="(.*)">Corona', str(para))
                         link = 'https://www.kreis-alzey-worms.eu/'+ lin[0]
                         df = pd.read_html(link, encoding = 'utf-8')
-                        df = df[0]
+                        try:
+                          df = df[2]
+                          df = df.drop([df.columns[1],df.columns[2]], axis=1)
+                          df = df.drop([0, 2])
+                          df = df[:-1]
+                          df.to_csv('test.csv')
+                          print('neu')
+                          print(df)
+                          print(df.columns[1])
+                        except:
+                          try:
+                            df = df[0]
+                            df = df.drop(['Reiserückkehrer'], axis=1)
+                            print('alt')
+                            print(df)
+                            print(df.columns[1])
+                          except:
+                            df = pd.read_csv('worms_null.csv')
+                            #df = df.set_index(df.columns[1])
+                            print('null')
+                            print(df)
+                            print(df.columns[1])
+
                         df = df.replace('-', 0)
                         df[df.columns[1]] = df[df.columns[1]].astype(int)
                         df[df.columns[2]] = df[df.columns[2]].astype(int)
                         df[df.columns[3]] = df[df.columns[3]].astype(int)
-                        df[df.columns[4]] = df[df.columns[4]].astype(int)
+                        #df[df.columns[4]] = df[df.columns[4]].astype(int)
                         df['AGS'] = ['07319000','07331003','07331001','07331002','07331023','07331017','07331004','07331006']
 
                         #Vg Alzey-Land
@@ -193,13 +223,17 @@ for x in range(1,15):
                         if neu.empty:    
                             neu = pd.DataFrame(index = df.index)
                             unb = pd.DataFrame(index = df.index)
-                            rei = pd.DataFrame(index = df.index)
+                            #rei = pd.DataFrame(index = df.index)
                             kon = pd.DataFrame(index = df.index)
                             zus = pd.DataFrame(index = df.index)
 
                         neu[tod] = cop[['Neue Fälle']]
-                        unb[tod] = cop[['unbekannter Infektionsherd']]
-                        rei[tod] = cop[['Reiserückkehrer']]
+                        try:
+                          unb[tod] = cop[['unbekannter Infektionsherd']]
+                        except:
+                          unb[tod] = cop[['Unbekannter Infektionsherd']]
+                          
+                        #rei[tod] = cop[['Reiserückkehrer']]
                         kon[tod] = cop[['Kontakt zu positiv getesteter Person']]
                         
                         if re.findall('Corona: Seit',t):
@@ -208,13 +242,13 @@ for x in range(1,15):
                             tod = tod.strftime('%d.%m.%Y')
                             neu[tod] = 0
                             unb[tod] = 0
-                            rei[tod] = 0
+                            #rei[tod] = 0
                             kon[tod] = 0
                             tod = pd.Timestamp.today() -timedelta(days=x+2)
                             tod = tod.strftime('%d.%m.%Y')
                             neu[tod] = 0
                             unb[tod] = 0
-                            rei[tod] = 0
+                            #rei[tod] = 0
                             kon[tod] = 0
                         
 import numpy as np
