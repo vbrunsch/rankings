@@ -55,23 +55,19 @@ for x in range(1,15):
                           df = df.drop([df.columns[1],df.columns[2]], axis=1)
                           df = df.drop([0, 2])
                           df = df[:-1]
-                          df.to_csv('test.csv')
                           print('neu')
                           print(df)
-                          print(df.columns[1])
                         except:
                           try:
                             df = df[0]
                             df = df.drop(['Reiserückkehrer'], axis=1)
                             print('alt')
                             print(df)
-                            print(df.columns[1])
                           except:
-                            df = pd.read_csv('worms_null.csv')
+                            df = pd.read_csv('Germany/RP/Worms/data/worms_null.csv')
                             #df = df.set_index(df.columns[1])
                             print('null')
                             print(df)
-                            print(df.columns[1])
 
                         df = df.replace('-', 0)
                         df[df.columns[1]] = df[df.columns[1]].astype(int)
