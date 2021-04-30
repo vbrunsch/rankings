@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 
-focus = pd.read_csv('https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv')
+focus = pd.read_csv('https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.zip')
 
 focus = focus[['residencia_provincia_nombre', 'residencia_departamento_nombre', 'fecha_apertura','clasificacion_resumen']]
 focus = focus[focus['clasificacion_resumen']=='Confirmado']
