@@ -37,7 +37,7 @@ else:
   
 yes = pd.Timestamp.today() - timedelta(days = 2)
 yes = yes.strftime('%m_%d_%Y')
-dfy = pd.read_csv(f'Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_{yes}', index_col='Stadt/Gemeinde')
+dfy = pd.read_csv(f'Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_{yes}.csv', index_col='Stadt/Gemeinde')
 
 neu = pd.read_csv('Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_neu.csv', index_col='Stadt/Gemeinde')
 
