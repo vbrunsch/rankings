@@ -7,7 +7,7 @@ on:
   #push:
     #branches: [ main ]
   schedule:
-    - cron: '13 18 * * *'
+    - cron: '19 18 * * *'
 
 jobs:
   build:
