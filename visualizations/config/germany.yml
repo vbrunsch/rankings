@@ -10,7 +10,7 @@ visualizations:
       percent_change_key: "PercentChange"
       percent_change_tooltip: "Trend zur Vorwoche"
       reset_button_text: "Reset"
-      searchbar_placeholder: "Suche Gemeinde/Stadt"
+      searchbar_placeholder: "Suche Kreis (LK/SK)"
       labels:
         - "Grüne Zone"
         - "Phase 4"
