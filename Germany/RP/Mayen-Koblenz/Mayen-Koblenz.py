@@ -7,43 +7,89 @@ import tabula
 import pandas as pd
 neu = pd.DataFrame()
 
-for x in range(1,15):
+for x in range(0,14):
     tod = pd.Timestamp.today() -timedelta(days=x)
     if tod.month == 1:
         mon = 'Januar%20' + str(tod.year)
+        mont = 'Januar'
     elif tod.month == 2:
         mon = 'Februar%20' + str(tod.year)
+        mont = 'Februar'
     elif tod.month == 3:
         mon = 'M%C3%A4rz%20' + str(tod.year)
+        mont = 'M%C3%A4rz'
     elif tod.month == 4:
         mon = 'April%20' + str(tod.year)
+        mont = 'April'
     elif tod.month == 5:
         mon = 'Mai%20' + str(tod.year)
+        mont = 'Mai'
     elif tod.month == 6:
         mon = 'Juni%20' + str(tod.year)
+        mont = 'Juni'
     elif tod.month == 7:
         mon = 'Juli%20' + str(tod.year)
+        mont = 'Juli'
     elif tod.month == 8:
         mon = 'August%20' + str(tod.year)
+        mont = 'August'
     elif tod.month == 9:
         mon = 'September%20' + str(tod.year)
+        mont = 'September'
     elif tod.month == 10:
         mon = 'Oktober%20' + str(tod.year)
+        mont = 'Oktober'
     elif tod.month == 11:
         mon = 'November%20' + str(tod.year)
+        mont = 'November'
     elif tod.month == 12:
         mon = 'Dezember%20' + str(tod.year)
+        mont = 'Dezember'
 
     tod = tod.strftime('%d.%m.%Y')
     pdf_path = "https://www.kvmyk.de/kv_myk/Corona/Corona-Statistiken/" + mon + "/Fallzahlen%20" + tod + ".pdf"
-    print(pdf_path)
-    dfs = tabula.read_pdf(pdf_path, stream=True)
+    pdf_path_t = "https://www.kvmyk.de/kv_myk/Corona/Corona-Statistiken/" + mont + "/Fallzahlen " + tod + ".pdf"
+    
+    try:
+      dfs = tabula.read_pdf(pdf_path, stream=True)
+      print(pdf_path)
+    except:
+      try:
+        dfs = tabula.read_pdf(pdf_path_t, stream=True)
+        print(pdf_path_t)
+      except:
+        print(tod)
+
     if tod == '07.04.2021':
         df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=['07.04.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
+    elif tod == '01.05.2021':
+        df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=['01.05.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
+    elif tod == '02.05.2021':
+        df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=['02.05.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
     else:
-        df = dfs[0].set_index('Stadt / VG')
+      try:
+        df = dfs[0]
+        df = df.replace({'Stadt Andernach':'Andernach'}, regex=True)
+        df = df.replace({'Stadt Bendorf':'Bendorf'}, regex=True)
+        df = df.replace({'Stadt Koblenz':'Koblenz'}, regex=True)
+        df = df.replace({'Stadt Mayen':'Mayen'}, regex=True)
+        df = df.set_index('Stadt / VG')
         df[tod] = df['+-']
         df = df[[tod]]
+      except: # check if this is only for May 3rd!
+        df = dfs[0]
+        df = df.replace({'Stadt Andernach':'Andernach'}, regex=True)
+        df = df.replace({'Stadt Bendorf':'Bendorf'}, regex=True)
+        df = df.replace({'Stadt Koblenz':'Koblenz'}, regex=True)
+        df = df.replace({'Stadt Mayen':'Mayen'}, regex=True)
+        df = df.set_index('Stadt/VG')
+        df[tod] = df['Unnamed: 0']
+        df = df[[tod]]
+        print('Mai 3rd??')
+        print(tod)
+        print(df)
+
+    
     if neu.empty:
         neu = df.copy()
     else:
