@@ -7,9 +7,9 @@ import pandas as pd
 import re
 import requests
 
-tod = pd.Timestamp.today()
-todf = tod.strftime('%Y-%m-%d') - timedelta(days = 1)
-tod = tod.strftime('%m_%d_%Y') - timedelta(days = 1)
+tod = pd.Timestamp.today() - timedelta(days = 1)
+todf = tod.strftime('%Y-%m-%d')
+tod = tod.strftime('%m_%d_%Y')
 
 url = 'https://www.regionalverband-saarbruecken.de/corona/'
 html = urllib.request.urlopen(url)
