@@ -61,33 +61,32 @@ for x in range(0,14):
         print(tod)
 
     if tod == '07.04.2021':
-        df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=['07.04.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
-    elif tod == '01.05.2021':
-        df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=['01.05.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
-    elif tod == '02.05.2021':
-        df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=['02.05.2021'], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
-    else:
-      try:
+        df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
+    elif tod in ['01.05.2021','02.05.2021']:
+        df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
+    elif tod in ['03.05.2021','04.05.2021']:
         df = dfs[0]
-        df = df.replace({'Stadt Andernach':'Andernach'}, regex=True)
-        df = df.replace({'Stadt Bendorf':'Bendorf'}, regex=True)
-        df = df.replace({'Stadt Koblenz':'Koblenz'}, regex=True)
-        df = df.replace({'Stadt Mayen':'Mayen'}, regex=True)
-        df = df.set_index('Stadt / VG')
-        df[tod] = df['+-']
-        df = df[[tod]]
-      except: # check if this is only for May 3rd!
-        df = dfs[0]
+        print(df)
         df = df.replace({'Stadt Andernach':'Andernach'}, regex=True)
         df = df.replace({'Stadt Bendorf':'Bendorf'}, regex=True)
         df = df.replace({'Stadt Koblenz':'Koblenz'}, regex=True)
         df = df.replace({'Stadt Mayen':'Mayen'}, regex=True)
         df = df.set_index('Stadt/VG')
         df[tod] = df['Unnamed: 0']
+        df = df[[tod]]        
+    else:
+        df = dfs[0]
+        df = df.replace({'Stadt Andernach':'Andernach'}, regex=True)
+        df = df.replace({'Stadt Bendorf':'Bendorf'}, regex=True)
+        df = df.replace({'Stadt Koblenz':'Koblenz'}, regex=True)
+        df = df.replace({'Stadt Mayen':'Mayen'}, regex=True)
+        try:
+          df = df.set_index('Stadt / VG')
+        except:
+          df = df.set_index('Stadt/VG')
+        df[tod] = df['+-']
         df = df[[tod]]
-        print('Mai 3rd??')
-        print(tod)
-        print(df)
+        
 
     
     if neu.empty:
