@@ -7,7 +7,7 @@ import pandas as pd
 import re
 import requests
 
-tod = pd.Timestamp.today() - timedelta(days = 1)
+tod = pd.Timestamp.today()# - timedelta(days = 1)
 todf = tod.strftime('%Y-%m-%d')
 tod = tod.strftime('%m_%d_%Y')
 
@@ -35,7 +35,7 @@ if tim[0] != todf:
 else:
   print(f'Data is from today: {todf}')
   
-yes = pd.Timestamp.today() - timedelta(days = 2)
+yes = pd.Timestamp.today() - timedelta(days = 1)
 yes = yes.strftime('%m_%d_%Y')
 dfy = pd.read_csv(f'Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_{yes}.csv', index_col='Stadt/Gemeinde')
 
