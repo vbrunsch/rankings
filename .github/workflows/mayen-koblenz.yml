@@ -4,10 +4,10 @@
 name: Update Mayen-Koblenz Communities Rankings
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
-    - cron: '40 6 * * *'
+    - cron: '40 18 * * *'
 
 jobs:
   build:
