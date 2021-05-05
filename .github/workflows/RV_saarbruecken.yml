@@ -4,8 +4,8 @@
 name: Update RV Saarbruecken Communities Rankings
 #
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '19 18 * * *'
 
@@ -46,7 +46,7 @@ jobs:
         git commit --allow-empty -m "Auto-update of the data packages" -a
         #git config pull.rebase false
         #git fetch
-        #git pull      
+        git pull      
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
