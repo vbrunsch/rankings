@@ -4,8 +4,8 @@
 name: Update RV Saarbruecken Communities Rankings
 #
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
     - cron: '19 18 * * *'
 
