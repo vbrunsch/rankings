@@ -8,8 +8,8 @@ import re
 import requests
 
 tod = pd.Timestamp.today()
-todf = tod.strftime('%Y-%m-%d')
-tod = tod.strftime('%m_%d_%Y')
+todf = tod.strftime('%Y-%m-%d') - timedelta(days = 1)
+tod = tod.strftime('%m_%d_%Y') - timedelta(days = 1)
 
 url = 'https://www.regionalverband-saarbruecken.de/corona/'
 html = urllib.request.urlopen(url)
@@ -35,7 +35,7 @@ if tim[0] != todf:
 else:
   print(f'Data is from today: {todf}')
   
-yes = pd.Timestamp.today() - timedelta(days = 1)
+yes = pd.Timestamp.today() - timedelta(days = 2)
 yes = yes.strftime('%m_%d_%Y')
 dfy = pd.read_csv(f'Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_{yes}.csv', index_col='Stadt/Gemeinde')
 
