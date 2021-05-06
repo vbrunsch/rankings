@@ -3,6 +3,7 @@ import datetime
 from datetime import timedelta
 import pandas as pd
 
+import re
 import os
 import time
 from io import BytesIO
@@ -57,7 +58,7 @@ if not df_new.equals(df_old):
 
     import requests
     from urllib.request import urlopen
-    df1 = pd.read_csv(csv_path)
+    df1 = pd.read_csv(csv_url)
     town_lis1 = df1['City_Name'].unique()
     df1['Cumulative_verified_cases'] = np.where(df1['Cumulative_verified_cases']=='<15', 1, df1['Cumulative_verified_cases'])
     df1['Cumulative_verified_cases'] = df1['Cumulative_verified_cases'].astype(int)
