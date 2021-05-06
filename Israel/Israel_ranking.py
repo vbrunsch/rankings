@@ -50,17 +50,17 @@ id = re.findall('https://data.gov.il/dataset/covid-19/resource/(.*)',id_url)
 print(id)
 csv_url = 'https://data.gov.il/datastore/dump/' + id[0] +'?bom=True'
 print(csv_url)
-#driver.get(csv_url)
-#time.sleep(15)  # wait for download to complete
+driver.get(csv_url)
+time.sleep(15)  # wait for download to complete
 driver.close()
-#csv_path = f"./{os.path.basename(csv_url)}"
-df_new = pd.read_csv(csv_url)
+csv_path = f"./{os.path.basename(csv_url)}"
+df_new = pd.read_csv(csv_path)
 df_old = pd.read_csv(r'israel_data.csv')
 if not df_new.equals(df_old):
 
     import requests
     from urllib.request import urlopen
-    df1 = pd.read_csv(csv_url)
+    df1 = pd.read_csv(csv_path)
     town_lis1 = df1['City_Name'].unique()
     df1['Cumulative_verified_cases'] = np.where(df1['Cumulative_verified_cases']=='<15', 1, df1['Cumulative_verified_cases'])
     df1['Cumulative_verified_cases'] = df1['Cumulative_verified_cases'].astype(int)
