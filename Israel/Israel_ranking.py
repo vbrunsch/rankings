@@ -55,7 +55,7 @@ for (let i = 0; i < resourceLinks.length; i++) {
     }
 }
 """)
-
+print(csv_url)
 driver.get(csv_url)
 time.sleep(15)  # wait for download to complete
 driver.close()
