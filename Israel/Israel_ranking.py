@@ -46,7 +46,8 @@ for (let i = 0; i < allLinks.length; i++) {
 }
 """)
 id = re.findall('https://data.gov.il/dataset/covid-19/resource/(.*?)',id_url)
-csv_url = 'https://data.gov.il/datastore/dump/' + id +'?bom=True'
+print(id)
+csv_url = 'https://data.gov.il/datastore/dump/' + id[0] +'?bom=True'
 print(csv_url)
 #driver.get(csv_url)
 #time.sleep(15)  # wait for download to complete
