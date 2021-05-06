@@ -40,18 +40,7 @@ let targetLink;
 for (let i = 0; i < allLinks.length; i++) {
     currTitle = allLinks[i].getAttribute("title");
     if (currTitle === "טבלת ישובים") {
-        targetLink = allLinks[i];
-        break;
-    }
-}
-let resource = targetLink;
-while (resource.className != "resource-item") {
-    resource = resource.parentElement;
-}
-let resourceLinks = resource.querySelectorAll("a");
-for (let i = 0; i < resourceLinks.length; i++) {
-    if (resourceLinks[i].innerText.includes("להורדת המאגר")) {
-        return resourceLinks[i].href;
+        return allLinks[i].href;
     }
 }
 """)
