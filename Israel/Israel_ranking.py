@@ -45,6 +45,7 @@ for (let i = 0; i < allLinks.length; i++) {
     }
 }
 """)
+print(id_url)
 id = re.findall('https://data.gov.il/dataset/covid-19/resource/(.*?)',id_url)
 print(id)
 csv_url = 'https://data.gov.il/datastore/dump/' + id[0] +'?bom=True'
