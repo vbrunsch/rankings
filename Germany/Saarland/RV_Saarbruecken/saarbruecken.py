@@ -7,7 +7,7 @@ import pandas as pd
 import re
 import requests
 
-tod = pd.Timestamp.today()# - timedelta(days = 1)
+tod = pd.Timestamp.today() - timedelta(days = 2)
 todf = tod.strftime('%Y-%m-%d')
 tod = tod.strftime('%m_%d_%Y')
 
@@ -15,11 +15,8 @@ url = 'https://www.regionalverband-saarbruecken.de/corona/'
 html = urllib.request.urlopen(url)
 htmlParse = BeautifulSoup(html, 'html.parser')
 lin = re.findall('a href="(.*)" title="Tägliche Fallzahl-Statistik aus dem Regionalverband"', str(htmlParse))
-try:
-  tab = pd.read_html(lin[0])
-except:
-  link = lin[0].replace('amp;', '')
-  tab = pd.read_html(link)
+link = lin[0].replace('amp;', '')
+tab = pd.read_html(link)
 df = tab[0]
 df.columns = df.iloc[0]
 df = df[1:-1]
@@ -35,7 +32,7 @@ if tim[0] != todf:
 else:
   print(f'Data is from today: {todf}')
   
-yes = pd.Timestamp.today() - timedelta(days = 1)
+yes = pd.Timestamp.today() - timedelta(days = 3)
 yes = yes.strftime('%m_%d_%Y')
 dfy = pd.read_csv(f'Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_{yes}.csv', index_col='Stadt/Gemeinde')
 
