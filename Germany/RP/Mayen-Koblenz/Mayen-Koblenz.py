@@ -64,7 +64,7 @@ for x in range(0,14):
         df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
     elif tod in ['01.05.2021','02.05.2021']:
         df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
-    elif tod in ['03.05.2021','04.05.2021']:
+    elif tod in ['03.05.2021','04.05.2021','06.05.2021']:
         df = dfs[0]
         print(df)
         df = df.replace({'Stadt Andernach':'Andernach'}, regex=True)
