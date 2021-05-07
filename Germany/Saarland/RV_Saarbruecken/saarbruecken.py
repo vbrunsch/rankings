@@ -15,7 +15,7 @@ url = 'https://www.regionalverband-saarbruecken.de/corona/'
 html = urllib.request.urlopen(url)
 htmlParse = BeautifulSoup(html, 'html.parser')
 lin = re.findall('a href="(.*)" title="Tägliche Fallzahl-Statistik aus dem Regionalverband"', str(htmlParse))
-link = lin[0].replace('amp;', '')
+link = lin[1].replace('amp;', '')
 tab = pd.read_html(link)
 df = tab[0]
 df.columns = df.iloc[0]
