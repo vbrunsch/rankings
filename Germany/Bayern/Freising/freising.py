@@ -1,6 +1,4 @@
-!java -version
-!pip install -q tabula-py
-import tabula
+
 import os
 
 from datetime import timedelta
