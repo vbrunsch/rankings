@@ -53,7 +53,7 @@ print(csv_url)
 driver.get(csv_url)
 time.sleep(15)  # wait for download to complete
 driver.close()
-csv_path = f"./{id}.csv"
+csv_path = f"./{id[0]}.csv"
 #csv_path = csv_path + '.csv'
 print(csv_path)
 df_new = pd.read_csv(csv_path)
