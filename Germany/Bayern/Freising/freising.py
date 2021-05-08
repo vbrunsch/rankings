@@ -139,11 +139,10 @@ tab = tab_t.append(tab_f)
 tab = tab.drop(['week'], axis=1)
 
 #Percent Change
-try:
-  tab['PercentChange'] = 100*(tab['Neuzugänge letzten 7 Tage_x'] - tab['Neuzugänge letzten 7 Tage_y'])/(tab['Neuzugänge letzten 7 Tage_x']+tab['Neuzugänge letzten 7 Tage_y'])
-except:
-  tab['PercentChange'] = 0.0
-  
+
+na = tab['Neuzugänge letzten 7 Tage_x']+tab['Neuzugänge letzten 7 Tage_y']
+na = na.replace(0,np.nan)
+tab['PercentChange'] = 100*(tab['Neuzugänge letzten 7 Tage_x'] - tab['Neuzugänge letzten 7 Tage_y'])/(na)
 tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
 
 tab = tab.drop(['Neuzugänge letzten 7 Tage_y'], axis = 1)
