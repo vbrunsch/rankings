@@ -12,7 +12,7 @@ URL = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'
 	worksheetName
 )
 
-df = pandas.read_csv(URL, index_col=0).T
+df = pd.read_csv(URL, index_col=0).T
 
 neu = df.copy()
 
