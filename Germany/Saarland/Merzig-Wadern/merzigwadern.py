@@ -182,6 +182,8 @@ tab.rename(columns = {'Gemeinde':'Stadt/Gemeinde'}, inplace = True)
 
 tab = tab[['Platz', 'Stadt/Gemeinde', 'Covid-freie Wochen', 'Neue Fälle letzte 14 Tage', 'Letzte 7 Tage','Trend']]
 tab = tab.drop('Covid-freie Wochen', axis = 1)
+tab['Neue Fälle letzte 14 Tage'] = tab['Neue Fälle letzte 14 Tage'].astype(int)
+tab['Letzte 7 Tage'] = tab['Letzte 7 Tage'].astype(int)
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
 import time
