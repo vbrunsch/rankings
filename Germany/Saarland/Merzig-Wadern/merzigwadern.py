@@ -30,8 +30,8 @@ neu = neu.replace('Mettlach Neu','Mettlach')
 neu = neu.replace('Wadern Neu','Wadern')
 neu = neu.replace('Merzig Neu','Merzig')
 neu = neu.set_index('Stadt/Gemeinde')
-if tod != neu.columns[-1]:
-  sys.exit("data not updated")
+#if tod != neu.columns[-1]:
+#  print("data not updated")
 neu.to_csv('Germany/Saarland/Merzig-Wadern/data/Merzig-Wadern_current.csv')
 
 # For Datawrapper
