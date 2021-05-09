@@ -1,9 +1,10 @@
+import sys
 from datetime import timedelta
 import pandas as pd
 
-tod = pd.Timestamp.today() - timedelta(days = 1)
-todf = tod.strftime('%Y-%m-%d')
-tod = tod.strftime('%m_%d_%Y')
+
+to = pd.Timestamp.today()
+tod = to.strftime('%d.%m.%Y')
 
 googleSheetId = '1PDaRlOzlHGu-r-eFRl8N5lLa-_EHvvaGQ1jNvC-WYEs'
 worksheetName = 'Merzig-Wadern'
@@ -29,6 +30,8 @@ neu = neu.replace('Mettlach Neu','Mettlach')
 neu = neu.replace('Wadern Neu','Wadern')
 neu = neu.replace('Merzig Neu','Merzig')
 neu = neu.set_index('Stadt/Gemeinde')
+if tod != neu.columns[-1]:
+  sys.exit("data not updated")
 neu.to_csv('Germany/Saarland/Merzig-Wadern/data/Merzig-Wadern_current.csv')
 
 # For Datawrapper
