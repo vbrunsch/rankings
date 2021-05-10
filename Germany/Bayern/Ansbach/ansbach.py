@@ -16,8 +16,8 @@ neu = pd.DataFrame()
 
 tod = pd.Timestamp.today()
 tod = tod.strftime('%d.%m.%Y')
-yes = pd.Timestamp.today() - timedelta(days = 1)
-yes = yes.strftime('%d.%m.%Y')
+#yes = pd.Timestamp.today() - timedelta(days = 1)
+#yes = yes.strftime('%d.%m.%Y')
 
 url = 'https://www.landkreis-ansbach.de/Corona'
 html = urllib.request.urlopen(url)
@@ -32,7 +32,7 @@ print(day)
 print('Today:')
 print(tod)
 
-if day[0] == yes[1]:
+if day[0] == tod[1]:
     pdf_path = 'https://www.landkreis-ansbach.de' + lin[1]
     dfs = tabula.read_pdf(pdf_path, stream=True)
     df = dfs[0][:-2]
