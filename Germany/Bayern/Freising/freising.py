@@ -97,7 +97,7 @@ neu['PiQ_previous_week'] = df14['Pos in Qua'].values
 neu['previous7'] = neu['PiQ_last_week']-(neu['PiQ_previous_week'].values/2)
 neu['previous7'] = neu['previous7'].astype(int)
 neu[neu['previous7'] < 0] = 0
-neu['last7'] = neu['Pos in Qua'] - neu['previous7']
+neu['last7'] = neu['Pos in Qua'].astype(int) - neu['previous7']
 neu[neu['last7'] < 0] = 0
 
 neu.to_csv('Germany/Bayern/Freising/data/Freising_neu_geschätzt.csv')
