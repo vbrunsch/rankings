@@ -38,50 +38,50 @@ df = df.replace({'Kirchdorf': 'Kirchdorf a.d.Amper'}, regex=True)
 df = df.replace({'Moosburg': 'Moosburg a.d.Isar'}, regex=True)
 df = df.replace({'Neufahrn': 'Neufahrn b.Freising'}, regex=True)
 
-tods = pd.Timestamp.today().strftime('%m_%d_%Y')
+tods = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
 
 try:
-  wk1 = pd.Timestamp.today() - timedelta(days = 7)
+  wk1 = to - timedelta(days = 7)
   wk1s = wk1.strftime('%m_%d_%Y')
   df7 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk1s}.csv')
 except:
   try:
     print('Feiertag?')
-    wk1 = pd.Timestamp.today() - timedelta(days = 8)
+    wk1 = to - timedelta(days = 8)
     wk1s = wk1.strftime('%m_%d_%Y')
     df7 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk1s}.csv')
   except:
     try:
       print('Feiertag?')
-      wk1 = pd.Timestamp.today() - timedelta(days = 9)
+      wk1 = to - timedelta(days = 9)
       wk1s = wk1.strftime('%m_%d_%Y')
       df7 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk1s}.csv')
     except:
       print('Feiertag?')
-      wk1 = pd.Timestamp.today() - timedelta(days = 10)
+      wk1 = to - timedelta(days = 10)
       wk1s = wk1.strftime('%m_%d_%Y')
       df7 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk1s}.csv')
 
 try:
-  wk2 = pd.Timestamp.today() - timedelta(days = 14)
+  wk2 = to - timedelta(days = 14)
   wk2s = wk2.strftime('%m_%d_%Y')
   df14 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk2s}.csv')
 except:
   try:
     print('Feiertag?')
-    wk2 = pd.Timestamp.today() - timedelta(days = 15)
+    wk2 = to - timedelta(days = 15)
     wk2s = wk2.strftime('%m_%d_%Y')
     df14 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk2s}.csv')
   except:
     try:
       print('Feiertag?')
-      wk2 = pd.Timestamp.today() - timedelta(days = 16)
+      wk2 = to - timedelta(days = 16)
       wk2s = wk2.strftime('%m_%d_%Y')
       df14 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk2s}.csv')
     except:
       print('Feiertag?')
-      wk2 = pd.Timestamp.today() - timedelta(days = 17)
+      wk2 = to - timedelta(days = 17)
       wk2s = wk2.strftime('%m_%d_%Y')
       df14 = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{wk2s}.csv')
 
