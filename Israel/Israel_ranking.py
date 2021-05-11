@@ -61,8 +61,8 @@ csv_path = f"./{id[0]}.csv"
 #csv_path = csv_path + '.csv'
 print(csv_path)
 df_new = pd.read_csv(csv_path, index_col = 0)
-df_old = pd.read_csv(r'israel_data.csv', index_col = 1)
-df_old = df_old.drop('Unnamed: 0', axis = 1)
+df_old = pd.read_csv(r'israel_data.csv', index_col = 0)
+#df_old = df_old.drop('Unnamed: 0', axis = 1)
 if not df_new.equals(df_old):
 
     import requests
