@@ -1,36 +1,36 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 307,Hermsdorf/Erzgeb.,1,80.0,768.0,1.0417,Sächsische Schweiz-Osterzgebirge,4,12,8
-308,Hartmannsdorf-Reichenau,2,60.0,1.0170000000000001,590.0,Sächsische Schweiz-Osterzgebirge,4,10,6
+308,Hartmannsdorf-Reichenau,2,60.0,1.0170000000000001,590.0,Sächsische Schweiz-Osterzgebirge,5,11,6
 309,Müglitztal,3,90.0,1.91,4712.0,Sächsische Schweiz-Osterzgebirge,7,16,9
-310,Dorfhain,4,50.0,1.0959999999999999,4562.0,Sächsische Schweiz-Osterzgebirge,3,8,5
-311,Klingenberg,5,280.0,6.781000000000001,4129.0,Sächsische Schweiz-Osterzgebirge,26,54,28
-312,Wilsdruff,6,580.0,14.237,4074.0,Sächsische Schweiz-Osterzgebirge,38,96,58
-313,Kreischa,7,180.0,4.532,3972.0,Sächsische Schweiz-Osterzgebirge,9,27,18
-314,Königstein/Sächs. Schw.,8,80.0,2.0869999999999997,3833.0,Sächsische Schweiz-Osterzgebirge,9,17,8
-315,Glashütte,9,200.0,6.689,299.0,Sächsische Schweiz-Osterzgebirge,21,41,20
-316,Sebnitz,10,260.0,9.461,2748.0,Sächsische Schweiz-Osterzgebirge,29,55,26
-317,Stolpen,11,150.0,5.579,2689.0,Sächsische Schweiz-Osterzgebirge,8,23,15
-318,Neustadt in Sachsen,12,310.0,12.097000000000001,2563.0,Sächsische Schweiz-Osterzgebirge,45,76,31
-319,Hohnstein,13,80.0,3.282,2438.0,Sächsische Schweiz-Osterzgebirge,10,18,8
-320,Tharandt,14,130.0,5.439,239.0,Sächsische Schweiz-Osterzgebirge,19,32,13
-321,Freital,15,910.0,39.703,2292.0,Sächsische Schweiz-Osterzgebirge,82,173,91
-322,Reinhardtsdorf-Schöna,16,30.0,1.325,2264.0,Sächsische Schweiz-Osterzgebirge,9,12,3
-323,Rabenau,17,100.0,4.42,2262.0,Sächsische Schweiz-Osterzgebirge,22,32,10
-324,Dippoldiswalde,18,320.0,14.31,2236.0,Sächsische Schweiz-Osterzgebirge,35,67,32
-325,Heidenau,19,320.0,16.54,1935.0,Sächsische Schweiz-Osterzgebirge,52,84,32
-326,Rosenthal-Bielatal,20,30.0,1.5859999999999999,1892.0,Sächsische Schweiz-Osterzgebirge,2,5,3
-327,Bad Gottleuba-Berggießhübel,21,100.0,5.624,1778.0,Sächsische Schweiz-Osterzgebirge,7,17,10
-328,Bad Schandau,22,60.0,3.6039999999999996,1665.0,Sächsische Schweiz-Osterzgebirge,8,14,6
-329,Gohrisch,23,30.0,1.806,1661.0,Sächsische Schweiz-Osterzgebirge,8,11,3
-330,Bannewitz,24,180.0,11.104000000000001,1621.0,Sächsische Schweiz-Osterzgebirge,17,35,18
-331,Dohna,25,100.0,6.183,1617.0,Sächsische Schweiz-Osterzgebirge,6,16,10
-332,Struppen,26,40.0,2.512,1592.0,Sächsische Schweiz-Osterzgebirge,3,7,4
-333,Liebstadt,27,20.0,1.27,1575.0,Sächsische Schweiz-Osterzgebirge,0,2,2
-334,Lohmen,28,40.0,3.0839999999999996,1297.0,Sächsische Schweiz-Osterzgebirge,8,12,4
-335,Rathmannsdorf,29,10.0,912.0,1096.0,Sächsische Schweiz-Osterzgebirge,1,2,1
-336,Pirna,30,380.0,38.422,989.0,Sächsische Schweiz-Osterzgebirge,86,124,38
+310,Dorfhain,4,50.0,1.0959999999999999,4562.0,Sächsische Schweiz-Osterzgebirge,2,7,5
+311,Kreischa,5,200.0,4.532,4413.0,Sächsische Schweiz-Osterzgebirge,10,30,20
+312,Klingenberg,6,280.0,6.781000000000001,4129.0,Sächsische Schweiz-Osterzgebirge,25,53,28
+313,Königstein/Sächs. Schw.,7,80.0,2.0869999999999997,3833.0,Sächsische Schweiz-Osterzgebirge,10,18,8
+314,Glashütte,8,230.0,6.689,3438.0,Sächsische Schweiz-Osterzgebirge,26,49,23
+315,Wilsdruff,9,480.0,14.237,3371.0,Sächsische Schweiz-Osterzgebirge,36,84,48
+316,Stolpen,10,180.0,5.579,3226.0,Sächsische Schweiz-Osterzgebirge,9,27,18
+317,Rabenau,11,120.0,4.42,2715.0,Sächsische Schweiz-Osterzgebirge,25,37,12
+318,Neustadt in Sachsen,12,290.0,12.097000000000001,2397.0,Sächsische Schweiz-Osterzgebirge,44,73,29
+319,Reinhardtsdorf-Schöna,13,30.0,1.325,2264.0,Sächsische Schweiz-Osterzgebirge,8,11,3
+320,Tharandt,14,120.0,5.439,2206.0,Sächsische Schweiz-Osterzgebirge,19,31,12
+321,Sebnitz,15,200.0,9.461,2114.0,Sächsische Schweiz-Osterzgebirge,34,54,20
+322,Dippoldiswalde,16,290.0,14.31,2027.0,Sächsische Schweiz-Osterzgebirge,34,63,29
+323,Freital,17,800.0,39.703,2015.0,Sächsische Schweiz-Osterzgebirge,75,155,80
+324,Heidenau,18,300.0,16.54,1814.0,Sächsische Schweiz-Osterzgebirge,48,78,30
+325,Bannewitz,19,190.0,11.104000000000001,1711.0,Sächsische Schweiz-Osterzgebirge,13,32,19
+326,Bad Schandau,20,60.0,3.6039999999999996,1665.0,Sächsische Schweiz-Osterzgebirge,8,14,6
+327,Bad Gottleuba-Berggießhübel,21,90.0,5.624,160.0,Sächsische Schweiz-Osterzgebirge,5,14,9
+328,Liebstadt,22,20.0,1.27,1575.0,Sächsische Schweiz-Osterzgebirge,0,2,2
+329,Hohnstein,23,50.0,3.282,1523.0,Sächsische Schweiz-Osterzgebirge,8,13,5
+330,Dohna,24,90.0,6.183,1456.0,Sächsische Schweiz-Osterzgebirge,5,14,9
+331,Bahretal,25,30.0,2.1590000000000003,139.0,Sächsische Schweiz-Osterzgebirge,2,5,3
+332,Lohmen,26,40.0,3.0839999999999996,1297.0,Sächsische Schweiz-Osterzgebirge,5,9,4
+333,Rosenthal-Bielatal,27,20.0,1.5859999999999999,1261.0,Sächsische Schweiz-Osterzgebirge,2,4,2
+334,Struppen,28,30.0,2.512,1194.0,Sächsische Schweiz-Osterzgebirge,3,6,3
+335,Gohrisch,29,20.0,1.806,1107.0,Sächsische Schweiz-Osterzgebirge,8,10,2
+336,Rathmannsdorf,30,10.0,912.0,1096.0,Sächsische Schweiz-Osterzgebirge,2,3,1
 337,Dürrröhrsdorf-Dittersbach,31,40.0,4.239,944.0,Sächsische Schweiz-Osterzgebirge,3,7,4
-338,Bahretal,32,20.0,2.1590000000000003,926.0,Sächsische Schweiz-Osterzgebirge,2,4,2
+338,Pirna,32,360.0,38.422,937.0,Sächsische Schweiz-Osterzgebirge,82,118,36
 339,Dohma,33,10.0,1.954,512.0,Sächsische Schweiz-Osterzgebirge,0,1,1
 340,Altenberg,34,40.0,7.934,504.0,Sächsische Schweiz-Osterzgebirge,9,13,4
 341,Rathen,35,2.0,349.0,0.0,Sächsische Schweiz-Osterzgebirge,0,0,0
