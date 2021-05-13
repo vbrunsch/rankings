@@ -8,7 +8,7 @@ df = df.set_index(df.columns[0])
 df.columns = df.iloc[0]
 df = df[1:]
 df.index.name = None
-to = pd.Timestamp.today() - timedelta(days=1)
+to = pd.Timestamp.today()# - timedelta(days=1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Saarpfalz-Kreis_{tod}.csv')
 
