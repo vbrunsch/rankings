@@ -14,6 +14,7 @@ df.to_csv(f'Saarpfalz-Kreis_{tod}.csv')
 
 neu = pd.read_csv('Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_current.csv', index_col=0)
 neu[tod] = df['Veränderung zum Vortag'].values
+neu = neu.astype(int)
 neu.to_csv('Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_current.csv')
 
 # For Datawrapper
