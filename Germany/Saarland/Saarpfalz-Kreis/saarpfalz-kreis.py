@@ -8,9 +8,11 @@ df = df.set_index(df.columns[0])
 df.columns = df.iloc[0]
 df = df[1:]
 df.index.name = None
-to = pd.Timestamp.today()# - timedelta(days=1)
+to = pd.Timestamp.today() - timedelta(days=1)
 tod = to.strftime('%m_%d_%Y')
 if tod == '05_13_2021':
+    df['Veränderung zum Vortag'] = 0
+if to.weekday() == 5:
     df['Veränderung zum Vortag'] = 0
 df.to_csv(f'Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_{tod}.csv')
 
