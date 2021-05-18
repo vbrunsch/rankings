@@ -31,7 +31,7 @@ df = pd.DataFrame(data = inf, index = gem)
 df.columns = [tod]
 
 print(df)
-df.to_csv(f'Alb-Donau_{tod}.csv')
+df.to_csv(f'Germany/BW/Alb-Donau/data/Alb-Donau_{tod}.csv')
 
 neu = pd.read_csv('Germany/BW/Alb-Donau/data/Alb-Donau_cur.csv', index_col=0)
 neu[tod] = df[df.columns[0]].values
