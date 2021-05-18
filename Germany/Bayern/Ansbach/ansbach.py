@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()- timedelta(days = 1)
+tod = pd.Timestamp.today()#- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
@@ -80,7 +80,7 @@ except:
 
 tog = pd.DataFrame()
 for r in range(14):
-  cda = pd.Timestamp.today() - timedelta(days = r+1)
+  cda = pd.Timestamp.today() - timedelta(days = r)
   cda = cda.strftime('%d.%m.%Y')
   print(cda)
   try:
