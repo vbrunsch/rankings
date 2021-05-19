@@ -14,87 +14,46 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()#- timedelta(days = 1)
+tod = pd.Timestamp.today()- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
 
-url = 'https://www.landkreis-ansbach.de/Corona'
+url = 'https://www.landkreis-ansbach.de/Quicknavigation/Startseite/Aktuelle-Lage-zum-Coronavirus.php'
 html = urllib.request.urlopen(url)
 htmlParse = BeautifulSoup(html, 'html.parser')
-lin = re.findall('class="csslink_PDF" href="(.*)" target="_blank">', str(htmlParse))
+lin = re.findall('class="csslink_PDF" href="(.*)" target="_blank">Gemeindeübersicht', str(htmlParse))
+lind = re.findall('class="csslink_PDF" href="(.*" target="_blank">Gemeindeübersicht.*)', str(htmlParse))
 
-lind = re.findall('class="csslink_PDF" href="(.*)', str(htmlParse))
+day = re.findall('Stand .?(.)\.',lind[0])
 
-try:
-    day = re.findall('Stand .?(.)\.',lind[1])
+print('Day:')
+print(day)
+print('Today:')
+print(tod)
 
-    print('Day:')
-    print(day)
-    print('Today:')
-    print(tod)
+if day[0] == tod[1]:
+    pdf_path = 'https://www.landkreis-ansbach.de' + lin[0]
+    dfs = tabula.read_pdf(pdf_path, stream=True)
+    df = dfs[0][:-2]
+    neu = df.copy()
+    neu.fillna(0, inplace=True)
+    neu = neu.replace({'\+ ':''}, regex=True)
+    neu = neu.replace({'\- ':'-'}, regex=True)
+    neu = neu.set_index(neu.columns[0])
+    neu = neu[[neu.columns[1]]]
+    neu = neu.astype(int)
+    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
+else:
+    df = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
+    df.set_index('Stadt/Markt/Gemeinde', inplace = True)
+    neu = df.copy()
+    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
 
-    if day[0] == tod[1]:
-        pdf_path = 'https://www.landkreis-ansbach.de' + lin[1]
-        dfs = tabula.read_pdf(pdf_path, stream=True)
-        df = dfs[0][:-2]
-        neu = df.copy()
-        neu.fillna(0, inplace=True)
-        neu = neu.replace({'\+ ':''}, regex=True)
-        neu = neu.replace({'\- ':'-'}, regex=True)
-        neu = neu.set_index(neu.columns[0])
-        neu = neu[[neu.columns[1]]]
-        neu = neu.astype(int)
-        neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
-    else:
-        df = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
-        df.set_index('Stadt/Markt/Gemeinde', inplace = True)
-        neu = df.copy()
-        neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
-except:
-    day = re.findall('Stand .?(.)\.',lind[2])
-
-    print('Day:')
-    print(day)
-    print('Today:')
-    print(tod)
-
-    if day[0] == tod[1]:
-        pdf_path = 'https://www.landkreis-ansbach.de' + lin[2]
-        dfs = tabula.read_pdf(pdf_path, stream=True)
-        df = dfs[0][:-2]
-        neu = df.copy()
-        neu.fillna(0, inplace=True)
-        neu = neu.replace({'\+ ':''}, regex=True)
-        neu = neu.replace({'\- ':'-'}, regex=True)
-        neu = neu.set_index(neu.columns[0])
-        neu = neu[[neu.columns[1]]]
-        neu = neu.astype(int)
-        neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
-    else:
-        df = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
-        df.set_index('Stadt/Markt/Gemeinde', inplace = True)
-        neu = df.copy()
-        neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
-    
-
-tog = pd.DataFrame()
-for r in range(14):
-  cda = pd.Timestamp.today() - timedelta(days = r)
-  cda = cda.strftime('%d.%m.%Y')
-  print(cda)
-  try:
-    cur_ans = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{cda}.csv')
-  except:
-    cur_ans = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
-  cur_ans.rename(columns = {cur_ans.columns[1]:cda}, inplace = True)
-
-  cur_ans = cur_ans.set_index('Stadt/Markt/Gemeinde')
-    
-  if tog.empty:
-    tog = cur_ans.copy()
-  else:
-    tog = tog.join(cur_ans)
+tog = neu.copy()
+cur = pd.read_csv('Germany/Bayern/Ansbach/data/Ansbach_current.csv', index_col = 0)
+tog.columns = [tod]
+tog = tog.join(cur)
 tog.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_current.csv')
 
 import numpy as np
