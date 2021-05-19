@@ -21,7 +21,7 @@ t3 = requests.get(que).text
 htmlParse = BeautifulSoup(t3, 'html.parser')
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('GEMEINDE_1":"(.*?)"',t3)
@@ -33,9 +33,12 @@ df.columns = [tod]
 print(df)
 df.to_csv(f'Germany/BW/Alb-Donau/data/Alb-Donau_{tod}.csv')
 
-neu = pd.read_csv('Germany/BW/Alb-Donau/data/Alb-Donau_cur.csv', index_col=0)
+neu = pd.read_csv('Germany/BW/Alb-Donau/data/Alb-Donau_cur.csv')
+neu = neu.replace('Altheim','Altheim (bei Ehingen)')
+neu = neu.set_index(neu.columns[0])
 neu[tod] = df[df.columns[0]].values
 neu = neu.astype(int)
+print(neu)
 neu.to_csv('Germany/BW/Alb-Donau/data/Alb-Donau_cur.csv')
 
 # For Datawrapper
