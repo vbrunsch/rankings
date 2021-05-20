@@ -8,7 +8,7 @@ import re
 url_s = 'https://www.arcgis.com/sharing/rest/content/items/24f948a52d2a41d4b89cdbc3b8a949bb/data'
 t = requests.get(url_s).text
 
-filenames = re.findall('"itemId":"(.*)","mapTools"', t)
+filenames = re.findall('"itemId":"(.*?)","mapTools"', t)
 url_t = f'https://www.arcgis.com/sharing/rest/content/items/{filenames[0]}/data'
 
 t2 = requests.get(url_t).text
@@ -21,7 +21,7 @@ t3 = requests.get(que).text
 htmlParse = BeautifulSoup(t3, 'html.parser')
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('GEMEINDE_1":"(.*?)"',t3)
