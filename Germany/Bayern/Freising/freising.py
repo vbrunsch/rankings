@@ -14,33 +14,59 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
 pdf_path = f'https://www.kreis-freising.de/fileadmin/user_upload/Aktuelles_News/2020/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_{tod}.pdf'
 
-dfs = tabula.read_pdf(pdf_path, stream=True)
-print(pdf_path)
-print(dfs)
+try:
+  dfs = tabula.read_pdf(pdf_path, stream=True)
+  print(pdf_path)
+  print(dfs)
 
-df = pd.DataFrame()
-df = df.append({'Gemeinde/Stadt': dfs[0].columns[0], 'Pos in Qua': dfs[0].columns[1]}, ignore_index=True)
-dfs[0].columns = ['Gemeinde/Stadt', 'Pos in Qua']
-df = df.append(dfs[0], ignore_index = True)
-df = df.replace({'85354, 85356':'85356'}, regex=True)
-df = df.replace({'85375, 85376':'85376'}, regex=True)
-print(df)
+  df = pd.DataFrame()
+  df = df.append({'Gemeinde/Stadt': dfs[0].columns[0], 'Pos in Qua': dfs[0].columns[1]}, ignore_index=True)
+  dfs[0].columns = ['Gemeinde/Stadt', 'Pos in Qua']
+  df = df.append(dfs[0], ignore_index = True)
+  df = df.replace({'85354, 85356':'85356'}, regex=True)
+  df = df.replace({'85375, 85376':'85376'}, regex=True)
+  print(df)
 
-df = df.replace({'Au': 'Au i.d.Hallertau'}, regex=True)
-df = df.replace({'Haag': 'Haag a.d.Amper'}, regex=True)
-df = df.replace({'Eching': 'Eching – Oberbayern'}, regex=True)
-df = df.replace({'Kirchdorf': 'Kirchdorf a.d.Amper'}, regex=True)
-df = df.replace({'Moosburg': 'Moosburg a.d.Isar'}, regex=True)
-df = df.replace({'Neufahrn': 'Neufahrn b.Freising'}, regex=True)
+  df = df.replace({'Au': 'Au i.d.Hallertau'}, regex=True)
+  df = df.replace({'Haag': 'Haag a.d.Amper'}, regex=True)
+  df = df.replace({'Eching': 'Eching – Oberbayern'}, regex=True)
+  df = df.replace({'Kirchdorf': 'Kirchdorf a.d.Amper'}, regex=True)
+  df = df.replace({'Moosburg': 'Moosburg a.d.Isar'}, regex=True)
+  df = df.replace({'Neufahrn': 'Neufahrn b.Freising'}, regex=True)
 
-tods = to.strftime('%m_%d_%Y')
-df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
-
+  tods = to.strftime('%m_%d_%Y')
+  df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
+except:
+  try:
+    
+    yes = pd.Timestamp.today() - timedelta(days = 1)
+    yess = yes.strftime('%m_%d_%Y')
+    df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yess}.csv', index_col = 0)
+  except:
+    try:
+      yes = pd.Timestamp.today() - timedelta(days = 2)
+      yess = yes.strftime('%m_%d_%Y')
+      df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yess}.csv', index_col = 0)
+    except:
+      try:
+        yes = pd.Timestamp.today() - timedelta(days = 3)
+        yess = yes.strftime('%m_%d_%Y')
+        df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yess}.csv', index_col = 0)
+      except:
+        yes = pd.Timestamp.today() - timedelta(days = 4)
+        yess = yes.strftime('%m_%d_%Y')
+        df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yess}.csv', index_col = 0)
+  tods = to.strftime('%m_%d_%Y')
+  df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
+  print('Today no new data, assuming Pos in Qua from ')
+  print(yess)
+  
+  
 try:
   wk1 = to - timedelta(days = 7)
   wk1s = wk1.strftime('%m_%d_%Y')
