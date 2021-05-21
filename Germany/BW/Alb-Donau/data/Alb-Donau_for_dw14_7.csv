@@ -1,22 +1,22 @@
 Unnamed: 0,last7,last14,mix,Gemeinde
 Westerheim,0,1,0.6,Westerheim
-Schelklingen,6,9,6.0,Schelklingen
-Laichingen,31,86,31.0,Laichingen
-Heroldstatt,5,13,5.0,Heroldstatt
-Allmendingen,3,8,3.0,Allmendingen
-Blaubeuren,10,49,10.0,Blaubeuren
+Schelklingen,8,10,8.0,Schelklingen
+Laichingen,30,82,30.0,Laichingen
+Heroldstatt,5,11,5.0,Heroldstatt
+Allmendingen,2,7,2.0,Allmendingen
+Blaubeuren,10,31,10.0,Blaubeuren
 Merklingen,1,1,1.0,Merklingen
 Berghülen,1,1,1.0,Berghülen
-Nellingen,5,6,5.0,Nellingen
-Altheim (bei Ehingen),0,1,0.6,Altheim (bei Ehingen)
-Öpfingen,1,5,1.0,Öpfingen
+Nellingen,4,6,4.0,Nellingen
+Altheim (bei Ehingen),0,0,0.2,Altheim (bei Ehingen)
+Öpfingen,1,2,1.0,Öpfingen
 Oberdischingen,0,1,0.6,Oberdischingen
 Erbach,6,15,6.0,Erbach
-Blaustein,18,46,18.0,Blaustein
-Dornstadt,2,7,2.0,Dornstadt
-Amstetten,7,23,7.0,Amstetten
-Lonsee,3,11,3.0,Lonsee
-Westerstetten,3,5,3.0,Westerstetten
+Blaustein,23,48,23.0,Blaustein
+Dornstadt,2,6,2.0,Dornstadt
+Amstetten,5,17,5.0,Amstetten
+Lonsee,3,7,3.0,Lonsee
+Westerstetten,0,5,0.6,Westerstetten
 Beimerstetten,1,5,1.0,Beimerstetten
 Weidenstetten,1,1,1.0,Weidenstetten
 Staig,1,3,1.0,Staig
@@ -24,9 +24,9 @@ Altheim (Alb),1,1,1.0,Altheim (Alb)
 Holzkirch,0,0,0.2,Holzkirch
 Breitingen,1,3,1.0,Breitingen
 Illerkirchberg,1,3,1.0,Illerkirchberg
-Bernstadt,1,3,1.0,Bernstadt
-Langenau,13,41,13.0,Langenau
-Neenstetten,1,1,1.0,Neenstetten
+Bernstadt,1,2,1.0,Bernstadt
+Langenau,15,38,15.0,Langenau
+Neenstetten,2,2,2.0,Neenstetten
 Börslingen,0,0,0.2,Börslingen
 Ballendorf,0,0,0.2,Ballendorf
 Nerenstetten,0,0,0.2,Nerenstetten
@@ -34,17 +34,17 @@ Setzingen,0,5,0.6,Setzingen
 Öllingen,0,0,0.2,Öllingen
 Rammingen,1,2,1.0,Rammingen
 Asselfingen,0,1,0.6,Asselfingen
-Balzheim,6,16,6.0,Balzheim
+Balzheim,7,18,7.0,Balzheim
 Grundsheim,0,0,0.2,Grundsheim
 Oberstadion,2,2,2.0,Oberstadion
-Emerkingen,1,2,1.0,Emerkingen
+Emerkingen,1,3,1.0,Emerkingen
 Obermarchtal,1,1,1.0,Obermarchtal
 Unterwachingen,0,2,0.6,Unterwachingen
-Unterstadion,0,2,0.6,Unterstadion
-Dietenheim,5,26,5.0,Dietenheim
-Hausen am Bussen,1,3,1.0,Hausen am Bussen
-Ehingen (Donau),30,52,30.0,Ehingen (Donau)
-Munderkingen,3,5,3.0,Munderkingen
+Unterstadion,0,1,0.6,Unterstadion
+Dietenheim,4,23,4.0,Dietenheim
+Hausen am Bussen,1,2,1.0,Hausen am Bussen
+Ehingen (Donau),30,48,30.0,Ehingen (Donau)
+Munderkingen,3,3,3.0,Munderkingen
 Rottenacker,2,9,2.0,Rottenacker
 Untermarchtal,1,1,1.0,Untermarchtal
 Lauterach,0,0,0.2,Lauterach
@@ -54,4 +54,4 @@ Griesingen,1,1,1.0,Griesingen
 Hüttisheim,1,2,1.0,Hüttisheim
 Emeringen,0,0,0.2,Emeringen
 Rechtenstein,0,0,0.2,Rechtenstein
-Ulm,158,434,158.0,Ulm
+Ulm,152,409,152.0,Ulm
