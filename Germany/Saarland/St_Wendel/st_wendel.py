@@ -2,23 +2,33 @@ from datetime import timedelta
 import pandas as pd
 
 
-dfs = pd.read_html('https://www.landkreis-st-wendel.de/leben-soziales-gesundheit/gesundheitsamt/informationen-zum-coronavirus#c3084')
-print(dfs)
-df = dfs[0]
-df = df.set_index(df.columns[0])
-df = df[:-2]
-df.index.name = None
-to = pd.Timestamp.today()# - timedelta(days=1)
-tod = to.strftime('%m_%d_%Y')
-tods = to.strftime('%d.%m.%Y')
-df.to_csv(f'Germany/Saarland/St_Wendel/data/St_Wendel_{tod}.csv')
+try:
+    dfs = pd.read_html('https://www.landkreis-st-wendel.de/leben-soziales-gesundheit/gesundheitsamt/informationen-zum-coronavirus#c3084')
+    print(dfs)
+    df = dfs[0]
+    df = df.set_index(df.columns[0])
+    df = df[:-2]
+    df.index.name = None
+    to = pd.Timestamp.today() - timedelta(days=1)
+    tod = to.strftime('%m_%d_%Y')
+    tods = to.strftime('%d.%m.%Y')
+    df.to_csv(f'Germany/Saarland/St_Wendel/data/St_Wendel_{tod}.csv')
 
-neu = pd.read_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv', index_col=0)
-neu[tods] = df['Fallzahl'].values - neu['Gesamtfallzahlen'].values
-neu['Gesamtfallzahlen'] = df['Fallzahl'].values
-neu = neu.astype(int)
-print(neu)
-neu.to_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv')
+    neu = pd.read_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv', index_col=0)
+    neu[tods] = df['Fallzahl'].values - neu['Gesamtfallzahlen'].values
+    neu['Gesamtfallzahlen'] = df['Fallzahl'].values
+    neu = neu.astype(int)
+    print(neu)
+    neu.to_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv')
+except:
+    to = pd.Timestamp.today() - timedelta(days=1)
+    tod = to.strftime('%m_%d_%Y')
+    tods = to.strftime('%d.%m.%Y')
+    neu = pd.read_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv', index_col=0)
+    neu[tods] = 0
+    neu = neu.astype(int)
+    print(neu)
+    neu.to_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv')
 
 
 # For Datawrapper
