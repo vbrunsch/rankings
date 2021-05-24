@@ -21,7 +21,7 @@ try:
     print(neu)
     neu.to_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv')
 except:
-    to = pd.Timestamp.today()# - timedelta(days=1)
+    to = pd.Timestamp.today() - timedelta(days=1)
     tod = to.strftime('%m_%d_%Y')
     tods = to.strftime('%d.%m.%Y')
     neu = pd.read_csv('Germany/Saarland/St_Wendel/data/St_Wendel_current.csv', index_col=0)
