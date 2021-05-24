@@ -32,13 +32,34 @@ import numpy as np
 zus = pd.DataFrame()
 zus['last7'] = neu[neu.columns[-1]] + neu[neu.columns[-2]] + neu[neu.columns[-3]] + neu[neu.columns[-4]] + neu[neu.columns[-5]] + neu[neu.columns[-6]] + neu[neu.columns[-7]]
 zus['last14'] = zus['last7'] + neu[neu.columns[-8]] + neu[neu.columns[-9]] + neu[neu.columns[-10]] + neu[neu.columns[-11]] + neu[neu.columns[-12]] + neu[neu.columns[-13]] + neu[neu.columns[-14]]
+
+#Add Munich city
+import bs4
+import urllib
+import urllib.request  
+from bs4 import BeautifulSoup
+import re
+import requests
+
+url = 'https://infogram.com/175c0b06-2028-4cb7-94b1-68dce6c1e345'
+html = urllib.request.urlopen(url)
+htmlParse = BeautifulSoup(html, 'html.parser')
+lin = re.findall('bestätigte Münchner Coronafälle"\],(.*?\])\],', str(htmlParse))
+import json
+m_st = '[' + lin[0] + ']'
+mu = json.loads(m_st)
+mudf = pd.DataFrame(data=mu, columns=['Date','New'])
+muneu= mudf['New'].astype(int).values
+mulast7= muneu[-7:].sum()
+mulast14 = muneu[-14:].sum()
+zus = zus.append(pd.Series([mulast7,mulast14], index=zus.columns, name='Stadt München'))
+
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
-
-ags = pd.read_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_AGS.csv', dtype='str', index_col = 0)
+ags = pd.read_csv(f'LK_München_AGS.csv', dtype='str', index_col = 0)
 zus['AGS'] = ags['AGS']
-zus = zus.set_index('AGS')         
+zus = zus.set_index('AGS')
 
 zus.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_for_dw14_7.csv')
 print(zus) 
