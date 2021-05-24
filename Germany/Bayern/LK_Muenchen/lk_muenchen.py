@@ -18,13 +18,13 @@ df = df.astype(int)
 print(df)
 to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
-df.to_csv(f'LK_München_{tod}.csv')
+df.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_{tod}.csv')
 
-neu = pd.read_csv('LK_München_current.csv', index_col=0)
+neu = pd.read_csv('Germany/Bayern/LK_Muenchen/data/LK_München_current.csv', index_col=0)
 neu[tod] = df['Fälle seit Vortagsmeldung']
 neu = neu.astype(int)
 print(neu)
-neu.to_csv('LK_München_current.csv')
+neu.to_csv('Germany/Bayern/LK_Muenchen/data/LK_München_current.csv')
 
 
 # For Datawrapper
