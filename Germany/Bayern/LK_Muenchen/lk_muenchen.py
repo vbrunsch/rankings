@@ -36,7 +36,7 @@ zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
 
-ags = pd.read_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_AGS.csv')
+ags = pd.read_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_AGS.csv', dtype='str', index_col = 0))
 zus['AGS'] = ags['AGS']
 zus = zus.set_index('AGS')         
 
