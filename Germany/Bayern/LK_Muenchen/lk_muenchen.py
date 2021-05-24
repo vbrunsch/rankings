@@ -16,7 +16,7 @@ df = df.astype(float)
 df[np.isnan(df)] = 0
 df = df.astype(int)
 print(df)
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_{tod}.csv')
 
@@ -36,7 +36,7 @@ zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
 
-zus.to_csv(f'Germany/Saarland/St_Wendel/data/St_Wendel_for_dw14_7.csv')
+zus.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_for_dw14_7.csv')
 print(zus) 
 
 # For Rankings
