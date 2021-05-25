@@ -22,12 +22,12 @@ kon = pd.DataFrame()
 zus = pd.DataFrame()
 we = 0
 
-for x in range(0,14):
+for x in range(1,15):
     x = x + we*2
     m = 0
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
-    while m == 0 and x < 14:
+    while m == 0 and x < 15:
         for url in ['https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=2#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=3#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=4#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=5#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=6#list_586a9b2b']:
             if tod == '27.04.2021':
               m = m + 1
@@ -51,14 +51,14 @@ for x in range(0,14):
                         link = 'https://www.kreis-alzey-worms.eu/'+ lin[0]
                         df = pd.read_html(link, encoding = 'utf-8')
                         try:
-                          if tod in ['13.05.2021','17.05.2021','20.05.2021']:
-                            df = df[3]
-                            df = df.drop([0, 2])
-                          else:
-                            df = df[2]
-                            df = df.drop([df.columns[1],df.columns[2]], axis=1)
-                            df = df.drop([0, 2])
-                            df = df[:-1]
+                          #if tod in ['13.05.2021','17.05.2021','20.05.2021']:
+                          df = df[3]
+                          df = df.drop([0, 2])
+                          #else:
+                            #df = df[2]
+                            #df = df.drop([df.columns[1],df.columns[2]], axis=1)
+                            #df = df.drop([0, 2])
+                            #df = df[:-1]
                           print('neu')
                           print(df)
                         except:
