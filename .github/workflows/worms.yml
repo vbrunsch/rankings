@@ -4,8 +4,8 @@
 name: Update Worms Communities Rankings
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
     - cron: '40 16 * * 1,4'
 
