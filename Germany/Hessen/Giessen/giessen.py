@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import re
 import requests
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 ein = pd.read_csv('Germany/Hessen/Giessen/data/LK_Giessen_Einwohner.csv', dtype= str)
@@ -64,8 +64,8 @@ print(zus)
 # For Rankings
 mdf = zus.copy()
 mdf = mdf.drop_duplicates()
-mdf['Neuzugänge letzten 7 Tage_x'] = mdf['last7']
-mdf['Neuzugänge letzten 14 Tage'] = mdf['last14']
+mdf['Neuzugänge letzten 7 Tage_x'] = mdf['last7'].astype(int)
+mdf['Neuzugänge letzten 14 Tage'] = mdf['last14'].astype(int)
 mdf['Neuzugänge letzten 7 Tage_y'] = mdf['Neuzugänge letzten 14 Tage']-mdf['Neuzugänge letzten 7 Tage_x']  
 mdf['Covid-freie Wochen'] = 0
 mdf['Covid-freie Wochen'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 1, mdf['Covid-freie Wochen'])
