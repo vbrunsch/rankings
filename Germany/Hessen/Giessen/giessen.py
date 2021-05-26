@@ -27,26 +27,27 @@ ein.to_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{tod}.csv')
 try:
   wk1 = to - timedelta(days = 7)
   wk1s = wk1.strftime('%m_%d_%Y')
-  df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', index_col=0)
+  df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', dtype= str)
 except:
   try:
     print('Feiertag?')
     wk1 = to - timedelta(days = 8)
     wk1s = wk1.strftime('%m_%d_%Y')
-    df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', index_col=0)
+    df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', dtype= str)
   except:
     try:
       print('Feiertag?')
       wk1 = to - timedelta(days = 9)
       wk1s = wk1.strftime('%m_%d_%Y')
-      df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', index_col=0)
+      df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', dtype= str)
     except:
       print('Feiertag?')
       wk1 = to - timedelta(days = 10)
       wk1s = wk1.strftime('%m_%d_%Y')
-      df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', index_col=0)
+      df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', dtype= str)
 print(wk1s)
-
+df7['last7'] = df7['last7'].astype(int)
+df7 = df7.set_index('AGS')
 
 # For Datawrapper
 import numpy as np
