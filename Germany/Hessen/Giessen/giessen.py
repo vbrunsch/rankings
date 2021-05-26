@@ -11,8 +11,9 @@ import requests
 to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
-ein = pd.read_csv('Germany/Hessen/Giessen/data/LK_Giessen_Einwohner.csv', index_col= 0)
-neu = pd.DataFrame()
+ein = pd.read_csv('Germany/Hessen/Giessen/data/LK_Giessen_Einwohner.csv', dtype= str)
+ein['Einwohner'] = ein['Einwohner'].astype(int)
+ein = ein.set_index('AGS')
 
 url = 'https://corona.lkgi.de/aktuelles/fallzahlen-im-landkreis/'
 html = urllib.request.urlopen(url)
