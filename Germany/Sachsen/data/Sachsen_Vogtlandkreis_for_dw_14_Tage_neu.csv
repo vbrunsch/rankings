@@ -1,9 +1,9 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 343,Steinberg,1,30.0,2.7430000000000003,1094,Vogtlandkreis,0,3,3
 344,Bergen,2,10.0,958.0,1044,Vogtlandkreis,0,1,1
-345,Reichenbach im Vogtland,3,130.0,20.487,635,Vogtlandkreis,15,28,13
-346,Auerbach/Vogtl.,4,100.0,18.237000000000002,548,Vogtlandkreis,5,15,10
-347,Falkenstein/Vogtl.,5,40.0,7.947,503,Vogtlandkreis,7,11,4
+345,Reichenbach im Vogtland,3,120.0,20.487,586,Vogtlandkreis,15,27,12
+346,Falkenstein/Vogtl.,4,40.0,7.947,503,Vogtlandkreis,7,11,4
+347,Auerbach/Vogtl.,5,90.0,18.237000000000002,494,Vogtlandkreis,5,14,9
 348,Pausa-Mühltroff,6,20.0,4.919,407,Vogtlandkreis,11,13,2
 349,Ellefeld,7,10.0,2.546,393,Vogtlandkreis,2,3,1
 350,Bad Elster,8,10.0,3.675,272,Vogtlandkreis,1,2,1
@@ -11,8 +11,8 @@
 352,Klingenthal,10,20.0,8.184,244,Vogtlandkreis,0,2,2
 353,Adorf/Vogtl.,11,10.0,4.843999999999999,206,Vogtlandkreis,4,5,1
 354,Oelsnitz/Vogtl.,12,20.0,10.142999999999999,197,Vogtlandkreis,2,4,2
-355,Lengenfeld,13,10.0,7.124,14,Vogtlandkreis,3,4,1
-356,Plauen,14,90.0,64.597,139,Vogtlandkreis,25,34,9
+355,Plauen,13,100.0,64.597,155,Vogtlandkreis,25,35,10
+356,Lengenfeld,14,10.0,7.124,14,Vogtlandkreis,3,4,1
 357,Markneukirchen,15,10.0,7.47,134,Vogtlandkreis,6,7,1
 358,Treuen,16,10.0,7.784,128,Vogtlandkreis,1,2,1
 359,Bad Brambach,17,6.0,1.8330000000000002,0,Vogtlandkreis,1,1,0
