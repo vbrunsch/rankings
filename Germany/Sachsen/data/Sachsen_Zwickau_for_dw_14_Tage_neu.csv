@@ -1,34 +1,34 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 380,Niederfrohna,1,50.0,2.2359999999999998,2236,Zwickau,2,7,5
 381,Waldenburg,2,90.0,4.058,2218,Zwickau,2,11,9
-382,Fraureuth,3,80.0,5.105,1567,Zwickau,5,13,8
-383,Limbach-Oberfrohna,4,330.0,23.895,1381,Zwickau,30,63,33
-384,Oberlungwitz,5,80.0,5.864,1364,Zwickau,8,16,8
-385,Crinitzberg,6,20.0,1.874,1067,Zwickau,1,3,2
-386,Bernsdorf - Zwickau,7,20.0,2.208,906,Zwickau,1,3,2
-387,Lichtenstein/Sa.,8,100.0,11.177,895,Zwickau,16,26,10
-388,Dennheritz,9,10.0,1.295,772,Zwickau,4,5,1
-389,Gersdorf,10,30.0,3.938,762,Zwickau,7,10,3
-390,Reinsdorf,11,50.0,7.398,676,Zwickau,4,9,5
-391,Meerane,12,90.0,14.001,643,Zwickau,19,28,9
-392,Callenberg,13,30.0,4.928,609,Zwickau,5,8,3
-393,Werdau,14,110.0,20.623,533,Zwickau,10,21,11
-394,Hohenstein-Ernstthal,15,70.0,14.527000000000001,482,Zwickau,9,16,7
-395,Hartenstein,16,20.0,4.54,441,Zwickau,2,4,2
-396,Zwickau,17,340.0,88.69,383,Zwickau,66,100,34
-397,Crimmitschau,18,70.0,18.35,381,Zwickau,16,23,7
-398,Kirchberg,19,30.0,8.179,367,Zwickau,7,10,3
-399,Mülsen,20,40.0,11.057,362,Zwickau,7,11,4
-400,St. Egidien,21,10.0,3.2680000000000002,306,Zwickau,1,2,1
-401,Wildenfels,22,10.0,3.552,282,Zwickau,8,9,1
-402,Langenbernsdorf,23,10.0,3.597,278,Zwickau,1,2,1
-403,Lichtentanne,24,10.0,6.329,158,Zwickau,0,1,1
-404,Wilkau-Haßlau,25,10.0,9.656,104,Zwickau,7,8,1
-405,Glauchau,26,20.0,22.233,9,Zwickau,12,14,2
-406,Hartmannsdorf b. Kirchberg,27,6.0,1.3730000000000002,0,Zwickau,2,2,0
-407,Hirschfeld,27,2.0,1.162,0,Zwickau,0,0,0
-408,Langenweißbach,27,6.0,2.4730000000000003,0,Zwickau,1,1,0
-409,Neukirchen/Pleiße,27,6.0,3.872,0,Zwickau,1,1,0
-410,Oberwiera,27,2.0,1.02,0,Zwickau,0,0,0
-411,Remse,27,6.0,1.625,0,Zwickau,1,1,0
-412,Schönberg,27,2.0,899.0,0,Zwickau,0,0,0
+382,Limbach-Oberfrohna,3,370.0,23.895,1548,Zwickau,27,64,37
+383,Oberlungwitz,4,90.0,5.864,1535,Zwickau,8,17,9
+384,Fraureuth,5,60.0,5.105,1175,Zwickau,5,11,6
+385,Lichtenstein/Sa.,6,110.0,11.177,984,Zwickau,14,25,11
+386,St. Egidien,7,30.0,3.2680000000000002,918,Zwickau,1,4,3
+387,Bernsdorf - Zwickau,8,20.0,2.208,906,Zwickau,1,3,2
+388,Callenberg,9,40.0,4.928,812,Zwickau,5,9,4
+389,Dennheritz,10,10.0,1.295,772,Zwickau,4,5,1
+390,Gersdorf,11,30.0,3.938,762,Zwickau,7,10,3
+391,Meerane,12,80.0,14.001,571,Zwickau,18,26,8
+392,Wildenfels,13,20.0,3.552,563,Zwickau,8,10,2
+393,Hohenstein-Ernstthal,14,80.0,14.527000000000001,551,Zwickau,9,17,8
+394,Reinsdorf,15,40.0,7.398,541,Zwickau,4,8,4
+395,Crinitzberg,16,10.0,1.874,534,Zwickau,1,2,1
+396,Werdau,17,110.0,20.623,533,Zwickau,10,21,11
+397,Hartenstein,18,20.0,4.54,441,Zwickau,2,4,2
+398,Zwickau,19,350.0,88.69,395,Zwickau,62,97,35
+399,Crimmitschau,20,70.0,18.35,381,Zwickau,16,23,7
+400,Kirchberg,21,30.0,8.179,367,Zwickau,7,10,3
+401,Langenbernsdorf,22,10.0,3.597,278,Zwickau,1,2,1
+402,Mülsen,23,30.0,11.057,271,Zwickau,7,10,3
+403,Wilkau-Haßlau,24,10.0,9.656,104,Zwickau,7,8,1
+404,Glauchau,25,10.0,22.233,45,Zwickau,11,12,1
+405,Hartmannsdorf b. Kirchberg,26,6.0,1.3730000000000002,0,Zwickau,2,2,0
+406,Hirschfeld,26,2.0,1.162,0,Zwickau,0,0,0
+407,Langenweißbach,26,6.0,2.4730000000000003,0,Zwickau,1,1,0
+408,Lichtentanne,26,2.0,6.329,0,Zwickau,0,0,0
+409,Neukirchen/Pleiße,26,6.0,3.872,0,Zwickau,1,1,0
+410,Oberwiera,26,2.0,1.02,0,Zwickau,0,0,0
+411,Remse,26,6.0,1.625,0,Zwickau,1,1,0
+412,Schönberg,26,2.0,899.0,0,Zwickau,0,0,0
