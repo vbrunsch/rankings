@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import re
 import requests
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 ein = pd.read_csv('Germany/Hessen/Giessen/data/LK_Giessen_Einwohner.csv', dtype= str)
@@ -46,7 +46,7 @@ except:
       wk1s = wk1.strftime('%m_%d_%Y')
       df7 = pd.read_csv(f'Germany/Hessen/Giessen/data/LK_Giessen_letzte7_{wk1s}.csv', dtype= str)
 print(wk1s)
-df7['last7'] = df7['last7'].astype(int)
+df7['last7'] = df7['last7'].astype(float).astype(int)
 df7 = df7.set_index('AGS')
 
 # For Datawrapper
