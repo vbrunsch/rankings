@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import re
 import requests
 
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 ein = pd.read_csv('Germany/Hessen/Giessen/data/LK_Giessen_Einwohner.csv', dtype= str)
