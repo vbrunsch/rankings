@@ -31,7 +31,7 @@ df.to_csv(f'Germany/NRW/Heinsberg/data/LK_Heinsberg_gesamt.csv')
 from datetime import timedelta
 neu = pd.DataFrame(index = gem)
 for i in range(0,14):
-  da = pd.Timestamp.today() - timedelta(days = i+1)
+  da = pd.Timestamp.today() - timedelta(days = i)
   dat = da.strftime('%m_%d_%Y')
   neu[dat] = df[df.columns[i]]-df[df.columns[i+1]]
 print(neu)
