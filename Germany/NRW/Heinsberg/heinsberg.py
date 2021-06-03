@@ -4,6 +4,7 @@ import pandas as pd
 import time 
 import requests
 import re
+import numpy as np
 
 url_s = 'https://www.gangelt.de/news/226-erster-corona-fall-in-nrw'
 t = requests.get(url_s).text
