@@ -43,11 +43,6 @@ zus['last7'] = neu[neu.columns[0]]+neu[neu.columns[1]]+neu[neu.columns[2]]+neu[n
 zus['last14'] = zus['last7'] + neu[neu.columns[7]]+neu[neu.columns[8]]+neu[neu.columns[9]]+neu[neu.columns[10]]+neu[neu.columns[11]]+neu[neu.columns[12]]+neu[neu.columns[13]]
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
-
-zus['last7_risk'] = unb[unb.columns[0]]+unb[unb.columns[1]]+unb[unb.columns[2]]+unb[unb.columns[3]]+unb[unb.columns[4]]+unb[unb.columns[5]]+unb[unb.columns[6]]
-zus['last14_risk'] = zus['last7_risk'] + unb[unb.columns[7]]+unb[unb.columns[8]]+unb[unb.columns[9]]+unb[unb.columns[10]]+unb[unb.columns[11]]+unb[unb.columns[12]]+unb[unb.columns[13]]
-zus['mix_risk'] = np.where(zus['last7_risk'] == 0, 0.6, zus['last7_risk'])
-zus['mix_risk'] = np.where(zus['last14_risk'] == 0, 0.2, zus['mix_risk'])
 zus['Gemeinde'] = zus.index
 
 zus.to_csv(f'Germany/NRW/Heinsberg/data/Heinsberg_for_dw14_7.csv')
