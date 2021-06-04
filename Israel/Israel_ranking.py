@@ -15,7 +15,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-chromedriver_url = "https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip"
+chromedriver_url = "https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip"
 resp = urlopen(chromedriver_url)
 with ZipFile(BytesIO(resp.read()), 'r') as zipObj:
     zipObj.extractall()
