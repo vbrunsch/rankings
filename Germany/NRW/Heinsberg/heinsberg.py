@@ -39,7 +39,7 @@ print(neu)
 neu.to_csv(f'Germany/NRW/Heinsberg/data/LK_Heinsberg_neu.csv')
 
 zus = pd.DataFrame(index = gem)
-to = pd.Timestamp.today() - timedelta(days = 2)
+to = pd.Timestamp.today()# - timedelta(days = 2)
 tod = to.strftime('%d.%m.%Y')
 if tod != neu.columns[0]:
   sys.exit(f'No new data, last data from {neu.columns[0]}')
