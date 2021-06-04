@@ -1,16 +1,17 @@
+import sys
 import bs4
 from bs4 import BeautifulSoup
 import pandas as pd
 import time 
 import requests
 import re
-import numpy as np
 
 url_s = 'https://www.gangelt.de/news/226-erster-corona-fall-in-nrw'
 t = requests.get(url_s).text
 soup = BeautifulSoup(t, "lxml")
 container = soup.find("section",attrs={'class': 'article-content clearfix'})
 
+sta = re.findall('Stand (..\...\.....)', t)
 erk = re.findall('Erkelenz \((.*?)/.*?\)', t)
 gan = re.findall('Gangelt \((.*?)/.*?\)', t)
 gei = re.findall('Geilenkirchen \((.*?)/.*?\)', t)
@@ -25,28 +26,89 @@ weg = re.findall('Wegberg \((.*?)/.*?\)', t)
 gem = ['Erkelenz','Gangelt','Geilenkirchen','Heinsberg','Hückelhoven','Selfkant','Übach-Palenberg','Waldfeucht','Wassenberg','Wegberg']
 df = pd.DataFrame(data = [erk,gan,gei,hei,hue,sel,ueb,wal,was,weg], index = gem)
 df = df.astype(int)
+sta = sta[:-56]
+df.columns = sta
 print(df)
 df.to_csv(f'Germany/NRW/Heinsberg/data/LK_Heinsberg_gesamt.csv')
 
 from datetime import timedelta
 neu = pd.DataFrame(index = gem)
-for i in range(0,14):
-  da = pd.Timestamp.today() - timedelta(days = i)
-  dat = da.strftime('%m_%d_%Y')
-  neu[dat] = df[df.columns[i]]-df[df.columns[i+1]]
+for i in range(0,21):
+  neu[df.columns[i]] = df[df.columns[i]]-df[df.columns[i+1]]
 print(neu)
 neu.to_csv(f'Germany/NRW/Heinsberg/data/LK_Heinsberg_neu.csv')
 
-zus = pd.DataFrame()
+zus = pd.DataFrame(index = gem)
+to = pd.Timestamp.today() - timedelta(days = 2)
+tod = to.strftime('%d.%m.%Y')
+if tod != neu.columns[0]:
+  sys.exit(f'No new data, last data from {neu.columns[0]}')
 
-zus['last7'] = neu[neu.columns[0]]+neu[neu.columns[1]]+neu[neu.columns[2]]+neu[neu.columns[3]]+neu[neu.columns[4]]+neu[neu.columns[5]]+neu[neu.columns[6]]
-zus['last14'] = zus['last7'] + neu[neu.columns[7]]+neu[neu.columns[8]]+neu[neu.columns[9]]+neu[neu.columns[10]]+neu[neu.columns[11]]+neu[neu.columns[12]]+neu[neu.columns[13]]
+try:
+  dat7 = to - timedelta(days = 7)
+  dat7s = dat7.strftime('%d.%m.%Y')
+  indat7 = list(neu.columns).index(dat7s)
+except:
+  try:
+    dat7 = to - timedelta(days = 8)
+    dat7s = dat7.strftime('%d.%m.%Y')
+    indat7 = list(neu.columns).index(dat7s)
+  except:
+    try:
+      dat7 = to - timedelta(days = 6)
+      dat7s = dat7.strftime('%d.%m.%Y')
+      indat7 = list(neu.columns).index(dat7s)
+    except:
+      try:
+        dat7 = to - timedelta(days = 9)
+        dat7s = dat7.strftime('%d.%m.%Y')
+        indat7 = list(neu.columns).index(dat7s)
+      except:
+        dat7 = to - timedelta(days = 5)
+        dat7s = dat7.strftime('%d.%m.%Y')
+        indat7 = list(neu.columns).index(dat7s)
+
+zus['last7'] = 0
+for i in range(0,indat7+1):
+  zus['last7'] = zus['last7'] + neu[neu.columns[i]]
+  
+
+try:
+  dat14 = to - timedelta(days = 14)
+  dat14s = dat14.strftime('%d.%m.%Y')
+  indat14 = list(neu.columns).index(dat14s)
+except:
+  try:
+    dat14 = to - timedelta(days = 15)
+    dat14s = dat14.strftime('%d.%m.%Y')
+    indat14 = list(neu.columns).index(dat14s)
+  except:
+    try:
+      dat14 = to - timedelta(days = 13)
+      dat14s = dat14.strftime('%d.%m.%Y')
+      indat14 = list(neu.columns).index(dat14s)
+    except:
+      try:
+        dat14 = to - timedelta(days = 16)
+        dat14s = dat14.strftime('%d.%m.%Y')
+        indat14 = list(neu.columns).index(dat14s)
+      except:
+        dat14 = to - timedelta(days = 12)
+        dat14s = dat14.strftime('%d.%m.%Y')
+        indat14 = list(neu.columns).index(dat14s)
+
+zus['last14'] = 0
+for i in range(0,indat14+1):
+  zus['last14'] = zus['last14'] + neu[neu.columns[i]]
+
+import numpy as np
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
-
+print(zus)
+print(dat7s)
+print(dat14s)
 zus.to_csv(f'Germany/NRW/Heinsberg/data/Heinsberg_for_dw14_7.csv')
-print(zus)      
 
 # For Rankings
 mdf = zus.copy()
