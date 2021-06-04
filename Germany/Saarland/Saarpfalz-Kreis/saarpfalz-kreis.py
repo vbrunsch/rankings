@@ -4,7 +4,7 @@ import pandas as pd
 #dtc = datetime.strptime('2021-05-25 22:24:46', '%Y-%m-%d %H:%M:%S')
 
 dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
-to = pd.Timestamp.today() - timedelta(days=1)
+to = pd.Timestamp.today()# - timedelta(days=1)
 tod = to.strftime('%m_%d_%Y')
 #if to > dtc:
 df = dfs[1]
