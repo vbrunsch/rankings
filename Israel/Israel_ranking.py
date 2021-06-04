@@ -403,7 +403,7 @@ if not df_new.equals(df_old):
     from datetime import timedelta
     toti = datetime.datetime.today().date()
     if toti.weekday() <5:
-        told = toti - timedelta(days = 3)
+        told = toti - timedelta(days = 5)
         told = "<center><caption>Sunday, " + str(told) + "</caption></center>"
     else:
         told = toti - timedelta(days = 4)
