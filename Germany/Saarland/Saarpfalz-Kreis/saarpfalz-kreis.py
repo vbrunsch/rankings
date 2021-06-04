@@ -4,7 +4,7 @@ import pandas as pd
 #dtc = datetime.strptime('2021-05-25 22:24:46', '%Y-%m-%d %H:%M:%S')
 
 dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
-to = pd.Timestamp.today()# - timedelta(days=1)
+to = pd.Timestamp.today() - timedelta(days=1)
 tod = to.strftime('%m_%d_%Y')
 #if to > dtc:
 df = dfs[1]
@@ -14,7 +14,7 @@ df = df.set_index(df.columns[0])
 df.columns = df.iloc[0]
 df = df[1:]
 df.index.name = None
-if tod in ['05_13_2021','05_16_2021','05_23_2021']:
+if tod in ['05_13_2021','05_16_2021','05_23_2021','06_03_2021']:
     df['Veränderung zum Vortag'] = 0
 if to.weekday() == 5:
     df['Veränderung zum Vortag'] = 0
