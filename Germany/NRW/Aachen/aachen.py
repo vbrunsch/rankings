@@ -14,7 +14,7 @@ htmlParse = BeautifulSoup(t, 'html.parser')
 print(htmlParse)
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('Kommune":"(.*?)"',t)
@@ -45,6 +45,8 @@ import numpy as np
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
+zus = zus.replace('Stolberg','Stolberg (Rhld.)')
+zus.index = zus['Gemeinde']
 print(zus)
 zus.to_csv(f'Germany/NRW/Aachen/data/Aachen_for_dw14_7.csv') 
 
