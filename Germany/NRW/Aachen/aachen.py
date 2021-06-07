@@ -14,10 +14,8 @@ htmlParse = BeautifulSoup(t, 'html.parser')
 print(htmlParse)
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
-ye = pd.Timestamp.today() - timedelta(days = 2)
-yes = ye.strftime('%m_%d_%Y')
 
 gem = re.findall('Kommune":"(.*?)"',t)
 dat = re.findall('Meldedatum":(..........)...,',t)
