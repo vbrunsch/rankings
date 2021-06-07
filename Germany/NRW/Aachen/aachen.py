@@ -44,8 +44,8 @@ zus['last14'] = l14
 import numpy as np
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
-zus['Gemeinde'] = zus.index
 zus.index.name = None
+zus['Gemeinde'] = zus.index
 zus = zus.replace('Stolberg','Stolberg (Rhld.)')
 zus.index = zus['Gemeinde']
 print(zus)
