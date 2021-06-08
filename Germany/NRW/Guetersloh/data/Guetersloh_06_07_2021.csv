@@ -1,10 +1,4 @@
 ,"""summe_bestaetigt""",datum
-Borgholzhausen,347,08.05.
-Gütersloh,5573,08.05.
-Halle (Westf.),756,08.05.
-Harsewinkel,1366,08.05.
-Herzebrock-Clarholz,831,08.05.
-Kreis gesamt,18492,08.05.
 Borgholzhausen,349,09.05.
 Gütersloh,5600,09.05.
 Halle (Westf.),756,09.05.
@@ -20,14 +14,6 @@ Kreis gesamt,18589,10.05.
 Borgholzhausen,350,11.05.
 Gütersloh,5624,11.05.
 Halle (Westf.),759,11.05.
-Langenberg,361,08.05.
-Rheda-Wiedenbrück,3360,08.05.
-Rietberg,1565,08.05.
-Schloß Holte-Stukenbrock,1153,08.05.
-Steinhagen,665,08.05.
-Verl,1331,08.05.
-Versmold,812,08.05.
-Werther (Westf.),372,08.05.
 Langenberg,367,09.05.
 Rheda-Wiedenbrück,3370,09.05.
 Rietberg,1571,09.05.
@@ -337,6 +323,12 @@ Halle (Westf.),801,07.06.
 Harsewinkel,1495,07.06.
 Herzebrock-Clarholz,871,07.06.
 Kreis gesamt,19843,07.06.
+Borgholzhausen,358,08.06.
+Gütersloh,5998,08.06.
+Halle (Westf.),801,08.06.
+Harsewinkel,1494,08.06.
+Herzebrock-Clarholz,871,08.06.
+Kreis gesamt,19844,08.06.
 Langenberg,383,27.05.
 Rheda-Wiedenbrück,3627,27.05.
 Rietberg,1618,27.05.
@@ -433,3 +425,11 @@ Steinhagen,698,07.06.
 Verl,1379,07.06.
 Versmold,849,07.06.
 Werther (Westf.),410,07.06.
+Langenberg,384,08.06.
+Rheda-Wiedenbrück,3738,08.06.
+Rietberg,1653,08.06.
+Schloß Holte-Stukenbrock,1211,08.06.
+Steinhagen,698,08.06.
+Verl,1379,08.06.
+Versmold,849,08.06.
+Werther (Westf.),410,08.06.
