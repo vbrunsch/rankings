@@ -27,8 +27,8 @@ dfs = tabula.read_pdf(pdf_path, stream=True)
 df = dfs[0]
 df = df[2:]
 df = df[[df.columns[0],df.columns[2],df.columns[3]]]
-df.columns = ['Gemeinde','last14','Gesamtfallzahlen']
-df = df.set_index('Gemeinde')
+df.columns = ['Gem','last14','Gesamtfallzahlen']
+df = df.set_index('Gem')
 df['Gesamtfallzahlen'] = df['Gesamtfallzahlen'].str.replace('\.','')
 df = df.astype(int)
 print(df)
