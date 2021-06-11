@@ -37,7 +37,9 @@ imp = re.findall('"\/media\/custom\/(.*?g\.PNG)"', str(htmlParse2))
 print(lin2)
 im_p = '"' + 'https://www.kreis-mettmann-corona.de' + lin2[0] + '"'
 
-$wget ${im_p}
+
+os.system(f"wget {im_p}")
+#$wget ${im_p}
 
 ext_i = pytesseract.image_to_string(Image.open(imp[0]))
 
