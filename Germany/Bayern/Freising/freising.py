@@ -17,7 +17,7 @@ neu = pd.DataFrame()
 to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
-pdf_path = f'https://www.kreis-freising.de/fileadmin/user_upload/Aktuelles_News/2020/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_{tod}.pdf'
+pdf_path = f'https://www.kreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_{tod}.pdf'
 
 try:
   dfs = tabula.read_pdf(pdf_path, stream=True)
