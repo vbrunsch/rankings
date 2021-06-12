@@ -50,6 +50,11 @@ for i in hdf.index.unique():
 zus = pd.DataFrame(index = hdf.index.unique(), data = l7, columns = ['last7'])
 zus['last14'] = l14
 
+zus['neg_l7']=np.where(zus['last7']< 0, zus['last7'], 0)
+zus['last7']= zus['last7']-zus['neg_l7']
+zus['last14']=np.where(zus['last14']< 0, zus['last14']-zus['neg_l7'], zus['last14']+zus['neg_l7'])
+zus['last14']=np.where(zus['last14']< zus['last7'], zus['last7'], zus['last14'])
+
 import numpy as np
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
