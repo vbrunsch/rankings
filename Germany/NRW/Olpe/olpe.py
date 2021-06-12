@@ -41,7 +41,14 @@ old = pd.read_csv(f'Germany/NRW/Olpe/data/Olpe_{da7s}.csv', index_col = 0)
 zus = df.copy()
 zus['last7'] = zus[zus.columns[1]].astype(int) - old[old.columns[1]].astype(int) 
 zus= zus[['last7','last14']]
+
 import numpy as np
+zus['neg_l7']=np.where(zus['last7']< 0, zus['last7'], 0)
+zus['last7']= zus['last7']-zus['neg_l7']
+zus['last14']=np.where(zus['last14']< 0, zus['last14']-zus['neg_l7'], zus['last14']+zus['neg_l7'])
+zus['last14']=np.where(zus['last14']< zus['last7'], zus['last7'], zus['last14'])
+zus = zus[['last7','last14']]
+
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
