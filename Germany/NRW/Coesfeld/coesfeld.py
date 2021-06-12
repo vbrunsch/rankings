@@ -9,7 +9,7 @@ que = 'https://services.arcgis.com/0EDx2Zp3hlT2xyF5/arcgis/rest/services/Gemeind
 t3 = requests.get(que).text
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 
