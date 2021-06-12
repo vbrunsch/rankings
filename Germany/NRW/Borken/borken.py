@@ -9,9 +9,9 @@ url_s = 'https://corona.kreis-borken.de/api/data'
 t = requests.get(url_s).text
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
-ye = pd.Timestamp.today() - timedelta(days = 2)
+ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
 
 gem = re.findall('KOMMUNE":".. - (.*?)"',t)
