@@ -15,7 +15,7 @@ df = df[[' Infizierte Gesamt']]
 df.columns = ['Gesamtzahlen']
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/ERK/data/ERK_{tod}.csv')
