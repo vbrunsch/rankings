@@ -1,38 +1,38 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 343,Neuensalz,1,20.0,2.106,95,Vogtlandkreis,0,2,2
-344,Falkenstein/Vogtl.,2,40.0,7.947,503,Vogtlandkreis,3,7,4
-345,Steinberg,3,10.0,2.7430000000000003,365,Vogtlandkreis,1,2,1
-346,Neumark,4,10.0,2.964,337,Vogtlandkreis,0,1,1
-347,Schöneck/Vogtl.,5,10.0,3.142,318,Vogtlandkreis,1,2,1
-348,Rodewisch,6,20.0,6.372999999999999,314,Vogtlandkreis,1,3,2
-349,Adorf/Vogtl.,7,10.0,4.843999999999999,206,Vogtlandkreis,0,1,1
-350,Plauen,8,130.0,64.597,201,Vogtlandkreis,16,29,13
-351,Markneukirchen,9,10.0,7.47,134,Vogtlandkreis,0,1,1
-352,Treuen,10,10.0,7.784,128,Vogtlandkreis,1,2,1
-353,Oelsnitz/Vogtl.,11,10.0,10.142999999999999,99,Vogtlandkreis,3,4,1
-354,Auerbach/Vogtl.,12,10.0,18.237000000000002,55,Vogtlandkreis,0,1,1
-355,Bad Brambach,13,2.0,1.8330000000000002,0,Vogtlandkreis,0,0,0
-356,Bad Elster,13,2.0,3.675,0,Vogtlandkreis,0,0,0
-357,Bergen,13,2.0,958.0,0,Vogtlandkreis,0,0,0
-358,Bösenbrunn,13,6.0,1.1420000000000001,0,Vogtlandkreis,1,1,0
-359,Eichigt,13,2.0,1.192,0,Vogtlandkreis,0,0,0
-360,Ellefeld,13,2.0,2.546,0,Vogtlandkreis,0,0,0
-361,Elsterberg,13,6.0,3.925,0,Vogtlandkreis,1,1,0
-362,Grünbach,13,2.0,1.643,0,Vogtlandkreis,0,0,0
-363,Heinsdorfergrund,13,6.0,1.9680000000000002,0,Vogtlandkreis,1,1,0
-364,Klingenthal,13,2.0,8.184,0,Vogtlandkreis,0,0,0
-365,Lengenfeld,13,6.0,7.124,0,Vogtlandkreis,1,1,0
-366,Limbach,13,6.0,1.4269999999999998,0,Vogtlandkreis,2,2,0
-367,Mühlental,13,2.0,1.276,0,Vogtlandkreis,0,0,0
-368,Muldenhammer,13,6.0,3.025,0,Vogtlandkreis,1,1,0
-369,Netzschkau,13,2.0,3.8539999999999996,0,Vogtlandkreis,0,0,0
-370,Neustadt/Vogtl.,13,2.0,959.0,0,Vogtlandkreis,0,0,0
-371,Pausa-Mühltroff,13,6.0,4.919,0,Vogtlandkreis,4,4,0
-372,Pöhl,13,2.0,2.4819999999999998,0,Vogtlandkreis,0,0,0
-373,Reichenbach im Vogtland,13,6.0,20.487,0,Vogtlandkreis,4,4,0
-374,Rosenbach/Vogtl.,13,2.0,4.133,0,Vogtlandkreis,0,0,0
-375,Theuma,13,2.0,1.0190000000000001,0,Vogtlandkreis,0,0,0
-376,Tirpersdorf,13,2.0,1.3559999999999999,0,Vogtlandkreis,0,0,0
-377,Triebel/Vogtl.,13,2.0,1.222,0,Vogtlandkreis,0,0,0
-378,Weischlitz,13,2.0,5.806,0,Vogtlandkreis,0,0,0
-379,Werda,13,2.0,1.492,0,Vogtlandkreis,0,0,0
+344,Falkenstein/Vogtl.,2,30.0,7.947,378,Vogtlandkreis,3,6,3
+345,Neumark,3,10.0,2.964,337,Vogtlandkreis,0,1,1
+346,Rodewisch,4,20.0,6.372999999999999,314,Vogtlandkreis,1,3,2
+347,Adorf/Vogtl.,5,10.0,4.843999999999999,206,Vogtlandkreis,0,1,1
+348,Markneukirchen,6,10.0,7.47,134,Vogtlandkreis,0,1,1
+349,Plauen,7,80.0,64.597,124,Vogtlandkreis,16,24,8
+350,Oelsnitz/Vogtl.,8,10.0,10.142999999999999,99,Vogtlandkreis,3,4,1
+351,Auerbach/Vogtl.,9,10.0,18.237000000000002,55,Vogtlandkreis,0,1,1
+352,Bad Brambach,10,2.0,1.8330000000000002,0,Vogtlandkreis,0,0,0
+353,Bad Elster,10,2.0,3.675,0,Vogtlandkreis,0,0,0
+354,Bergen,10,2.0,958.0,0,Vogtlandkreis,0,0,0
+355,Bösenbrunn,10,6.0,1.1420000000000001,0,Vogtlandkreis,1,1,0
+356,Eichigt,10,2.0,1.192,0,Vogtlandkreis,0,0,0
+357,Ellefeld,10,2.0,2.546,0,Vogtlandkreis,0,0,0
+358,Elsterberg,10,6.0,3.925,0,Vogtlandkreis,1,1,0
+359,Grünbach,10,2.0,1.643,0,Vogtlandkreis,0,0,0
+360,Heinsdorfergrund,10,6.0,1.9680000000000002,0,Vogtlandkreis,1,1,0
+361,Klingenthal,10,2.0,8.184,0,Vogtlandkreis,0,0,0
+362,Lengenfeld,10,6.0,7.124,0,Vogtlandkreis,1,1,0
+363,Limbach,10,6.0,1.4269999999999998,0,Vogtlandkreis,2,2,0
+364,Mühlental,10,2.0,1.276,0,Vogtlandkreis,0,0,0
+365,Muldenhammer,10,6.0,3.025,0,Vogtlandkreis,1,1,0
+366,Netzschkau,10,2.0,3.8539999999999996,0,Vogtlandkreis,0,0,0
+367,Neustadt/Vogtl.,10,2.0,959.0,0,Vogtlandkreis,0,0,0
+368,Pausa-Mühltroff,10,6.0,4.919,0,Vogtlandkreis,4,4,0
+369,Pöhl,10,2.0,2.4819999999999998,0,Vogtlandkreis,0,0,0
+370,Reichenbach im Vogtland,10,6.0,20.487,0,Vogtlandkreis,4,4,0
+371,Rosenbach/Vogtl.,10,2.0,4.133,0,Vogtlandkreis,0,0,0
+372,Schöneck/Vogtl.,10,6.0,3.142,0,Vogtlandkreis,1,1,0
+373,Steinberg,10,6.0,2.7430000000000003,0,Vogtlandkreis,1,1,0
+374,Theuma,10,2.0,1.0190000000000001,0,Vogtlandkreis,0,0,0
+375,Tirpersdorf,10,2.0,1.3559999999999999,0,Vogtlandkreis,0,0,0
+376,Treuen,10,6.0,7.784,0,Vogtlandkreis,1,1,0
+377,Triebel/Vogtl.,10,2.0,1.222,0,Vogtlandkreis,0,0,0
+378,Weischlitz,10,2.0,5.806,0,Vogtlandkreis,0,0,0
+379,Werda,10,2.0,1.492,0,Vogtlandkreis,0,0,0
