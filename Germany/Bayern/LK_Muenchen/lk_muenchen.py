@@ -16,7 +16,7 @@ df = df.astype(float)
 df[np.isnan(df)] = 0
 df = df.astype(int)
 print(df)
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_{tod}.csv')
 
@@ -30,8 +30,25 @@ neu.to_csv('Germany/Bayern/LK_Muenchen/data/LK_München_current.csv')
 # For Datawrapper
 import numpy as np
 zus = pd.DataFrame()
-zus['last7'] = neu[neu.columns[-1]] + neu[neu.columns[-2]] + neu[neu.columns[-3]] + neu[neu.columns[-4]] + neu[neu.columns[-5]] + neu[neu.columns[-6]] + neu[neu.columns[-7]]
-zus['last14'] = zus['last7'] + neu[neu.columns[-8]] + neu[neu.columns[-9]] + neu[neu.columns[-10]] + neu[neu.columns[-11]] + neu[neu.columns[-12]] + neu[neu.columns[-13]] + neu[neu.columns[-14]]
+#zus['last7'] = neu[neu.columns[-1]] + neu[neu.columns[-2]] + neu[neu.columns[-3]] + neu[neu.columns[-4]] + neu[neu.columns[-5]] + neu[neu.columns[-6]] + neu[neu.columns[-7]]
+#zus['last14'] = zus['last7'] + neu[neu.columns[-8]] + neu[neu.columns[-9]] + neu[neu.columns[-10]] + neu[neu.columns[-11]] + neu[neu.columns[-12]] + neu[neu.columns[-13]] + neu[neu.columns[-14]]
+
+da7 = to - timedelta(days = 7)
+da7s = da7.strftime('%m_%d_%Y')
+da14 = to - timedelta(days = 14)
+da14s = da14.strftime('%m_%d_%Y')
+old7 = pd.read_csv(f'Germany/NRW/LK_Muenchen/data/LK_Muenchen_{da7s}.csv', index_col = 0)
+old14 = pd.read_csv(f'Germany/NRW/LK_Muenchen/data/LK_Muenchen_{da14s}.csv', index_col = 0)
+
+zus = df.copy()
+zus['last7'] = zus[zus.columns[0]].astype(int) - old7[old7.columns[0]].astype(int)
+zus['last14'] = zus[zus.columns[0]].astype(int) - old14[old14.columns[0]].astype(int)
+
+zus['neg_l7']=np.where(zus['last7']< 0, zus['last7'], 0)
+zus['last7']= zus['last7']-zus['neg_l7']
+zus['last14']=np.where(zus['last14']< 0, zus['last14']-zus['neg_l7'], zus['last14']+zus['neg_l7'])
+zus['last14']=np.where(zus['last14']< zus['last7'], zus['last7'], zus['last14'])
+zus = zus[['last7','last14']]
 
 #Add Munich city
 import bs4
