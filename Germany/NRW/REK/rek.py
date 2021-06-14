@@ -57,6 +57,8 @@ mdf = zus.copy()
 mdf = mdf.drop_duplicates()
 mdf['Neuzugänge letzten 7 Tage_x'] = mdf['last7']
 mdf['Neuzugänge letzten 14 Tage'] = mdf['last14']
+mdf['Neuzugänge letzten 7 Tage_x'] = mdf['Neuzugänge letzten 7 Tage_x'].astype(int)
+mdf['Neuzugänge letzten 14 Tage'] = mdf['Neuzugänge letzten 14 Tage'].astype(int)
 mdf['Neuzugänge letzten 7 Tage_y'] = mdf['Neuzugänge letzten 14 Tage']-mdf['Neuzugänge letzten 7 Tage_x']  
 mdf['Covid-freie Wochen'] = 0
 mdf['Covid-freie Wochen'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 1, mdf['Covid-freie Wochen'])
@@ -75,7 +77,6 @@ tab_f = tab_f.sort_values(['Neuzugänge letzten 7 Tage_x','Neuzugänge letzten 1
 tab_t = tab_t.sort_values(['Covid-freie Wochen','Neuzugänge letzten 7 Tage_x'], ascending = [False,True])
 tab = tab_t.append(tab_f)
 tab = tab.drop(['week'], axis=1)
-tab = tab.astype(int)
 
 #Percent Change
 
