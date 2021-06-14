@@ -75,6 +75,7 @@ tab_f = tab_f.sort_values(['Neuzugänge letzten 7 Tage_x','Neuzugänge letzten 1
 tab_t = tab_t.sort_values(['Covid-freie Wochen','Neuzugänge letzten 7 Tage_x'], ascending = [False,True])
 tab = tab_t.append(tab_f)
 tab = tab.drop(['week'], axis=1)
+tab = tab.astype(int)
 
 #Percent Change
 
