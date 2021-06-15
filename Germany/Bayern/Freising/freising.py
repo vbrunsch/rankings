@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
 pdf_path = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Fallzahlen_nach_Gemeinden_{tod}.pdf'
@@ -25,8 +25,8 @@ try:
   print(dfs)
 
   df = pd.DataFrame()
-  df = df.append({'Gemeinde/Stadt': dfs[0].columns[0], 'Pos in Qua': dfs[0].columns[1]}, ignore_index=True)
-  dfs[0].columns = ['Gemeinde/Stadt', 'Pos in Qua']
+  df = df.append({'AGS': dfs[0].columns[0],'Gemeinde/Stadt': dfs[0].columns[1], 'Pos in Qua': dfs[0].columns[2]}, ignore_index=True)
+  dfs[0].columns = ['AGS','Gemeinde/Stadt', 'Pos in Qua']
   df = df.append(dfs[0], ignore_index = True)
   df = df.replace({'85354, 85356':'85356'}, regex=True)
   df = df.replace({'85375, 85376':'85376'}, regex=True)
