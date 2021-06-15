@@ -189,6 +189,7 @@ bottom = """
 
 arrow = lambda x : ' &#x2197;' if x>0 else (' &#x2192' if x ==0  else ' &#x2198')
 styles=[hover(),]
+tab.index.name = None
 tab['Platz'] = tab.reset_index().index
 tab['Platz'] = tab['Platz'].add(1)
 tab['Platz'] = np.where(tab['Neuzugänge letzten 14 Tage'] == 0 , 1, tab['Platz'])
