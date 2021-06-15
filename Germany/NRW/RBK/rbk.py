@@ -10,7 +10,7 @@ que = 'https://services.arcgis.com/r7GhuZjF2UKLvKNF/arcgis/rest/services/Coronav
 t3 = requests.get(que).text
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('City":"(.*?)"',t3)
