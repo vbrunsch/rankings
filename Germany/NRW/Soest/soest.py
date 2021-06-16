@@ -10,7 +10,7 @@ que = 'https://gis.kreis-soest.de/server/rest/services/Krisenstab/Corona_Dashboa
 t3 = requests.get(que, verify = 'Germany/NRW/Soest/soest.pem').text
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('"GEMEINDE":"(.*?)",',t3)
