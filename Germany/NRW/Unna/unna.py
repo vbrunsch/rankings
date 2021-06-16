@@ -49,7 +49,7 @@ zus = zus[['last7','last14']]
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
-
+zus.index.name = None
 print(zus)
 zus.to_csv(f'Germany/NRW/Unna/data/Unna_for_dw14_7.csv') 
 
