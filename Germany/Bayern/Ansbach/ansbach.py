@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()#- timedelta(days = 1)
+tod = pd.Timestamp.today()- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
@@ -61,6 +61,12 @@ zus = pd.DataFrame()
 zus['last7'] = tog[tog.columns[0]]+tog[tog.columns[1]]+tog[tog.columns[2]]+tog[tog.columns[3]]+tog[tog.columns[4]]+tog[tog.columns[5]]+tog[tog.columns[6]]
 zus['last14'] = zus['last7'] + tog[tog.columns[7]]+tog[tog.columns[8]]+tog[tog.columns[9]]+tog[tog.columns[10]]+tog[tog.columns[11]]+tog[tog.columns[12]]+tog[tog.columns[13]]
 zus = zus.drop(zus.index[-2])
+
+zus['neg_l7']=np.where(zus['last7']< 0, zus['last7'], 0)
+zus['last7']= zus['last7']-zus['neg_l7']
+zus['last14']=np.where(zus['last14']< 0, zus['last14']-zus['neg_l7'], zus['last14']+zus['neg_l7'])
+zus['last14']=np.where(zus['last14']< zus['last7'], zus['last7'], zus['last14'])
+
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
