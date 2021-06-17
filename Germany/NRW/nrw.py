@@ -77,6 +77,7 @@ zus = zus.drop('Kreis gesamt')
 zus = zus.drop('Kreis Borken')
 zus = zus.drop('Kreis Coesfeld')
 zus = zus.drop('Kreis Mettmann')
+zus = zus.drop('Städteregion')
 print(zus)
 zus.to_csv(f'Germany/NRW/SKs/data/NRW_Gem_for_dw14_7.csv') 
 
