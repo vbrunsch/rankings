@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 zus = pd.read_csv('https://raw.githubusercontent.com/vbrunsch/rankings/main/Germany/NRW/Aachen/data/Aachen_for_dw14_7.csv', index_col= 0)
 df_Bor = pd.read_csv('https://raw.githubusercontent.com/vbrunsch/rankings/main/Germany/NRW/Borken/data/Borken_for_dw14_7.csv', index_col= 0)
