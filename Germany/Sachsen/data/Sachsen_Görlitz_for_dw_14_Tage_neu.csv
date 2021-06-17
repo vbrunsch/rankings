@@ -1,14 +1,14 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 116,Groß Düben,1,20.0,1.069,1871,Görlitz,2,4,2
-117,Reichenbach/O.L.,2,40.0,4.915,814,Görlitz,3,7,4
-118,Weißkeißel,3,10.0,1.284,779,Görlitz,2,3,1
-119,Gablenz,4,10.0,1.595,627,Görlitz,0,1,1
-120,Oppach,5,10.0,2.3280000000000003,43,Görlitz,1,2,1
+117,Reichenbach/O.L.,2,40.0,4.915,814,Görlitz,4,8,4
+118,Weißkeißel,3,10.0,1.284,779,Görlitz,0,1,1
+119,Gablenz,4,10.0,1.595,627,Görlitz,1,2,1
+120,Oppach,5,10.0,2.3280000000000003,43,Görlitz,2,3,1
 121,Neusalza-Spremberg,6,10.0,3.3,303,Görlitz,0,1,1
 122,Kottmar,7,20.0,7.236000000000001,276,Görlitz,0,2,2
-123,Boxberg/O.L.,8,10.0,4.402,227,Görlitz,0,1,1
-124,Ebersbach-Neugersdorf,9,10.0,11.853,84,Görlitz,4,5,1
-125,Löbau,10,10.0,14.456,69,Görlitz,2,3,1
+123,Boxberg/O.L.,8,10.0,4.402,227,Görlitz,1,2,1
+124,Ebersbach-Neugersdorf,9,10.0,11.853,84,Görlitz,2,3,1
+125,Löbau,10,10.0,14.456,69,Görlitz,1,2,1
 126,Zittau,11,10.0,25.086,4,Görlitz,1,2,1
 127,Görlitz,12,20.0,55.98,36,Görlitz,4,6,2
 128,Bad Muskau,13,2.0,3.6860000000000004,0,Görlitz,0,0,0
@@ -22,7 +22,7 @@
 136,Hainewalde,13,2.0,1.511,0,Görlitz,0,0,0
 137,Herrnhut,13,2.0,5.837000000000001,0,Görlitz,0,0,0
 138,Hohendubrau,13,2.0,1.882,0,Görlitz,0,0,0
-139,Horka,13,6.0,1.694,0,Görlitz,3,3,0
+139,Horka,13,6.0,1.694,0,Görlitz,1,1,0
 140,Jonsdorf,13,2.0,1.548,0,Görlitz,0,0,0
 141,Kodersdorf,13,6.0,2.4219999999999997,0,Görlitz,1,1,0
 142,Königshain,13,2.0,1.179,0,Görlitz,0,0,0
@@ -34,7 +34,7 @@
 148,Mittelherwigsdorf,13,6.0,3.634,0,Görlitz,1,1,0
 149,Mücka,13,2.0,959.0,0,Görlitz,0,0,0
 150,Neißeaue,13,2.0,1.706,0,Görlitz,0,0,0
-151,Niesky,13,6.0,9.343,0,Görlitz,4,4,0
+151,Niesky,13,2.0,9.343,0,Görlitz,0,0,0
 152,Oderwitz,13,2.0,5.002,0,Görlitz,0,0,0
 153,Olbersdorf,13,2.0,4.663,0,Görlitz,0,0,0
 154,Ostritz,13,2.0,2.241,0,Görlitz,0,0,0
@@ -42,7 +42,7 @@
 156,Quitzdorf am See,13,2.0,1.24,0,Görlitz,0,0,0
 157,Rietschen,13,2.0,2.529,0,Görlitz,0,0,0
 158,Rosenbach,13,2.0,1.571,0,Görlitz,0,0,0
-159,Rothenburg/O.L.,13,6.0,4.458,0,Görlitz,1,1,0
+159,Rothenburg/O.L.,13,2.0,4.458,0,Görlitz,0,0,0
 160,Schleife,13,2.0,2.4,0,Görlitz,0,0,0
 161,Schönau-Berzdorf a.d. Eigen,13,2.0,1.46,0,Görlitz,0,0,0
 162,Schönbach,13,2.0,1.09,0,Görlitz,0,0,0
@@ -51,4 +51,4 @@
 165,Trebendorf,13,2.0,854.0,0,Görlitz,0,0,0
 166,Vierkirchen,13,2.0,1.663,0,Görlitz,0,0,0
 167,Waldhufen,13,6.0,2.37,0,Görlitz,2,2,0
-168,Weißwasser/O.L.,13,6.0,15.886,0,Görlitz,3,3,0
+168,Weißwasser/O.L.,13,6.0,15.886,0,Görlitz,2,2,0
