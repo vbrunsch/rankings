@@ -84,8 +84,8 @@ zus.to_csv(f'Germany/NRW/SKs/data/NRW_Gem_for_dw14_7.csv')
 # For Rankings
 mdf = zus.copy()
 mdf = mdf.drop_duplicates()
-mdf['Neuzugänge letzten 7 Tage_x'] = mdf['last7']
-mdf['Neuzugänge letzten 14 Tage'] = mdf['last14']
+mdf['Neuzugänge letzten 7 Tage_x'] = mdf['last7'].astype(int)
+mdf['Neuzugänge letzten 14 Tage'] = mdf['last14'].astype(int)
 mdf['Neuzugänge letzten 7 Tage_y'] = mdf['Neuzugänge letzten 14 Tage']-mdf['Neuzugänge letzten 7 Tage_x']  
 mdf['Covid-freie Wochen'] = 0
 mdf['Covid-freie Wochen'] = np.where(mdf['Neuzugänge letzten 7 Tage_x'] == 0, 1, mdf['Covid-freie Wochen'])
