@@ -1,0 +1,435 @@
+,"""summe_bestaetigt""",datum
+Borgholzhausen,353,20.05.
+Gütersloh,5824,20.05.
+Halle (Westf.),790,20.05.
+Harsewinkel,1439,20.05.
+Herzebrock-Clarholz,855,20.05.
+Kreis gesamt,19246,20.05.
+Borgholzhausen,353,21.05.
+Gütersloh,5849,21.05.
+Halle (Westf.),793,21.05.
+Harsewinkel,1444,21.05.
+Herzebrock-Clarholz,856,21.05.
+Kreis gesamt,19304,21.05.
+Borgholzhausen,353,22.05.
+Gütersloh,5861,22.05.
+Halle (Westf.),793,22.05.
+Harsewinkel,1445,22.05.
+Herzebrock-Clarholz,858,22.05.
+Langenberg,377,20.05.
+Rheda-Wiedenbrück,3518,20.05.
+Rietberg,1610,20.05.
+Schloß Holte-Stukenbrock,1188,20.05.
+Steinhagen,690,20.05.
+Verl,1371,20.05.
+Versmold,838,20.05.
+Werther (Westf.),393,20.05.
+Langenberg,378,21.05.
+Rheda-Wiedenbrück,3531,21.05.
+Rietberg,1611,21.05.
+Schloß Holte-Stukenbrock,1194,21.05.
+Steinhagen,691,21.05.
+Verl,1372,21.05.
+Versmold,839,21.05.
+Werther (Westf.),393,21.05.
+Kreis gesamt,19339,22.05.
+Langenberg,379,22.05.
+Rheda-Wiedenbrück,3541,22.05.
+Rietberg,1615,22.05.
+Schloß Holte-Stukenbrock,1196,22.05.
+Steinhagen,692,22.05.
+Verl,1373,22.05.
+Versmold,839,22.05.
+Werther (Westf.),394,22.05.
+Borgholzhausen,353,23.05.
+Gütersloh,5876,23.05.
+Halle (Westf.),793,23.05.
+Harsewinkel,1450,23.05.
+Herzebrock-Clarholz,860,23.05.
+Kreis gesamt,19398,23.05.
+Langenberg,382,23.05.
+Rheda-Wiedenbrück,3564,23.05.
+Rietberg,1619,23.05.
+Schloß Holte-Stukenbrock,1197,23.05.
+Steinhagen,693,23.05.
+Verl,1375,23.05.
+Versmold,839,23.05.
+Werther (Westf.),397,23.05.
+Borgholzhausen,354,24.05.
+Gütersloh,5889,24.05.
+Halle (Westf.),793,24.05.
+Harsewinkel,1453,24.05.
+Herzebrock-Clarholz,860,24.05.
+Kreis gesamt,19440,24.05.
+Borgholzhausen,354,25.05.
+Gütersloh,5895,25.05.
+Halle (Westf.),793,25.05.
+Harsewinkel,1452,25.05.
+Herzebrock-Clarholz,860,25.05.
+Kreis gesamt,19446,25.05.
+Borgholzhausen,355,26.05.
+Gütersloh,5897,26.05.
+Halle (Westf.),793,26.05.
+Harsewinkel,1452,26.05.
+Herzebrock-Clarholz,862,26.05.
+Kreis gesamt,19457,26.05.
+Langenberg,384,24.05.
+Rheda-Wiedenbrück,3584,24.05.
+Rietberg,1618,24.05.
+Schloß Holte-Stukenbrock,1197,24.05.
+Steinhagen,693,24.05.
+Verl,1375,24.05.
+Versmold,841,24.05.
+Werther (Westf.),399,24.05.
+Langenberg,383,25.05.
+Rheda-Wiedenbrück,3586,25.05.
+Rietberg,1618,25.05.
+Schloß Holte-Stukenbrock,1197,25.05.
+Steinhagen,693,25.05.
+Verl,1375,25.05.
+Versmold,841,25.05.
+Werther (Westf.),399,25.05.
+Langenberg,383,26.05.
+Rheda-Wiedenbrück,3591,26.05.
+Rietberg,1618,26.05.
+Schloß Holte-Stukenbrock,1198,26.05.
+Steinhagen,693,26.05.
+Verl,1375,26.05.
+Versmold,841,26.05.
+Werther (Westf.),399,26.05.
+Borgholzhausen,355,27.05.
+Gütersloh,5915,27.05.
+Halle (Westf.),794,27.05.
+Harsewinkel,1458,27.05.
+Herzebrock-Clarholz,864,27.05.
+Kreis gesamt,19525,27.05.
+Borgholzhausen,357,28.05.
+Gütersloh,5935,28.05.
+Halle (Westf.),797,28.05.
+Harsewinkel,1459,28.05.
+Herzebrock-Clarholz,865,28.05.
+Kreis gesamt,19599,28.05.
+Borgholzhausen,358,29.05.
+Gütersloh,5954,29.05.
+Halle (Westf.),797,29.05.
+Harsewinkel,1467,29.05.
+Herzebrock-Clarholz,865,29.05.
+Kreis gesamt,19654,29.05.
+Borgholzhausen,358,30.05.
+Gütersloh,5956,30.05.
+Halle (Westf.),799,30.05.
+Harsewinkel,1471,30.05.
+Herzebrock-Clarholz,865,30.05.
+Kreis gesamt,19679,30.05.
+Borgholzhausen,358,31.05.
+Gütersloh,5959,31.05.
+Halle (Westf.),799,31.05.
+Harsewinkel,1475,31.05.
+Herzebrock-Clarholz,865,31.05.
+Kreis gesamt,19695,31.05.
+Borgholzhausen,358,01.06.
+Gütersloh,5960,01.06.
+Halle (Westf.),799,01.06.
+Harsewinkel,1475,01.06.
+Herzebrock-Clarholz,866,01.06.
+Kreis gesamt,19703,01.06.
+Borgholzhausen,358,02.06.
+Gütersloh,5969,02.06.
+Halle (Westf.),800,02.06.
+Harsewinkel,1483,02.06.
+Herzebrock-Clarholz,869,02.06.
+Kreis gesamt,19745,02.06.
+Borgholzhausen,358,03.06.
+Gütersloh,5987,03.06.
+Halle (Westf.),800,03.06.
+Harsewinkel,1488,03.06.
+Herzebrock-Clarholz,869,03.06.
+Kreis gesamt,19794,03.06.
+Borgholzhausen,358,04.06.
+Gütersloh,5991,04.06.
+Halle (Westf.),801,04.06.
+Harsewinkel,1489,04.06.
+Herzebrock-Clarholz,869,04.06.
+Kreis gesamt,19812,04.06.
+Borgholzhausen,358,05.06.
+Gütersloh,5996,05.06.
+Halle (Westf.),801,05.06.
+Harsewinkel,1490,05.06.
+Herzebrock-Clarholz,870,05.06.
+Kreis gesamt,19823,05.06.
+Borgholzhausen,358,06.06.
+Gütersloh,5997,06.06.
+Halle (Westf.),801,06.06.
+Harsewinkel,1495,06.06.
+Herzebrock-Clarholz,871,06.06.
+Kreis gesamt,19839,06.06.
+Borgholzhausen,358,07.06.
+Gütersloh,5997,07.06.
+Halle (Westf.),801,07.06.
+Harsewinkel,1495,07.06.
+Herzebrock-Clarholz,871,07.06.
+Kreis gesamt,19843,07.06.
+Borgholzhausen,358,08.06.
+Gütersloh,5998,08.06.
+Halle (Westf.),801,08.06.
+Harsewinkel,1494,08.06.
+Herzebrock-Clarholz,871,08.06.
+Kreis gesamt,19844,08.06.
+Borgholzhausen,358,09.06.
+Gütersloh,6003,09.06.
+Halle (Westf.),801,09.06.
+Harsewinkel,1496,09.06.
+Herzebrock-Clarholz,871,09.06.
+Kreis gesamt,19868,09.06.
+Borgholzhausen,358,10.06.
+Gütersloh,6006,10.06.
+Halle (Westf.),801,10.06.
+Harsewinkel,1498,10.06.
+Herzebrock-Clarholz,874,10.06.
+Kreis gesamt,19888,10.06.
+Borgholzhausen,358,11.06.
+Borgholzhausen,358,12.06.
+Gütersloh,6008,11.06.
+Gütersloh,6010,12.06.
+Halle (Westf.),801,11.06.
+Halle (Westf.),801,12.06.
+Harsewinkel,1498,11.06.
+Harsewinkel,1499,12.06.
+Herzebrock-Clarholz,874,11.06.
+Herzebrock-Clarholz,874,12.06.
+Kreis gesamt,19897,11.06.
+Kreis gesamt,19910,12.06.
+Steinhagen,699,12.06.
+Verl,1380,11.06.
+Verl,1380,12.06.
+Versmold,851,11.06.
+Versmold,852,12.06.
+Werther (Westf.),410,11.06.
+Werther (Westf.),410,12.06.
+Borgholzhausen,358,13.06.
+Gütersloh,6013,13.06.
+Halle (Westf.),801,13.06.
+Harsewinkel,1499,13.06.
+Herzebrock-Clarholz,876,13.06.
+Kreis gesamt,19924,13.06.
+Borgholzhausen,358,14.06.
+Gütersloh,6015,14.06.
+Halle (Westf.),801,14.06.
+Harsewinkel,1501,14.06.
+Herzebrock-Clarholz,876,14.06.
+Kreis gesamt,19932,14.06.
+Borgholzhausen,358,15.06.
+Gütersloh,6015,15.06.
+Halle (Westf.),801,15.06.
+Harsewinkel,1501,15.06.
+Herzebrock-Clarholz,876,15.06.
+Kreis gesamt,19932,15.06.
+Borgholzhausen,358,16.06.
+Gütersloh,6015,16.06.
+Halle (Westf.),802,16.06.
+Harsewinkel,1503,16.06.
+Herzebrock-Clarholz,876,16.06.
+Kreis gesamt,19941,16.06.
+Borgholzhausen,358,17.06.
+Gütersloh,6016,17.06.
+Halle (Westf.),803,17.06.
+Harsewinkel,1504,17.06.
+Herzebrock-Clarholz,875,17.06.
+Kreis gesamt,19946,17.06.
+Borgholzhausen,359,18.06.
+Gütersloh,6018,18.06.
+Halle (Westf.),802,18.06.
+Harsewinkel,1504,18.06.
+Herzebrock-Clarholz,877,18.06.
+Kreis gesamt,19950,18.06.
+Borgholzhausen,359,19.06.
+Gütersloh,6021,19.06.
+Halle (Westf.),802,19.06.
+Harsewinkel,1505,19.06.
+Herzebrock-Clarholz,877,19.06.
+Kreis gesamt,19954,19.06.
+Langenberg,383,27.05.
+Rheda-Wiedenbrück,3627,27.05.
+Rietberg,1618,27.05.
+Schloß Holte-Stukenbrock,1200,27.05.
+Steinhagen,693,27.05.
+Verl,1375,27.05.
+Versmold,842,27.05.
+Werther (Westf.),401,27.05.
+Langenberg,384,28.05.
+Rheda-Wiedenbrück,3652,28.05.
+Rietberg,1627,28.05.
+Schloß Holte-Stukenbrock,1205,28.05.
+Steinhagen,695,28.05.
+Verl,1376,28.05.
+Versmold,845,28.05.
+Werther (Westf.),402,28.05.
+Langenberg,385,29.05.
+Rheda-Wiedenbrück,3672,29.05.
+Rietberg,1630,29.05.
+Schloß Holte-Stukenbrock,1206,29.05.
+Steinhagen,695,29.05.
+Verl,1378,29.05.
+Versmold,845,29.05.
+Werther (Westf.),402,29.05.
+Langenberg,384,30.05.
+Rheda-Wiedenbrück,3683,30.05.
+Rietberg,1632,30.05.
+Schloß Holte-Stukenbrock,1206,30.05.
+Steinhagen,695,30.05.
+Verl,1379,30.05.
+Versmold,849,30.05.
+Werther (Westf.),402,30.05.
+Langenberg,384,31.05.
+Rheda-Wiedenbrück,3692,31.05.
+Rietberg,1632,31.05.
+Schloß Holte-Stukenbrock,1206,31.05.
+Steinhagen,695,31.05.
+Verl,1379,31.05.
+Versmold,849,31.05.
+Werther (Westf.),402,31.05.
+Langenberg,384,01.06.
+Rheda-Wiedenbrück,3695,01.06.
+Rietberg,1635,01.06.
+Schloß Holte-Stukenbrock,1206,01.06.
+Steinhagen,696,01.06.
+Verl,1378,01.06.
+Versmold,849,01.06.
+Werther (Westf.),402,01.06.
+Langenberg,384,02.06.
+Rheda-Wiedenbrück,3704,02.06.
+Rietberg,1643,02.06.
+Schloß Holte-Stukenbrock,1207,02.06.
+Steinhagen,698,02.06.
+Verl,1379,02.06.
+Versmold,849,02.06.
+Werther (Westf.),402,02.06.
+Langenberg,384,03.06.
+Rheda-Wiedenbrück,3723,03.06.
+Rietberg,1649,03.06.
+Schloß Holte-Stukenbrock,1208,03.06.
+Steinhagen,698,03.06.
+Verl,1379,03.06.
+Versmold,849,03.06.
+Werther (Westf.),402,03.06.
+Langenberg,384,04.06.
+Rheda-Wiedenbrück,3729,04.06.
+Rietberg,1651,04.06.
+Schloß Holte-Stukenbrock,1209,04.06.
+Steinhagen,698,04.06.
+Verl,1379,04.06.
+Versmold,849,04.06.
+Werther (Westf.),405,04.06.
+Langenberg,384,05.06.
+Rheda-Wiedenbrück,3731,05.06.
+Rietberg,1652,05.06.
+Schloß Holte-Stukenbrock,1210,05.06.
+Steinhagen,698,05.06.
+Verl,1379,05.06.
+Versmold,849,05.06.
+Werther (Westf.),405,05.06.
+Langenberg,384,06.06.
+Rheda-Wiedenbrück,3735,06.06.
+Rietberg,1652,06.06.
+Schloß Holte-Stukenbrock,1210,06.06.
+Steinhagen,698,06.06.
+Verl,1379,06.06.
+Versmold,849,06.06.
+Werther (Westf.),410,06.06.
+Langenberg,384,07.06.
+Rheda-Wiedenbrück,3738,07.06.
+Rietberg,1652,07.06.
+Schloß Holte-Stukenbrock,1211,07.06.
+Steinhagen,698,07.06.
+Verl,1379,07.06.
+Versmold,849,07.06.
+Werther (Westf.),410,07.06.
+Langenberg,384,08.06.
+Rheda-Wiedenbrück,3738,08.06.
+Rietberg,1653,08.06.
+Schloß Holte-Stukenbrock,1211,08.06.
+Steinhagen,698,08.06.
+Verl,1379,08.06.
+Versmold,849,08.06.
+Werther (Westf.),410,08.06.
+Langenberg,384,09.06.
+Rheda-Wiedenbrück,3741,09.06.
+Rietberg,1664,09.06.
+Schloß Holte-Stukenbrock,1212,09.06.
+Steinhagen,698,09.06.
+Verl,1380,09.06.
+Versmold,850,09.06.
+Werther (Westf.),410,09.06.
+Langenberg,384,10.06.
+Rheda-Wiedenbrück,3746,10.06.
+Rietberg,1670,10.06.
+Schloß Holte-Stukenbrock,1212,10.06.
+Steinhagen,698,10.06.
+Verl,1380,10.06.
+Versmold,851,10.06.
+Werther (Westf.),410,10.06.
+Langenberg,384,11.06.
+Langenberg,384,12.06.
+Rheda-Wiedenbrück,3749,11.06.
+Rheda-Wiedenbrück,3753,12.06.
+Rietberg,1671,11.06.
+Rietberg,1675,12.06.
+Schloß Holte-Stukenbrock,1214,11.06.
+Schloß Holte-Stukenbrock,1215,12.06.
+Steinhagen,699,11.06.
+Langenberg,384,13.06.
+Rheda-Wiedenbrück,3755,13.06.
+Rietberg,1681,13.06.
+Schloß Holte-Stukenbrock,1215,13.06.
+Steinhagen,699,13.06.
+Verl,1380,13.06.
+Versmold,853,13.06.
+Werther (Westf.),410,13.06.
+Langenberg,384,14.06.
+Rheda-Wiedenbrück,3756,14.06.
+Rietberg,1682,14.06.
+Schloß Holte-Stukenbrock,1216,14.06.
+Steinhagen,699,14.06.
+Verl,1380,14.06.
+Versmold,854,14.06.
+Werther (Westf.),410,14.06.
+Langenberg,384,15.06.
+Rheda-Wiedenbrück,3756,15.06.
+Rietberg,1682,15.06.
+Schloß Holte-Stukenbrock,1216,15.06.
+Steinhagen,699,15.06.
+Verl,1380,15.06.
+Versmold,854,15.06.
+Werther (Westf.),410,15.06.
+Langenberg,384,16.06.
+Rheda-Wiedenbrück,3758,16.06.
+Rietberg,1684,16.06.
+Schloß Holte-Stukenbrock,1216,16.06.
+Steinhagen,699,16.06.
+Verl,1381,16.06.
+Versmold,854,16.06.
+Werther (Westf.),411,16.06.
+Langenberg,384,17.06.
+Rheda-Wiedenbrück,3761,17.06.
+Rietberg,1685,17.06.
+Schloß Holte-Stukenbrock,1216,17.06.
+Steinhagen,699,17.06.
+Verl,1381,17.06.
+Versmold,853,17.06.
+Werther (Westf.),411,17.06.
+Langenberg,383,18.06.
+Rheda-Wiedenbrück,3762,18.06.
+Rietberg,1685,18.06.
+Schloß Holte-Stukenbrock,1216,18.06.
+Steinhagen,699,18.06.
+Verl,1381,18.06.
+Versmold,853,18.06.
+Werther (Westf.),411,18.06.
+Langenberg,383,19.06.
+Rheda-Wiedenbrück,3762,19.06.
+Rietberg,1685,19.06.
+Schloß Holte-Stukenbrock,1216,19.06.
+Steinhagen,699,19.06.
+Verl,1381,19.06.
+Versmold,853,19.06.
+Werther (Westf.),411,19.06.
