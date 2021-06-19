@@ -6,13 +6,13 @@ import time
 import requests
 import re
 
-que = 'https://services7.arcgis.com/lDivAOFOYuYRJqnX/arcgis/rest/services/Gem_C19/FeatureServer/0/query?where=0%3D0&outFields=%2A&f=json'
+que = 'https://services7.arcgis.com/lDivAOFOYuYRJqnX/arcgis/rest/services/Gem_C19_neu/FeatureServer/0/query?where=0%3D0&outFields=%2A&f=json'
 
 t3 = requests.get(que).text
 
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('Stadt":"(.*?)"',t3)
