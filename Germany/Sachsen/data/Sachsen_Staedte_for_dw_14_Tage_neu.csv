@@ -1,120 +1,120 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage
 0,Lichtenberg,1,20.0,1.618,1236,Bautzen,0,2
 1,Räckelwitz,2,10.0,1.131,884,Bautzen,1,2
-2,Steinigtwolmsdorf,3,20.0,2.8110000000000004,711,Bautzen,0,2
-3,Panschwitz-Kuckau,4,10.0,2.09,478,Bautzen,0,1
-4,Wilthen,5,20.0,4.881,41,Bautzen,5,7
-5,Burkau,6,10.0,2.605,384,Bautzen,0,1
-6,Demitz-Thumitz,7,10.0,2.634,38,Bautzen,0,1
-7,Elstra,8,10.0,2.7230000000000003,367,Bautzen,0,1
-8,Schmölln-Putzkau,9,10.0,3.0060000000000002,333,Bautzen,1,2
-9,Elsterheide,10,10.0,3.463,289,Bautzen,0,1
-10,Doberschau-Gaußig,11,10.0,4.135,242,Bautzen,0,1
-11,Wachau,12,10.0,4.273,234,Bautzen,0,1
-12,Königsbrück,13,10.0,4.539,22,Bautzen,0,1
-13,Neukirch/Lausitz,14,10.0,4.8469999999999995,206,Bautzen,2,3
-14,Bischofswerda,15,20.0,10.937999999999999,183,Bautzen,0,2
-15,Bernsdorf - Bautzen,16,10.0,6.422000000000001,156,Bautzen,1,2
-16,Pulsnitz,17,10.0,7.468,134,Bautzen,1,2
-17,Bautzen,18,50.0,38.425,13,Bautzen,4,9
-18,Radeberg,19,20.0,18.565,108,Bautzen,4,6
-19,Hoyerswerda,20,20.0,32.405,62,Bautzen,3,5
-20,Kamenz,21,10.0,16.914,59,Bautzen,7,8
-21,Arnsdorf,22,2.0,4.867,0,Bautzen,0,0
-22,Crostwitz,22,2.0,1.025,0,Bautzen,0,0
-23,Cunewalde,22,6.0,4.593,0,Bautzen,1,1
-24,Frankenthal,22,2.0,923.0,0,Bautzen,0,0
-25,Göda,22,2.0,3.063,0,Bautzen,0,0
-26,Großdubrau,22,2.0,4.249,0,Bautzen,0,0
-27,Großharthau,22,2.0,2.793,0,Bautzen,0,0
-28,Großnaundorf,22,2.0,958.0,0,Bautzen,0,0
-29,Großpostwitz/O.L.,22,2.0,2.741,0,Bautzen,0,0
-30,Großröhrsdorf,22,2.0,9.615,0,Bautzen,0,0
-31,Haselbachtal,22,2.0,4.013,0,Bautzen,0,0
-32,Hochkirch,22,6.0,2.256,0,Bautzen,2,2
-33,Königswartha,22,6.0,3.458,0,Bautzen,1,1
-34,Kubschütz,22,6.0,2.529,0,Bautzen,1,1
-35,Laußnitz,22,2.0,1.8519999999999999,0,Bautzen,0,0
-36,Lauta,22,6.0,8.363,0,Bautzen,2,2
-37,Lohsa,22,2.0,5.232,0,Bautzen,0,0
-38,Malschwitz,22,6.0,4.643,0,Bautzen,1,1
-39,Nebelschütz,22,2.0,1.226,0,Bautzen,0,0
-40,Neschwitz,22,6.0,2.401,0,Bautzen,2,2
-41,Neukirch,22,2.0,1.619,0,Bautzen,0,0
-42,Obergurig,22,6.0,2.07,0,Bautzen,1,1
-43,Ohorn,22,2.0,2.454,0,Bautzen,0,0
-44,Oßling,22,2.0,2.26,0,Bautzen,0,0
-45,Ottendorf-Okrilla,22,2.0,9.98,0,Bautzen,0,0
-46,Puschwitz,22,2.0,820.0,0,Bautzen,0,0
-47,Radibor,22,2.0,3.1189999999999998,0,Bautzen,0,0
-48,Ralbitz-Rosenthal,22,2.0,1.702,0,Bautzen,0,0
-49,Rammenau,22,2.0,1.338,0,Bautzen,0,0
-50,Schirgiswalde-Kirschau,22,6.0,6.185,0,Bautzen,2,2
-51,Schwepnitz,22,2.0,2.478,0,Bautzen,0,0
-52,Sohland a.d. Spree,22,6.0,6.742999999999999,0,Bautzen,2,2
-53,Spreetal,22,6.0,1.845,0,Bautzen,2,2
-54,Steina,22,6.0,1.6269999999999998,0,Bautzen,1,1
-55,Weißenberg,22,2.0,3.096,0,Bautzen,0,0
-56,Wittichenau,22,6.0,5.729,0,Bautzen,1,1
-57,Heidersdorf,1,10.0,784.0,1276,Erzgebirgskreis,0,1
-58,Scheibenberg,2,20.0,2.083,96,Erzgebirgskreis,1,3
-59,Mildenau,3,30.0,3.3989999999999996,883,Erzgebirgskreis,3,6
-60,Zwönitz,4,100.0,11.927,838,Erzgebirgskreis,4,14
-61,Auerbach,5,20.0,2.455,815,Erzgebirgskreis,0,2
-62,Sehmatal,6,50.0,6.377999999999999,784,Erzgebirgskreis,6,11
-63,Jahnsdorf/Erzgeb.,7,30.0,5.476,548,Erzgebirgskreis,0,3
-64,Schlettau,8,10.0,2.3680000000000003,422,Erzgebirgskreis,1,2
-65,Raschau-Markersbach,9,20.0,4.997,40,Erzgebirgskreis,1,3
-66,Pockau-Lengefeld,10,30.0,7.539,398,Erzgebirgskreis,10,13
-67,Jöhstadt,11,10.0,2.62,382,Erzgebirgskreis,3,4
-68,Grünhainichen,12,10.0,3.346,299,Erzgebirgskreis,0,1
-69,Geyer,13,10.0,3.403,294,Erzgebirgskreis,0,1
-70,Breitenbrunn/Erzgeb.,14,10.0,5.204,192,Erzgebirgskreis,1,2
-71,Oelsnitz/Erzgeb.,15,20.0,10.950999999999999,183,Erzgebirgskreis,10,12
-72,Stollberg/Erzgeb.,16,20.0,11.3,177,Erzgebirgskreis,2,4
-73,Grünhain-Beierfeld,17,10.0,5.851,171,Erzgebirgskreis,9,10
-74,Burkhardtsdorf,18,10.0,6.117999999999999,163,Erzgebirgskreis,1,2
-75,Lugau/Erzgeb.,19,10.0,8.005,125,Erzgebirgskreis,4,5
-76,Schwarzenberg/Erzgeb.,20,20.0,16.447,122,Erzgebirgskreis,7,9
-77,Marienberg,21,20.0,16.906,118,Erzgebirgskreis,6,8
-78,Zschopau,22,10.0,9.17,109,Erzgebirgskreis,1,2
-79,Annaberg-Buchholz,23,20.0,19.619,102,Erzgebirgskreis,8,10
-80,Olbernhau,24,10.0,10.84,92,Erzgebirgskreis,1,2
-81,Amtsberg,25,2.0,3.6889999999999996,0,Erzgebirgskreis,0,0
-82,Aue-Bad Schlema,25,6.0,20.352999999999998,0,Erzgebirgskreis,5,5
-83,Bärenstein,25,2.0,2.282,0,Erzgebirgskreis,0,0
-84,Bockau,25,6.0,2.225,0,Erzgebirgskreis,1,1
-85,Börnichen/Erzgeb.,25,2.0,985.0,0,Erzgebirgskreis,0,0
-86,Crottendorf,25,6.0,4.052,0,Erzgebirgskreis,1,1
-87,Deutschneudorf,25,2.0,990.0,0,Erzgebirgskreis,0,0
-88,Drebach,25,6.0,5.127000000000001,0,Erzgebirgskreis,5,5
-89,Ehrenfriedersdorf,25,6.0,4.68,0,Erzgebirgskreis,3,3
-90,Eibenstock,25,6.0,7.261,0,Erzgebirgskreis,1,1
-91,Elterlein,25,6.0,2.8489999999999998,0,Erzgebirgskreis,1,1
-92,Gelenau/Erzgeb.,25,6.0,4.133,0,Erzgebirgskreis,2,2
-93,Gornau/Erzgeb.,25,6.0,3.767,0,Erzgebirgskreis,2,2
-94,Gornsdorf,25,6.0,1.911,0,Erzgebirgskreis,1,1
-95,Großolbersdorf,25,2.0,2.7960000000000003,0,Erzgebirgskreis,0,0
-96,Großrückerswalde,25,6.0,3.3560000000000003,0,Erzgebirgskreis,1,1
-97,Hohndorf,25,6.0,3.486,0,Erzgebirgskreis,1,1
-98,Johanngeorgenstadt,25,6.0,3.897,0,Erzgebirgskreis,1,1
-99,Königswalde,25,6.0,2.22,0,Erzgebirgskreis,2,2
-100,Lauter-Bernsbach,25,6.0,8.628,0,Erzgebirgskreis,5,5
-101,Lößnitz,25,6.0,8.201,0,Erzgebirgskreis,1,1
-102,Neukirchen/Erzgeb.,25,6.0,6.907,0,Erzgebirgskreis,1,1
-103,Niederdorf,25,2.0,1.28,0,Erzgebirgskreis,0,0
-104,Niederwürschnitz,25,2.0,2.5789999999999997,0,Erzgebirgskreis,0,0
-105,Oberwiesenthal,25,2.0,2.0780000000000003,0,Erzgebirgskreis,0,0
-106,Schneeberg,25,2.0,13.873,0,Erzgebirgskreis,0,0
-107,Schönheide,25,2.0,4.3660000000000005,0,Erzgebirgskreis,0,0
-108,Seiffen/Erzgeb.,25,2.0,2.0980000000000003,0,Erzgebirgskreis,0,0
-109,Stützengrün,25,2.0,3.1460000000000004,0,Erzgebirgskreis,0,0
-110,Tannenberg,25,2.0,1.101,0,Erzgebirgskreis,0,0
-111,Thalheim/Erzgeb.,25,6.0,5.952000000000001,0,Erzgebirgskreis,1,1
-112,Thermalbad Wiesenbad,25,6.0,3.242,0,Erzgebirgskreis,6,6
-113,Thum,25,2.0,5.118,0,Erzgebirgskreis,0,0
-114,Wolkenstein,25,6.0,3.8989999999999996,0,Erzgebirgskreis,2,2
-115,Zschorlau,25,2.0,5.235,0,Erzgebirgskreis,0,0
+2,Panschwitz-Kuckau,3,10.0,2.09,478,Bautzen,0,1
+3,Wilthen,4,20.0,4.881,41,Bautzen,2,4
+4,Demitz-Thumitz,5,10.0,2.634,38,Bautzen,0,1
+5,Steinigtwolmsdorf,6,10.0,2.8110000000000004,356,Bautzen,1,2
+6,Elsterheide,7,10.0,3.463,289,Bautzen,0,1
+7,Doberschau-Gaußig,8,10.0,4.135,242,Bautzen,0,1
+8,Wachau,9,10.0,4.273,234,Bautzen,0,1
+9,Königsbrück,10,10.0,4.539,22,Bautzen,0,1
+10,Neukirch/Lausitz,11,10.0,4.8469999999999995,206,Bautzen,1,2
+11,Bernsdorf - Bautzen,12,10.0,6.422000000000001,156,Bautzen,1,2
+12,Pulsnitz,13,10.0,7.468,134,Bautzen,1,2
+13,Bautzen,14,40.0,38.425,104,Bautzen,4,8
+14,Bischofswerda,15,10.0,10.937999999999999,91,Bautzen,1,2
+15,Hoyerswerda,16,20.0,32.405,62,Bautzen,4,6
+16,Kamenz,17,10.0,16.914,59,Bautzen,6,7
+17,Radeberg,18,10.0,18.565,54,Bautzen,4,5
+18,Arnsdorf,19,2.0,4.867,0,Bautzen,0,0
+19,Burkau,19,6.0,2.605,0,Bautzen,1,1
+20,Crostwitz,19,2.0,1.025,0,Bautzen,0,0
+21,Cunewalde,19,6.0,4.593,0,Bautzen,1,1
+22,Elstra,19,6.0,2.7230000000000003,0,Bautzen,1,1
+23,Frankenthal,19,2.0,923.0,0,Bautzen,0,0
+24,Göda,19,2.0,3.063,0,Bautzen,0,0
+25,Großdubrau,19,2.0,4.249,0,Bautzen,0,0
+26,Großharthau,19,2.0,2.793,0,Bautzen,0,0
+27,Großnaundorf,19,2.0,958.0,0,Bautzen,0,0
+28,Großpostwitz/O.L.,19,2.0,2.741,0,Bautzen,0,0
+29,Großröhrsdorf,19,2.0,9.615,0,Bautzen,0,0
+30,Haselbachtal,19,2.0,4.013,0,Bautzen,0,0
+31,Hochkirch,19,6.0,2.256,0,Bautzen,2,2
+32,Königswartha,19,6.0,3.458,0,Bautzen,1,1
+33,Kubschütz,19,2.0,2.529,0,Bautzen,0,0
+34,Laußnitz,19,2.0,1.8519999999999999,0,Bautzen,0,0
+35,Lauta,19,6.0,8.363,0,Bautzen,2,2
+36,Lohsa,19,2.0,5.232,0,Bautzen,0,0
+37,Malschwitz,19,6.0,4.643,0,Bautzen,1,1
+38,Nebelschütz,19,2.0,1.226,0,Bautzen,0,0
+39,Neschwitz,19,2.0,2.401,0,Bautzen,0,0
+40,Neukirch,19,2.0,1.619,0,Bautzen,0,0
+41,Obergurig,19,6.0,2.07,0,Bautzen,1,1
+42,Ohorn,19,2.0,2.454,0,Bautzen,0,0
+43,Oßling,19,2.0,2.26,0,Bautzen,0,0
+44,Ottendorf-Okrilla,19,2.0,9.98,0,Bautzen,0,0
+45,Puschwitz,19,2.0,820.0,0,Bautzen,0,0
+46,Radibor,19,2.0,3.1189999999999998,0,Bautzen,0,0
+47,Ralbitz-Rosenthal,19,2.0,1.702,0,Bautzen,0,0
+48,Rammenau,19,2.0,1.338,0,Bautzen,0,0
+49,Schirgiswalde-Kirschau,19,6.0,6.185,0,Bautzen,2,2
+50,Schmölln-Putzkau,19,6.0,3.0060000000000002,0,Bautzen,2,2
+51,Schwepnitz,19,2.0,2.478,0,Bautzen,0,0
+52,Sohland a.d. Spree,19,6.0,6.742999999999999,0,Bautzen,1,1
+53,Spreetal,19,6.0,1.845,0,Bautzen,2,2
+54,Steina,19,2.0,1.6269999999999998,0,Bautzen,0,0
+55,Weißenberg,19,2.0,3.096,0,Bautzen,0,0
+56,Wittichenau,19,6.0,5.729,0,Bautzen,1,1
+57,Zwönitz,1,100.0,11.927,838,Erzgebirgskreis,5,15
+58,Sehmatal,2,40.0,6.377999999999999,627,Erzgebirgskreis,5,9
+59,Jahnsdorf/Erzgeb.,3,30.0,5.476,548,Erzgebirgskreis,0,3
+60,Scheibenberg,4,10.0,2.083,48,Erzgebirgskreis,1,2
+61,Schlettau,5,10.0,2.3680000000000003,422,Erzgebirgskreis,1,2
+62,Raschau-Markersbach,6,20.0,4.997,40,Erzgebirgskreis,1,3
+63,Pockau-Lengefeld,7,30.0,7.539,398,Erzgebirgskreis,10,13
+64,Mildenau,8,10.0,3.3989999999999996,294,Erzgebirgskreis,5,6
+65,Geyer,9,10.0,3.403,294,Erzgebirgskreis,0,1
+66,Wolkenstein,10,10.0,3.8989999999999996,256,Erzgebirgskreis,2,3
+67,Zschorlau,11,10.0,5.235,191,Erzgebirgskreis,0,1
+68,Oelsnitz/Erzgeb.,12,20.0,10.950999999999999,183,Erzgebirgskreis,10,12
+69,Stollberg/Erzgeb.,13,20.0,11.3,177,Erzgebirgskreis,1,3
+70,Grünhain-Beierfeld,14,10.0,5.851,171,Erzgebirgskreis,8,9
+71,Burkhardtsdorf,15,10.0,6.117999999999999,163,Erzgebirgskreis,1,2
+72,Lugau/Erzgeb.,16,10.0,8.005,125,Erzgebirgskreis,3,4
+73,Schwarzenberg/Erzgeb.,17,20.0,16.447,122,Erzgebirgskreis,5,7
+74,Lauter-Bernsbach,18,10.0,8.628,116,Erzgebirgskreis,3,4
+75,Annaberg-Buchholz,19,20.0,19.619,102,Erzgebirgskreis,7,9
+76,Olbernhau,20,10.0,10.84,92,Erzgebirgskreis,1,2
+77,Marienberg,21,10.0,16.906,59,Erzgebirgskreis,6,7
+78,Amtsberg,22,2.0,3.6889999999999996,0,Erzgebirgskreis,0,0
+79,Aue-Bad Schlema,22,6.0,20.352999999999998,0,Erzgebirgskreis,5,5
+80,Auerbach,22,6.0,2.455,0,Erzgebirgskreis,2,2
+81,Bärenstein,22,2.0,2.282,0,Erzgebirgskreis,0,0
+82,Bockau,22,6.0,2.225,0,Erzgebirgskreis,1,1
+83,Börnichen/Erzgeb.,22,2.0,985.0,0,Erzgebirgskreis,0,0
+84,Breitenbrunn/Erzgeb.,22,6.0,5.204,0,Erzgebirgskreis,1,1
+85,Crottendorf,22,6.0,4.052,0,Erzgebirgskreis,1,1
+86,Deutschneudorf,22,2.0,990.0,0,Erzgebirgskreis,0,0
+87,Drebach,22,6.0,5.127000000000001,0,Erzgebirgskreis,4,4
+88,Ehrenfriedersdorf,22,6.0,4.68,0,Erzgebirgskreis,3,3
+89,Eibenstock,22,6.0,7.261,0,Erzgebirgskreis,1,1
+90,Elterlein,22,2.0,2.8489999999999998,0,Erzgebirgskreis,0,0
+91,Gelenau/Erzgeb.,22,6.0,4.133,0,Erzgebirgskreis,1,1
+92,Gornau/Erzgeb.,22,6.0,3.767,0,Erzgebirgskreis,1,1
+93,Gornsdorf,22,6.0,1.911,0,Erzgebirgskreis,1,1
+94,Großolbersdorf,22,2.0,2.7960000000000003,0,Erzgebirgskreis,0,0
+95,Großrückerswalde,22,6.0,3.3560000000000003,0,Erzgebirgskreis,1,1
+96,Grünhainichen,22,6.0,3.346,0,Erzgebirgskreis,1,1
+97,Heidersdorf,22,6.0,784.0,0,Erzgebirgskreis,1,1
+98,Hohndorf,22,6.0,3.486,0,Erzgebirgskreis,2,2
+99,Johanngeorgenstadt,22,6.0,3.897,0,Erzgebirgskreis,1,1
+100,Jöhstadt,22,6.0,2.62,0,Erzgebirgskreis,3,3
+101,Königswalde,22,6.0,2.22,0,Erzgebirgskreis,2,2
+102,Lößnitz,22,6.0,8.201,0,Erzgebirgskreis,1,1
+103,Neukirchen/Erzgeb.,22,2.0,6.907,0,Erzgebirgskreis,0,0
+104,Niederdorf,22,2.0,1.28,0,Erzgebirgskreis,0,0
+105,Niederwürschnitz,22,2.0,2.5789999999999997,0,Erzgebirgskreis,0,0
+106,Oberwiesenthal,22,2.0,2.0780000000000003,0,Erzgebirgskreis,0,0
+107,Schneeberg,22,2.0,13.873,0,Erzgebirgskreis,0,0
+108,Schönheide,22,2.0,4.3660000000000005,0,Erzgebirgskreis,0,0
+109,Seiffen/Erzgeb.,22,2.0,2.0980000000000003,0,Erzgebirgskreis,0,0
+110,Stützengrün,22,2.0,3.1460000000000004,0,Erzgebirgskreis,0,0
+111,Tannenberg,22,2.0,1.101,0,Erzgebirgskreis,0,0
+112,Thalheim/Erzgeb.,22,6.0,5.952000000000001,0,Erzgebirgskreis,1,1
+113,Thermalbad Wiesenbad,22,6.0,3.242,0,Erzgebirgskreis,6,6
+114,Thum,22,2.0,5.118,0,Erzgebirgskreis,0,0
+115,Zschopau,22,6.0,9.17,0,Erzgebirgskreis,1,1
 116,Weißkeißel,1,10.0,1.284,779,Görlitz,0,1
 117,Hainewalde,2,10.0,1.511,662,Görlitz,0,1
 118,Ostritz,3,10.0,2.241,446,Görlitz,0,1
@@ -122,58 +122,58 @@
 120,Kodersdorf,5,10.0,2.4219999999999997,413,Görlitz,1,2
 121,Reichenbach/O.L.,6,20.0,4.915,407,Görlitz,3,5
 122,Rietschen,7,10.0,2.529,395,Görlitz,0,1
-123,Neusalza-Spremberg,8,10.0,3.3,303,Görlitz,0,1
-124,Kottmar,9,20.0,7.236000000000001,276,Görlitz,1,3
-125,Markersdorf,10,10.0,3.9010000000000002,256,Görlitz,0,1
-126,Rothenburg/O.L.,11,10.0,4.458,224,Görlitz,0,1
-127,Ebersbach-Neugersdorf,12,10.0,11.853,84,Görlitz,1,2
-128,Bad Muskau,13,2.0,3.6860000000000004,0,Görlitz,0,0
-129,Beiersdorf,13,6.0,1.14,0,Görlitz,1,1
-130,Bernstadt a.d. Eigen,13,2.0,3.3539999999999996,0,Görlitz,0,0
-131,Bertsdorf-Hörnitz,13,2.0,2.086,0,Görlitz,0,0
-132,Boxberg/O.L.,13,6.0,4.402,0,Görlitz,1,1
-133,Dürrhennersdorf,13,2.0,986.0,0,Görlitz,0,0
-134,Gablenz,13,6.0,1.595,0,Görlitz,1,1
-135,Görlitz,13,6.0,55.98,0,Görlitz,5,5
-136,Groß Düben,13,6.0,1.069,0,Görlitz,2,2
-137,Großschönau,13,2.0,5.3629999999999995,0,Görlitz,0,0
-138,Großschweidnitz,13,2.0,1.2590000000000001,0,Görlitz,0,0
-139,Hähnichen,13,2.0,1.247,0,Görlitz,0,0
-140,Herrnhut,13,2.0,5.837000000000001,0,Görlitz,0,0
-141,Hohendubrau,13,2.0,1.882,0,Görlitz,0,0
-142,Horka,13,6.0,1.694,0,Görlitz,1,1
-143,Jonsdorf,13,2.0,1.548,0,Görlitz,0,0
-144,Königshain,13,2.0,1.179,0,Görlitz,0,0
-145,Krauschwitz i.d. O.L.,13,6.0,3.469,0,Görlitz,1,1
-146,Kreba-Neudorf,13,2.0,856.0,0,Görlitz,0,0
-147,Lawalde,13,2.0,1.835,0,Görlitz,0,0
-148,Leutersdorf,13,2.0,3.483,0,Görlitz,0,0
-149,Löbau,13,6.0,14.456,0,Görlitz,1,1
-150,Mittelherwigsdorf,13,6.0,3.634,0,Görlitz,1,1
-151,Mücka,13,2.0,959.0,0,Görlitz,0,0
-152,Neißeaue,13,2.0,1.706,0,Görlitz,0,0
-153,Niesky,13,2.0,9.343,0,Görlitz,0,0
-154,Oderwitz,13,2.0,5.002,0,Görlitz,0,0
-155,Oppach,13,6.0,2.3280000000000003,0,Görlitz,2,2
-156,Oybin,13,2.0,1.358,0,Görlitz,0,0
-157,Quitzdorf am See,13,2.0,1.24,0,Görlitz,0,0
-158,Rosenbach,13,2.0,1.571,0,Görlitz,0,0
-159,Schleife,13,2.0,2.4,0,Görlitz,0,0
-160,Schönau-Berzdorf a.d. Eigen,13,2.0,1.46,0,Görlitz,0,0
-161,Schönbach,13,2.0,1.09,0,Görlitz,0,0
-162,Schöpstal,13,2.0,2.396,0,Görlitz,0,0
-163,Seifhennersdorf,13,2.0,3.66,0,Görlitz,0,0
-164,Trebendorf,13,2.0,854.0,0,Görlitz,0,0
-165,Vierkirchen,13,2.0,1.663,0,Görlitz,0,0
-166,Waldhufen,13,6.0,2.37,0,Görlitz,2,2
-167,Weißwasser/O.L.,13,6.0,15.886,0,Görlitz,1,1
-168,Zittau,13,6.0,25.086,0,Görlitz,1,1
+123,Markersdorf,8,10.0,3.9010000000000002,256,Görlitz,0,1
+124,Rothenburg/O.L.,9,10.0,4.458,224,Görlitz,0,1
+125,Kottmar,10,10.0,7.236000000000001,138,Görlitz,2,3
+126,Ebersbach-Neugersdorf,11,10.0,11.853,84,Görlitz,1,2
+127,Bad Muskau,12,2.0,3.6860000000000004,0,Görlitz,0,0
+128,Beiersdorf,12,2.0,1.14,0,Görlitz,0,0
+129,Bernstadt a.d. Eigen,12,2.0,3.3539999999999996,0,Görlitz,0,0
+130,Bertsdorf-Hörnitz,12,2.0,2.086,0,Görlitz,0,0
+131,Boxberg/O.L.,12,6.0,4.402,0,Görlitz,1,1
+132,Dürrhennersdorf,12,2.0,986.0,0,Görlitz,0,0
+133,Gablenz,12,6.0,1.595,0,Görlitz,1,1
+134,Görlitz,12,6.0,55.98,0,Görlitz,3,3
+135,Groß Düben,12,6.0,1.069,0,Görlitz,2,2
+136,Großschönau,12,2.0,5.3629999999999995,0,Görlitz,0,0
+137,Großschweidnitz,12,2.0,1.2590000000000001,0,Görlitz,0,0
+138,Hähnichen,12,2.0,1.247,0,Görlitz,0,0
+139,Herrnhut,12,2.0,5.837000000000001,0,Görlitz,0,0
+140,Hohendubrau,12,2.0,1.882,0,Görlitz,0,0
+141,Horka,12,6.0,1.694,0,Görlitz,1,1
+142,Jonsdorf,12,2.0,1.548,0,Görlitz,0,0
+143,Königshain,12,2.0,1.179,0,Görlitz,0,0
+144,Krauschwitz i.d. O.L.,12,6.0,3.469,0,Görlitz,1,1
+145,Kreba-Neudorf,12,2.0,856.0,0,Görlitz,0,0
+146,Lawalde,12,2.0,1.835,0,Görlitz,0,0
+147,Leutersdorf,12,2.0,3.483,0,Görlitz,0,0
+148,Löbau,12,6.0,14.456,0,Görlitz,1,1
+149,Mittelherwigsdorf,12,6.0,3.634,0,Görlitz,1,1
+150,Mücka,12,2.0,959.0,0,Görlitz,0,0
+151,Neißeaue,12,2.0,1.706,0,Görlitz,0,0
+152,Neusalza-Spremberg,12,6.0,3.3,0,Görlitz,1,1
+153,Niesky,12,2.0,9.343,0,Görlitz,0,0
+154,Oderwitz,12,2.0,5.002,0,Görlitz,0,0
+155,Oppach,12,6.0,2.3280000000000003,0,Görlitz,2,2
+156,Oybin,12,2.0,1.358,0,Görlitz,0,0
+157,Quitzdorf am See,12,2.0,1.24,0,Görlitz,0,0
+158,Rosenbach,12,2.0,1.571,0,Görlitz,0,0
+159,Schleife,12,2.0,2.4,0,Görlitz,0,0
+160,Schönau-Berzdorf a.d. Eigen,12,2.0,1.46,0,Görlitz,0,0
+161,Schönbach,12,2.0,1.09,0,Görlitz,0,0
+162,Schöpstal,12,2.0,2.396,0,Görlitz,0,0
+163,Seifhennersdorf,12,2.0,3.66,0,Görlitz,0,0
+164,Trebendorf,12,2.0,854.0,0,Görlitz,0,0
+165,Vierkirchen,12,2.0,1.663,0,Görlitz,0,0
+166,Waldhufen,12,6.0,2.37,0,Görlitz,2,2
+167,Weißwasser/O.L.,12,6.0,15.886,0,Görlitz,1,1
+168,Zittau,12,6.0,25.086,0,Görlitz,1,1
 169,Trebsen/Mulde,1,10.0,3.8169999999999997,262,Leipzig,1,2
-170,Rötha,2,10.0,6.127999999999999,163,Leipzig,0,1
-171,Frohburg,3,20.0,12.443,161,Leipzig,2,4
+170,Frohburg,2,30.0,12.443,241,Leipzig,2,5
+171,Rötha,3,10.0,6.127999999999999,163,Leipzig,0,1
 172,Pegau,4,10.0,6.325,158,Leipzig,0,1
 173,Borsdorf,5,10.0,8.23,122,Leipzig,0,1
-174,Markranstädt,6,10.0,15.780999999999999,63,Leipzig,9,10
+174,Markranstädt,6,10.0,15.780999999999999,63,Leipzig,4,5
 175,Wurzen,7,10.0,16.209,62,Leipzig,2,3
 176,Borna,8,10.0,19.118,52,Leipzig,0,1
 177,Bad Lausick,9,6.0,7.984,0,Leipzig,2,2
@@ -198,84 +198,84 @@
 196,Regis-Breitingen,9,6.0,3.897,0,Leipzig,1,1
 197,Thallwitz,9,6.0,3.5580000000000003,0,Leipzig,2,2
 198,Zwenkau,9,2.0,9.28,0,Leipzig,0,0
-199,Glaubitz,1,50.0,7.725,647,Meißen,5,10
-200,Weinböhla,2,20.0,10.342,193,Meißen,2,4
-201,Nossen,3,20.0,10.513,19,Meißen,2,4
-202,Großenhain,4,20.0,18.199,11,Meißen,0,2
-203,Riesa,5,30.0,29.754,101,Meißen,3,6
-204,Coswig,6,10.0,20.739,48,Meißen,3,4
-205,Meißen,7,10.0,28.281999999999996,35,Meißen,7,8
-206,Radebeul,8,10.0,33.894,3,Meißen,3,4
-207,Diera-Zehren,9,6.0,3.24,0,Meißen,1,1
-208,Ebersbach,9,6.0,4.3839999999999995,0,Meißen,1,1
-209,Gröditz,9,6.0,6.978,0,Meißen,3,3
-210,Hirschstein,9,2.0,1.95,0,Meißen,0,0
-211,Käbschütztal,9,6.0,2.738,0,Meißen,1,1
-212,Klipphausen,9,6.0,10.349,0,Meißen,1,1
-213,Lommatzsch,9,6.0,4.848,0,Meißen,1,1
-214,Moritzburg,9,2.0,8.326,0,Meißen,0,0
-215,Niederau,9,2.0,4.044,0,Meißen,0,0
-216,Priestewitz,9,6.0,3.181,0,Meißen,1,1
-217,Radeburg,9,6.0,7.317,0,Meißen,3,3
-218,Wülknitz,9,6.0,4.341,0,Meißen,2,2
-219,Lampertswalde,9,2.0,4.417,0,Meißen,0,0
-220,Stauchitz,9,6.0,3.093,0,Meißen,1,1
-221,Strehla,9,6.0,3.721,0,Meißen,2,2
-222,Thiendorf,9,6.0,3.76,0,Meißen,2,2
-223,Zeithain,9,6.0,5.582000000000001,0,Meißen,1,1
-224,Reinsberg,1,40.0,2.8339999999999996,1411,Mittelsachsen,1,5
-225,Frauenstein,2,20.0,2.772,722,Mittelsachsen,1,3
-226,Halsbrücke,3,30.0,5.0569999999999995,593,Mittelsachsen,2,5
-227,Ostrau,4,20.0,3.5469999999999997,564,Mittelsachsen,2,4
-228,Eppendorf,5,20.0,4.075,491,Mittelsachsen,2,4
-229,Mühlau,6,10.0,2.117,472,Mittelsachsen,0,1
-230,Augustusburg,7,20.0,4.512,443,Mittelsachsen,3,5
-231,Großhartmannsdorf,8,10.0,2.474,404,Mittelsachsen,1,2
-232,Großschirma,9,20.0,5.596,357,Mittelsachsen,1,3
-233,Brand-Erbisdorf,10,30.0,9.337,321,Mittelsachsen,5,8
-234,Rossau,11,10.0,3.502,286,Mittelsachsen,3,4
-235,Oederan,12,20.0,7.934,252,Mittelsachsen,5,7
-236,Lichtenau,13,10.0,7.0760000000000005,141,Mittelsachsen,2,3
-237,Roßwein,14,10.0,7.502000000000001,133,Mittelsachsen,1,2
-238,Hainichen,15,10.0,8.558,117,Mittelsachsen,2,3
-239,Penig,16,10.0,8.715,115,Mittelsachsen,0,1
-240,Döbeln,17,20.0,23.583000000000002,85,Mittelsachsen,12,14
-241,Freiberg,18,30.0,40.657,74,Mittelsachsen,19,22
-242,Altmittweida,19,2.0,1.9140000000000001,0,Mittelsachsen,0,0
-243,Bobritzsch-Hilbersdorf,19,6.0,5.7139999999999995,0,Mittelsachsen,11,11
-244,Burgstädt,19,2.0,10.642999999999999,0,Mittelsachsen,0,0
-245,Claußnitz,19,2.0,3.0269999999999997,0,Mittelsachsen,0,0
-246,Dorfchemnitz,19,2.0,1.5390000000000001,0,Mittelsachsen,0,0
-247,Erlau,19,6.0,3.178,0,Mittelsachsen,1,1
-248,Flöha,19,6.0,10.696,0,Mittelsachsen,2,2
-249,Frankenberg/Sa.,19,2.0,13.94,0,Mittelsachsen,0,0
-250,Geringswalde,19,6.0,4.183,0,Mittelsachsen,1,1
-251,Großweitzschen,19,2.0,2.741,0,Mittelsachsen,0,0
-252,Hartha,19,2.0,6.949,0,Mittelsachsen,0,0
-253,Hartmannsdorf,19,2.0,4.493,0,Mittelsachsen,0,0
-254,Königsfeld,19,2.0,1.391,0,Mittelsachsen,0,0
-255,Königshain-Wiederau,19,2.0,2.613,0,Mittelsachsen,0,0
-256,Kriebstein,19,2.0,2.083,0,Mittelsachsen,0,0
-257,Leisnig,19,6.0,8.243,0,Mittelsachsen,6,6
-258,Leubsdorf,19,2.0,3.298,0,Mittelsachsen,0,0
-259,Lichtenberg/Erzgeb.,19,2.0,2.6919999999999997,0,Mittelsachsen,0,0
-260,Lunzenau,19,2.0,4.147,0,Mittelsachsen,0,0
-261,Mittweida,19,6.0,14.475,0,Mittelsachsen,1,1
-262,Mulda/Sa.,19,2.0,2.464,0,Mittelsachsen,0,0
-263,Neuhausen/Erzgeb.,19,2.0,2.592,0,Mittelsachsen,0,0
-264,Niederwiesa,19,6.0,4.862,0,Mittelsachsen,3,3
-265,Oberschöna,19,6.0,3.265,0,Mittelsachsen,1,1
-266,Rechenberg-Bienenmühle,19,2.0,1.835,0,Mittelsachsen,0,0
-267,Rochlitz,19,2.0,5.71,0,Mittelsachsen,0,0
-268,Sayda,19,6.0,1.75,0,Mittelsachsen,1,1
-269,Seelitz,19,2.0,1.663,0,Mittelsachsen,0,0
-270,Striegistal,19,6.0,4.601,0,Mittelsachsen,1,1
-271,Taura,19,2.0,2.37,0,Mittelsachsen,0,0
-272,Waldheim,19,6.0,8.951,0,Mittelsachsen,2,2
-273,Wechselburg,19,2.0,1.778,0,Mittelsachsen,0,0
-274,Weißenborn/Erzgeb.,19,6.0,2.468,0,Mittelsachsen,3,3
-275,Zettlitz,19,2.0,685.0,0,Mittelsachsen,0,0
-276,Zschaitz-Ottewig,19,6.0,1.298,0,Mittelsachsen,3,3
+199,Glaubitz,1,40.0,7.725,518,Meißen,6,10
+200,Riesa,2,30.0,29.754,101,Meißen,4,7
+201,Weinböhla,3,10.0,10.342,97,Meißen,2,3
+202,Nossen,4,10.0,10.513,95,Meißen,3,4
+203,Coswig,5,10.0,20.739,48,Meißen,2,3
+204,Radebeul,6,10.0,33.894,3,Meißen,2,3
+205,Diera-Zehren,7,6.0,3.24,0,Meißen,1,1
+206,Ebersbach,7,6.0,4.3839999999999995,0,Meißen,1,1
+207,Gröditz,7,6.0,6.978,0,Meißen,2,2
+208,Großenhain,7,6.0,18.199,0,Meißen,2,2
+209,Hirschstein,7,2.0,1.95,0,Meißen,0,0
+210,Käbschütztal,7,6.0,2.738,0,Meißen,1,1
+211,Klipphausen,7,2.0,10.349,0,Meißen,0,0
+212,Lommatzsch,7,6.0,4.848,0,Meißen,1,1
+213,Meißen,7,6.0,28.281999999999996,0,Meißen,7,7
+214,Moritzburg,7,2.0,8.326,0,Meißen,0,0
+215,Niederau,7,2.0,4.044,0,Meißen,0,0
+216,Priestewitz,7,6.0,3.181,0,Meißen,1,1
+217,Radeburg,7,6.0,7.317,0,Meißen,3,3
+218,Wülknitz,7,6.0,4.341,0,Meißen,1,1
+219,Lampertswalde,7,2.0,4.417,0,Meißen,0,0
+220,Stauchitz,7,6.0,3.093,0,Meißen,1,1
+221,Strehla,7,6.0,3.721,0,Meißen,1,1
+222,Thiendorf,7,6.0,3.76,0,Meißen,2,2
+223,Zeithain,7,6.0,5.582000000000001,0,Meißen,1,1
+224,Frauenstein,1,20.0,2.772,722,Mittelsachsen,1,3
+225,Mühlau,2,10.0,2.117,472,Mittelsachsen,0,1
+226,Halsbrücke,3,20.0,5.0569999999999995,395,Mittelsachsen,4,6
+227,Großschirma,4,20.0,5.596,357,Mittelsachsen,1,3
+228,Reinsberg,5,10.0,2.8339999999999996,353,Mittelsachsen,4,5
+229,Rossau,6,10.0,3.502,286,Mittelsachsen,3,4
+230,Ostrau,7,10.0,3.5469999999999997,282,Mittelsachsen,2,3
+231,Oederan,8,20.0,7.934,252,Mittelsachsen,1,3
+232,Eppendorf,9,10.0,4.075,245,Mittelsachsen,3,4
+233,Augustusburg,10,10.0,4.512,222,Mittelsachsen,4,5
+234,Lichtenau,11,10.0,7.0760000000000005,141,Mittelsachsen,1,2
+235,Hainichen,12,10.0,8.558,117,Mittelsachsen,1,2
+236,Penig,13,10.0,8.715,115,Mittelsachsen,0,1
+237,Freiberg,14,30.0,40.657,74,Mittelsachsen,17,20
+238,Altmittweida,15,2.0,1.9140000000000001,0,Mittelsachsen,0,0
+239,Bobritzsch-Hilbersdorf,15,6.0,5.7139999999999995,0,Mittelsachsen,9,9
+240,Brand-Erbisdorf,15,6.0,9.337,0,Mittelsachsen,6,6
+241,Burgstädt,15,2.0,10.642999999999999,0,Mittelsachsen,0,0
+242,Claußnitz,15,2.0,3.0269999999999997,0,Mittelsachsen,0,0
+243,Döbeln,15,6.0,23.583000000000002,0,Mittelsachsen,10,10
+244,Dorfchemnitz,15,2.0,1.5390000000000001,0,Mittelsachsen,0,0
+245,Erlau,15,2.0,3.178,0,Mittelsachsen,0,0
+246,Flöha,15,6.0,10.696,0,Mittelsachsen,1,1
+247,Frankenberg/Sa.,15,2.0,13.94,0,Mittelsachsen,0,0
+248,Geringswalde,15,6.0,4.183,0,Mittelsachsen,1,1
+249,Großhartmannsdorf,15,6.0,2.474,0,Mittelsachsen,2,2
+250,Großweitzschen,15,2.0,2.741,0,Mittelsachsen,0,0
+251,Hartha,15,2.0,6.949,0,Mittelsachsen,0,0
+252,Hartmannsdorf,15,2.0,4.493,0,Mittelsachsen,0,0
+253,Königsfeld,15,2.0,1.391,0,Mittelsachsen,0,0
+254,Königshain-Wiederau,15,2.0,2.613,0,Mittelsachsen,0,0
+255,Kriebstein,15,2.0,2.083,0,Mittelsachsen,0,0
+256,Leisnig,15,6.0,8.243,0,Mittelsachsen,6,6
+257,Leubsdorf,15,2.0,3.298,0,Mittelsachsen,0,0
+258,Lichtenberg/Erzgeb.,15,2.0,2.6919999999999997,0,Mittelsachsen,0,0
+259,Lunzenau,15,2.0,4.147,0,Mittelsachsen,0,0
+260,Mittweida,15,2.0,14.475,0,Mittelsachsen,0,0
+261,Mulda/Sa.,15,2.0,2.464,0,Mittelsachsen,0,0
+262,Neuhausen/Erzgeb.,15,2.0,2.592,0,Mittelsachsen,0,0
+263,Niederwiesa,15,6.0,4.862,0,Mittelsachsen,3,3
+264,Oberschöna,15,2.0,3.265,0,Mittelsachsen,0,0
+265,Rechenberg-Bienenmühle,15,2.0,1.835,0,Mittelsachsen,0,0
+266,Rochlitz,15,2.0,5.71,0,Mittelsachsen,0,0
+267,Roßwein,15,6.0,7.502000000000001,0,Mittelsachsen,2,2
+268,Sayda,15,6.0,1.75,0,Mittelsachsen,1,1
+269,Seelitz,15,2.0,1.663,0,Mittelsachsen,0,0
+270,Striegistal,15,6.0,4.601,0,Mittelsachsen,1,1
+271,Taura,15,2.0,2.37,0,Mittelsachsen,0,0
+272,Waldheim,15,6.0,8.951,0,Mittelsachsen,2,2
+273,Wechselburg,15,2.0,1.778,0,Mittelsachsen,0,0
+274,Weißenborn/Erzgeb.,15,6.0,2.468,0,Mittelsachsen,2,2
+275,Zettlitz,15,2.0,685.0,0,Mittelsachsen,0,0
+276,Zschaitz-Ottewig,15,6.0,1.298,0,Mittelsachsen,2,2
 277,Cavertitz,1,10.0,2.214,452,Nordsachsen,8,9
 278,Schönwölkau,2,10.0,2.551,392,Nordsachsen,0,1
 279,Mockrehna,3,10.0,5.041,198,Nordsachsen,0,1
@@ -306,48 +306,48 @@
 304,Trossin,8,2.0,1.2429999999999999,0,Nordsachsen,0,0
 305,Wermsdorf,8,2.0,5.2010000000000005,0,Nordsachsen,0,0
 306,Zschepplin,8,2.0,2.8489999999999998,0,Nordsachsen,0,0
-307,Dohna,1,30.0,6.183,485,Sächsische Schweiz-Osterzgebirge,2,5
-308,Tharandt,2,20.0,5.439,368,Sächsische Schweiz-Osterzgebirge,1,3
-309,Klingenberg,3,20.0,6.781000000000001,295,Sächsische Schweiz-Osterzgebirge,1,3
-310,Stolpen,4,10.0,5.579,179,Sächsische Schweiz-Osterzgebirge,0,1
-311,Dippoldiswalde,5,20.0,14.31,14,Sächsische Schweiz-Osterzgebirge,2,4
-312,Heidenau,6,20.0,16.54,121,Sächsische Schweiz-Osterzgebirge,0,2
-313,Freital,7,30.0,39.703,76,Sächsische Schweiz-Osterzgebirge,24,27
-314,Altenberg,8,6.0,7.934,0,Sächsische Schweiz-Osterzgebirge,1,1
-315,Bad Gottleuba-Berggießhübel,8,6.0,5.624,0,Sächsische Schweiz-Osterzgebirge,3,3
-316,Bad Schandau,8,2.0,3.6039999999999996,0,Sächsische Schweiz-Osterzgebirge,0,0
-317,Bahretal,8,2.0,2.1590000000000003,0,Sächsische Schweiz-Osterzgebirge,0,0
-318,Bannewitz,8,2.0,11.104000000000001,0,Sächsische Schweiz-Osterzgebirge,0,0
-319,Dohma,8,2.0,1.954,0,Sächsische Schweiz-Osterzgebirge,0,0
-320,Dorfhain,8,2.0,1.0959999999999999,0,Sächsische Schweiz-Osterzgebirge,0,0
-321,Dürrröhrsdorf-Dittersbach,8,6.0,4.239,0,Sächsische Schweiz-Osterzgebirge,2,2
-322,Glashütte,8,6.0,6.689,0,Sächsische Schweiz-Osterzgebirge,2,2
-323,Gohrisch,8,2.0,1.806,0,Sächsische Schweiz-Osterzgebirge,0,0
-324,Hartmannsdorf-Reichenau,8,6.0,1.0170000000000001,0,Sächsische Schweiz-Osterzgebirge,1,1
-325,Hermsdorf/Erzgeb.,8,2.0,768.0,0,Sächsische Schweiz-Osterzgebirge,0,0
-326,Hohnstein,8,2.0,3.282,0,Sächsische Schweiz-Osterzgebirge,0,0
-327,Königstein/Sächs. Schw.,8,2.0,2.0869999999999997,0,Sächsische Schweiz-Osterzgebirge,0,0
-328,Kreischa,8,6.0,4.532,0,Sächsische Schweiz-Osterzgebirge,1,1
-329,Liebstadt,8,2.0,1.27,0,Sächsische Schweiz-Osterzgebirge,0,0
-330,Lohmen,8,6.0,3.0839999999999996,0,Sächsische Schweiz-Osterzgebirge,1,1
-331,Müglitztal,8,6.0,1.91,0,Sächsische Schweiz-Osterzgebirge,2,2
-332,Neustadt in Sachsen,8,6.0,12.097000000000001,0,Sächsische Schweiz-Osterzgebirge,3,3
-333,Pirna,8,6.0,38.422,0,Sächsische Schweiz-Osterzgebirge,5,5
-334,Rabenau,8,2.0,4.42,0,Sächsische Schweiz-Osterzgebirge,0,0
-335,Rathen,8,2.0,349.0,0,Sächsische Schweiz-Osterzgebirge,0,0
-336,Rathmannsdorf,8,2.0,912.0,0,Sächsische Schweiz-Osterzgebirge,0,0
-337,Reinhardtsdorf-Schöna,8,2.0,1.325,0,Sächsische Schweiz-Osterzgebirge,0,0
-338,Rosenthal-Bielatal,8,2.0,1.5859999999999999,0,Sächsische Schweiz-Osterzgebirge,0,0
-339,Sebnitz,8,2.0,9.461,0,Sächsische Schweiz-Osterzgebirge,0,0
-340,Stadt Wehlen,8,6.0,1.571,0,Sächsische Schweiz-Osterzgebirge,1,1
-341,Struppen,8,6.0,2.512,0,Sächsische Schweiz-Osterzgebirge,1,1
-342,Wilsdruff,8,2.0,14.237,0,Sächsische Schweiz-Osterzgebirge,0,0
-343,Lengenfeld,1,20.0,7.124,281,Vogtlandkreis,0,2
-344,Pausa-Mühltroff,2,10.0,4.919,203,Vogtlandkreis,0,1
-345,Klingenthal,3,10.0,8.184,122,Vogtlandkreis,0,1
-346,Auerbach/Vogtl.,4,10.0,18.237000000000002,55,Vogtlandkreis,1,2
+307,Dohna,1,20.0,6.183,323,Sächsische Schweiz-Osterzgebirge,3,5
+308,Kreischa,2,10.0,4.532,221,Sächsische Schweiz-Osterzgebirge,0,1
+309,Tharandt,3,10.0,5.439,184,Sächsische Schweiz-Osterzgebirge,2,3
+310,Klingenberg,4,10.0,6.781000000000001,147,Sächsische Schweiz-Osterzgebirge,2,3
+311,Dippoldiswalde,5,20.0,14.31,14,Sächsische Schweiz-Osterzgebirge,1,3
+312,Altenberg,6,10.0,7.934,126,Sächsische Schweiz-Osterzgebirge,0,1
+313,Freital,7,40.0,39.703,101,Sächsische Schweiz-Osterzgebirge,22,26
+314,Neustadt in Sachsen,8,10.0,12.097000000000001,83,Sächsische Schweiz-Osterzgebirge,3,4
+315,Heidenau,9,10.0,16.54,6,Sächsische Schweiz-Osterzgebirge,2,3
+316,Bad Gottleuba-Berggießhübel,10,6.0,5.624,0,Sächsische Schweiz-Osterzgebirge,2,2
+317,Bad Schandau,10,2.0,3.6039999999999996,0,Sächsische Schweiz-Osterzgebirge,0,0
+318,Bahretal,10,2.0,2.1590000000000003,0,Sächsische Schweiz-Osterzgebirge,0,0
+319,Bannewitz,10,2.0,11.104000000000001,0,Sächsische Schweiz-Osterzgebirge,0,0
+320,Dohma,10,2.0,1.954,0,Sächsische Schweiz-Osterzgebirge,0,0
+321,Dorfhain,10,2.0,1.0959999999999999,0,Sächsische Schweiz-Osterzgebirge,0,0
+322,Dürrröhrsdorf-Dittersbach,10,6.0,4.239,0,Sächsische Schweiz-Osterzgebirge,1,1
+323,Glashütte,10,6.0,6.689,0,Sächsische Schweiz-Osterzgebirge,1,1
+324,Gohrisch,10,2.0,1.806,0,Sächsische Schweiz-Osterzgebirge,0,0
+325,Hartmannsdorf-Reichenau,10,6.0,1.0170000000000001,0,Sächsische Schweiz-Osterzgebirge,1,1
+326,Hermsdorf/Erzgeb.,10,2.0,768.0,0,Sächsische Schweiz-Osterzgebirge,0,0
+327,Hohnstein,10,2.0,3.282,0,Sächsische Schweiz-Osterzgebirge,0,0
+328,Königstein/Sächs. Schw.,10,2.0,2.0869999999999997,0,Sächsische Schweiz-Osterzgebirge,0,0
+329,Liebstadt,10,2.0,1.27,0,Sächsische Schweiz-Osterzgebirge,0,0
+330,Lohmen,10,6.0,3.0839999999999996,0,Sächsische Schweiz-Osterzgebirge,1,1
+331,Müglitztal,10,6.0,1.91,0,Sächsische Schweiz-Osterzgebirge,2,2
+332,Pirna,10,6.0,38.422,0,Sächsische Schweiz-Osterzgebirge,4,4
+333,Rabenau,10,2.0,4.42,0,Sächsische Schweiz-Osterzgebirge,0,0
+334,Rathen,10,2.0,349.0,0,Sächsische Schweiz-Osterzgebirge,0,0
+335,Rathmannsdorf,10,2.0,912.0,0,Sächsische Schweiz-Osterzgebirge,0,0
+336,Reinhardtsdorf-Schöna,10,2.0,1.325,0,Sächsische Schweiz-Osterzgebirge,0,0
+337,Rosenthal-Bielatal,10,2.0,1.5859999999999999,0,Sächsische Schweiz-Osterzgebirge,0,0
+338,Sebnitz,10,2.0,9.461,0,Sächsische Schweiz-Osterzgebirge,0,0
+339,Stadt Wehlen,10,6.0,1.571,0,Sächsische Schweiz-Osterzgebirge,1,1
+340,Stolpen,10,2.0,5.579,0,Sächsische Schweiz-Osterzgebirge,0,0
+341,Struppen,10,6.0,2.512,0,Sächsische Schweiz-Osterzgebirge,1,1
+342,Wilsdruff,10,2.0,14.237,0,Sächsische Schweiz-Osterzgebirge,0,0
+343,Klingenthal,1,40.0,8.184,489,Vogtlandkreis,0,4
+344,Lengenfeld,2,20.0,7.124,281,Vogtlandkreis,0,2
+345,Pausa-Mühltroff,3,10.0,4.919,203,Vogtlandkreis,0,1
+346,Auerbach/Vogtl.,4,20.0,18.237000000000002,11,Vogtlandkreis,1,3
 347,Reichenbach im Vogtland,5,10.0,20.487,49,Vogtlandkreis,0,1
-348,Plauen,6,10.0,64.597,15,Vogtlandkreis,13,14
+348,Plauen,6,10.0,64.597,15,Vogtlandkreis,8,9
 349,Adorf/Vogtl.,7,6.0,4.843999999999999,0,Vogtlandkreis,1,1
 350,Bad Brambach,7,2.0,1.8330000000000002,0,Vogtlandkreis,0,0
 351,Bad Elster,7,2.0,3.675,0,Vogtlandkreis,0,0
@@ -356,7 +356,7 @@
 354,Eichigt,7,2.0,1.192,0,Vogtlandkreis,0,0
 355,Ellefeld,7,2.0,2.546,0,Vogtlandkreis,0,0
 356,Elsterberg,7,2.0,3.925,0,Vogtlandkreis,0,0
-357,Falkenstein/Vogtl.,7,6.0,7.947,0,Vogtlandkreis,4,4
+357,Falkenstein/Vogtl.,7,6.0,7.947,0,Vogtlandkreis,3,3
 358,Grünbach,7,2.0,1.643,0,Vogtlandkreis,0,0
 359,Heinsdorfergrund,7,2.0,1.9680000000000002,0,Vogtlandkreis,0,0
 360,Limbach,7,2.0,1.4269999999999998,0,Vogtlandkreis,0,0
@@ -371,50 +371,50 @@
 369,Pöhl,7,2.0,2.4819999999999998,0,Vogtlandkreis,0,0
 370,Rodewisch,7,6.0,6.372999999999999,0,Vogtlandkreis,2,2
 371,Rosenbach/Vogtl.,7,2.0,4.133,0,Vogtlandkreis,0,0
-372,Schöneck/Vogtl.,7,6.0,3.142,0,Vogtlandkreis,1,1
-373,Steinberg,7,6.0,2.7430000000000003,0,Vogtlandkreis,1,1
+372,Schöneck/Vogtl.,7,2.0,3.142,0,Vogtlandkreis,0,0
+373,Steinberg,7,2.0,2.7430000000000003,0,Vogtlandkreis,0,0
 374,Theuma,7,2.0,1.0190000000000001,0,Vogtlandkreis,0,0
 375,Tirpersdorf,7,2.0,1.3559999999999999,0,Vogtlandkreis,0,0
-376,Treuen,7,6.0,7.784,0,Vogtlandkreis,1,1
+376,Treuen,7,2.0,7.784,0,Vogtlandkreis,0,0
 377,Triebel/Vogtl.,7,2.0,1.222,0,Vogtlandkreis,0,0
 378,Weischlitz,7,2.0,5.806,0,Vogtlandkreis,0,0
 379,Werda,7,2.0,1.492,0,Vogtlandkreis,0,0
-380,St. Egidien,1,10.0,3.2680000000000002,306,Zwickau,2,3
-381,Lichtenstein/Sa.,2,20.0,11.177,179,Zwickau,0,2
-382,Reinsdorf,3,10.0,7.398,135,Zwickau,0,1
-383,Kirchberg,4,10.0,8.179,122,Zwickau,0,1
-384,Mülsen,5,10.0,11.057,9,Zwickau,2,3
-385,Glauchau,6,20.0,22.233,9,Zwickau,1,3
-386,Limbach-Oberfrohna,7,20.0,23.895,84,Zwickau,8,10
-387,Zwickau,8,70.0,88.69,79,Zwickau,3,10
-388,Bernsdorf - Zwickau,9,2.0,2.208,0,Zwickau,0,0
-389,Callenberg,9,6.0,4.928,0,Zwickau,4,4
-390,Crimmitschau,9,6.0,18.35,0,Zwickau,1,1
-391,Crinitzberg,9,2.0,1.874,0,Zwickau,0,0
-392,Dennheritz,9,2.0,1.295,0,Zwickau,0,0
-393,Fraureuth,9,6.0,5.105,0,Zwickau,1,1
-394,Gersdorf,9,2.0,3.938,0,Zwickau,0,0
-395,Hartenstein,9,2.0,4.54,0,Zwickau,0,0
-396,Hartmannsdorf b. Kirchberg,9,2.0,1.3730000000000002,0,Zwickau,0,0
-397,Hirschfeld,9,2.0,1.162,0,Zwickau,0,0
-398,Hohenstein-Ernstthal,9,6.0,14.527000000000001,0,Zwickau,5,5
-399,Langenbernsdorf,9,6.0,3.597,0,Zwickau,2,2
-400,Langenweißbach,9,2.0,2.4730000000000003,0,Zwickau,0,0
-401,Lichtentanne,9,2.0,6.329,0,Zwickau,0,0
-402,Meerane,9,6.0,14.001,0,Zwickau,3,3
-403,Neukirchen/Pleiße,9,2.0,3.872,0,Zwickau,0,0
-404,Niederfrohna,9,2.0,2.2359999999999998,0,Zwickau,0,0
-405,Oberlungwitz,9,2.0,5.864,0,Zwickau,0,0
-406,Oberwiera,9,6.0,1.02,0,Zwickau,1,1
-407,Remse,9,2.0,1.625,0,Zwickau,0,0
-408,Schönberg,9,2.0,899.0,0,Zwickau,0,0
-409,Waldenburg,9,6.0,4.058,0,Zwickau,1,1
-410,Werdau,9,6.0,20.623,0,Zwickau,2,2
-411,Wildenfels,9,6.0,3.552,0,Zwickau,1,1
-412,Wilkau-Haßlau,9,6.0,9.656,0,Zwickau,1,1
-413,Nünchritz,1,50.0,7.725,647,Meißen,5,10
-414,Röderaue,9,6.0,4.341,0,Meißen,2,2
-415,Schönfeld,9,2.0,4.417,0,Meißen,0,0
-416,Dresden,0,310.0,556780.0,0,Landeshauptstadt Dresden,56,87
-417,Leipzig,0,390.0,593145.0,0,Stadt Leipzig,53,92
-418,Chemnitz,0,120.0,246334.0,0,Stadt Chemnitz,33,45
+380,Glauchau,1,20.0,22.233,9,Zwickau,1,3
+381,Limbach-Oberfrohna,2,20.0,23.895,84,Zwickau,5,7
+382,Zwickau,3,60.0,88.69,68,Zwickau,4,10
+383,Bernsdorf - Zwickau,4,2.0,2.208,0,Zwickau,0,0
+384,Callenberg,4,6.0,4.928,0,Zwickau,4,4
+385,Crimmitschau,4,2.0,18.35,0,Zwickau,0,0
+386,Crinitzberg,4,2.0,1.874,0,Zwickau,0,0
+387,Dennheritz,4,2.0,1.295,0,Zwickau,0,0
+388,Fraureuth,4,2.0,5.105,0,Zwickau,0,0
+389,Gersdorf,4,2.0,3.938,0,Zwickau,0,0
+390,Hartenstein,4,2.0,4.54,0,Zwickau,0,0
+391,Hartmannsdorf b. Kirchberg,4,2.0,1.3730000000000002,0,Zwickau,0,0
+392,Hirschfeld,4,2.0,1.162,0,Zwickau,0,0
+393,Hohenstein-Ernstthal,4,6.0,14.527000000000001,0,Zwickau,4,4
+394,Kirchberg,4,6.0,8.179,0,Zwickau,1,1
+395,Langenbernsdorf,4,6.0,3.597,0,Zwickau,2,2
+396,Langenweißbach,4,2.0,2.4730000000000003,0,Zwickau,0,0
+397,Lichtenstein/Sa.,4,6.0,11.177,0,Zwickau,2,2
+398,Lichtentanne,4,2.0,6.329,0,Zwickau,0,0
+399,Meerane,4,2.0,14.001,0,Zwickau,0,0
+400,Mülsen,4,6.0,11.057,0,Zwickau,3,3
+401,Neukirchen/Pleiße,4,2.0,3.872,0,Zwickau,0,0
+402,Niederfrohna,4,2.0,2.2359999999999998,0,Zwickau,0,0
+403,Oberlungwitz,4,2.0,5.864,0,Zwickau,0,0
+404,Oberwiera,4,6.0,1.02,0,Zwickau,1,1
+405,Reinsdorf,4,6.0,7.398,0,Zwickau,1,1
+406,Remse,4,2.0,1.625,0,Zwickau,0,0
+407,Schönberg,4,2.0,899.0,0,Zwickau,0,0
+408,St. Egidien,4,6.0,3.2680000000000002,0,Zwickau,2,2
+409,Waldenburg,4,6.0,4.058,0,Zwickau,1,1
+410,Werdau,4,6.0,20.623,0,Zwickau,2,2
+411,Wildenfels,4,6.0,3.552,0,Zwickau,1,1
+412,Wilkau-Haßlau,4,6.0,9.656,0,Zwickau,1,1
+413,Nünchritz,1,40.0,7.725,518,Meißen,6,10
+414,Röderaue,7,6.0,4.341,0,Meißen,1,1
+415,Schönfeld,7,2.0,4.417,0,Meißen,0,0
+416,Dresden,0,360.0,556780.0,0,Landeshauptstadt Dresden,45,81
+417,Leipzig,0,390.0,593145.0,0,Stadt Leipzig,45,84
+418,Chemnitz,0,90.0,246334.0,0,Stadt Chemnitz,28,37
