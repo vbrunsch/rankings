@@ -1,14 +1,14 @@
 ,last7,last14,mix,Gemeinde
-Aachen,25,46.0,25.0,Aachen
-Alsdorf,5,17.0,5.0,Alsdorf
+Aachen,25,41.0,25.0,Aachen
+Alsdorf,4,13.0,4.0,Alsdorf
 Baesweiler,1,2.0,1.0,Baesweiler
-Eschweiler,19,46.0,19.0,Eschweiler
-Herzogenrath,5,12.0,5.0,Herzogenrath
+Eschweiler,15,46.0,15.0,Eschweiler
+Herzogenrath,3,11.0,3.0,Herzogenrath
 Monschau,0,2.0,0.6,Monschau
-Roetgen,0,1.0,0.6,Roetgen
-Simmerath,4,4.0,4.0,Simmerath
-Stolberg (Rhld.),13,32.0,13.0,Stolberg (Rhld.)
-Würselen,3,13.0,3.0,Würselen
+Roetgen,2,2.0,2.0,Roetgen
+Simmerath,3,4.0,3.0,Simmerath
+Stolberg (Rhld.),10,29.0,10.0,Stolberg (Rhld.)
+Würselen,4,11.0,4.0,Würselen
 Ahaus,0,1.0,0.6,Ahaus
 Bocholt,5,8.0,5.0,Bocholt
 Borken,2,3.0,2.0,Borken
@@ -17,7 +17,7 @@ Gronau (Westf.),10,23.0,10.0,Gronau (Westf.)
 Heek,0,2.0,0.6,Heek
 Heiden,0,0.0,0.2,Heiden
 Isselburg,3,3.0,3.0,Isselburg
-Legden,0,4.0,0.6,Legden
+Legden,0,3.0,0.6,Legden
 Raesfeld,0,0.0,0.2,Raesfeld
 Reken,0,0.0,0.2,Reken
 Rhede,0,0.0,0.2,Rhede
@@ -26,17 +26,17 @@ Stadtlohn,1,2.0,1.0,Stadtlohn
 Südlohn,0,0.0,0.2,Südlohn
 Velen,1,1.0,1.0,Velen
 Vreden,0,0.0,0.2,Vreden
-Coesfeld,0,2.0,0.6,Coesfeld
+Coesfeld,0,1.0,0.6,Coesfeld
 Ascheberg,0,1.0,0.6,Ascheberg
 Nottuln,1,1.0,1.0,Nottuln
-Lüdinghausen,3,3.0,3.0,Lüdinghausen
-Nordkirchen,3,3.0,3.0,Nordkirchen
-Havixbeck,0,1.0,0.6,Havixbeck
+Lüdinghausen,0,3.0,0.6,Lüdinghausen
+Nordkirchen,1,3.0,1.0,Nordkirchen
+Havixbeck,0,0.0,0.2,Havixbeck
 Billerbeck,0,0.0,0.2,Billerbeck
-Senden,0,2.0,0.6,Senden
+Senden,0,0.0,0.2,Senden
 Olfen,0,0.0,0.2,Olfen
-Rosendahl,1,1.0,1.0,Rosendahl
-Dülmen,22,30.0,22.0,Dülmen
+Rosendahl,0,1.0,0.6,Rosendahl
+Dülmen,20,32.0,20.0,Dülmen
 Aldenhoven,3,3.0,3.0,Aldenhoven
 Düren,8,12.0,8.0,Düren
 Heimbach,0,0.0,0.2,Heimbach
@@ -53,26 +53,26 @@ Nörvenich,0,0.0,0.2,Nörvenich
 Titz,0,0.0,0.2,Titz
 Vettweiß,0,0.0,0.2,Vettweiß
 Breckerfeld,0,0.0,0.2,Breckerfeld
-Ennepetal,15,31.0,15.0,Ennepetal
-Gevelsberg,4,7.0,4.0,Gevelsberg
-Hattingen,2,13.0,2.0,Hattingen
-Herdecke,0,1.0,0.6,Herdecke
-Schwelm,1,6.0,1.0,Schwelm
-Sprockhövel,3,4.0,3.0,Sprockhövel
+Ennepetal,10,26.0,10.0,Ennepetal
+Gevelsberg,0,6.0,0.6,Gevelsberg
+Hattingen,1,9.0,1.0,Hattingen
+Herdecke,0,0.0,0.2,Herdecke
+Schwelm,1,5.0,1.0,Schwelm
+Sprockhövel,2,4.0,2.0,Sprockhövel
 Wetter (Ruhr),1,4.0,1.0,Wetter (Ruhr)
-Witten,22,41.0,22.0,Witten
+Witten,16,38.0,16.0,Witten
 Borgholzhausen,1,1.0,1.0,Borgholzhausen
-Gütersloh,11,27.0,11.0,Gütersloh
+Gütersloh,10,28.0,10.0,Gütersloh
 Halle (Westf.),1,1.0,1.0,Halle (Westf.)
-Harsewinkel,6,10.0,6.0,Harsewinkel
+Harsewinkel,4,10.0,4.0,Harsewinkel
 Herzebrock-Clarholz,1,6.0,1.0,Herzebrock-Clarholz
 Langenberg,0,0.0,0.2,Langenberg
-Rheda-Wiedenbrück,7,27.0,7.0,Rheda-Wiedenbrück
-Rietberg,4,33.0,4.0,Rietberg
-Schloß Holte-Stukenbrock,1,6.0,1.0,Schloß Holte-Stukenbrock
+Rheda-Wiedenbrück,7,25.0,7.0,Rheda-Wiedenbrück
+Rietberg,3,33.0,3.0,Rietberg
+Schloß Holte-Stukenbrock,0,5.0,0.6,Schloß Holte-Stukenbrock
 Steinhagen,0,1.0,0.6,Steinhagen
 Verl,1,2.0,1.0,Verl
-Versmold,0,4.0,0.6,Versmold
+Versmold,0,3.0,0.6,Versmold
 Werther (Westf.),1,6.0,1.0,Werther (Westf.)
 Erkelenz,9,12.0,9.0,Erkelenz
 Gangelt,2,2.0,2.0,Gangelt
@@ -87,29 +87,29 @@ Wegberg,14,29.0,14.0,Wegberg
 Bad Driburg,2,2.0,2.0,Bad Driburg
 Beverungen,0,1.0,0.6,Beverungen
 Borgentreich,0,0.0,0.2,Borgentreich
-Brakel,0,1.0,0.6,Brakel
+Brakel,0,0.0,0.2,Brakel
 Höxter,0,13.0,0.6,Höxter
 Marienmünster,0,0.0,0.2,Marienmünster
-Nieheim,1,5.0,1.0,Nieheim
+Nieheim,0,5.0,0.6,Nieheim
 Steinheim,1,2.0,1.0,Steinheim
 Warburg,0,2.0,0.6,Warburg
 Willebadessen,0,7.0,0.6,Willebadessen
 Bedburg-Hau,1,5.0,1.0,Bedburg-Hau
-Emmerich am Rhein,4,16.0,4.0,Emmerich am Rhein
+Emmerich am Rhein,3,16.0,3.0,Emmerich am Rhein
 Geldern,1,7.0,1.0,Geldern
 Goch,0,3.0,0.6,Goch
 Issum,3,4.0,3.0,Issum
 Kalkar,0,0.0,0.2,Kalkar
-Kerken,1,4.0,1.0,Kerken
-Kevelaer,1,6.0,1.0,Kevelaer
-Kleve,4,14.0,4.0,Kleve
-Kranenburg,2,5.0,2.0,Kranenburg
+Kerken,0,1.0,0.6,Kerken
+Kevelaer,1,5.0,1.0,Kevelaer
+Kleve,7,17.0,7.0,Kleve
+Kranenburg,1,5.0,1.0,Kranenburg
 Rees,0,4.0,0.6,Rees
 Rheurdt,0,0.0,0.2,Rheurdt
 Straelen,0,3.0,0.6,Straelen
 Uedem,0,1.0,0.6,Uedem
-Wachtendonk,1,2.0,1.0,Wachtendonk
-Weeze,1,3.0,1.0,Weeze
+Wachtendonk,0,2.0,0.6,Wachtendonk
+Weeze,1,2.0,1.0,Weeze
 Augustdorf,0,5.0,0.6,Augustdorf
 Bad Salzuflen,2,9.0,2.0,Bad Salzuflen
 Barntrup,0,0.0,0.2,Barntrup
@@ -128,111 +128,111 @@ Schieder-Schwalenberg,1,1.0,1.0,Schieder-Schwalenberg
 Schlangen,1,1.0,1.0,Schlangen
 Altena,9,16.0,9.0,Altena
 Balve,0,0.0,0.2,Balve
-Halver,2,5.0,2.0,Halver
-Hemer,1,9.0,1.0,Hemer
-Herscheid,0,2.0,0.6,Herscheid
-Iserlohn,5,23.0,5.0,Iserlohn
-Kierspe,1,5.0,1.0,Kierspe
-Lüdenscheid,12,38.0,12.0,Lüdenscheid
+Halver,2,4.0,2.0,Halver
+Hemer,1,8.0,1.0,Hemer
+Herscheid,0,1.0,0.6,Herscheid
+Iserlohn,5,22.0,5.0,Iserlohn
+Kierspe,1,3.0,1.0,Kierspe
+Lüdenscheid,11,29.0,11.0,Lüdenscheid
 Meinerzhagen,1,14.0,1.0,Meinerzhagen
 Menden (Sauerland),4,8.0,4.0,Menden (Sauerland)
 Nachrodt-Wiblingwerde,0,2.0,0.6,Nachrodt-Wiblingwerde
 Neuenrade,1,3.0,1.0,Neuenrade
-Plettenberg,8,17.0,8.0,Plettenberg
+Plettenberg,8,16.0,8.0,Plettenberg
 Schalksmühle,0,0.0,0.2,Schalksmühle
-Werdohl,6,29.0,6.0,Werdohl
-Erkrath,20,39.0,20.0,Erkrath
-Hilden,0,13.0,0.6,Hilden
-Monheim am Rhein,1,15.0,1.0,Monheim am Rhein
-Wülfrath,2,5.0,2.0,Wülfrath
-Haan,0,8.0,0.6,Haan
-Heiligenhaus,14,26.0,14.0,Heiligenhaus
-Langenfeld (Rhld.),14,27.0,14.0,Langenfeld (Rhld.)
-Mettmann,16,26.0,16.0,Mettmann
-Ratingen,49,58.0,49.0,Ratingen
-Velbert,16,41.0,16.0,Velbert
+Werdohl,5,18.0,5.0,Werdohl
+Erkrath,22,41.0,22.0,Erkrath
+Hilden,0,7.0,0.6,Hilden
+Monheim am Rhein,1,12.0,1.0,Monheim am Rhein
+Wülfrath,1,3.0,1.0,Wülfrath
+Haan,0,7.0,0.6,Haan
+Langenfeld (Rhld.),14,26.0,14.0,Langenfeld (Rhld.)
+Ratingen,49,55.0,49.0,Ratingen
+Heiligenhaus,12,23.0,12.0,Heiligenhaus
+Mettmann,17,24.0,17.0,Mettmann
+Velbert,15,37.0,15.0,Velbert
 Bad Oeynhausen,0,4.0,0.6,Bad Oeynhausen
 Espelkamp,0,5.0,0.6,Espelkamp
 Hille,0,0.0,0.2,Hille
 Hüllhorst,0,1.0,0.6,Hüllhorst
-Lübbecke,0,1.0,0.6,Lübbecke
+Lübbecke,1,1.0,1.0,Lübbecke
 Minden,0,12.0,0.6,Minden
 Petershagen,0,5.0,0.6,Petershagen
-Porta Westfalica,4,8.0,4.0,Porta Westfalica
-Preußisch Oldendorf,1,2.0,1.0,Preußisch Oldendorf
+Porta Westfalica,2,7.0,2.0,Porta Westfalica
+Preußisch Oldendorf,1,1.0,1.0,Preußisch Oldendorf
 Rahden,0,0.0,0.2,Rahden
 Stemwede,0,1.0,0.6,Stemwede
-Attendorn,0,3.0,0.6,Attendorn
+Attendorn,0,2.0,0.6,Attendorn
 Drolshagen,1,1.0,1.0,Drolshagen
 Finnentrop,0,1.0,0.6,Finnentrop
 Kirchhundem,1,1.0,1.0,Kirchhundem
 Lennestadt,2,7.0,2.0,Lennestadt
-Olpe,11,24.0,11.0,Olpe
+Olpe,11,23.0,11.0,Olpe
 Wenden,2,2.0,2.0,Wenden
-Delbrück,2,4.0,2.0,Delbrück
-Bad Wünnenberg,1,8.0,1.0,Bad Wünnenberg
-Hövelhof,0,0.0,0.2,Hövelhof
-Salzkotten,11,20.0,11.0,Salzkotten
-Lichtenau,2,11.0,2.0,Lichtenau
 Altenbeken,0,0.0,0.2,Altenbeken
-Paderborn,17,51.0,17.0,Paderborn
+Salzkotten,7,17.0,7.0,Salzkotten
 Borchen,1,3.0,1.0,Borchen
-Büren,3,6.0,3.0,Büren
+Delbrück,1,4.0,1.0,Delbrück
+Bad Wünnenberg,1,5.0,1.0,Bad Wünnenberg
 Bad Lippspringe,4,9.0,4.0,Bad Lippspringe
+Lichtenau,1,8.0,1.0,Lichtenau
+Hövelhof,0,0.0,0.2,Hövelhof
+Paderborn,15,38.0,15.0,Paderborn
+Büren,3,6.0,3.0,Büren
 Bedburg,2,8.0,2.0,Bedburg
-Bergheim,9,26.0,9.0,Bergheim
-Brühl,6,21.0,6.0,Brühl
-Elsdorf,0,1.0,0.6,Elsdorf
-Erftstadt,2,2.0,2.0,Erftstadt
-Frechen,3,10.0,3.0,Frechen
-Hürth,1,16.0,1.0,Hürth
-Kerpen,1,8.0,1.0,Kerpen
-Pulheim,5,17.0,5.0,Pulheim
-Wesseling,6,23.0,6.0,Wesseling
+Bergheim,9,23.0,9.0,Bergheim
+Brühl,7,20.0,7.0,Brühl
+Elsdorf,1,2.0,1.0,Elsdorf
+Erftstadt,1,2.0,1.0,Erftstadt
+Frechen,3,9.0,3.0,Frechen
+Hürth,0,13.0,0.6,Hürth
+Kerpen,2,7.0,2.0,Kerpen
+Pulheim,4,14.0,4.0,Pulheim
+Wesseling,2,19.0,2.0,Wesseling
 Alfter,0,2.0,0.6,Alfter
 Bad Honnef,0,2.0,0.6,Bad Honnef
-Bornheim,3,8.0,3.0,Bornheim
-Eitorf,5,14.0,5.0,Eitorf
-Königswinter,1,1.0,1.0,Königswinter
-Lohmar,5,9.0,5.0,Lohmar
+Bornheim,0,6.0,0.6,Bornheim
+Eitorf,3,14.0,3.0,Eitorf
+Königswinter,0,1.0,0.6,Königswinter
+Lohmar,5,10.0,5.0,Lohmar
 Meckenheim,2,6.0,2.0,Meckenheim
 Much,0,0.0,0.2,Much
 Neunkirchen-Seelscheid,0,2.0,0.6,Neunkirchen-Seelscheid
-Niederkassel,1,9.0,1.0,Niederkassel
-Rheinbach,3,11.0,3.0,Rheinbach
+Niederkassel,0,8.0,0.6,Niederkassel
+Rheinbach,1,11.0,1.0,Rheinbach
 Ruppichteroth,0,5.0,0.6,Ruppichteroth
-Sankt Augustin,5,10.0,5.0,Sankt Augustin
-Siegburg,10,19.0,10.0,Siegburg
-Swisttal,1,5.0,1.0,Swisttal
-Troisdorf,2,17.0,2.0,Troisdorf
-Wachtberg,0,2.0,0.6,Wachtberg
+Sankt Augustin,5,13.0,5.0,Sankt Augustin
+Siegburg,5,19.0,5.0,Siegburg
+Swisttal,0,4.0,0.6,Swisttal
+Troisdorf,0,16.0,0.6,Troisdorf
+Wachtberg,0,1.0,0.6,Wachtberg
 Windeck,0,0.0,0.2,Windeck
-Hennef (Sieg),4,23.0,4.0,Hennef (Sieg)
-Bonn,53,189.0,53.0,Bonn
-Bielefeld,15,83.0,15.0,Bielefeld
-Münster,10,32.0,10.0,Münster
-Hamm,7,46.0,7.0,Hamm
-Mülheim an der Ruhr,21,47.0,21.0,Mülheim an der Ruhr
-Dortmund,94,221.0,94.0,Dortmund
-Hagen,56,145.0,56.0,Hagen
-Bochum,34,103.0,34.0,Bochum
-Herne,16,45.0,16.0,Herne
-Gelsenkirchen,25,97.0,25.0,Gelsenkirchen
-Essen,58,168.0,58.0,Essen
-Bottrop,7,25.0,7.0,Bottrop
-Oberhausen,28,68.0,28.0,Oberhausen
-Duisburg,67,214.0,67.0,Duisburg
-Krefeld,30,79.0,30.0,Krefeld
-Düsseldorf,62,185.0,62.0,Düsseldorf
-Mönchengladbach,35,82.0,35.0,Mönchengladbach
-Wuppertal,73,195.0,73.0,Wuppertal
-Solingen,24,67.0,24.0,Solingen
-Remscheid,11,36.0,11.0,Remscheid
-Bonn,53,189.0,53.0,Bonn
-Leverkusen,14,64.0,14.0,Leverkusen
-Köln,135,383.0,135.0,Köln
+Hennef (Sieg),5,24.0,5.0,Hennef (Sieg)
+Bonn,50,172.0,50.0,Bonn
+Bielefeld,15,71.0,15.0,Bielefeld
+Münster,9,32.0,9.0,Münster
+Hamm,8,42.0,8.0,Hamm
+Mülheim an der Ruhr,18,47.0,18.0,Mülheim an der Ruhr
+Dortmund,101,205.0,101.0,Dortmund
+Hagen,51,142.0,51.0,Hagen
+Bochum,30,101.0,30.0,Bochum
+Herne,20,51.0,20.0,Herne
+Gelsenkirchen,25,95.0,25.0,Gelsenkirchen
+Essen,67,171.0,67.0,Essen
+Bottrop,6,26.0,6.0,Bottrop
+Oberhausen,28,71.0,28.0,Oberhausen
+Duisburg,60,196.0,60.0,Duisburg
+Krefeld,24,72.0,24.0,Krefeld
+Düsseldorf,60,174.0,60.0,Düsseldorf
+Mönchengladbach,38,79.0,38.0,Mönchengladbach
+Wuppertal,55,185.0,55.0,Wuppertal
+Solingen,20,56.0,20.0,Solingen
+Remscheid,9,32.0,9.0,Remscheid
+Bonn,50,172.0,50.0,Bonn
+Leverkusen,13,60.0,13.0,Leverkusen
+Köln,132,367.0,132.0,Köln
 Altenberge,1,1.0,1.0,Altenberge
-Emsdetten,1,3.0,1.0,Emsdetten
+Emsdetten,0,3.0,0.6,Emsdetten
 Greven,0,0.0,0.2,Greven
 Hopsten,0,1.0,0.6,Hopsten
 Hörstel,0,0.0,0.2,Hörstel
@@ -240,21 +240,21 @@ Horstmar,0,0.0,0.2,Horstmar
 Ibbenbüren,0,4.0,0.6,Ibbenbüren
 Ladbergen,0,0.0,0.2,Ladbergen
 Laer,0,0.0,0.2,Laer
-Lengerich,0,2.0,0.6,Lengerich
+Lengerich,0,1.0,0.6,Lengerich
 Lienen,0,0.0,0.2,Lienen
-Lotte,3,5.0,3.0,Lotte
+Lotte,3,4.0,3.0,Lotte
 Metelen,2,2.0,2.0,Metelen
 Mettingen,2,2.0,2.0,Mettingen
-Neuenkirchen,2,5.0,2.0,Neuenkirchen
+Neuenkirchen,1,5.0,1.0,Neuenkirchen
 Nordwalde,0,1.0,0.6,Nordwalde
-Ochtrup,2,2.0,2.0,Ochtrup
+Ochtrup,1,2.0,1.0,Ochtrup
 Recke,0,0.0,0.2,Recke
-Rheine,8,21.0,8.0,Rheine
+Rheine,6,18.0,6.0,Rheine
 Saerbeck,0,1.0,0.6,Saerbeck
 Steinfurt,3,3.0,3.0,Steinfurt
-Tecklenburg,1,1.0,1.0,Tecklenburg
+Tecklenburg,0,0.0,0.2,Tecklenburg
 Westerkappeln,1,1.0,1.0,Westerkappeln
-Wettringen,0,1.0,0.6,Wettringen
+Wettringen,0,0.0,0.2,Wettringen
 Ahlen,4,19.0,4.0,Ahlen
 Beckum,3,5.0,3.0,Beckum
 Beelen,0,3.0,0.6,Beelen
@@ -266,38 +266,38 @@ Ostbevern,0,0.0,0.2,Ostbevern
 Sassenberg,3,6.0,3.0,Sassenberg
 Sendenhorst,0,1.0,0.6,Sendenhorst
 Telgte,1,5.0,1.0,Telgte
-Wadersloh,5,6.0,5.0,Wadersloh
+Wadersloh,3,6.0,3.0,Wadersloh
 Warendorf,1,3.0,1.0,Warendorf
 Alpen,0,1.0,0.6,Alpen
-Dinslaken,4,15.0,4.0,Dinslaken
+Dinslaken,1,13.0,1.0,Dinslaken
 Hamminkeln,0,1.0,0.6,Hamminkeln
-Hünxe,0,2.0,0.6,Hünxe
-Kamp-Lintfort,2,11.0,2.0,Kamp-Lintfort
-Moers,14,37.0,14.0,Moers
-Neukirchen-Vluyn,5,10.0,5.0,Neukirchen-Vluyn
-Rheinberg,1,5.0,1.0,Rheinberg
+Hünxe,0,1.0,0.6,Hünxe
+Kamp-Lintfort,1,7.0,1.0,Kamp-Lintfort
+Moers,9,34.0,9.0,Moers
+Neukirchen-Vluyn,2,9.0,2.0,Neukirchen-Vluyn
+Rheinberg,1,3.0,1.0,Rheinberg
 Schermbeck,0,0.0,0.2,Schermbeck
 Sonsbeck,0,0.0,0.2,Sonsbeck
-Voerde (Niederrhein),2,10.0,2.0,Voerde (Niederrhein)
-Wesel,16,26.0,16.0,Wesel
+Voerde (Niederrhein),2,9.0,2.0,Voerde (Niederrhein)
+Wesel,7,21.0,7.0,Wesel
 Xanten,1,1.0,1.0,Xanten
-Meerbusch,0,3.0,0.6,Meerbusch
-Korschenbroich,2,2.0,2.0,Korschenbroich
-Jüchen,2,2.0,2.0,Jüchen
-Neuss,29,55.0,29.0,Neuss
-Grevenbroich,10,23.0,10.0,Grevenbroich
-Dormagen,5,5.0,5.0,Dormagen
-Kaarst,3,3.0,3.0,Kaarst
+Meerbusch,1,2.0,1.0,Meerbusch
+Korschenbroich,0,0.0,0.2,Korschenbroich
+Jüchen,1,1.0,1.0,Jüchen
+Neuss,16,52.0,16.0,Neuss
+Grevenbroich,7,23.0,7.0,Grevenbroich
+Dormagen,6,6.0,6.0,Dormagen
+Kaarst,4,4.0,4.0,Kaarst
 Rommerskirchen,0,0.0,0.2,Rommerskirchen
 Castrop-Rauxel,4,16.0,4.0,Castrop-Rauxel
-Datteln,3,6.0,3.0,Datteln
-Dorsten,5,12.0,5.0,Dorsten
-Gladbeck,4,19.0,4.0,Gladbeck
+Datteln,1,5.0,1.0,Datteln
+Dorsten,5,10.0,5.0,Dorsten
+Gladbeck,3,11.0,3.0,Gladbeck
 Haltern am See,2,4.0,2.0,Haltern am See
-Herten,3,30.0,3.0,Herten
-Marl,4,21.0,4.0,Marl
-Oer-Erkenschwick,5,14.0,5.0,Oer-Erkenschwick
-Recklinghausen,16,42.0,16.0,Recklinghausen
+Herten,2,27.0,2.0,Herten
+Marl,2,16.0,2.0,Marl
+Oer-Erkenschwick,2,14.0,2.0,Oer-Erkenschwick
+Recklinghausen,14,39.0,14.0,Recklinghausen
 Waltrop,0,0.0,0.2,Waltrop
 Bergisch Gladbach,7,35.0,7.0,Bergisch Gladbach
 Burscheid,2,4.0,2.0,Burscheid
@@ -308,50 +308,50 @@ Overath,1,9.0,1.0,Overath
 Rösrath,1,6.0,1.0,Rösrath
 Wermelskirchen,12,23.0,12.0,Wermelskirchen
 Brüggen,0,0.0,0.2,Brüggen
-Grefrath,0,1.0,0.6,Grefrath
-Kempen,3,15.0,3.0,Kempen
-Nettetal,7,12.0,7.0,Nettetal
-Niederkrüchten,6,11.0,6.0,Niederkrüchten
+Grefrath,0,0.0,0.2,Grefrath
+Kempen,3,11.0,3.0,Kempen
+Nettetal,4,15.0,4.0,Nettetal
+Niederkrüchten,4,8.0,4.0,Niederkrüchten
 Schwalmtal,0,4.0,0.6,Schwalmtal
 Tönisvorst,0,2.0,0.6,Tönisvorst
-Viersen,2,13.0,2.0,Viersen
-Willich,3,13.0,3.0,Willich
-Bad Berleburg,0,6.0,0.6,Bad Berleburg
-Bad Laasphe,1,3.0,1.0,Bad Laasphe
-Burbach,9,9.0,9.0,Burbach
+Viersen,2,4.0,2.0,Viersen
+Willich,2,6.0,2.0,Willich
+Bad Berleburg,0,4.0,0.6,Bad Berleburg
+Bad Laasphe,0,2.0,0.6,Bad Laasphe
+Burbach,13,13.0,13.0,Burbach
 Erndtebrück,0,0.0,0.2,Erndtebrück
-Freudenberg,0,0.0,0.2,Freudenberg
+Freudenberg,1,1.0,1.0,Freudenberg
 Hilchenbach,0,1.0,0.6,Hilchenbach
-Kreuztal,7,11.0,7.0,Kreuztal
+Kreuztal,8,11.0,8.0,Kreuztal
 Netphen,6,13.0,6.0,Netphen
 Neunkirchen,6,16.0,6.0,Neunkirchen
-Siegen,6,50.0,6.0,Siegen
+Siegen,10,39.0,10.0,Siegen
 Wilnsdorf,4,8.0,4.0,Wilnsdorf
 Anröchte,1,1.0,1.0,Anröchte
 Lippetal,0,0.0,0.2,Lippetal
 Möhnesee,0,2.0,0.6,Möhnesee
-Geseke,6,17.0,6.0,Geseke
-Werl,24,33.0,24.0,Werl
+Geseke,2,14.0,2.0,Geseke
+Werl,24,37.0,24.0,Werl
 Warstein,1,1.0,1.0,Warstein
 Ense,0,0.0,0.2,Ense
 Rüthen,0,0.0,0.2,Rüthen
-Lippstadt,3,19.0,3.0,Lippstadt
+Lippstadt,1,16.0,1.0,Lippstadt
 Bad Sassendorf,0,0.0,0.2,Bad Sassendorf
 Welver,0,0.0,0.2,Welver
 Wickede (Ruhr),0,0.0,0.2,Wickede (Ruhr)
 Soest,0,3.0,0.6,Soest
 Erwitte,0,0.0,0.2,Erwitte
-Bergkamen,5,19.0,5.0,Bergkamen
-Bönen,1,10.0,1.0,Bönen
+Bergkamen,4,17.0,4.0,Bergkamen
+Bönen,2,7.0,2.0,Bönen
 Fröndenberg/Ruhr,0,1.0,0.6,Fröndenberg/Ruhr
-Holzwickede,0,7.0,0.6,Holzwickede
-Kamen,3,3.0,3.0,Kamen
-Lünen,3,20.0,3.0,Lünen
-Schwerte,1,10.0,1.0,Schwerte
-Selm,1,6.0,1.0,Selm
-Unna,2,7.0,2.0,Unna
+Holzwickede,0,5.0,0.6,Holzwickede
+Kamen,2,4.0,2.0,Kamen
+Lünen,2,11.0,2.0,Lünen
+Schwerte,0,4.0,0.6,Schwerte
+Selm,2,4.0,2.0,Selm
+Unna,3,6.0,3.0,Unna
 Werne,1,11.0,1.0,Werne
-Arnsberg,9,38.0,9.0,Arnsberg
+Arnsberg,6,33.0,6.0,Arnsberg
 Bestwig,0,0.0,0.2,Bestwig
 Brilon,0,2.0,0.6,Brilon
 Eslohe (Sauerland),0,0.0,0.2,Eslohe (Sauerland)
@@ -361,5 +361,5 @@ Medebach,0,0.0,0.2,Medebach
 Meschede,7,8.0,7.0,Meschede
 Olsberg,0,1.0,0.6,Olsberg
 Schmallenberg,4,8.0,4.0,Schmallenberg
-Sundern (Sauerland),6,11.0,6.0,Sundern (Sauerland)
+Sundern (Sauerland),5,11.0,5.0,Sundern (Sauerland)
 Winterberg,0,0.0,0.2,Winterberg
