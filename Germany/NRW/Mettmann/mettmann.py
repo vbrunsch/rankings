@@ -32,8 +32,8 @@ url2 = 'https://www.kreis-mettmann-corona.de' + lin[0]
 url2 = url2.replace('amp;','')
 html2 = urllib.request.urlopen(url2)
 htmlParse2 = BeautifulSoup(html2, 'html.parser')
-lin2 = re.findall('"(\/media.*?m\.PNG)"', str(htmlParse2))
-imp = re.findall('"\/media\/custom\/(.*?m\.PNG)"', str(htmlParse2))
+lin2 = re.findall('"(\/media.*?g\.PNG)"', str(htmlParse2))
+imp = re.findall('"\/media\/custom\/(.*?g\.PNG)"', str(htmlParse2))
 print(lin2)
 im_p = '"' + 'https://www.kreis-mettmann-corona.de' + lin2[0] + '"'
 
@@ -49,10 +49,11 @@ infa = infa[2:]
 infint = list(map(int, infa))
 infnp = np.array(infint)
 inf = infnp[infnp>1000]
-gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']#gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Langenfeld','Ratingen','Kreis Mettmann','Heiligenhaus','Mettmann','Velbert']
+#gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']
+gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Langenfeld','Ratingen','Kreis Mettmann','Heiligenhaus','Mettmann','Velbert']
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = ['Gesamtfallzahlen']
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/Mettmann/data/Mettmann_{tod}.csv')
