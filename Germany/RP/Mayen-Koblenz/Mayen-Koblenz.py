@@ -8,45 +8,45 @@ import pandas as pd
 neu = pd.DataFrame()
 
 for x in range(0,14):
-    tod = pd.Timestamp.today() -timedelta(days=x)
-    if tod.month == 1:
-        mon = 'Januar%20' + str(tod.year)
+    to = pd.Timestamp.today() -timedelta(days=x)
+    if to.month == 1:
+        mon = 'Januar%20' + str(to.year)
         mont = 'Januar'
-    elif tod.month == 2:
-        mon = 'Februar%20' + str(tod.year)
+    elif to.month == 2:
+        mon = 'Februar%20' + str(to.year)
         mont = 'Februar'
-    elif tod.month == 3:
-        mon = 'M%C3%A4rz%20' + str(tod.year)
+    elif to.month == 3:
+        mon = 'M%C3%A4rz%20' + str(to.year)
         mont = 'M%C3%A4rz'
-    elif tod.month == 4:
-        mon = 'April%20' + str(tod.year)
+    elif to.month == 4:
+        mon = 'April%20' + str(to.year)
         mont = 'April'
-    elif tod.month == 5:
-        mon = 'Mai%20' + str(tod.year)
+    elif to.month == 5:
+        mon = 'Mai%20' + str(to.year)
         mont = 'Mai'
-    elif tod.month == 6:
-        mon = 'Juni%20' + str(tod.year)
+    elif to.month == 6:
+        mon = 'Juni%20' + str(to.year)
         mont = 'Juni'
-    elif tod.month == 7:
-        mon = 'Juli%20' + str(tod.year)
+    elif to.month == 7:
+        mon = 'Juli%20' + str(to.year)
         mont = 'Juli'
-    elif tod.month == 8:
-        mon = 'August%20' + str(tod.year)
+    elif to.month == 8:
+        mon = 'August%20' + str(to.year)
         mont = 'August'
-    elif tod.month == 9:
-        mon = 'September%20' + str(tod.year)
+    elif to.month == 9:
+        mon = 'September%20' + str(to.year)
         mont = 'September'
-    elif tod.month == 10:
-        mon = 'Oktober%20' + str(tod.year)
+    elif to.month == 10:
+        mon = 'Oktober%20' + str(to.year)
         mont = 'Oktober'
-    elif tod.month == 11:
-        mon = 'November%20' + str(tod.year)
+    elif to.month == 11:
+        mon = 'November%20' + str(to.year)
         mont = 'November'
-    elif tod.month == 12:
-        mon = 'Dezember%20' + str(tod.year)
+    elif to.month == 12:
+        mon = 'Dezember%20' + str(to.year)
         mont = 'Dezember'
 
-    tod = tod.strftime('%d.%m.%Y')
+    tod = to.strftime('%d.%m.%Y')
     pdf_path = "https://www.kvmyk.de/kv_myk/Corona/Corona-Statistiken/" + mon + "/Fallzahlen%20" + tod + ".pdf"
     pdf_path_t = "https://www.kvmyk.de/kv_myk/Corona/Corona-Statistiken/" + mont + "/Fallzahlen " + tod + ".pdf"
     
@@ -62,7 +62,7 @@ for x in range(0,14):
 
     if tod == '07.04.2021':
         df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
-    elif tod in ['01.05.2021','02.05.2021','24.05.2021']:
+    elif tod in ['01.05.2021','02.05.2021','24.05.2021','19.06.2021','20.06.2021'] or to.weekday()>4:
         df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
     elif tod in ['03.05.2021','04.05.2021','06.05.2021','07.05.2021']:
         df = dfs[0]
