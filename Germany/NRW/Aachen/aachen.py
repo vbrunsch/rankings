@@ -7,14 +7,14 @@ import re
 
 filenames = 'https://services-eu1.arcgis.com/2ypUQspLVcN0KOBE/arcgis/rest/services/CoronavirusFallzahlen_%C3%B6ffentlich/FeatureServer/1/'
 
-que = filenames + '/query?where=0%3D0&outFields=%2A&f=json&resultType=standard'
+que = 'https://services-eu1.arcgis.com/2ypUQspLVcN0KOBE/arcgis/rest/services/CoronavirusFallzahlen_%C3%B6ffentlich/FeatureServer/1//query?where=Meldedatum+%3E%3D+CURRENT_TIMESTAMP+-+25&outFields=%2A&f=json&resultType=standard'
 
 t = requests.get(que).text
 htmlParse = BeautifulSoup(t, 'html.parser')
 #print(htmlParse)
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 2)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('Kommune":"(.*?)"',t)
