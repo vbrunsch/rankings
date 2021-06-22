@@ -12,7 +12,7 @@ import requests
 import numpy as np
 
 
-to = pd.Timestamp.today()#- timedelta(days = 1)
+to = pd.Timestamp.today()- timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 url_s = 'https://www.kreis-wesel.de/de/themen/corona-fallzahlen/'
@@ -20,7 +20,11 @@ t = requests.get(url_s).text
 pdfp = re.findall('(/c12586a40024cb1c/files/.*?openelement)', t)
 pdf_path = 'https://www.kreis-wesel.de' + pdfp[0]
 
-dfs = tabula.read_pdf(pdf_path, stream=True)
+if tod == '06_21_2021':
+  dfs = tabula.read_pdf('https://www.kreis-wesel.de/c12586a40024cb1c/files/0621_kw_coronazahlen.pdf/$file/0621_kw_coronazahlen.pdf?openelement', stream=True)
+else:
+  dfs = tabula.read_pdf(pdf_path, stream=True)
+  
 df = dfs[0]
 
 try:
