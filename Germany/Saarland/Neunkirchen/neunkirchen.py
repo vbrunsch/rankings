@@ -45,6 +45,14 @@ import numpy as np
 
 df['last14'] = df.sum(axis = 1)
 df['last7'] = df[df.columns[0]]+df[df.columns[1]]+df[df.columns[2]]+df[df.columns[3]]+df[df.columns[4]]+df[df.columns[5]]+df[df.columns[6]]
+
+df['neg_l7']=np.where(df['last7']< 0, df['last7'], 0)
+df['last7']= df['last7']-df['neg_l7']
+df['last14']=np.where(df['last14']< 0, df['last14']-df['neg_l7'], df['last14']+df['neg_l7'])
+df['last14']=np.where(df['last14']< df['last7'], df['last7'], df['last14'])
+
+df = df[['last7','last14']]
+
 df['mix'] = np.where(df['last7'] == 0, 0.6, df['last7'])
 df['mix'] = np.where(df['last14'] == 0, 0.2, df['mix'])
 
