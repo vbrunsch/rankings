@@ -1,11 +1,11 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-116,Weißkeißel,1,10.0,1.284,779,Görlitz,0,1,1
+116,Weißkeißel,1,10.0,1.284,779,Görlitz,1,2,1
 117,Hainewalde,2,10.0,1.511,662,Görlitz,0,1,1
 118,Kottmar,3,40.0,7.236000000000001,553,Görlitz,2,6,4
 119,Ostritz,4,10.0,2.241,446,Görlitz,0,1,1
 120,Olbersdorf,5,20.0,4.663,429,Görlitz,0,2,2
-121,Kodersdorf,6,10.0,2.4219999999999997,413,Görlitz,1,2,1
-122,Reichenbach/O.L.,7,20.0,4.915,407,Görlitz,3,5,2
+121,Kodersdorf,6,10.0,2.4219999999999997,413,Görlitz,0,1,1
+122,Reichenbach/O.L.,7,20.0,4.915,407,Görlitz,4,6,2
 123,Rietschen,8,10.0,2.529,395,Görlitz,0,1,1
 124,Markersdorf,9,10.0,3.9010000000000002,256,Görlitz,0,1,1
 125,Ebersbach-Neugersdorf,10,30.0,11.853,253,Görlitz,1,4,3
@@ -27,12 +27,12 @@
 141,Horka,13,2.0,1.694,0,Görlitz,0,0,0
 142,Jonsdorf,13,2.0,1.548,0,Görlitz,0,0,0
 143,Königshain,13,2.0,1.179,0,Görlitz,0,0,0
-144,Krauschwitz i.d. O.L.,13,6.0,3.469,0,Görlitz,1,1,0
+144,Krauschwitz i.d. O.L.,13,2.0,3.469,0,Görlitz,0,0,0
 145,Kreba-Neudorf,13,2.0,856.0,0,Görlitz,0,0,0
 146,Lawalde,13,2.0,1.835,0,Görlitz,0,0,0
 147,Leutersdorf,13,2.0,3.483,0,Görlitz,0,0,0
 148,Löbau,13,6.0,14.456,0,Görlitz,1,1,0
-149,Mittelherwigsdorf,13,6.0,3.634,0,Görlitz,1,1,0
+149,Mittelherwigsdorf,13,2.0,3.634,0,Görlitz,0,0,0
 150,Mücka,13,2.0,959.0,0,Görlitz,0,0,0
 151,Neißeaue,13,2.0,1.706,0,Görlitz,0,0,0
 152,Neusalza-Spremberg,13,6.0,3.3,0,Görlitz,1,1,0
@@ -50,5 +50,5 @@
 164,Trebendorf,13,2.0,854.0,0,Görlitz,0,0,0
 165,Vierkirchen,13,2.0,1.663,0,Görlitz,0,0,0
 166,Waldhufen,13,2.0,2.37,0,Görlitz,0,0,0
-167,Weißwasser/O.L.,13,6.0,15.886,0,Görlitz,1,1,0
+167,Weißwasser/O.L.,13,2.0,15.886,0,Görlitz,0,0,0
 168,Zittau,13,6.0,25.086,0,Görlitz,1,1,0

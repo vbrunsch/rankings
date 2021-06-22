@@ -2,8 +2,8 @@
 343,Klingenthal,1,40.0,8.184,489,Vogtlandkreis,0,4,4
 344,Lengenfeld,2,20.0,7.124,281,Vogtlandkreis,0,2,2
 345,Weischlitz,3,10.0,5.806,172,Vogtlandkreis,0,1,1
-346,Auerbach/Vogtl.,4,10.0,18.237000000000002,55,Vogtlandkreis,1,2,1
-347,Adorf/Vogtl.,5,6.0,4.843999999999999,0,Vogtlandkreis,1,1,0
+346,Auerbach/Vogtl.,4,10.0,18.237000000000002,55,Vogtlandkreis,2,3,1
+347,Adorf/Vogtl.,5,2.0,4.843999999999999,0,Vogtlandkreis,0,0,0
 348,Bad Brambach,5,2.0,1.8330000000000002,0,Vogtlandkreis,0,0,0
 349,Bad Elster,5,2.0,3.675,0,Vogtlandkreis,0,0,0
 350,Bergen,5,2.0,958.0,0,Vogtlandkreis,0,0,0
@@ -11,7 +11,7 @@
 352,Eichigt,5,2.0,1.192,0,Vogtlandkreis,0,0,0
 353,Ellefeld,5,2.0,2.546,0,Vogtlandkreis,0,0,0
 354,Elsterberg,5,2.0,3.925,0,Vogtlandkreis,0,0,0
-355,Falkenstein/Vogtl.,5,6.0,7.947,0,Vogtlandkreis,3,3,0
+355,Falkenstein/Vogtl.,5,2.0,7.947,0,Vogtlandkreis,0,0,0
 356,Grünbach,5,2.0,1.643,0,Vogtlandkreis,0,0,0
 357,Heinsdorfergrund,5,2.0,1.9680000000000002,0,Vogtlandkreis,0,0,0
 358,Limbach,5,2.0,1.4269999999999998,0,Vogtlandkreis,0,0,0
@@ -19,14 +19,14 @@
 360,Mühlental,5,2.0,1.276,0,Vogtlandkreis,0,0,0
 361,Muldenhammer,5,2.0,3.025,0,Vogtlandkreis,0,0,0
 362,Netzschkau,5,2.0,3.8539999999999996,0,Vogtlandkreis,0,0,0
-363,Neuensalz,5,6.0,2.106,0,Vogtlandkreis,2,2,0
+363,Neuensalz,5,2.0,2.106,0,Vogtlandkreis,0,0,0
 364,Neumark,5,6.0,2.964,0,Vogtlandkreis,1,1,0
 365,Neustadt/Vogtl.,5,2.0,959.0,0,Vogtlandkreis,0,0,0
-366,Oelsnitz/Vogtl.,5,6.0,10.142999999999999,0,Vogtlandkreis,1,1,0
-367,Pausa-Mühltroff,5,2.0,4.919,0,Vogtlandkreis,0,0,0
-368,Plauen,5,6.0,64.597,0,Vogtlandkreis,5,5,0
+366,Oelsnitz/Vogtl.,5,2.0,10.142999999999999,0,Vogtlandkreis,0,0,0
+367,Pausa-Mühltroff,5,6.0,4.919,0,Vogtlandkreis,1,1,0
+368,Plauen,5,6.0,64.597,0,Vogtlandkreis,4,4,0
 369,Pöhl,5,2.0,2.4819999999999998,0,Vogtlandkreis,0,0,0
-370,Reichenbach im Vogtland,5,2.0,20.487,0,Vogtlandkreis,0,0,0
+370,Reichenbach im Vogtland,5,6.0,20.487,0,Vogtlandkreis,1,1,0
 371,Rodewisch,5,6.0,6.372999999999999,0,Vogtlandkreis,1,1,0
 372,Rosenbach/Vogtl.,5,2.0,4.133,0,Vogtlandkreis,0,0,0
 373,Schöneck/Vogtl.,5,2.0,3.142,0,Vogtlandkreis,0,0,0

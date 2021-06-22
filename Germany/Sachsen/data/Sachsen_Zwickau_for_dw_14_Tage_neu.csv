@@ -1,10 +1,10 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 380,St. Egidien,1,10.0,3.2680000000000002,306,Zwickau,2,3,1
-381,Zwickau,2,80.0,88.69,9,Zwickau,4,12,8
-382,Glauchau,3,20.0,22.233,9,Zwickau,0,2,2
+381,Zwickau,2,80.0,88.69,9,Zwickau,5,13,8
+382,Glauchau,3,20.0,22.233,9,Zwickau,2,4,2
 383,Limbach-Oberfrohna,4,10.0,23.895,42,Zwickau,3,4,1
 384,Bernsdorf - Zwickau,5,2.0,2.208,0,Zwickau,0,0,0
-385,Callenberg,5,6.0,4.928,0,Zwickau,3,3,0
+385,Callenberg,5,6.0,4.928,0,Zwickau,1,1,0
 386,Crimmitschau,5,2.0,18.35,0,Zwickau,0,0,0
 387,Crinitzberg,5,2.0,1.874,0,Zwickau,0,0,0
 388,Dennheritz,5,2.0,1.295,0,Zwickau,0,0,0
@@ -15,12 +15,12 @@
 393,Hirschfeld,5,2.0,1.162,0,Zwickau,0,0,0
 394,Hohenstein-Ernstthal,5,6.0,14.527000000000001,0,Zwickau,2,2,0
 395,Kirchberg,5,6.0,8.179,0,Zwickau,1,1,0
-396,Langenbernsdorf,5,6.0,3.597,0,Zwickau,2,2,0
+396,Langenbernsdorf,5,6.0,3.597,0,Zwickau,1,1,0
 397,Langenweißbach,5,2.0,2.4730000000000003,0,Zwickau,0,0,0
 398,Lichtenstein/Sa.,5,6.0,11.177,0,Zwickau,2,2,0
 399,Lichtentanne,5,2.0,6.329,0,Zwickau,0,0,0
 400,Meerane,5,2.0,14.001,0,Zwickau,0,0,0
-401,Mülsen,5,6.0,11.057,0,Zwickau,3,3,0
+401,Mülsen,5,6.0,11.057,0,Zwickau,1,1,0
 402,Neukirchen/Pleiße,5,2.0,3.872,0,Zwickau,0,0,0
 403,Niederfrohna,5,2.0,2.2359999999999998,0,Zwickau,0,0,0
 404,Oberlungwitz,5,2.0,5.864,0,Zwickau,0,0,0
@@ -30,5 +30,5 @@
 408,Schönberg,5,2.0,899.0,0,Zwickau,0,0,0
 409,Waldenburg,5,6.0,4.058,0,Zwickau,1,1,0
 410,Werdau,5,2.0,20.623,0,Zwickau,0,0,0
-411,Wildenfels,5,6.0,3.552,0,Zwickau,1,1,0
+411,Wildenfels,5,2.0,3.552,0,Zwickau,0,0,0
 412,Wilkau-Haßlau,5,6.0,9.656,0,Zwickau,1,1,0
