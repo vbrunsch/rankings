@@ -1,24 +1,24 @@
 from datetime import timedelta
 import pandas as pd
 
-#dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
-#to = pd.Timestamp.today()# - timedelta(days=1)
-#tod = to.strftime('%m_%d_%Y')
-#df = dfs[1]
-#df = df.set_index(df.columns[0])
-#df.columns = df.iloc[0]
-#df = df[1:]
-#df.index.name = None
-#if tod in ['05_13_2021','05_16_2021','05_23_2021','06_03_2021','06_06_2021']:
-#    df['Veränderung zum Vortag'] = 0
-#if to.weekday() == 5:
-#    df['Veränderung zum Vortag'] = 0
-#df.to_csv(f'Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_{tod}.csv')
+dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
+to = pd.Timestamp.today()# - timedelta(days=1)
+tod = to.strftime('%m_%d_%Y')
+df = dfs[1]
+df = df.set_index(df.columns[0])
+df.columns = df.iloc[0]
+df = df[1:]
+df.index.name = None
+if tod in ['05_13_2021','05_16_2021','05_23_2021','06_03_2021','06_06_2021']:
+    df['Veränderung zum Vortag'] = 0
+if to.weekday() == 5:
+    df['Veränderung zum Vortag'] = 0
+df.to_csv(f'Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_{tod}.csv')
 
 neu = pd.read_csv('Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_current.csv', index_col=0)
-#neu[tod] = df['Veränderung zum Vortag'].values
+neu[tod] = df['Veränderung zum Vortag'].values
 neu = neu.astype(int)
-#neu.to_csv('Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_current.csv')
+neu.to_csv('Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_current.csv')
 
 # For Datawrapper
 import numpy as np
