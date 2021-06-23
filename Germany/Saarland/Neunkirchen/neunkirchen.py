@@ -19,7 +19,7 @@ df = pd.DataFrame(index = ['Neunkirchen','Illingen','Ottweiler','Eppelborn','Mer
 import re
 
 from datetime import timedelta
-for x in range(0,14):
+for x in range(1,15):
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
     for para in htmlParse.find_all("p"): 
@@ -51,7 +51,7 @@ df['last7']= df['last7']-df['neg_l7']
 df['last14']=np.where(df['last14']< 0, df['last14']-df['neg_l7'], df['last14']+df['neg_l7'])
 df['last14']=np.where(df['last14']< df['last7'], df['last7'], df['last14'])
 
-df = df[['last7','last14']]
+#df = df[['last7','last14']]
 
 df['mix'] = np.where(df['last7'] == 0, 0.6, df['last7'])
 df['mix'] = np.where(df['last14'] == 0, 0.2, df['mix'])
