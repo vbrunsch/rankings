@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
 pdf_path = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_{tod}.pdf'
