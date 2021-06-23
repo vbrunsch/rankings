@@ -4,8 +4,8 @@
 name: Update LK Neunkirchen Rankings
 #
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '34 22 * * *'
 
