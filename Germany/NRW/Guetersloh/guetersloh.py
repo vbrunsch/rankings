@@ -19,9 +19,9 @@ que = f'https://webgis.kreis-guetersloh.de/wss/service/ags-relay/agskreisgt/gues
 t3 = requests.get(que).text
 htmlParse = BeautifulSoup(t3, 'html.parser')
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
-ye = pd.Timestamp.today() - timedelta(days = 1)
+ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
 
 gem = re.findall('ort": "(.*?)"',t3)
