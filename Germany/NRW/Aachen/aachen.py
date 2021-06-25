@@ -14,11 +14,11 @@ htmlParse = BeautifulSoup(t, 'html.parser')
 #print(htmlParse)
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('Kommune":"(.*?)"',t)
-dat = re.findall('Meldedatum":(..........)...,',t)
+dat = re.findall('EditDate":(..........)...,',t)
 inf = re.findall('Neue_Fälle":(.*?),',t)
 
 df = pd.DataFrame(data = inf, index = gem)
