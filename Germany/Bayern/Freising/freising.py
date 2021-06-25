@@ -18,11 +18,18 @@ to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
 pdf_path = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_{tod}.pdf'
+pdf_path2 = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Fallzahlen_nach_Gemeinden_{tod}.pdf'
 
 try:
   dfs = tabula.read_pdf(pdf_path, stream=True)
-  print(pdf_path)
-  print(dfs)
+except:
+  try:
+    dfs = tabula.read_pdf(pdf_path2, stream=True)
+  except:
+    print('no new data for Freising')
+
+
+try:
 
   df = pd.DataFrame()
   df = df.append({'AGS': dfs[0].columns[0],'Gemeinde/Stadt': dfs[0].columns[1], 'Pos in Qua': dfs[0].columns[2]}, ignore_index=True)
