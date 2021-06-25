@@ -20,7 +20,7 @@ df = pd.DataFrame(data = inf, index = gem)
 df.columns = [tod]
 df = df.astype(int)
 print(df)
-df.to_csv(f'Rhein-Kreis-Neuss_PLZ_{tod}.csv')
+df.to_csv(f'Germany/NRW/RKN/data/Rhein-Kreis-Neuss_PLZ_{tod}.csv')
 
 ge = ['Meerbusch','Korschenbroich','Jüchen','Neuss','Grevenbroich','Dormagen','Kaarst','Rommerskirchen']
 ges = [sum(df[df.columns[0]][0:3]),df[df.columns[0]][3],df[df.columns[0]][4],sum(df[df.columns[0]][5:13]),sum(df[df.columns[0]][13:16]),sum(df[df.columns[0]][16:20]),df[df.columns[0]][20],df[df.columns[0]][21]]
