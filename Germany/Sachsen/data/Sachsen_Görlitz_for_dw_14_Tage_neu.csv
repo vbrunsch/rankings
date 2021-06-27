@@ -1,12 +1,12 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 116,Schönbach,1,10.0,1.09,917,Görlitz,0,1,1
 117,Hainewalde,2,10.0,1.511,662,Görlitz,1,2,1
-118,Kottmar,3,40.0,7.236000000000001,553,Görlitz,2,6,4
-119,Hohendubrau,4,10.0,1.882,531,Görlitz,0,1,1
-120,Ostritz,5,10.0,2.241,446,Görlitz,1,2,1
-121,Oppach,6,10.0,2.3280000000000003,43,Görlitz,0,1,1
-122,Waldhufen,7,10.0,2.37,422,Görlitz,0,1,1
-123,Löbau,8,20.0,14.456,138,Görlitz,0,2,2
+118,Hohendubrau,3,10.0,1.882,531,Görlitz,0,1,1
+119,Ostritz,4,10.0,2.241,446,Görlitz,1,2,1
+120,Oppach,5,10.0,2.3280000000000003,43,Görlitz,0,1,1
+121,Waldhufen,6,10.0,2.37,422,Görlitz,0,1,1
+122,Löbau,7,20.0,14.456,138,Görlitz,0,2,2
+123,Kottmar,8,10.0,7.236000000000001,138,Görlitz,1,2,1
 124,Ebersbach-Neugersdorf,9,10.0,11.853,84,Görlitz,1,2,1
 125,Zittau,10,10.0,25.086,4,Görlitz,0,1,1
 126,Bad Muskau,11,2.0,3.6860000000000004,0,Görlitz,0,0,0
@@ -34,7 +34,7 @@
 148,Mittelherwigsdorf,11,2.0,3.634,0,Görlitz,0,0,0
 149,Mücka,11,2.0,959.0,0,Görlitz,0,0,0
 150,Neißeaue,11,2.0,1.706,0,Görlitz,0,0,0
-151,Neusalza-Spremberg,11,6.0,3.3,0,Görlitz,1,1,0
+151,Neusalza-Spremberg,11,2.0,3.3,0,Görlitz,0,0,0
 152,Niesky,11,2.0,9.343,0,Görlitz,0,0,0
 153,Oderwitz,11,2.0,5.002,0,Görlitz,0,0,0
 154,Olbersdorf,11,6.0,4.663,0,Görlitz,2,2,0
