@@ -1,6 +1,6 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-380,Limbach-Oberfrohna,1,10.0,23.895,42,Zwickau,2,3,1
-381,Zwickau,2,20.0,88.69,23,Zwickau,6,8,2
+380,Limbach-Oberfrohna,1,10.0,23.895,42,Zwickau,1,2,1
+381,Zwickau,2,20.0,88.69,23,Zwickau,8,10,2
 382,Bernsdorf - Zwickau,3,2.0,2.208,0,Zwickau,0,0,0
 383,Callenberg,3,2.0,4.928,0,Zwickau,0,0,0
 384,Crimmitschau,3,2.0,18.35,0,Zwickau,0,0,0
@@ -27,7 +27,7 @@
 405,Reinsdorf,3,2.0,7.398,0,Zwickau,0,0,0
 406,Remse,3,2.0,1.625,0,Zwickau,0,0,0
 407,Schönberg,3,2.0,899.0,0,Zwickau,0,0,0
-408,St. Egidien,3,2.0,3.2680000000000002,0,Zwickau,0,0,0
+408,St. Egidien,3,6.0,3.2680000000000002,0,Zwickau,1,1,0
 409,Waldenburg,3,2.0,4.058,0,Zwickau,0,0,0
 410,Werdau,3,2.0,20.623,0,Zwickau,0,0,0
 411,Wildenfels,3,2.0,3.552,0,Zwickau,0,0,0
