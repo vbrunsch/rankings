@@ -4,8 +4,8 @@
 name: Update Freising Communities Rankings
 #
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
     - cron: '45 18 * * 1,2,3,4,5'
 
