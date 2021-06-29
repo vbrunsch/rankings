@@ -28,7 +28,9 @@ except:
   except:
     print('no new data for Freising')
 
-
+if tod == '28.06.2021':
+  dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_28.6.2021.pdf', stream= True)
+  
 try:
 
   df = pd.DataFrame()
