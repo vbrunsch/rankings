@@ -23,7 +23,7 @@ jobs:
         architecture: x64 # (x64 or x86) - defaults to x64
     - run: |
         sudo apt install tesseract-ocr
-        pip install pytesseract
+        pip install pytesseract==0.3.7
     - uses: actions/checkout@master
       with:
         persist-credentials: false 
