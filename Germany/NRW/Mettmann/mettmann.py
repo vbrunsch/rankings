@@ -5,7 +5,7 @@ import os
 import random
 try:
  from PIL import Image
-except ImportError:
+except:# ImportError:
  import Image
 
 import bs4
