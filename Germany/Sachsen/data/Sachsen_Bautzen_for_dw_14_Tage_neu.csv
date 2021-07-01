@@ -3,16 +3,16 @@
 1,Wachau,2,40.0,4.273,936,Bautzen,1,5,4
 2,Hochkirch,3,10.0,2.256,443,Bautzen,0,1,1
 3,Ohorn,4,10.0,2.454,407,Bautzen,0,1,1
-4,Radibor,5,10.0,3.1189999999999998,321,Bautzen,1,2,1
+4,Radibor,5,10.0,3.1189999999999998,321,Bautzen,2,3,1
 5,Pulsnitz,6,20.0,7.468,268,Bautzen,0,2,2
 6,Wilthen,7,10.0,4.881,205,Bautzen,0,1,1
-7,Bernsdorf - Bautzen,8,10.0,6.422000000000001,156,Bautzen,0,1,1
+7,Bernsdorf - Bautzen,8,10.0,6.422000000000001,156,Bautzen,1,2,1
 8,Großröhrsdorf,9,10.0,9.615,104,Bautzen,0,1,1
-9,Radeberg,10,10.0,18.565,54,Bautzen,1,2,1
-10,Hoyerswerda,11,10.0,32.405,31,Bautzen,2,3,1
+9,Radeberg,10,10.0,18.565,54,Bautzen,0,1,1
+10,Hoyerswerda,11,10.0,32.405,31,Bautzen,1,2,1
 11,Arnsdorf,12,2.0,4.867,0,Bautzen,0,0,0
-12,Bautzen,12,6.0,38.425,0,Bautzen,5,5,0
-13,Bischofswerda,12,6.0,10.937999999999999,0,Bautzen,1,1,0
+12,Bautzen,12,6.0,38.425,0,Bautzen,2,2,0
+13,Bischofswerda,12,2.0,10.937999999999999,0,Bautzen,0,0,0
 14,Burkau,12,2.0,2.605,0,Bautzen,0,0,0
 15,Crostwitz,12,2.0,1.025,0,Bautzen,0,0,0
 16,Cunewalde,12,2.0,4.593,0,Bautzen,0,0,0
@@ -27,7 +27,7 @@
 25,Großpostwitz/O.L.,12,2.0,2.741,0,Bautzen,0,0,0
 26,Haselbachtal,12,2.0,4.013,0,Bautzen,0,0,0
 27,Kamenz,12,2.0,16.914,0,Bautzen,0,0,0
-28,Königsbrück,12,6.0,4.539,0,Bautzen,1,1,0
+28,Königsbrück,12,2.0,4.539,0,Bautzen,0,0,0
 29,Königswartha,12,2.0,3.458,0,Bautzen,0,0,0
 30,Kubschütz,12,2.0,2.529,0,Bautzen,0,0,0
 31,Laußnitz,12,2.0,1.8519999999999999,0,Bautzen,0,0,0
