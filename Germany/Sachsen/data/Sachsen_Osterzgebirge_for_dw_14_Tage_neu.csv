@@ -1,9 +1,9 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 307,Bannewitz,1,20.0,11.104000000000001,18,Sächsische Schweiz-Osterzgebirge,0,2,2
 308,Glashütte,2,10.0,6.689,149,Sächsische Schweiz-Osterzgebirge,0,1,1
-309,Dippoldiswalde,3,20.0,14.31,14,Sächsische Schweiz-Osterzgebirge,2,4,2
+309,Dippoldiswalde,3,20.0,14.31,14,Sächsische Schweiz-Osterzgebirge,3,5,2
 310,Altenberg,4,10.0,7.934,126,Sächsische Schweiz-Osterzgebirge,0,1,1
-311,Neustadt in Sachsen,5,10.0,12.097000000000001,83,Sächsische Schweiz-Osterzgebirge,2,3,1
+311,Neustadt in Sachsen,5,10.0,12.097000000000001,83,Sächsische Schweiz-Osterzgebirge,0,1,1
 312,Heidenau,6,10.0,16.54,6,Sächsische Schweiz-Osterzgebirge,1,2,1
 313,Freital,7,10.0,39.703,25,Sächsische Schweiz-Osterzgebirge,1,2,1
 314,Bad Gottleuba-Berggießhübel,8,6.0,5.624,0,Sächsische Schweiz-Osterzgebirge,1,1,0
@@ -21,10 +21,10 @@
 326,Königstein/Sächs. Schw.,8,2.0,2.0869999999999997,0,Sächsische Schweiz-Osterzgebirge,0,0,0
 327,Kreischa,8,2.0,4.532,0,Sächsische Schweiz-Osterzgebirge,0,0,0
 328,Liebstadt,8,2.0,1.27,0,Sächsische Schweiz-Osterzgebirge,0,0,0
-329,Lohmen,8,2.0,3.0839999999999996,0,Sächsische Schweiz-Osterzgebirge,0,0,0
+329,Lohmen,8,6.0,3.0839999999999996,0,Sächsische Schweiz-Osterzgebirge,1,1,0
 330,Müglitztal,8,2.0,1.91,0,Sächsische Schweiz-Osterzgebirge,0,0,0
-331,Pirna,8,6.0,38.422,0,Sächsische Schweiz-Osterzgebirge,7,7,0
-332,Rabenau,8,6.0,4.42,0,Sächsische Schweiz-Osterzgebirge,1,1,0
+331,Pirna,8,6.0,38.422,0,Sächsische Schweiz-Osterzgebirge,6,6,0
+332,Rabenau,8,2.0,4.42,0,Sächsische Schweiz-Osterzgebirge,0,0,0
 333,Rathen,8,2.0,349.0,0,Sächsische Schweiz-Osterzgebirge,0,0,0
 334,Rathmannsdorf,8,2.0,912.0,0,Sächsische Schweiz-Osterzgebirge,0,0,0
 335,Reinhardtsdorf-Schöna,8,2.0,1.325,0,Sächsische Schweiz-Osterzgebirge,0,0,0
