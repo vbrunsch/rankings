@@ -4,15 +4,15 @@ AGS,last7,last14,mix,Gemeinde
 9184113,0,0,0.2,Baierbrunn
 9184114,0,0,0.2,Brunnthal
 9184118,0,0,0.2,Feldkirchen
-9184119,0,3,0.6,Garching
-9184120,1,1,1.0,Gräfelfing
-9184121,0,3,0.6,Grasbrunn
+9184119,0,2,0.6,Garching
+9184120,0,1,0.6,Gräfelfing
+9184121,0,2,0.6,Grasbrunn
 9184122,0,0,0.2,Grünwald
-9184123,2,3,2.0,Haar
-9184129,0,0,0.2,Hohenbrunn
-9184127,0,1,0.6,Höhenkirchen-Siegertsbrunn
-9184130,0,2,0.6,Ismaning
-9184131,0,0,0.2,Kirchheim
+9184123,3,3,3.0,Haar
+9184129,1,1,1.0,Hohenbrunn
+9184127,0,0,0.2,Höhenkirchen-Siegertsbrunn
+9184130,0,1,0.6,Ismaning
+9184131,1,1,1.0,Kirchheim
 9184146,1,1,1.0,Neubiberg
 9184132,0,0,0.2,Neuried
 9184134,0,1,0.6,Oberhaching
@@ -24,8 +24,8 @@ AGS,last7,last14,mix,Gemeinde
 9184141,1,1,1.0,Sauerlach
 9184142,0,0,0.2,Schäftlarn
 9184144,0,0,0.2,Straßlach-Dingharting
-9184145,0,3,0.6,Taufkirchen
+9184145,0,1,0.6,Taufkirchen
 9184147,0,3,0.6,Unterföhring
-9184148,0,0,0.2,Unterhaching
-9184149,6,11,6.0,Unterschleißheim
-9162000,166,317,166.0,Stadt München
+9184148,1,1,1.0,Unterhaching
+9184149,5,11,5.0,Unterschleißheim
+9162000,168,309,168.0,Stadt München
