@@ -47,7 +47,7 @@ h = html.decode("ISO-8859-1")
 matches = re.findall('Stand: (.*),', h)
 try:
     day = re.findall('(..)\. ', matches[0])[0]
-    mon = re.findall('\. (.*) ', matches[0])[0]
+    mon = re.findall('\. (.*)&nbsp; ', matches[0])[0]
     yea = re.findall('\. .* (....)', matches[0])[0]
 except:
     day = re.findall('(..)\.', matches[0])[0]
