@@ -15,7 +15,7 @@ Erbach,0,0,0.2,Erbach
 Blaustein,0,2,0.6,Blaustein
 Dornstadt,1,1,1.0,Dornstadt
 Amstetten,2,2,2.0,Amstetten
-Lonsee,1,1,1.0,Lonsee
+Lonsee,3,3,3.0,Lonsee
 Westerstetten,0,0,0.2,Westerstetten
 Beimerstetten,0,0,0.2,Beimerstetten
 Weidenstetten,0,0,0.2,Weidenstetten
@@ -25,7 +25,7 @@ Holzkirch,0,0,0.2,Holzkirch
 Breitingen,0,0,0.2,Breitingen
 Illerkirchberg,0,0,0.2,Illerkirchberg
 Bernstadt,0,0,0.2,Bernstadt
-Langenau,5,5,5.0,Langenau
+Langenau,5,6,5.0,Langenau
 Neenstetten,0,0,0.2,Neenstetten
 Börslingen,0,0,0.2,Börslingen
 Ballendorf,0,0,0.2,Ballendorf
@@ -43,7 +43,7 @@ Unterwachingen,0,0,0.2,Unterwachingen
 Unterstadion,0,0,0.2,Unterstadion
 Dietenheim,0,0,0.2,Dietenheim
 Hausen am Bussen,0,0,0.2,Hausen am Bussen
-Ehingen (Donau),1,5,1.0,Ehingen (Donau)
+Ehingen (Donau),0,5,0.6,Ehingen (Donau)
 Munderkingen,0,0,0.2,Munderkingen
 Rottenacker,0,0,0.2,Rottenacker
 Untermarchtal,0,0,0.2,Untermarchtal
@@ -54,4 +54,4 @@ Griesingen,0,0,0.2,Griesingen
 Hüttisheim,0,0,0.2,Hüttisheim
 Emeringen,0,0,0.2,Emeringen
 Rechtenstein,0,0,0.2,Rechtenstein
-Ulm,11,29,11.0,Ulm
+Ulm,13,29,13.0,Ulm
