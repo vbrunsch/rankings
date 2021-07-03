@@ -11,7 +11,7 @@ que = 'https://services-eu1.arcgis.com/B4AGMbvhuqY0JRyu/arcgis/rest/services/Cor
 t3 = requests.get(que).text
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('GEN":"(.*?)"',t3)
