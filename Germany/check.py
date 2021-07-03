@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
-ye = to# - timedelta(days = 1)
+ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
 ye2 = to - timedelta(days = 2)
 yes2 = ye2.strftime('%m_%d_%Y')
