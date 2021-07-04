@@ -1,24 +1,24 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-57,Auerbach,1,20.0,2.455,815,Erzgebirgskreis,2,4,2
+57,Auerbach,1,20.0,2.455,815,Erzgebirgskreis,1,3,2
 58,Bockau,2,10.0,2.225,449,Erzgebirgskreis,1,2,1
-59,Jöhstadt,3,10.0,2.62,382,Erzgebirgskreis,2,3,1
+59,Jöhstadt,3,10.0,2.62,382,Erzgebirgskreis,1,2,1
 60,Mildenau,4,10.0,3.3989999999999996,294,Erzgebirgskreis,1,2,1
 61,Schneeberg,5,40.0,13.873,288,Erzgebirgskreis,5,9,4
 62,Amtsberg,6,10.0,3.6889999999999996,271,Erzgebirgskreis,0,1,1
 63,Drebach,7,10.0,5.127000000000001,195,Erzgebirgskreis,2,3,1
 64,Thalheim/Erzgeb.,8,10.0,5.952000000000001,168,Erzgebirgskreis,1,2,1
-65,Lugau/Erzgeb.,9,10.0,8.005,125,Erzgebirgskreis,0,1,1
+65,Lugau/Erzgeb.,9,10.0,8.005,125,Erzgebirgskreis,1,2,1
 66,Lößnitz,10,10.0,8.201,122,Erzgebirgskreis,0,1,1
 67,Lauter-Bernsbach,11,10.0,8.628,116,Erzgebirgskreis,0,1,1
 68,Stollberg/Erzgeb.,12,10.0,11.3,88,Erzgebirgskreis,0,1,1
 69,Zwönitz,13,10.0,11.927,84,Erzgebirgskreis,0,1,1
 70,Annaberg-Buchholz,14,2.0,19.619,0,Erzgebirgskreis,0,0,0
-71,Aue-Bad Schlema,14,6.0,20.352999999999998,0,Erzgebirgskreis,2,2,0
+71,Aue-Bad Schlema,14,2.0,20.352999999999998,0,Erzgebirgskreis,0,0,0
 72,Bärenstein,14,2.0,2.282,0,Erzgebirgskreis,0,0,0
 73,Börnichen/Erzgeb.,14,2.0,985.0,0,Erzgebirgskreis,0,0,0
 74,Breitenbrunn/Erzgeb.,14,2.0,5.204,0,Erzgebirgskreis,0,0,0
 75,Burkhardtsdorf,14,2.0,6.117999999999999,0,Erzgebirgskreis,0,0,0
-76,Crottendorf,14,6.0,4.052,0,Erzgebirgskreis,2,2,0
+76,Crottendorf,14,6.0,4.052,0,Erzgebirgskreis,1,1,0
 77,Deutschneudorf,14,2.0,990.0,0,Erzgebirgskreis,0,0,0
 78,Ehrenfriedersdorf,14,2.0,4.68,0,Erzgebirgskreis,0,0,0
 79,Eibenstock,14,2.0,7.261,0,Erzgebirgskreis,0,0,0
@@ -41,11 +41,11 @@
 96,Niederdorf,14,2.0,1.28,0,Erzgebirgskreis,0,0,0
 97,Niederwürschnitz,14,2.0,2.5789999999999997,0,Erzgebirgskreis,0,0,0
 98,Oberwiesenthal,14,2.0,2.0780000000000003,0,Erzgebirgskreis,0,0,0
-99,Oelsnitz/Erzgeb.,14,6.0,10.950999999999999,0,Erzgebirgskreis,2,2,0
+99,Oelsnitz/Erzgeb.,14,6.0,10.950999999999999,0,Erzgebirgskreis,1,1,0
 100,Olbernhau,14,2.0,10.84,0,Erzgebirgskreis,0,0,0
 101,Pockau-Lengefeld,14,2.0,7.539,0,Erzgebirgskreis,0,0,0
 102,Raschau-Markersbach,14,2.0,4.997,0,Erzgebirgskreis,0,0,0
-103,Scheibenberg,14,6.0,2.083,0,Erzgebirgskreis,2,2,0
+103,Scheibenberg,14,6.0,2.083,0,Erzgebirgskreis,1,1,0
 104,Schlettau,14,2.0,2.3680000000000003,0,Erzgebirgskreis,0,0,0
 105,Schönheide,14,2.0,4.3660000000000005,0,Erzgebirgskreis,0,0,0
 106,Schwarzenberg/Erzgeb.,14,2.0,16.447,0,Erzgebirgskreis,0,0,0
@@ -55,6 +55,6 @@
 110,Tannenberg,14,2.0,1.101,0,Erzgebirgskreis,0,0,0
 111,Thermalbad Wiesenbad,14,2.0,3.242,0,Erzgebirgskreis,0,0,0
 112,Thum,14,2.0,5.118,0,Erzgebirgskreis,0,0,0
-113,Wolkenstein,14,2.0,3.8989999999999996,0,Erzgebirgskreis,0,0,0
+113,Wolkenstein,14,6.0,3.8989999999999996,0,Erzgebirgskreis,1,1,0
 114,Zschopau,14,2.0,9.17,0,Erzgebirgskreis,0,0,0
 115,Zschorlau,14,2.0,5.235,0,Erzgebirgskreis,0,0,0
