@@ -4,26 +4,26 @@
 59,Jöhstadt,3,10.0,2.62,382,Erzgebirgskreis,1,2,1
 60,Mildenau,4,10.0,3.3989999999999996,294,Erzgebirgskreis,1,2,1
 61,Schneeberg,5,40.0,13.873,288,Erzgebirgskreis,5,9,4
-62,Amtsberg,6,10.0,3.6889999999999996,271,Erzgebirgskreis,0,1,1
+62,Amtsberg,6,10.0,3.6889999999999996,271,Erzgebirgskreis,1,2,1
 63,Drebach,7,10.0,5.127000000000001,195,Erzgebirgskreis,2,3,1
 64,Thalheim/Erzgeb.,8,10.0,5.952000000000001,168,Erzgebirgskreis,1,2,1
-65,Lugau/Erzgeb.,9,10.0,8.005,125,Erzgebirgskreis,1,2,1
+65,Lugau/Erzgeb.,9,10.0,8.005,125,Erzgebirgskreis,0,1,1
 66,Lößnitz,10,10.0,8.201,122,Erzgebirgskreis,0,1,1
-67,Lauter-Bernsbach,11,10.0,8.628,116,Erzgebirgskreis,0,1,1
+67,Lauter-Bernsbach,11,10.0,8.628,116,Erzgebirgskreis,1,2,1
 68,Stollberg/Erzgeb.,12,10.0,11.3,88,Erzgebirgskreis,0,1,1
-69,Zwönitz,13,10.0,11.927,84,Erzgebirgskreis,0,1,1
+69,Zwönitz,13,10.0,11.927,84,Erzgebirgskreis,2,3,1
 70,Annaberg-Buchholz,14,2.0,19.619,0,Erzgebirgskreis,0,0,0
 71,Aue-Bad Schlema,14,2.0,20.352999999999998,0,Erzgebirgskreis,0,0,0
 72,Bärenstein,14,2.0,2.282,0,Erzgebirgskreis,0,0,0
 73,Börnichen/Erzgeb.,14,2.0,985.0,0,Erzgebirgskreis,0,0,0
 74,Breitenbrunn/Erzgeb.,14,2.0,5.204,0,Erzgebirgskreis,0,0,0
 75,Burkhardtsdorf,14,2.0,6.117999999999999,0,Erzgebirgskreis,0,0,0
-76,Crottendorf,14,6.0,4.052,0,Erzgebirgskreis,1,1,0
+76,Crottendorf,14,2.0,4.052,0,Erzgebirgskreis,0,0,0
 77,Deutschneudorf,14,2.0,990.0,0,Erzgebirgskreis,0,0,0
 78,Ehrenfriedersdorf,14,2.0,4.68,0,Erzgebirgskreis,0,0,0
 79,Eibenstock,14,2.0,7.261,0,Erzgebirgskreis,0,0,0
 80,Elterlein,14,6.0,2.8489999999999998,0,Erzgebirgskreis,1,1,0
-81,Gelenau/Erzgeb.,14,6.0,4.133,0,Erzgebirgskreis,1,1,0
+81,Gelenau/Erzgeb.,14,2.0,4.133,0,Erzgebirgskreis,0,0,0
 82,Geyer,14,2.0,3.403,0,Erzgebirgskreis,0,0,0
 83,Gornau/Erzgeb.,14,2.0,3.767,0,Erzgebirgskreis,0,0,0
 84,Gornsdorf,14,2.0,1.911,0,Erzgebirgskreis,0,0,0
@@ -55,6 +55,6 @@
 110,Tannenberg,14,2.0,1.101,0,Erzgebirgskreis,0,0,0
 111,Thermalbad Wiesenbad,14,2.0,3.242,0,Erzgebirgskreis,0,0,0
 112,Thum,14,2.0,5.118,0,Erzgebirgskreis,0,0,0
-113,Wolkenstein,14,6.0,3.8989999999999996,0,Erzgebirgskreis,1,1,0
+113,Wolkenstein,14,2.0,3.8989999999999996,0,Erzgebirgskreis,0,0,0
 114,Zschopau,14,2.0,9.17,0,Erzgebirgskreis,0,0,0
 115,Zschorlau,14,2.0,5.235,0,Erzgebirgskreis,0,0,0
