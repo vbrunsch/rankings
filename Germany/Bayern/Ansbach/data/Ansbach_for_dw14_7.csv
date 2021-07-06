@@ -9,9 +9,9 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571128,0,0,0,0.2,Burk
 9571130,0,0,0,0.2,Colmberg
 9571132,0,0,0,0.2,Dentlein
-9571134,0,0,-1,0.2,Diebach
+9571134,0,0,0,0.2,Diebach
 9571135,0,1,0,0.6,Dietenhofen
-9571136,0,1,0,0.6,Dinkelsbühl
+9571136,1,2,0,1.0,Dinkelsbühl
 9571137,1,1,0,1.0,Dombühl
 9571139,0,0,0,0.2,Dürrwangen
 9571141,0,0,0,0.2,Ehingen
@@ -33,14 +33,14 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571180,0,0,0,0.2,Neuendettelsau
 9571181,1,1,0,1.0,"Neusitz, Mittelfr"
 9571183,0,0,0,0.2,Oberdachstetten
-9571188,0,0,0,0.2,Ohrenbach
+9571188,1,1,0,1.0,Ohrenbach
 9571189,0,0,0,0.2,Ornbau
-9571190,3,3,0,3.0,Petersaurach
+9571190,2,2,0,2.0,Petersaurach
 9571192,0,0,0,0.2,Röckingen
-9571193,0,0,0,0.2,Rothenburg ob der Tauber
+9571193,1,1,0,1.0,Rothenburg ob der Tauber
 9571194,0,0,0,0.2,Rügland
 9571196,0,1,0,0.6,Sachsen b. Ansbach
-9571198,1,1,0,1.0,Schillingsfürst
+9571198,0,1,0,0.6,Schillingsfürst
 9571199,0,0,0,0.2,Schnelldorf
 9571200,0,0,0,0.2,Schopfloch
 9571205,0,0,0,0.2,Steinsfeld
