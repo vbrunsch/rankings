@@ -22,7 +22,16 @@ lay2 = mudf2[mudf2.columns[1]][3]
 mudf3 = pd.DataFrame(list(lay2.items()))
 lay3 = mudf3[mudf3.columns[1]][2]
 mudf4 = pd.DataFrame(list(lay3.items()))
-lay4 = mudf4[mudf4.columns[1]][99]
+
+a = []
+b = 0
+for i in mudf4[mudf4.columns[1]]:
+  if re.findall('Dorsten', str(i)):
+    a.append(b)
+  b = b+1
+
+
+lay4 = mudf4[mudf4.columns[1]][a[-1]]
 mudf5 = pd.DataFrame(list(lay4.items()))
 lay5 = mudf5[mudf5.columns[1]][9]
 mudf6 = pd.DataFrame(list(lay5.items()))
@@ -45,7 +54,7 @@ df_neu['Gesamtfallzahlen'] = df_neu['Gesamtfallzahlen'].str.replace('\.','')
 df_neu['Neu'] = df_neu['Neu'].str.replace('\.','')
 df_neu = df_neu.astype(int)
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df_neu.to_csv(f'Germany/NRW/Recklinghausen/data/Recklinghausen_{tod}.csv')
 print(df_neu)
