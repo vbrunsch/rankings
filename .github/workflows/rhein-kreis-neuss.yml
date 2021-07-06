@@ -4,8 +4,8 @@
 name: Update Rhein-Kreis Neuss Communities Rankings
 
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '13 20 * * *'
 
