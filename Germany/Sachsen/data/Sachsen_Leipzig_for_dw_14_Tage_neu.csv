@@ -2,16 +2,16 @@
 169,Pegau,1,10.0,6.325,158,Leipzig,0,1,1
 170,Groitzsch,2,10.0,7.586,132,Leipzig,0,1,1
 171,Borna,3,10.0,19.118,52,Leipzig,0,1,1
-172,Markkleeberg,4,10.0,24.748,4,Leipzig,1,2,1
+172,Markkleeberg,4,10.0,24.748,4,Leipzig,0,1,1
 173,Bad Lausick,5,6.0,7.984,0,Leipzig,1,1,0
 174,Belgershain,5,2.0,3.3539999999999996,0,Leipzig,0,0,0
-175,Bennewitz,5,6.0,4.962,0,Leipzig,1,1,0
+175,Bennewitz,5,2.0,4.962,0,Leipzig,0,0,0
 176,Böhlen,5,2.0,6.651,0,Leipzig,0,0,0
 177,Borsdorf,5,2.0,8.23,0,Leipzig,0,0,0
 178,Brandis,5,2.0,9.624,0,Leipzig,0,0,0
 179,Colditz,5,2.0,8.422,0,Leipzig,0,0,0
 180,Elstertrebnitz,5,2.0,1.291,0,Leipzig,0,0,0
-181,Frohburg,5,6.0,12.443,0,Leipzig,1,1,0
+181,Frohburg,5,2.0,12.443,0,Leipzig,0,0,0
 182,Geithain,5,2.0,6.858,0,Leipzig,0,0,0
 183,Grimma,5,2.0,28.173000000000002,0,Leipzig,0,0,0
 184,Großpösna,5,2.0,5.371,0,Leipzig,0,0,0
@@ -20,7 +20,7 @@
 187,Machern,5,2.0,6.723,0,Leipzig,0,0,0
 188,Markranstädt,5,2.0,15.780999999999999,0,Leipzig,0,0,0
 189,Naunhof,5,2.0,8.774,0,Leipzig,0,0,0
-190,Neukieritzsch,5,6.0,6.885,0,Leipzig,1,1,0
+190,Neukieritzsch,5,2.0,6.885,0,Leipzig,0,0,0
 191,Otterwisch,5,2.0,1.381,0,Leipzig,0,0,0
 192,Parthenstein,5,2.0,3.517,0,Leipzig,0,0,0
 193,Regis-Breitingen,5,2.0,3.897,0,Leipzig,0,0,0

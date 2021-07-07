@@ -1,11 +1,11 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-57,Auerbach,1,10.0,2.455,407,Erzgebirgskreis,1,2,1
+57,Auerbach,1,10.0,2.455,407,Erzgebirgskreis,2,3,1
 58,Jöhstadt,2,10.0,2.62,382,Erzgebirgskreis,1,2,1
 59,Crottendorf,3,10.0,4.052,247,Erzgebirgskreis,0,1,1
 60,Ehrenfriedersdorf,4,10.0,4.68,214,Erzgebirgskreis,0,1,1
-61,Schneeberg,5,20.0,13.873,144,Erzgebirgskreis,5,7,2
-62,Lugau/Erzgeb.,6,10.0,8.005,125,Erzgebirgskreis,0,1,1
-63,Stollberg/Erzgeb.,7,10.0,11.3,88,Erzgebirgskreis,0,1,1
+61,Schneeberg,5,20.0,13.873,144,Erzgebirgskreis,4,6,2
+62,Lugau/Erzgeb.,6,10.0,8.005,125,Erzgebirgskreis,1,2,1
+63,Stollberg/Erzgeb.,7,10.0,11.3,88,Erzgebirgskreis,1,2,1
 64,Schwarzenberg/Erzgeb.,8,10.0,16.447,61,Erzgebirgskreis,0,1,1
 65,Annaberg-Buchholz,9,10.0,19.619,51,Erzgebirgskreis,0,1,1
 66,Amtsberg,10,6.0,3.6889999999999996,0,Erzgebirgskreis,1,1,0
@@ -16,9 +16,9 @@
 71,Breitenbrunn/Erzgeb.,10,2.0,5.204,0,Erzgebirgskreis,0,0,0
 72,Burkhardtsdorf,10,2.0,6.117999999999999,0,Erzgebirgskreis,0,0,0
 73,Deutschneudorf,10,2.0,990.0,0,Erzgebirgskreis,0,0,0
-74,Drebach,10,6.0,5.127000000000001,0,Erzgebirgskreis,2,2,0
+74,Drebach,10,6.0,5.127000000000001,0,Erzgebirgskreis,1,1,0
 75,Eibenstock,10,2.0,7.261,0,Erzgebirgskreis,0,0,0
-76,Elterlein,10,6.0,2.8489999999999998,0,Erzgebirgskreis,1,1,0
+76,Elterlein,10,2.0,2.8489999999999998,0,Erzgebirgskreis,0,0,0
 77,Gelenau/Erzgeb.,10,2.0,4.133,0,Erzgebirgskreis,0,0,0
 78,Geyer,10,2.0,3.403,0,Erzgebirgskreis,0,0,0
 79,Gornau/Erzgeb.,10,2.0,3.767,0,Erzgebirgskreis,0,0,0
@@ -33,18 +33,18 @@
 88,Johanngeorgenstadt,10,2.0,3.897,0,Erzgebirgskreis,0,0,0
 89,Königswalde,10,2.0,2.22,0,Erzgebirgskreis,0,0,0
 90,Lauter-Bernsbach,10,6.0,8.628,0,Erzgebirgskreis,1,1,0
-91,Lößnitz,10,2.0,8.201,0,Erzgebirgskreis,0,0,0
+91,Lößnitz,10,6.0,8.201,0,Erzgebirgskreis,1,1,0
 92,Marienberg,10,2.0,16.906,0,Erzgebirgskreis,0,0,0
 93,Mildenau,10,6.0,3.3989999999999996,0,Erzgebirgskreis,1,1,0
 94,Neukirchen/Erzgeb.,10,2.0,6.907,0,Erzgebirgskreis,0,0,0
 95,Niederdorf,10,2.0,1.28,0,Erzgebirgskreis,0,0,0
 96,Niederwürschnitz,10,2.0,2.5789999999999997,0,Erzgebirgskreis,0,0,0
 97,Oberwiesenthal,10,2.0,2.0780000000000003,0,Erzgebirgskreis,0,0,0
-98,Oelsnitz/Erzgeb.,10,6.0,10.950999999999999,0,Erzgebirgskreis,1,1,0
+98,Oelsnitz/Erzgeb.,10,2.0,10.950999999999999,0,Erzgebirgskreis,0,0,0
 99,Olbernhau,10,2.0,10.84,0,Erzgebirgskreis,0,0,0
 100,Pockau-Lengefeld,10,2.0,7.539,0,Erzgebirgskreis,0,0,0
 101,Raschau-Markersbach,10,2.0,4.997,0,Erzgebirgskreis,0,0,0
-102,Scheibenberg,10,6.0,2.083,0,Erzgebirgskreis,1,1,0
+102,Scheibenberg,10,2.0,2.083,0,Erzgebirgskreis,0,0,0
 103,Schlettau,10,2.0,2.3680000000000003,0,Erzgebirgskreis,0,0,0
 104,Schönheide,10,2.0,4.3660000000000005,0,Erzgebirgskreis,0,0,0
 105,Sehmatal,10,2.0,6.377999999999999,0,Erzgebirgskreis,0,0,0
@@ -57,4 +57,4 @@
 112,Wolkenstein,10,2.0,3.8989999999999996,0,Erzgebirgskreis,0,0,0
 113,Zschopau,10,2.0,9.17,0,Erzgebirgskreis,0,0,0
 114,Zschorlau,10,2.0,5.235,0,Erzgebirgskreis,0,0,0
-115,Zwönitz,10,6.0,11.927,0,Erzgebirgskreis,2,2,0
+115,Zwönitz,10,6.0,11.927,0,Erzgebirgskreis,1,1,0
