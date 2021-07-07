@@ -13,10 +13,10 @@ import pandas as pd
 mun = pd.DataFrame()
 now = datetime.date.today()
 yesterday = now - timedelta(days=1)
-start = datetime.date(2020, 6, 10)
+start = now - timedelta(days=20)
 date_list = pd.date_range(start=start,end=yesterday).tolist()
-for d in date_list:    
-    if d!= datetime.date(2020, 12, 18) and d!= datetime.date(2021, 3, 21) and d!= datetime.date(2021, 6, 27) and d!= datetime.date(2021, 6, 28):
+for d in date_list:  
+    if d.weekday() in [1,2,3,4,5]:
         date_time = d.strftime("%Y%m%d")
         url = f"https://epistat.sciensano.be/Data/{date_time}/COVID19BE_CASES_MUNI_CUM_{date_time}.csv"
         print(d)
