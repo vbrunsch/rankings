@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
 pdf_path = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_{tod}.pdf'
@@ -30,6 +30,8 @@ except:
 
 if tod == '28.06.2021':
   dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_28.6.2021.pdf', stream= True)
+elif tod == '08.07.2021':
+  dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_08.07.2021__002_.pdf', stream= True)
 
 df = pd.DataFrame()
 try:
