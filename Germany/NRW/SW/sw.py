@@ -32,7 +32,7 @@ print(df)
 df.to_csv(f'Germany/NRW/SW/data/Siegen-Wittgenstein_{tod}.csv')
 
 cur = df.copy()
-for x in range(1,15):   # HERE
+for x in range(2,15):   # HERE
     da = to -timedelta(days=x)
     das = da.strftime('%m_%d_%Y')
     dat = da.strftime('%d.%m.%Y')
