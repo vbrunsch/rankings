@@ -15,13 +15,13 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571137,0,1,0,0.6,Dombühl
 9571139,0,0,0,0.2,Dürrwangen
 9571141,0,0,0,0.2,Ehingen
-9571145,1,1,0,1.0,Feuchtwangen
+9571145,0,1,0,0.6,Feuchtwangen
 9571146,0,0,0,0.2,Flachslanden
 9571152,0,0,0,0.2,Gebsattel
 9571154,0,0,0,0.2,Gerolfingen
 9571155,0,0,0,0.2,Geslau
 9571165,0,0,0,0.2,Heilsbronn
-9571166,0,1,0,0.6,Herrieden
+9571166,1,2,0,1.0,Herrieden
 9571169,0,0,0,0.2,Insingen
 9571170,0,0,0,0.2,Langfurth
 9571171,0,0,0,0.2,Lehrberg
@@ -31,7 +31,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571178,0,0,0,0.2,Mitteleschenbach
 9571179,0,0,-1,0.2,Mönchsroth
 9571180,0,0,0,0.2,Neuendettelsau
-9571181,1,1,0,1.0,"Neusitz, Mittelfr"
+9571181,0,1,0,0.6,"Neusitz, Mittelfr"
 9571183,0,0,0,0.2,Oberdachstetten
 9571188,1,1,0,1.0,Ohrenbach
 9571189,0,0,0,0.2,Ornbau
