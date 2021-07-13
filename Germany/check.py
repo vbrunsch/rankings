@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
@@ -542,7 +542,7 @@ print('https://www.kreis-olpe.de/Themen/Coronavirus/Corona-Virus-Alle-Infos-auf-
 print()
 print()
 
-df = pd.read_csv(f'https://raw.githubusercontent.com/vbrunsch/rankings/main/Germany/NRW/Paderborn/data/Paderborn_{tod}.csv',index_col= 0)
+df = pd.read_csv(f'https://raw.githubusercontent.com/vbrunsch/rankings/main/Germany/NRW/Paderborn/data/Paderborn_new_{tod}.csv',index_col= 0)
 print('Today:')
 print(tod)
 print('Paderborn')
