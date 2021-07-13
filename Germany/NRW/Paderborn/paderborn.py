@@ -6,65 +6,61 @@ import requests
 import re
 from datetime import timedelta
 
-da = pd.Timestamp.today() - timedelta(days = 17)
-das = da.strftime('%Y-%m-%d')
+import bs4
+from bs4 import BeautifulSoup
+import pandas as pd
+import time 
+import requests
+import re
+from datetime import timedelta
 
-que = f'https://utility.arcgis.com/usrsvcs/servers/9020e4c3f15b40a6807cf282504e26f2/rest/services/secure/KPB_CoronaDashboard_Prod_Secure/MapServer/1/query?f=json&where=(AKT_STAND%20BETWEEN%20timestamp%20%27{das}%2004%3A00%3A00%27%20AND%20CURRENT_TIMESTAMP)&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=AKT_STAND%20asc&resultOffset=0&resultRecordCount=10000'
+que = f'https://utility.arcgis.com/usrsvcs/servers/ea0358e5c68e43728e4ff87217f445f0/rest/services/secure/KPB_CoronaFallzahlen_Prod_Secure/FeatureServer/0/query?f=json&where=GEM_NR%3E0&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=GEMEINDE%20asc&resultOffset=0&resultRecordCount=25&resultType=standard'
 
 t3 = requests.get(que).text
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('GEMEINDE":"(.*?)"',t3)
-inf = re.findall('BE_AKTUELL":(.*?),',t3)
-infy = re.findall('ZI_AKTUELL":(.*?),',t3)
-dat = re.findall('AKT_STAND":(.*?),',t3)
+inf = re.findall('BE_AKTUINT":(.*?),',t3)
+infy = re.findall('BE_VOTAINT":(.*?),',t3)
+infy7 = re.findall('BE_VOWOINT":(.*?),',t3)
+
 
 df = pd.DataFrame(data = inf, index = gem)
-df['neu'] = infy
-df['Datum'] = dat
-df.columns = df.iloc[0]
-df = df[1:]
-df['Datum'] = df['"Stand der Aktualität"'].astype(int)
+df['vortag'] = infy
+df['vorwoche'] = infy7
+df = df.astype(int)
+df['neu'] = df[df.columns[0]]-df['vortag']
+df.columns = [tod,'vortag','vorwoche','neu']
 import datetime
-df['Datum'] = df['Datum']/1000
-df['Datum'] = df['Datum'].apply(lambda x: datetime.datetime.fromtimestamp(x))
-df['Datum'] = df['Datum'].apply(lambda x: x.strftime('%m_%d_%Y'))
-df = df.drop(['"Stand der Aktualität"'], axis =1)
 print(df)
-df.to_csv(f'Germany/NRW/Paderborn/data/Paderborn_{tod}.csv')
-
-hdf = df.copy()
-l7 = []
-l14 = []
-
-for i in hdf.index.unique():
-  idf = df.loc[[i]].copy()
-  idf['neu'] = idf['"Bestätigte Fälle"'].astype(int).diff()
-  l7.append(sum(idf.loc[[i]][-7:]['neu'].astype(int)))
-  l14.append(sum(idf.loc[[i]][-14:]['neu'].astype(int)))
-
-neg_l7=[0 if i>=0 else i for i in l7]
-l7 = [l7[i]-neg_l7[i] for i in range(len(l7))]
-l14 = [l14[i]+neg_l7[i] if i>0 else 0 for i in range(len(l14))]
-l14 = [i if i>= 0 else 0 for i in l14]
-
-zus = pd.DataFrame(index = hdf.index.unique(), data = l7, columns = ['last7'])
-zus['last14'] = l14
+df.to_csv(f'Germany/NRW/Paderborn/data/Paderborn_new_{tod}.csv')
 
 import numpy as np
+
+da7 = to - timedelta(days = 7)
+da7s = da7.strftime('%m_%d_%Y')
+da14 = to - timedelta(days = 14)
+da14s = da14.strftime('%m_%d_%Y')
+old7 = pd.read_csv(f'Germany/NRW/Paderborn/data/Paderborn_new_{da7s}.csv', index_col = 0)
+old14 = pd.read_csv(f'Germany/NRW/Paderborn/data/Paderborn_new_{da14s}.csv', index_col = 0)
+
+zus = df.copy()
+zus['last7'] = zus[zus.columns[0]].astype(int) - old7[old7.columns[0]].astype(int)
+zus['last14'] = zus[zus.columns[0]].astype(int) - old14[old14.columns[0]].astype(int)
+
 zus['neg_l7']=np.where(zus['last7']< 0, zus['last7'], 0)
 zus['last7']= zus['last7']-zus['neg_l7']
 zus['last14']=np.where(zus['last14']< 0, zus['last14']-zus['neg_l7'], zus['last14']+zus['neg_l7'])
 zus['last14']=np.where(zus['last14']< zus['last7'], zus['last7'], zus['last14'])
-zus = zus[['last7','last14']]
 
+zus = zus[['last7','last14']]
 zus['mix'] = np.where(zus['last7'] == 0, 0.6, zus['last7'])
 zus['mix'] = np.where(zus['last14'] == 0, 0.2, zus['mix'])
 zus['Gemeinde'] = zus.index
-zus = zus.drop('(nicht zuordnebar)')
-zus = zus.drop('(gesamter Kreis)')
+
+
 print(zus)
 
 zus.to_csv(f'Germany/NRW/Paderborn/data/Paderborn_for_dw14_7.csv') 
