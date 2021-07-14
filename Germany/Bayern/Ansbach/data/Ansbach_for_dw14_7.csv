@@ -4,7 +4,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571114,0,0,0,0.2,Aurach
 9571115,0,0,0,0.2,Bechhofen
 9571122,0,0,0,0.2,Bruckberg
-9571125,0,0,0,0.2,Buch a.Wald
+9571125,1,1,0,1.0,Buch a.Wald
 9571127,0,0,0,0.2,Burgoberbach
 9571128,0,0,0,0.2,Burk
 9571130,0,0,0,0.2,Colmberg
@@ -12,7 +12,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571134,0,0,0,0.2,Diebach
 9571135,0,0,0,0.2,Dietenhofen
 9571136,0,0,-1,0.2,Dinkelsbühl
-9571137,0,1,0,0.6,Dombühl
+9571137,0,0,0,0.2,Dombühl
 9571139,0,0,0,0.2,Dürrwangen
 9571141,0,0,0,0.2,Ehingen
 9571145,0,1,0,0.6,Feuchtwangen
@@ -21,7 +21,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571154,0,0,0,0.2,Gerolfingen
 9571155,0,0,0,0.2,Geslau
 9571165,0,0,0,0.2,Heilsbronn
-9571166,1,2,0,1.0,Herrieden
+9571166,1,1,0,1.0,Herrieden
 9571169,0,0,0,0.2,Insingen
 9571170,0,0,0,0.2,Langfurth
 9571171,0,0,0,0.2,Lehrberg
@@ -33,9 +33,9 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571180,0,0,0,0.2,Neuendettelsau
 9571181,0,1,0,0.6,"Neusitz, Mittelfr"
 9571183,0,0,0,0.2,Oberdachstetten
-9571188,0,1,0,0.6,Ohrenbach
+9571188,1,2,0,1.0,Ohrenbach
 9571189,0,0,0,0.2,Ornbau
-9571190,1,3,0,1.0,Petersaurach
+9571190,2,3,0,2.0,Petersaurach
 9571192,0,0,0,0.2,Röckingen
 9571193,0,1,0,0.6,Rothenburg ob der Tauber
 9571194,0,0,0,0.2,Rügland
@@ -57,4 +57,4 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571227,0,0,0,0.2,Wittelshofen
 9571229,0,0,0,0.2,Wolframs-Eschenbach
 9571228,0,0,0,0.2,Wörnitz
-9561000,3,6,0,3.0,Stadt Ansbach
+9561000,3,5,0,3.0,Stadt Ansbach
