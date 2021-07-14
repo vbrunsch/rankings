@@ -1,17 +1,17 @@
 Unnamed: 0,last7,last14,mix,Gemeinde
 Westerheim,0,0,0.2,Westerheim
-Schelklingen,6,9,6.0,Schelklingen
+Schelklingen,5,9,5.0,Schelklingen
 Laichingen,0,0,0.2,Laichingen
 Heroldstatt,0,0,0.2,Heroldstatt
 Allmendingen,0,0,0.2,Allmendingen
-Blaubeuren,6,6,6.0,Blaubeuren
+Blaubeuren,5,6,5.0,Blaubeuren
 Merklingen,0,0,0.2,Merklingen
 Berghülen,0,0,0.2,Berghülen
 Nellingen,0,0,0.2,Nellingen
 Altheim (bei Ehingen),0,0,0.2,Altheim (bei Ehingen)
 Öpfingen,0,0,0.2,Öpfingen
 Oberdischingen,0,0,0.2,Oberdischingen
-Erbach,2,2,2.0,Erbach
+Erbach,3,3,3.0,Erbach
 Blaustein,2,3,2.0,Blaustein
 Dornstadt,1,2,1.0,Dornstadt
 Amstetten,0,2,0.6,Amstetten
@@ -25,7 +25,7 @@ Holzkirch,0,0,0.2,Holzkirch
 Breitingen,0,0,0.2,Breitingen
 Illerkirchberg,0,1,0.6,Illerkirchberg
 Bernstadt,0,0,0.2,Bernstadt
-Langenau,4,9,4.0,Langenau
+Langenau,3,8,3.0,Langenau
 Neenstetten,0,0,0.2,Neenstetten
 Börslingen,0,0,0.2,Börslingen
 Ballendorf,0,0,0.2,Ballendorf
@@ -53,5 +53,5 @@ Schnürpflingen,0,0,0.2,Schnürpflingen
 Griesingen,1,1,1.0,Griesingen
 Hüttisheim,0,0,0.2,Hüttisheim
 Emeringen,0,0,0.2,Emeringen
-Rechtenstein,1,1,1.0,Rechtenstein
-Ulm,34,53,34.0,Ulm
+Rechtenstein,0,1,0.6,Rechtenstein
+Ulm,40,59,40.0,Ulm
