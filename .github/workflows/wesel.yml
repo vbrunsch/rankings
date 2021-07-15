@@ -4,8 +4,8 @@
 name: Update LK Wesel Communities Rankings
 #
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
     - cron: '51 18 * * 1,2,3,4,5'
 
