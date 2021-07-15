@@ -19,12 +19,12 @@ df = pd.DataFrame(index = ['Neunkirchen','Illingen','Ottweiler','Eppelborn','Mer
 import re
 
 from datetime import timedelta
-for x in range(0,14):
+for x in range(1,15):
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
     for para in htmlParse.find_all("p"): 
         t = para.get_text()
-        matches = re.findall(', den '+tod+'.*', t)
+        matches = re.findall(tod+'.*', t)
         if matches:
             if re.findall('Illingen \+?(\d+)',matches[0].replace(u'\xa0', u' ')):
                 ne = re.findall('Neunkirchen \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
