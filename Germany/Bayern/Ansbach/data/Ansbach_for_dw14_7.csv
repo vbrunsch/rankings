@@ -11,7 +11,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571132,0,0,0,0.2,Dentlein
 9571134,0,0,0,0.2,Diebach
 9571135,0,0,0,0.2,Dietenhofen
-9571136,0,0,-1,0.2,Dinkelsbühl
+9571136,0,0,0,0.2,Dinkelsbühl
 9571137,0,0,0,0.2,Dombühl
 9571139,0,0,0,0.2,Dürrwangen
 9571141,0,0,0,0.2,Ehingen
@@ -20,7 +20,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571152,0,0,0,0.2,Gebsattel
 9571154,0,0,0,0.2,Gerolfingen
 9571155,0,0,0,0.2,Geslau
-9571165,0,0,0,0.2,Heilsbronn
+9571165,1,1,0,1.0,Heilsbronn
 9571166,2,2,0,2.0,Herrieden
 9571169,0,0,0,0.2,Insingen
 9571170,0,0,0,0.2,Langfurth
@@ -33,11 +33,11 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571180,0,0,0,0.2,Neuendettelsau
 9571181,0,1,0,0.6,"Neusitz, Mittelfr"
 9571183,0,0,0,0.2,Oberdachstetten
-9571188,1,2,0,1.0,Ohrenbach
+9571188,2,3,0,2.0,Ohrenbach
 9571189,0,0,0,0.2,Ornbau
-9571190,2,3,0,2.0,Petersaurach
+9571190,1,2,0,1.0,Petersaurach
 9571192,0,0,0,0.2,Röckingen
-9571193,0,1,0,0.6,Rothenburg ob der Tauber
+9571193,1,2,0,1.0,Rothenburg ob der Tauber
 9571194,0,0,0,0.2,Rügland
 9571196,0,0,0,0.2,Sachsen b. Ansbach
 9571198,3,3,0,3.0,Schillingsfürst
@@ -53,8 +53,8 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571223,0,0,0,0.2,Wieseth
 9571224,0,0,0,0.2,Wilburgstetten
 9571225,0,0,0,0.2,Windelsbach
-9571226,0,1,0,0.6,Windsbach
+9571226,0,0,0,0.2,Windsbach
 9571227,0,0,0,0.2,Wittelshofen
 9571229,0,0,0,0.2,Wolframs-Eschenbach
 9571228,0,0,0,0.2,Wörnitz
-9561000,2,5,0,2.0,Stadt Ansbach
+9561000,1,4,0,1.0,Stadt Ansbach
