@@ -1,15 +1,15 @@
 AGS,last7,last14,mix,Gemeinde
 07137003,1,8,1.0,Andernach
 07137203,2,2,2.0,Bendorf
-07111000,12,25,12.0,Koblenz
+07111000,13,23,13.0,Koblenz
 07137068,1,1,1.0,Mayen
 07137023,0,1,0.6,VG Maifeld
 07137008,0,0,0.2,VG Mendig
-07137056,3,6,3.0,VG Pellenz
+07137056,0,5,0.6,VG Pellenz
 07137201,1,2,1.0,VG Rhein-Mosel
-07137218,0,6,0.6,VG Vallendar
+07137218,1,6,1.0,VG Vallendar
 07137001,2,2,2.0,VG Vordereifel
-07137202,2,7,2.0,VG Weißenthurm
+07137202,2,6,2.0,VG Weißenthurm
 07137027,0,1,0.6,VG Maifeld
 07137029,0,1,0.6,VG Maifeld
 07137030,0,1,0.6,VG Maifeld
@@ -31,10 +31,10 @@ AGS,last7,last14,mix,Gemeinde
 07137093,0,0,0.2,VG Mendig
 07137101,0,0,0.2,VG Mendig
 07137106,0,0,0.2,VG Mendig
-07137057,3,6,3.0,VG Pellenz
-07137081,3,6,3.0,VG Pellenz
-07137088,3,6,3.0,VG Pellenz
-07137096,3,6,3.0,VG Pellenz
+07137057,0,5,0.6,VG Pellenz
+07137081,0,5,0.6,VG Pellenz
+07137088,0,5,0.6,VG Pellenz
+07137096,0,5,0.6,VG Pellenz
 07137204,1,2,1.0,VG Rhein-Mosel
 07137205,1,2,1.0,VG Rhein-Mosel
 07137206,1,2,1.0,VG Rhein-Mosel
@@ -52,9 +52,9 @@ AGS,last7,last14,mix,Gemeinde
 07137227,1,2,1.0,VG Rhein-Mosel
 07137230,1,2,1.0,VG Rhein-Mosel
 07137231,1,2,1.0,VG Rhein-Mosel
-07137224,0,6,0.6,VG Vallendar
-07137226,0,6,0.6,VG Vallendar
-07137229,0,6,0.6,VG Vallendar
+07137224,1,6,1.0,VG Vallendar
+07137226,1,6,1.0,VG Vallendar
+07137229,1,6,1.0,VG Vallendar
 07137004,2,2,2.0,VG Vordereifel
 07137006,2,2,2.0,VG Vordereifel
 07137007,2,2,2.0,VG Vordereifel
@@ -81,9 +81,9 @@ AGS,last7,last14,mix,Gemeinde
 07137105,2,2,2.0,VG Vordereifel
 07137110,2,2,2.0,VG Vordereifel
 07137113,2,2,2.0,VG Vordereifel
-07137209,2,7,2.0,VG Weißenthurm
-07137211,2,7,2.0,VG Weißenthurm
-07137216,2,7,2.0,VG Weißenthurm
-07137222,2,7,2.0,VG Weißenthurm
-07137225,2,7,2.0,VG Weißenthurm
-07137228,2,7,2.0,VG Weißenthurm
+07137209,2,6,2.0,VG Weißenthurm
+07137211,2,6,2.0,VG Weißenthurm
+07137216,2,6,2.0,VG Weißenthurm
+07137222,2,6,2.0,VG Weißenthurm
+07137225,2,6,2.0,VG Weißenthurm
+07137228,2,6,2.0,VG Weißenthurm
