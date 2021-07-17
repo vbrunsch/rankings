@@ -4,8 +4,8 @@
 name: Update Olpe Communities Rankings
 #
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '50 18 * * *'
 
