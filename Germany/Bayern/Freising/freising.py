@@ -81,7 +81,7 @@ except:
   except:
     ye = to - timedelta(days = 1)
     yes = ye.strftime('%m_%d_%Y')
-    df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yes}.csv')
+    df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yes}.csv',index_col=0)
     tods = to.strftime('%m_%d_%Y')
     df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
   
