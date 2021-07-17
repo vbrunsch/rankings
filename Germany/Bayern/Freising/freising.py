@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%d.%m.%Y')
 
 pdf_path = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_{tod}.pdf'
@@ -41,24 +41,50 @@ df = pd.DataFrame()
 try:
   df = df.append({'AGS': dfs[0].columns[0],'Gemeinde/Stadt': dfs[0].columns[1], 'Pos in Qua': dfs[0].columns[2]}, ignore_index=True)
   dfs[0].columns = ['AGS','Gemeinde/Stadt', 'Pos in Qua']
+  
+  df = df.append(dfs[0], ignore_index = True)
+  df = df.replace({'85354, 85356':'85356'}, regex=True)
+  df = df.replace({'85375, 85376':'85376'}, regex=True)
+
+  df['Pos in Qua'] = df['Pos in Qua'].fillna(0)
+  df = df.replace({'Unnamed: 0': 0}, regex=True)  
+  df = df.replace({'Au': 'Au i.d.Hallertau'}, regex=True)
+  df = df.replace({'Haag': 'Haag a.d.Amper'}, regex=True)
+  df = df.replace({'Eching': 'Eching – Oberbayern'}, regex=True)
+  df = df.replace({'Kirchdorf': 'Kirchdorf a.d.Amper'}, regex=True)
+  df = df.replace({'Moosburg': 'Moosburg a.d.Isar'}, regex=True)
+  df = df.replace({'Neufahrn': 'Neufahrn b.Freising'}, regex=True)
+
+  tods = to.strftime('%m_%d_%Y')
+  df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
+
 except:
-  df = df.append({'Gemeinde/Stadt': dfs[0].columns[0], 'Pos in Qua': dfs[0].columns[1]}, ignore_index=True)
-  dfs[0].columns = ['Gemeinde/Stadt', 'Pos in Qua']
-df = df.append(dfs[0], ignore_index = True)
-df = df.replace({'85354, 85356':'85356'}, regex=True)
-df = df.replace({'85375, 85376':'85376'}, regex=True)
+  try:
+    df = df.append({'Gemeinde/Stadt': dfs[0].columns[0], 'Pos in Qua': dfs[0].columns[1]}, ignore_index=True)
+    dfs[0].columns = ['Gemeinde/Stadt', 'Pos in Qua']
+  
+    df = df.append(dfs[0], ignore_index = True)
+    df = df.replace({'85354, 85356':'85356'}, regex=True)
+    df = df.replace({'85375, 85376':'85376'}, regex=True)
 
-df['Pos in Qua'] = df['Pos in Qua'].fillna(0)
-df = df.replace({'Unnamed: 0': 0}, regex=True)  
-df = df.replace({'Au': 'Au i.d.Hallertau'}, regex=True)
-df = df.replace({'Haag': 'Haag a.d.Amper'}, regex=True)
-df = df.replace({'Eching': 'Eching – Oberbayern'}, regex=True)
-df = df.replace({'Kirchdorf': 'Kirchdorf a.d.Amper'}, regex=True)
-df = df.replace({'Moosburg': 'Moosburg a.d.Isar'}, regex=True)
-df = df.replace({'Neufahrn': 'Neufahrn b.Freising'}, regex=True)
+    df['Pos in Qua'] = df['Pos in Qua'].fillna(0)
+    df = df.replace({'Unnamed: 0': 0}, regex=True)  
+    df = df.replace({'Au': 'Au i.d.Hallertau'}, regex=True)
+    df = df.replace({'Haag': 'Haag a.d.Amper'}, regex=True)
+    df = df.replace({'Eching': 'Eching – Oberbayern'}, regex=True)
+    df = df.replace({'Kirchdorf': 'Kirchdorf a.d.Amper'}, regex=True)
+    df = df.replace({'Moosburg': 'Moosburg a.d.Isar'}, regex=True)
+    df = df.replace({'Neufahrn': 'Neufahrn b.Freising'}, regex=True)
 
-tods = to.strftime('%m_%d_%Y')
-df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
+    tods = to.strftime('%m_%d_%Y')
+    df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
+  except:
+    ye = to - timedelta(days = 1)
+    yes = ye.strftime('%m_%d_%Y')
+    df = pd.read_csv(f'Germany/Bayern/Freising/data/freising_{yes}.csv')
+    df.to_csv(f'Germany/Bayern/Freising/data/freising_{tods}.csv')
+  
+
 #except:
 #  try:
 #    
