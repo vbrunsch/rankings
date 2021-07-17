@@ -12,7 +12,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()#- timedelta(days = 1)
+to = pd.Timestamp.today()- timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 url_s = 'https://www.kreis-olpe.de/Themen/Coronavirus/Corona-Virus-Alle-Infos-auf-einen-Blick/'
