@@ -24,18 +24,19 @@ for x in range(1,15):
     tod = to.strftime('%d.%m.%Y')
     text = htmlParse.get_text()
     matches = re.findall(tod+'.*\),', text)
-    if re.findall('Illingen \+?(\d+)',matches[0].replace(u'\xa0', u' ')):
-        ne = re.findall('Neunkirchen \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        il = re.findall('Illingen \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        ot = re.findall('Ottweiler \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        ep = re.findall('Eppelborn \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        me = re.findall('Merchweiler \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        sc = re.findall('Schiffweiler \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        sp = re.findall('Spiesen-Elversberg \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
-        df[tod] = [int(ne),int(il),int(ot),int(ep),int(me),int(sc),int(sp)]
-    else:
-        df[tod] = [0,0,0,0,0,0,0]
-    if tod not in df.columns:
+    try:
+      if re.findall('Illingen \+?(\d+)',matches[0].replace(u'\xa0', u' ')):
+          ne = re.findall('Neunkirchen \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          il = re.findall('Illingen \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          ot = re.findall('Ottweiler \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          ep = re.findall('Eppelborn \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          me = re.findall('Merchweiler \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          sc = re.findall('Schiffweiler \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          sp = re.findall('Spiesen-Elversberg \+?(\d+)',matches[0].replace(u'\xa0', u' '))[0]
+          df[tod] = [int(ne),int(il),int(ot),int(ep),int(me),int(sc),int(sp)]
+      else:
+          df[tod] = [0,0,0,0,0,0,0]
+    except:
       df[tod] = [0,0,0,0,0,0,0]
 print(df)
 
