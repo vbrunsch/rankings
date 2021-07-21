@@ -4,7 +4,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571114,0,0,0,0.2,Aurach
 9571115,0,0,0,0.2,Bechhofen
 9571122,0,0,0,0.2,Bruckberg
-9571125,1,1,0,1.0,Buch a.Wald
+9571125,0,1,0,0.6,Buch a.Wald
 9571127,0,0,0,0.2,Burgoberbach
 9571128,0,0,0,0.2,Burk
 9571130,0,0,0,0.2,Colmberg
@@ -30,12 +30,12 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571177,0,0,0,0.2,Merkendorf
 9571178,0,0,0,0.2,Mitteleschenbach
 9571179,0,0,0,0.2,Mönchsroth
-9571180,2,2,0,2.0,Neuendettelsau
+9571180,3,3,0,3.0,Neuendettelsau
 9571181,0,0,0,0.2,"Neusitz, Mittelfr"
 9571183,0,0,0,0.2,Oberdachstetten
-9571188,2,2,0,2.0,Ohrenbach
+9571188,1,2,0,1.0,Ohrenbach
 9571189,0,0,0,0.2,Ornbau
-9571190,1,2,0,1.0,Petersaurach
+9571190,0,2,0,0.6,Petersaurach
 9571192,0,0,0,0.2,Röckingen
 9571193,1,1,0,1.0,Rothenburg ob der Tauber
 9571194,0,0,0,0.2,Rügland
@@ -57,4 +57,4 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571227,0,0,0,0.2,Wittelshofen
 9571229,0,0,0,0.2,Wolframs-Eschenbach
 9571228,0,0,0,0.2,Wörnitz
-9561000,2,5,0,2.0,Stadt Ansbach
+9561000,3,6,0,3.0,Stadt Ansbach
