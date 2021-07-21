@@ -8,6 +8,8 @@ df= pd.DataFrame()
 df = dfs[1]
 df.columns = df.iloc[0]
 df = df[1:]
+df = df.replace('Haar\*','Haar',regex=True)
+df = df.replace('Hohenbrunn\*','Hohenbrunn',regex=True)
 df = df.set_index('Kommune')
 import numpy as np
 try:
@@ -26,7 +28,7 @@ df.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_{tod}.csv')
 
 neu = pd.read_csv('Germany/Bayern/LK_Muenchen/data/LK_München_current.csv', index_col=0)
 neu[tod] = df['Fälle seit Vortagsmeldung']
-neu = neu.fillna(0).astype(int)
+neu = neu.astype(int)
 print(neu)
 neu.to_csv('Germany/Bayern/LK_Muenchen/data/LK_München_current.csv')
 
