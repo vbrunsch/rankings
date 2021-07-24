@@ -2,9 +2,9 @@ Unnamed: 0,last7,last14,mix,Gemeinde
 Westerheim,0,0,0.2,Westerheim
 Schelklingen,0,1,0.6,Schelklingen
 Laichingen,2,2,2.0,Laichingen
-Heroldstatt,0,0,0.2,Heroldstatt
+Heroldstatt,1,1,1.0,Heroldstatt
 Allmendingen,0,0,0.2,Allmendingen
-Blaubeuren,0,3,0.6,Blaubeuren
+Blaubeuren,0,1,0.6,Blaubeuren
 Merklingen,1,1,1.0,Merklingen
 Berghülen,0,0,0.2,Berghülen
 Nellingen,0,0,0.2,Nellingen
@@ -12,7 +12,7 @@ Altheim (bei Ehingen),0,0,0.2,Altheim (bei Ehingen)
 Öpfingen,0,0,0.2,Öpfingen
 Oberdischingen,0,0,0.2,Oberdischingen
 Erbach,5,7,5.0,Erbach
-Blaustein,5,6,5.0,Blaustein
+Blaustein,4,6,4.0,Blaustein
 Dornstadt,0,1,0.6,Dornstadt
 Amstetten,1,1,1.0,Amstetten
 Lonsee,0,0,0.2,Lonsee
@@ -25,7 +25,7 @@ Holzkirch,0,0,0.2,Holzkirch
 Breitingen,0,0,0.2,Breitingen
 Illerkirchberg,0,0,0.2,Illerkirchberg
 Bernstadt,0,0,0.2,Bernstadt
-Langenau,1,3,1.0,Langenau
+Langenau,2,2,2.0,Langenau
 Neenstetten,0,0,0.2,Neenstetten
 Börslingen,0,0,0.2,Börslingen
 Ballendorf,0,0,0.2,Ballendorf
@@ -41,7 +41,7 @@ Emerkingen,0,1,0.6,Emerkingen
 Obermarchtal,0,0,0.2,Obermarchtal
 Unterwachingen,0,0,0.2,Unterwachingen
 Unterstadion,0,0,0.2,Unterstadion
-Dietenheim,1,1,1.0,Dietenheim
+Dietenheim,1,2,1.0,Dietenheim
 Hausen am Bussen,0,0,0.2,Hausen am Bussen
 Ehingen (Donau),5,8,5.0,Ehingen (Donau)
 Munderkingen,0,0,0.2,Munderkingen
@@ -54,4 +54,4 @@ Griesingen,0,1,0.6,Griesingen
 Hüttisheim,0,0,0.2,Hüttisheim
 Emeringen,0,0,0.2,Emeringen
 Rechtenstein,0,0,0.2,Rechtenstein
-Ulm,40,75,40.0,Ulm
+Ulm,36,72,36.0,Ulm
