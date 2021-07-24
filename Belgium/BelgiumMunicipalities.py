@@ -18,34 +18,37 @@ date_list = pd.date_range(start=start,end=yesterday).tolist()
 for d in date_list:  
     if d.weekday() in [1,2,3,4,5]:
         date_time = d.strftime("%Y%m%d")
-        url = f"https://epistat.sciensano.be/Data/{date_time}/COVID19BE_CASES_MUNI_CUM_{date_time}.csv"
-        print(d)
-        df = pd.read_csv(url)
-        df = df.dropna(subset=['NIS5'])
-        df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement d\’', '')
-        df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement de', '')
-        df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement', '')
-        df['TX_ADM_DSTR_DESCR_FR'] = df['TX_ADM_DSTR_DESCR_FR'].str.replace('Arrondissement d\’', '')
-        df['TX_ADM_DSTR_DESCR_FR'] = df['TX_ADM_DSTR_DESCR_FR'].str.replace('Arrondissement de', '')
-        df['TX_ADM_DSTR_DESCR_FR'] = df['TX_ADM_DSTR_DESCR_FR'].str.replace('Arrondissement', '')
+        if date_time != '20210722':
+          url = f"https://epistat.sciensano.be/Data/{date_time}/COVID19BE_CASES_MUNI_CUM_{date_time}.csv"
+          print(d)
+          df = pd.read_csv(url)
+          df = df.dropna(subset=['NIS5'])
+          df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement d\’', '')
+          df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement de', '')
+          df['TX_ADM_DSTR_DESCR_NL'] = df['TX_ADM_DSTR_DESCR_NL'].str.replace('Arrondissement', '')
+          df['TX_ADM_DSTR_DESCR_FR'] = df['TX_ADM_DSTR_DESCR_FR'].str.replace('Arrondissement d\’', '')
+          df['TX_ADM_DSTR_DESCR_FR'] = df['TX_ADM_DSTR_DESCR_FR'].str.replace('Arrondissement de', '')
+          df['TX_ADM_DSTR_DESCR_FR'] = df['TX_ADM_DSTR_DESCR_FR'].str.replace('Arrondissement', '')
 
-        df['mun'] = df['TX_DESCR_NL']
-        df.loc[df['TX_DESCR_NL'] != df['TX_DESCR_FR'], 'mun'] = df['TX_DESCR_NL'] + '/' + df['TX_DESCR_FR']
-        df['arr'] = df['TX_ADM_DSTR_DESCR_NL']
-        df.loc[df['TX_ADM_DSTR_DESCR_NL'] != df['TX_ADM_DSTR_DESCR_FR'], 'arr'] = df['TX_ADM_DSTR_DESCR_NL'] + '/' + df['TX_ADM_DSTR_DESCR_FR']
+          df['mun'] = df['TX_DESCR_NL']
+          df.loc[df['TX_DESCR_NL'] != df['TX_DESCR_FR'], 'mun'] = df['TX_DESCR_NL'] + '/' + df['TX_DESCR_FR']
+          df['arr'] = df['TX_ADM_DSTR_DESCR_NL']
+          df.loc[df['TX_ADM_DSTR_DESCR_NL'] != df['TX_ADM_DSTR_DESCR_FR'], 'arr'] = df['TX_ADM_DSTR_DESCR_NL'] + '/' + df['TX_ADM_DSTR_DESCR_FR']
 
-        df['combined'] = df['mun']+', '+df['arr']
-        df.loc[df['CASES'] == '<5', 'CASES'] = 1
-        df = df.rename(columns={'CASES': d})
-        df.index = df['combined']
-        if d < datetime.date(2020, 9, 22):
-            df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'TX_PROV_DESCR_NL', 'TX_PROV_DESCR_FR', 'TX_RGN_DESCR_NL', 'TX_RGN_DESCR_FR', 'mun','arr','combined'], axis = 1)
+          df['combined'] = df['mun']+', '+df['arr']
+          df.loc[df['CASES'] == '<5', 'CASES'] = 1
+          df = df.rename(columns={'CASES': d})
+          df.index = df['combined']
+          if d < datetime.date(2020, 9, 22):
+              df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'TX_PROV_DESCR_NL', 'TX_PROV_DESCR_FR', 'TX_RGN_DESCR_NL', 'TX_RGN_DESCR_FR', 'mun','arr','combined'], axis = 1)
+          else:
+              df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'PROVINCE', 'REGION', 'mun','arr','combined'], axis = 1)
+          if mun.empty:
+              mun = df.copy()
+          else:
+              mun = mun.join(df)
         else:
-            df = df.drop(['NIS5','TX_DESCR_NL','TX_DESCR_FR', 'TX_ADM_DSTR_DESCR_NL', 'TX_ADM_DSTR_DESCR_FR', 'PROVINCE', 'REGION', 'mun','arr','combined'], axis = 1)
-        if mun.empty:
-            mun = df.copy()
-        else:
-            mun = mun.join(df)
+          mun[d] = mun[mun.columns[-1]]
 mun = mun.T
 
 
