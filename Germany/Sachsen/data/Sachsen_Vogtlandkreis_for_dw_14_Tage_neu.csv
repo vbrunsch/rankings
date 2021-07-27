@@ -1,38 +1,38 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-343,Bad Elster,1,10.0,3.675,272,Vogtlandkreis,0,1,1
-344,Reichenbach im Vogtland,2,10.0,20.487,49,Vogtlandkreis,0,1,1
-345,Plauen,3,10.0,64.597,15,Vogtlandkreis,1,2,1
-346,Adorf/Vogtl.,4,2.0,4.843999999999999,0,Vogtlandkreis,0,0,0
-347,Auerbach/Vogtl.,4,2.0,18.237000000000002,0,Vogtlandkreis,0,0,0
-348,Bad Brambach,4,2.0,1.8330000000000002,0,Vogtlandkreis,0,0,0
-349,Bergen,4,2.0,958.0,0,Vogtlandkreis,0,0,0
-350,Bösenbrunn,4,2.0,1.1420000000000001,0,Vogtlandkreis,0,0,0
-351,Eichigt,4,2.0,1.192,0,Vogtlandkreis,0,0,0
-352,Ellefeld,4,2.0,2.546,0,Vogtlandkreis,0,0,0
-353,Elsterberg,4,2.0,3.925,0,Vogtlandkreis,0,0,0
-354,Falkenstein/Vogtl.,4,2.0,7.947,0,Vogtlandkreis,0,0,0
-355,Grünbach,4,2.0,1.643,0,Vogtlandkreis,0,0,0
-356,Heinsdorfergrund,4,2.0,1.9680000000000002,0,Vogtlandkreis,0,0,0
-357,Klingenthal,4,2.0,8.184,0,Vogtlandkreis,0,0,0
-358,Lengenfeld,4,6.0,7.124,0,Vogtlandkreis,2,2,0
-359,Limbach,4,2.0,1.4269999999999998,0,Vogtlandkreis,0,0,0
-360,Markneukirchen,4,2.0,7.47,0,Vogtlandkreis,0,0,0
-361,Mühlental,4,2.0,1.276,0,Vogtlandkreis,0,0,0
-362,Muldenhammer,4,2.0,3.025,0,Vogtlandkreis,0,0,0
-363,Netzschkau,4,2.0,3.8539999999999996,0,Vogtlandkreis,0,0,0
-364,Neuensalz,4,2.0,2.106,0,Vogtlandkreis,0,0,0
-365,Neumark,4,2.0,2.964,0,Vogtlandkreis,0,0,0
-366,Neustadt/Vogtl.,4,2.0,959.0,0,Vogtlandkreis,0,0,0
-367,Oelsnitz/Vogtl.,4,2.0,10.142999999999999,0,Vogtlandkreis,0,0,0
-368,Pausa-Mühltroff,4,2.0,4.919,0,Vogtlandkreis,0,0,0
-369,Pöhl,4,2.0,2.4819999999999998,0,Vogtlandkreis,0,0,0
-370,Rodewisch,4,2.0,6.372999999999999,0,Vogtlandkreis,0,0,0
-371,Rosenbach/Vogtl.,4,2.0,4.133,0,Vogtlandkreis,0,0,0
-372,Schöneck/Vogtl.,4,2.0,3.142,0,Vogtlandkreis,0,0,0
-373,Steinberg,4,2.0,2.7430000000000003,0,Vogtlandkreis,0,0,0
-374,Theuma,4,2.0,1.0190000000000001,0,Vogtlandkreis,0,0,0
-375,Tirpersdorf,4,2.0,1.3559999999999999,0,Vogtlandkreis,0,0,0
-376,Treuen,4,2.0,7.784,0,Vogtlandkreis,0,0,0
-377,Triebel/Vogtl.,4,2.0,1.222,0,Vogtlandkreis,0,0,0
-378,Weischlitz,4,2.0,5.806,0,Vogtlandkreis,0,0,0
-379,Werda,4,2.0,1.492,0,Vogtlandkreis,0,0,0
+343,Bad Elster,1,10.0,3.675,272,Vogtlandkreis,1,2,1
+344,Auerbach/Vogtl.,2,10.0,18.237000000000002,55,Vogtlandkreis,0,1,1
+345,Adorf/Vogtl.,3,2.0,4.843999999999999,0,Vogtlandkreis,0,0,0
+346,Bad Brambach,3,2.0,1.8330000000000002,0,Vogtlandkreis,0,0,0
+347,Bergen,3,2.0,958.0,0,Vogtlandkreis,0,0,0
+348,Bösenbrunn,3,2.0,1.1420000000000001,0,Vogtlandkreis,0,0,0
+349,Eichigt,3,2.0,1.192,0,Vogtlandkreis,0,0,0
+350,Ellefeld,3,2.0,2.546,0,Vogtlandkreis,0,0,0
+351,Elsterberg,3,2.0,3.925,0,Vogtlandkreis,0,0,0
+352,Falkenstein/Vogtl.,3,2.0,7.947,0,Vogtlandkreis,0,0,0
+353,Grünbach,3,2.0,1.643,0,Vogtlandkreis,0,0,0
+354,Heinsdorfergrund,3,2.0,1.9680000000000002,0,Vogtlandkreis,0,0,0
+355,Klingenthal,3,2.0,8.184,0,Vogtlandkreis,0,0,0
+356,Lengenfeld,3,2.0,7.124,0,Vogtlandkreis,0,0,0
+357,Limbach,3,2.0,1.4269999999999998,0,Vogtlandkreis,0,0,0
+358,Markneukirchen,3,2.0,7.47,0,Vogtlandkreis,0,0,0
+359,Mühlental,3,2.0,1.276,0,Vogtlandkreis,0,0,0
+360,Muldenhammer,3,2.0,3.025,0,Vogtlandkreis,0,0,0
+361,Netzschkau,3,2.0,3.8539999999999996,0,Vogtlandkreis,0,0,0
+362,Neuensalz,3,2.0,2.106,0,Vogtlandkreis,0,0,0
+363,Neumark,3,2.0,2.964,0,Vogtlandkreis,0,0,0
+364,Neustadt/Vogtl.,3,2.0,959.0,0,Vogtlandkreis,0,0,0
+365,Oelsnitz/Vogtl.,3,2.0,10.142999999999999,0,Vogtlandkreis,0,0,0
+366,Pausa-Mühltroff,3,2.0,4.919,0,Vogtlandkreis,0,0,0
+367,Plauen,3,6.0,64.597,0,Vogtlandkreis,1,1,0
+368,Pöhl,3,2.0,2.4819999999999998,0,Vogtlandkreis,0,0,0
+369,Reichenbach im Vogtland,3,6.0,20.487,0,Vogtlandkreis,1,1,0
+370,Rodewisch,3,2.0,6.372999999999999,0,Vogtlandkreis,0,0,0
+371,Rosenbach/Vogtl.,3,2.0,4.133,0,Vogtlandkreis,0,0,0
+372,Schöneck/Vogtl.,3,2.0,3.142,0,Vogtlandkreis,0,0,0
+373,Steinberg,3,2.0,2.7430000000000003,0,Vogtlandkreis,0,0,0
+374,Theuma,3,2.0,1.0190000000000001,0,Vogtlandkreis,0,0,0
+375,Tirpersdorf,3,2.0,1.3559999999999999,0,Vogtlandkreis,0,0,0
+376,Treuen,3,2.0,7.784,0,Vogtlandkreis,0,0,0
+377,Triebel/Vogtl.,3,2.0,1.222,0,Vogtlandkreis,0,0,0
+378,Weischlitz,3,2.0,5.806,0,Vogtlandkreis,0,0,0
+379,Werda,3,2.0,1.492,0,Vogtlandkreis,0,0,0
