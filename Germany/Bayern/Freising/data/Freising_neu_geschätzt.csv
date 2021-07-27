@@ -1,13 +1,13 @@
 Gemeinde/Stadt,AGS,Pos in Qua,PiQ_last_week,PiQ_previous_week,previous7,last7
 Allershausen,85391,0.0,0.0,0.0,0,0
 Attenkirchen,85395,1.0,0.0,0.0,0,1
-Au i.d.Hallertau,84072,1.0,2.0,0.0,2,0
-Eching – Oberbayern,85386,1.0,4.0,1.0,3,0
-Fahrenzhausen,85777,2.0,1.0,1.0,0,2
-Freising,85356,46.0,42.0,20.0,32,14
+Au i.d.Hallertau,84072,3.0,2.0,0.0,2,1
+Eching – Oberbayern,85386,3.0,4.0,1.0,3,0
+Fahrenzhausen,85777,2.0,2.0,1.0,1,1
+Freising,85356,43.0,45.0,23.0,33,10
 Gammelsdorf,85408,0.0,0.0,0.0,0,0
-Haag a.d.Amper,85410,0.0,0.0,0.0,0,0
-Hallbergmoos,85399,4.0,6.0,6.0,3,1
+Haag a.d.Amper,85410,1.0,0.0,0.0,0,1
+Hallbergmoos,85399,4.0,6.0,7.0,2,2
 Hohenkammer,85411,0.0,0.0,0.0,0,0
 Hörgertshausen,85413,0.0,0.0,0.0,0,0
 Kirchdorf a.d.Amper,85414,1.0,0.0,0.0,0,1
@@ -15,11 +15,11 @@ Kranzberg,85402,1.0,1.0,0.0,1,0
 Langenbach,85416,0.0,0.0,0.0,0,0
 Marzling,85417,7.0,4.0,0.0,4,3
 Mauern,85419,0.0,0.0,0.0,0,0
-Moosburg a.d.Isar,85368,5.0,5.0,3.0,3,2
+Moosburg a.d.Isar,85368,4.0,4.0,3.0,2,2
 Nandlstadt,85405,1.0,0.0,0.0,0,1
-Neufahrn b.Freising,85376,6.0,8.0,6.0,5,1
-Paunzhausen,85307,1.0,0.0,0.0,0,1
-Rudelzhausen,84104,5.0,2.0,1.0,1,4
+Neufahrn b.Freising,85376,6.0,5.0,7.0,1,5
+Paunzhausen,85307,1.0,1.0,0.0,1,0
+Rudelzhausen,84104,4.0,3.0,1.0,2,2
 Wang,85368,0.0,0.0,0.0,0,0
 Wolfersdorf,85395,0.0,0.0,1.0,0,0
 Zolling,85406,2.0,2.0,2.0,1,1
