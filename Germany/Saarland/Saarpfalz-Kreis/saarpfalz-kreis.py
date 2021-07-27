@@ -2,7 +2,7 @@ from datetime import timedelta
 import pandas as pd
 
 dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
-to = pd.Timestamp.today()# - timedelta(days=1)
+to = pd.Timestamp.today() - timedelta(days=1)
 tod = to.strftime('%m_%d_%Y')
 df = dfs[1]
 df = df.set_index(df.columns[0])
@@ -13,6 +13,9 @@ if tod in ['05_13_2021','05_16_2021','05_23_2021','06_03_2021','06_06_2021']:
     df['Veränderung zum Vortag'] = 0
 if to.weekday() == 5:
     df['Veränderung zum Vortag'] = 0
+str_fr = 'Veränderung zum Freitag'
+if str_fr in df.columns:
+    df['Veränderung zum Vortag'] = df[str_fr]
 df.to_csv(f'Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_{tod}.csv')
 
 neu = pd.read_csv('Germany/Saarland/Saarpfalz-Kreis/data/Saarpfalz-Kreis_current.csv', index_col=0)
