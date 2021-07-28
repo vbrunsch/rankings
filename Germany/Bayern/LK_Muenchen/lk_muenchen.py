@@ -10,6 +10,7 @@ df.columns = df.iloc[0]
 df = df[1:]
 df = df.replace('Haar\*','Haar',regex=True)
 df = df.replace('Hohenbrunn\*','Hohenbrunn',regex=True)
+df = df.replace('Ottobrunn\*','Ottobrunn',regex=True)
 df = df.set_index('Kommune')
 import numpy as np
 try:
@@ -22,7 +23,7 @@ df = df.astype(float)
 df[np.isnan(df)] = 0
 df = df.astype(int)
 print(df)
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_{tod}.csv')
 
