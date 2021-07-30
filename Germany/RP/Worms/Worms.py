@@ -22,12 +22,12 @@ kon = pd.DataFrame()
 zus = pd.DataFrame()
 we = 0
 
-for x in range(0,14): # CHANGE HERE
+for x in range(1,15): # CHANGE HERE
     x = x + we*2
     m = 0
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
-    while m == 0 and x < 14: # CHANGE HERE
+    while m == 0 and x < 15: # CHANGE HERE
         for url in ['https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=2#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=3#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=4#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=5#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=6#list_586a9b2b']:
             if tod == '27.04.2021':
               m = m + 1
@@ -79,6 +79,8 @@ for x in range(0,14): # CHANGE HERE
                             print(df)
 
                         df = df.replace('-', 0)
+                        index_names = df[ df['Unnamed: 0'] == 'Ohne festen Wohnsitz im Landkreis' ].index
+                        df.drop(index_names, inplace = True)
                         df[df.columns[1]] = df[df.columns[1]].astype(int)
                         df[df.columns[2]] = df[df.columns[2]].astype(int)
                         df[df.columns[3]] = df[df.columns[3]].astype(int)
