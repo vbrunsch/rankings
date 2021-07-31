@@ -7,7 +7,7 @@ df['Gesamtzahl'] = df['Gesamtzahl'].str.replace(' \(.*\)','')
 df['Gesamtzahl'] = df['Gesamtzahl'].str.replace('\.','')
 df = df.astype(int)
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/Minden-Luebbecke/data/Minden-Lübbecke_{tod}.csv')
