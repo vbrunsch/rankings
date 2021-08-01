@@ -7,7 +7,7 @@ import pandas as pd
 import re
 import requests
 
-tod = pd.Timestamp.today() - timedelta(days = 1)
+tod = pd.Timestamp.today()# - timedelta(days = 1)
 todf = tod.strftime('%Y-%m-%d')
 tod = tod.strftime('%m_%d_%Y')
 
