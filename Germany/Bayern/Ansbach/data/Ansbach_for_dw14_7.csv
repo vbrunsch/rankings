@@ -10,7 +10,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571130,0,0,0,0.2,Colmberg
 9571132,0,0,0,0.2,Dentlein
 9571134,0,0,0,0.2,Diebach
-9571135,1,1,0,1.0,Dietenhofen
+9571135,2,2,0,2.0,Dietenhofen
 9571136,2,2,0,2.0,Dinkelsbühl
 9571137,0,0,0,0.2,Dombühl
 9571139,0,0,0,0.2,Dürrwangen
@@ -30,7 +30,7 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571177,0,0,0,0.2,Merkendorf
 9571178,0,0,0,0.2,Mitteleschenbach
 9571179,0,0,0,0.2,Mönchsroth
-9571180,6,9,0,6.0,Neuendettelsau
+9571180,8,10,0,8.0,Neuendettelsau
 9571181,0,0,0,0.2,"Neusitz, Mittelfr"
 9571183,0,0,0,0.2,Oberdachstetten
 9571188,0,0,0,0.2,Ohrenbach
@@ -57,4 +57,4 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571227,0,0,0,0.2,Wittelshofen
 9571229,0,0,0,0.2,Wolframs-Eschenbach
 9571228,0,0,0,0.2,Wörnitz
-9561000,2,4,0,2.0,Stadt Ansbach
+9561000,4,6,0,4.0,Stadt Ansbach
