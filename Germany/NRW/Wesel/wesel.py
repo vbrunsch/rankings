@@ -12,7 +12,7 @@ import requests
 import numpy as np
 
 
-to = pd.Timestamp.today()- timedelta(days = 1)
+to = pd.Timestamp.today()#- timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 url_s = 'https://www.kreis-wesel.de/de/themen/corona-fallzahlen/'
