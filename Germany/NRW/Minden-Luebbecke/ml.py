@@ -1,14 +1,29 @@
+import bs4
+from bs4 import BeautifulSoup
 import pandas as pd
-dfs = pd.read_html('https://webservice.amstools.de/covid/getdatadisplay2.php?sender=radiowf')
-df = dfs[0]
-df = df.set_index('Ort')
-df = df[['Gesamtzahl']]
-df['Gesamtzahl'] = df['Gesamtzahl'].str.replace(' \(.*\)','')
-df['Gesamtzahl'] = df['Gesamtzahl'].str.replace('\.','')
-df = df.astype(int)
+import time 
+import requests
+import re
+
+que = 'https://services6.arcgis.com/Br7szJz7MbZdUpDg/arcgis/rest/services/2_Gemeinden_Corona/FeatureServer/0/query?where=0%3D0&outFields=%2A&f=json'
+
+t3 = requests.get(que).text
+
+
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
+
+
+gem = re.findall('Gemeinde":"(.*?)"',t3)
+inf = re.findall('Absolut":(.*?),',t3)
+inf = inf[0:-1]
+infy = re.findall('Abs_Vortag":(.*?),',t3)
+infy = infy[0:-1]
+
+df = pd.DataFrame(data = inf, index = gem)
+df.columns = [tod]
+df['Vortag'] = infy
 print(df)
 df.to_csv(f'Germany/NRW/Minden-Luebbecke/data/Minden-Lübbecke_{tod}.csv')
 
@@ -20,6 +35,19 @@ da14 = to - timedelta(days = 14)
 da14s = da14.strftime('%m_%d_%Y')
 old7 = pd.read_csv(f'Germany/NRW/Minden-Luebbecke/data/Minden-Lübbecke_{da7s}.csv', index_col = 0)
 old14 = pd.read_csv(f'Germany/NRW/Minden-Luebbecke/data/Minden-Lübbecke_{da14s}.csv', index_col = 0)
+old7['Gemeinde'] = old7.index
+old14['Gemeinde'] = old14.index
+old7 = old7.replace('HÃ¼llhorst','Hüllhorst')
+old7 = old7.replace('LÃ¼bbecke','Lübbecke')
+old7 = old7.replace('PreuÃisch Oldendorf','Preußisch Oldendorf')
+old14 = old14.replace('HÃ¼llhorst','Hüllhorst')
+old14 = old14.replace('LÃ¼bbecke','Lübbecke')
+old14 = old14.replace('PreuÃisch Oldendorf','Preußisch Oldendorf')
+old7 = old7.set_index('Gemeinde')
+old7.index.name = None
+old14 = old14.set_index('Gemeinde')
+old14.index.name = None
+print(old7)
 
 zus = df.copy()
 zus['last7'] = zus[zus.columns[0]].astype(int) - old7[old7.columns[0]].astype(int)
@@ -41,6 +69,7 @@ zus = zus.replace('PreuÃisch Oldendorf','Preußisch Oldendorf')
 zus = zus.set_index('Gemeinde')
 zus.index.name = None
 zus['Gemeinde'] = zus.index
+
 
 print(zus)
 zus.to_csv(f'Germany/NRW/Minden-Luebbecke/data/Minden-Luebbecke_for_dw14_7.csv') 
