@@ -10,7 +10,7 @@ que = 'https://www.status-neuss.de/api/dashboard/data/DashboardItemGetAction?das
 t3 = requests.get(que).text
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = ["40667 Meerbusch","40668 Meerbusch","40670 Meerbusch","41352 Korschenbroich","41363 Jüchen","41460 Neuss","41462 Neuss","41464 Neuss","41466 Neuss","41468 Neuss","41469 Neuss","41470 Neuss","41472 Neuss","41515 Grevenbroich","41516 Grevenbroich","41517 Grevenbroich","41539 Dormagen","41540 Dormagen","41541 Dormagen","41542 Dormagen","41564 Kaarst","41569 Rommerskirchen"]
