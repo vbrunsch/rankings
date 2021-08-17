@@ -15,19 +15,19 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571137,0,0,-1,0.2,Dombühl
 9571139,0,1,0,0.6,Dürrwangen
 9571141,0,0,0,0.2,Ehingen
-9571145,1,2,0,1.0,Feuchtwangen
+9571145,0,2,0,0.6,Feuchtwangen
 9571146,0,0,0,0.2,Flachslanden
 9571152,0,0,0,0.2,Gebsattel
 9571154,0,0,0,0.2,Gerolfingen
 9571155,0,0,0,0.2,Geslau
 9571165,0,1,0,0.6,Heilsbronn
-9571166,0,1,-1,0.6,Herrieden
+9571166,0,2,0,0.6,Herrieden
 9571169,1,1,0,1.0,Insingen
 9571170,0,0,0,0.2,Langfurth
 9571171,0,0,0,0.2,Lehrberg
 9571174,2,2,0,2.0,Leutershausen
 9571175,0,0,0,0.2,Lichtenau
-9571177,1,1,0,1.0,Merkendorf
+9571177,2,2,0,2.0,Merkendorf
 9571178,0,0,0,0.2,Mitteleschenbach
 9571179,1,1,0,1.0,Mönchsroth
 9571180,2,8,0,2.0,Neuendettelsau
@@ -35,9 +35,9 @@ AGS,last7,last14,neg_l7,mix,Gemeinde
 9571183,0,0,0,0.2,Oberdachstetten
 9571188,0,0,0,0.2,Ohrenbach
 9571189,0,0,0,0.2,Ornbau
-9571190,0,3,0,0.6,Petersaurach
+9571190,0,1,0,0.6,Petersaurach
 9571192,0,0,0,0.2,Röckingen
-9571193,0,2,0,0.6,Rothenburg ob der Tauber
+9571193,0,1,0,0.6,Rothenburg ob der Tauber
 9571194,0,0,0,0.2,Rügland
 9571196,1,2,0,1.0,Sachsen b. Ansbach
 9571198,1,1,0,1.0,Schillingsfürst
