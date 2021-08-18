@@ -1,21 +1,21 @@
 Unnamed: 0,last7,last14,mix,Gemeinde
 Westerheim,1,1,1.0,Westerheim
 Schelklingen,3,4,3.0,Schelklingen
-Laichingen,3,3,3.0,Laichingen
+Laichingen,2,3,2.0,Laichingen
 Heroldstatt,0,0,0.2,Heroldstatt
 Allmendingen,0,4,0.6,Allmendingen
-Blaubeuren,3,4,3.0,Blaubeuren
+Blaubeuren,2,4,2.0,Blaubeuren
 Merklingen,0,0,0.2,Merklingen
-Berghülen,0,0,0.2,Berghülen
+Berghülen,1,1,1.0,Berghülen
 Nellingen,1,1,1.0,Nellingen
 Altheim (bei Ehingen),0,0,0.2,Altheim (bei Ehingen)
-Öpfingen,0,3,0.6,Öpfingen
+Öpfingen,0,2,0.6,Öpfingen
 Oberdischingen,1,1,1.0,Oberdischingen
-Erbach,2,10,2.0,Erbach
-Blaustein,3,4,3.0,Blaustein
+Erbach,4,9,4.0,Erbach
+Blaustein,6,7,6.0,Blaustein
 Dornstadt,1,1,1.0,Dornstadt
 Amstetten,1,1,1.0,Amstetten
-Lonsee,1,1,1.0,Lonsee
+Lonsee,1,2,1.0,Lonsee
 Westerstetten,1,2,1.0,Westerstetten
 Beimerstetten,0,0,0.2,Beimerstetten
 Weidenstetten,0,0,0.2,Weidenstetten
@@ -23,28 +23,28 @@ Staig,1,1,1.0,Staig
 Altheim (Alb),0,0,0.2,Altheim (Alb)
 Holzkirch,0,0,0.2,Holzkirch
 Breitingen,0,0,0.2,Breitingen
-Illerkirchberg,1,1,1.0,Illerkirchberg
+Illerkirchberg,2,2,2.0,Illerkirchberg
 Bernstadt,0,0,0.2,Bernstadt
 Langenau,3,3,3.0,Langenau
 Neenstetten,0,0,0.2,Neenstetten
 Börslingen,0,0,0.2,Börslingen
 Ballendorf,0,0,0.2,Ballendorf
-Nerenstetten,0,0,0.2,Nerenstetten
+Nerenstetten,2,2,2.0,Nerenstetten
 Setzingen,0,0,0.2,Setzingen
 Öllingen,0,0,0.2,Öllingen
 Rammingen,0,0,0.2,Rammingen
 Asselfingen,0,0,0.2,Asselfingen
-Balzheim,0,0,0.2,Balzheim
+Balzheim,1,1,1.0,Balzheim
 Grundsheim,0,0,0.2,Grundsheim
-Oberstadion,0,0,0.2,Oberstadion
+Oberstadion,2,2,2.0,Oberstadion
 Emerkingen,0,0,0.2,Emerkingen
-Obermarchtal,7,11,7.0,Obermarchtal
+Obermarchtal,8,12,8.0,Obermarchtal
 Unterwachingen,0,0,0.2,Unterwachingen
-Unterstadion,0,0,0.2,Unterstadion
-Dietenheim,9,14,9.0,Dietenheim
+Unterstadion,1,1,1.0,Unterstadion
+Dietenheim,9,16,9.0,Dietenheim
 Hausen am Bussen,0,0,0.2,Hausen am Bussen
-Ehingen (Donau),10,21,10.0,Ehingen (Donau)
-Munderkingen,2,2,2.0,Munderkingen
+Ehingen (Donau),7,20,7.0,Ehingen (Donau)
+Munderkingen,1,2,1.0,Munderkingen
 Rottenacker,0,1,0.6,Rottenacker
 Untermarchtal,0,0,0.2,Untermarchtal
 Lauterach,0,0,0.2,Lauterach
@@ -54,4 +54,4 @@ Griesingen,0,1,0.6,Griesingen
 Hüttisheim,1,1,1.0,Hüttisheim
 Emeringen,0,0,0.2,Emeringen
 Rechtenstein,0,0,0.2,Rechtenstein
-Ulm,48,61,48.0,Ulm
+Ulm,47,68,47.0,Ulm
