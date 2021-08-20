@@ -5,7 +5,7 @@ import pandas as pd
 url = 'https://www.landkreis-muenchen.de/themen/verbraucherschutz-gesundheit/gesundheit/coronavirus/fallzahlen/'
 dfs = pd.read_html(url)
 df= pd.DataFrame()
-df = dfs[1]
+df = dfs[3]
 df.columns = df.iloc[0]
 df = df[1:]
 df = df.replace('Haar\*','Haar',regex=True)
