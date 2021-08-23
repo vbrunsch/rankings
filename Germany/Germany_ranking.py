@@ -1,15 +1,58 @@
 import os
 from datetime import datetime
 import logging
-
+import urllib.request, urllib.error, urllib.parse
 import pandas as pd
 import numpy as np
 import geopandas as gpd
+import json, requests
+from json import loads
 
-df = gpd.read_file('https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson')
+baseURL = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0"
+fields = "*"
+# Get record extract limit
+urlstring = baseURL + "?f=json"
+j = urllib.request.urlopen(urlstring)
+js = json.load(j)
+maxrcn = int(js["maxRecordCount"])
+print(("Record extract limit: %s" % maxrcn))
+
+# Get object ids of features
+where = "1=1"#"Meldedatum>=CURRENT_TIMESTAMP-20"
+urlstring = baseURL + "/query?where={}&returnIdsOnly=true&f=json".format(where)
+j = urllib.request.urlopen(urlstring)
+js = json.load(j)
+idfield = js["objectIdFieldName"]
+idlist = js["objectIds"]
+idlist.sort()
+numrec = len(idlist)
+print(("Number of target records: %s" % numrec))
+
+# Gather features
+print("Gathering records…")
+fs = dict()
+fslist = []
+for i in range(0, numrec, maxrcn):
+  torec = i + (maxrcn - 1)
+  if torec > numrec:
+    torec = numrec - 1
+  fromid = idlist[i]
+  toid = idlist[torec]
+  where = "{} >= {} and {} <= {}".format(idfield, fromid, idfield, toid)
+  print( " {}".format(where))
+  urlstring = baseURL + "/query?where={}&returnGeometry=true&outFields={}&f=geojson".format(where,fields)
+  resp = requests.get(urlstring, verify = False)
+  data = resp.json() 
+  gdf = gpd.GeoDataFrame.from_features(data['features'])
+  #merge data
+  fslist.append(gdf)
+final_gdf = pd.concat(fslist)
+
+
+#df = gpd.read_file('https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson')
 df_pop = pd.read_csv('https://raw.githubusercontent.com/vbrunsch/rankings/main/population%20Germany%20districts.csv')
 
-focus = df.copy().drop(['ObjectId','Altersgruppe','Geschlecht','AnzahlTodesfall','Datenstand','NeuerFall','NeuerTodesfall','Refdatum','NeuGenesen','AnzahlGenesen','IstErkrankungsbeginn','Altersgruppe2','geometry'], axis=1)#.set_index(['Meldedatum'])
+focus = final_gdf.copy().drop(['ObjectId','Altersgruppe','Geschlecht','AnzahlTodesfall','Datenstand','NeuerFall','NeuerTodesfall','Refdatum','NeuGenesen','AnzahlGenesen','IstErkrankungsbeginn','Altersgruppe2','geometry'], axis=1)#.set_index(['Meldedatum'])
 confirm = focus.groupby('Bundesland').sum().T
 confirm_LK = focus.groupby('Landkreis').sum().T
 #confirm_LK = confirm_LK.drop(['LK Göttingen (alt)'], axis = 1)
@@ -19,7 +62,8 @@ import datetime as dt
 collect = []
 for country in confirm_LK.columns:
     bula = focus[focus['Landkreis']==country]
-    bula['Datum']= pd.to_datetime(bula['Meldedatum']).dt.date
+    #bula['Datum']= pd.to_datetime(bula['Meldedatum']).dt.date
+    bula['Datum']= (bula['Meldedatum']/1000).astype(int).map(lambda x: pd.to_datetime(x, unit = 's'))
     bula = bula.sort_values(['Datum'], ascending=[True])
     bula['Total'] = bula.groupby(['Landkreis', 'Datum'])['AnzahlFall'].transform('sum')
     new_bula = bula.drop_duplicates(subset=['Landkreis', 'Datum'])
