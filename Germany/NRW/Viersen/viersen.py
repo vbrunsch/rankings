@@ -19,12 +19,12 @@ for i in links:
   t4 = re.findall('Meldungsdatum: (.*?)<',t3)
   t5 = re.findall('(.*?) verteilen sich wie folgt auf die ',t3)
   from datetime import timedelta
-  to = pd.Timestamp.today()# - timedelta(days = 1)
+  to = pd.Timestamp.today() - timedelta(days = 1)
   tod = to.strftime('%m_%d_%Y')
   tos = to.strftime('%d.%m.%Y')
   if tos == t4[0] and t5:
     dfs = pd.read_html(i)
-    df = dfs[0]
+    df = dfs[1]
     df.columns = df.iloc[0]
     df = df[1:]
     df = df.set_index('Kommune')
