@@ -7,7 +7,7 @@ on:
   #push:
     #branches: [ main ]
   schedule:
-    - cron: '48 21 * * *'
+    - cron: '48 21 * * 2'
 
 jobs:
   build:
