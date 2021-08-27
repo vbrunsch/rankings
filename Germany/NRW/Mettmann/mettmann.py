@@ -25,7 +25,7 @@ from datetime import timedelta
 url = 'https://www.kreis-mettmann-corona.de/Aktuelle-Meldungen/'
 html = urllib.request.urlopen(url)
 htmlParse = BeautifulSoup(html, 'html.parser')
-lin = re.findall('"(\/Aktuelle-Meldungen\/Corona-Virus-[0-9]*-Infizierte.*?)"', str(htmlParse))
+lin = re.findall('"(\/Aktuelle-Meldungen\/Corona-Virus-[0-9]*-*[0-9]*-Infizierte.*?)"', str(htmlParse))
 print(lin[0])
 
 url2 = 'https://www.kreis-mettmann-corona.de' + lin[0]
