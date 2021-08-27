@@ -34,14 +34,14 @@ url2 = url2.replace('amp;','')
 html2 = urllib.request.urlopen(url2)
 htmlParse2 = BeautifulSoup(html2, 'html.parser')
 lin2 = re.findall('"(\/media.*?g\.PNG.*)"', str(htmlParse2))
-imp = re.findall('"\/media\/custom\/(.*?g\.PNG.*?)"', str(htmlParse2))
+imp = re.findall('" href="\/media\/custom\/(.*?g\.JPG.*?)"', str(htmlParse2))
 print(lin2)
 im_p = '"' + 'https://www.kreis-mettmann-corona.de' + lin2[1] + '"'
 
 os.system(f"wget {im_p}")
 #$wget ${im_p}
 
-ext_i = pytesseract.image_to_string(Image.open(imp[1]))
+ext_i = pytesseract.image_to_string(Image.open(imp[0]))
 
 
 infa = re.findall('[^\/].*?\/.*?\/([0-9]*)[^\/0-9]',ext_i)
