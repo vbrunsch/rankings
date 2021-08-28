@@ -19,7 +19,7 @@ df = pd.DataFrame(index = ['Neunkirchen','Illingen','Ottweiler','Eppelborn','Mer
 import re
 
 from datetime import timedelta
-for x in range(0,14):
+for x in range(1,15):
     to = pd.Timestamp.today() -timedelta(days=x)
     tod = to.strftime('%d.%m.%Y')
     text = htmlParse.get_text()
@@ -38,8 +38,8 @@ for x in range(0,14):
           df[tod] = [0,0,0,0,0,0,0]
     except:
       df[tod] = [0,0,0,0,0,0,0]
-if '13.08.2021' in df.columns:
-  df['13.08.2021'] = [5,2,3,0,1,0,0]
+if '27.08.2021' in df.columns:
+  df['27.08.2021'] = [7,0,1,0,0,0,5]
 print(df)
 
 import numpy as np
