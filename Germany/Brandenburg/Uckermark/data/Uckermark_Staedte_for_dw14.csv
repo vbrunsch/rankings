@@ -1,8 +1,8 @@
 AGS,sum_14,Gemeinde
-12073008,7,Angermünde
-12073452,9,Prenzlau
-12073532,3,Schwedt/Oder
-12073572,1,Templin
+12073008,11,Angermünde
+12073452,10,Prenzlau
+12073532,9,Schwedt/Oder
+12073572,0,Templin
 12073384,2,Lychen
 12073069,0,Boitzenburger Land
 12073429,0,Nordwestuckermark
@@ -10,7 +10,7 @@ AGS,sum_14,Gemeinde
 12073085,2,Brüssow
 12073189,0,Gartz (Oder)
 12073201,0,Gerswalde
-12073225,1,Gramzow
+12073225,2,Gramzow
 12073093,2,Carmzow-Wallmow
 12073216,2,Göritz
 12073490,2,Schenkenberg
@@ -27,8 +27,8 @@ AGS,sum_14,Gemeinde
 12073309,0,Hohenselchow-Groß Pinnow
 12073393,0,Mescherin
 12073565,0,Tantow
-12073261,1,Grünow
-12073430,1,Oberuckersee
-12073458,1,Randowtal
-12073578,1,Uckerfelde
-12073645,1,Zichow
+12073261,2,Grünow
+12073430,2,Oberuckersee
+12073458,2,Randowtal
+12073578,2,Uckerfelde
+12073645,2,Zichow
