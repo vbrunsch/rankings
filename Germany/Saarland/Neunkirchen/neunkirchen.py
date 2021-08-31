@@ -19,10 +19,11 @@ df = pd.DataFrame(index = ['Neunkirchen','Illingen','Ottweiler','Eppelborn','Mer
 import re
 
 from datetime import timedelta
-for x in range(0,14):
+for x in range(1,15):
     to = pd.Timestamp.today() -timedelta(days=x)
     tod = to.strftime('%d.%m.%Y')
     text = htmlParse.get_text()
+    text = text.replace('\r', '').replace('\n', '')
     matches = re.findall(tod+'.*\),', text)
     try:
       if re.findall('Illingen \+?(\d+)',matches[0].replace(u'\xa0', u' ')):
