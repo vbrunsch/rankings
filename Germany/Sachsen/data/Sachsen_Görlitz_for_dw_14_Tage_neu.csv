@@ -1,5 +1,5 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-116,Markersdorf,1,70.0,3.9010000000000002,1794,Görlitz,1,8,7
+116,Markersdorf,1,70.0,3.9010000000000002,1794,Görlitz,3,10,7
 117,Schönbach,2,10.0,1.09,917,Görlitz,0,1,1
 118,Weißkeißel,3,10.0,1.284,779,Görlitz,0,1,1
 119,Jonsdorf,4,10.0,1.548,646,Görlitz,0,1,1
@@ -9,13 +9,13 @@
 123,Leutersdorf,8,10.0,3.483,287,Görlitz,0,1,1
 124,Mittelherwigsdorf,9,10.0,3.634,275,Görlitz,0,1,1
 125,Rothenburg/O.L.,10,10.0,4.458,224,Görlitz,0,1,1
-126,Zittau,11,50.0,25.086,199,Görlitz,1,6,5
+126,Zittau,11,50.0,25.086,199,Görlitz,3,8,5
 127,Kottmar,12,10.0,7.236000000000001,138,Görlitz,0,1,1
 128,Löbau,13,10.0,14.456,69,Görlitz,0,1,1
-129,Görlitz,14,20.0,55.98,36,Görlitz,16,18,2
-130,Bad Muskau,15,6.0,3.6860000000000004,0,Görlitz,1,1,0
+129,Görlitz,14,20.0,55.98,36,Görlitz,2,4,2
+130,Bad Muskau,15,2.0,3.6860000000000004,0,Görlitz,0,0,0
 131,Beiersdorf,15,2.0,1.14,0,Görlitz,0,0,0
-132,Bernstadt a.d. Eigen,15,6.0,3.3539999999999996,0,Görlitz,1,1,0
+132,Bernstadt a.d. Eigen,15,2.0,3.3539999999999996,0,Görlitz,0,0,0
 133,Boxberg/O.L.,15,2.0,4.402,0,Görlitz,0,0,0
 134,Dürrhennersdorf,15,2.0,986.0,0,Görlitz,0,0,0
 135,Ebersbach-Neugersdorf,15,2.0,11.853,0,Görlitz,0,0,0
@@ -27,7 +27,7 @@
 141,Hainewalde,15,2.0,1.511,0,Görlitz,0,0,0
 142,Hohendubrau,15,2.0,1.882,0,Görlitz,0,0,0
 143,Horka,15,2.0,1.694,0,Görlitz,0,0,0
-144,Kodersdorf,15,6.0,2.4219999999999997,0,Görlitz,1,1,0
+144,Kodersdorf,15,2.0,2.4219999999999997,0,Görlitz,0,0,0
 145,Königshain,15,2.0,1.179,0,Görlitz,0,0,0
 146,Krauschwitz i.d. O.L.,15,2.0,3.469,0,Görlitz,0,0,0
 147,Kreba-Neudorf,15,2.0,856.0,0,Görlitz,0,0,0
@@ -51,4 +51,4 @@
 165,Trebendorf,15,2.0,854.0,0,Görlitz,0,0,0
 166,Vierkirchen,15,2.0,1.663,0,Görlitz,0,0,0
 167,Waldhufen,15,2.0,2.37,0,Görlitz,0,0,0
-168,Weißwasser/O.L.,15,6.0,15.886,0,Görlitz,1,1,0
+168,Weißwasser/O.L.,15,2.0,15.886,0,Görlitz,0,0,0

@@ -1,33 +1,33 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
 57,Niederdorf,1,20.0,1.28,1563,Erzgebirgskreis,0,2,2
-58,Gornau/Erzgeb.,2,30.0,3.767,796,Erzgebirgskreis,0,3,3
-59,Jöhstadt,3,20.0,2.62,763,Erzgebirgskreis,0,2,2
-60,Geyer,4,20.0,3.403,588,Erzgebirgskreis,0,2,2
+58,Gornau/Erzgeb.,2,30.0,3.767,796,Erzgebirgskreis,1,4,3
+59,Jöhstadt,3,20.0,2.62,763,Erzgebirgskreis,1,3,2
+60,Geyer,4,20.0,3.403,588,Erzgebirgskreis,1,3,2
 61,Drebach,5,30.0,5.127000000000001,585,Erzgebirgskreis,0,3,3
-62,Lauter-Bernsbach,6,50.0,8.628,58,Erzgebirgskreis,0,5,5
+62,Lauter-Bernsbach,6,50.0,8.628,58,Erzgebirgskreis,1,6,5
 63,Hohndorf,7,20.0,3.486,574,Erzgebirgskreis,0,2,2
 64,Crottendorf,8,20.0,4.052,494,Erzgebirgskreis,0,2,2
-65,Lößnitz,9,40.0,8.201,488,Erzgebirgskreis,0,4,4
+65,Lößnitz,9,40.0,8.201,488,Erzgebirgskreis,3,7,4
 66,Seiffen/Erzgeb.,10,10.0,2.0980000000000003,477,Erzgebirgskreis,0,1,1
 67,Bärenstein,11,10.0,2.282,438,Erzgebirgskreis,0,1,1
-68,Thum,12,20.0,5.118,391,Erzgebirgskreis,0,2,2
+68,Thum,12,20.0,5.118,391,Erzgebirgskreis,1,3,2
 69,Zschopau,13,30.0,9.17,327,Erzgebirgskreis,0,3,3
-70,Sehmatal,14,20.0,6.377999999999999,314,Erzgebirgskreis,0,2,2
-71,Schwarzenberg/Erzgeb.,15,50.0,16.447,304,Erzgebirgskreis,11,16,5
+70,Sehmatal,14,20.0,6.377999999999999,314,Erzgebirgskreis,2,4,2
+71,Schwarzenberg/Erzgeb.,15,50.0,16.447,304,Erzgebirgskreis,5,10,5
 72,Grünhainichen,16,10.0,3.346,299,Erzgebirgskreis,0,1,1
 73,Großrückerswalde,17,10.0,3.3560000000000003,298,Erzgebirgskreis,0,1,1
-74,Marienberg,18,50.0,16.906,296,Erzgebirgskreis,1,6,5
+74,Marienberg,18,50.0,16.906,296,Erzgebirgskreis,0,5,5
 75,Mildenau,19,10.0,3.3989999999999996,294,Erzgebirgskreis,0,1,1
-76,Schneeberg,20,40.0,13.873,288,Erzgebirgskreis,3,7,4
-77,Olbernhau,21,30.0,10.84,277,Erzgebirgskreis,1,4,3
-78,Amtsberg,22,10.0,3.6889999999999996,271,Erzgebirgskreis,1,2,1
-79,Lugau/Erzgeb.,23,20.0,8.005,25,Erzgebirgskreis,1,3,2
+76,Schneeberg,20,40.0,13.873,288,Erzgebirgskreis,5,9,4
+77,Olbernhau,21,30.0,10.84,277,Erzgebirgskreis,8,11,3
+78,Amtsberg,22,10.0,3.6889999999999996,271,Erzgebirgskreis,0,1,1
+79,Lugau/Erzgeb.,23,20.0,8.005,25,Erzgebirgskreis,0,2,2
 80,Annaberg-Buchholz,24,40.0,19.619,204,Erzgebirgskreis,3,7,4
-81,Oelsnitz/Erzgeb.,25,20.0,10.950999999999999,183,Erzgebirgskreis,0,2,2
-82,Grünhain-Beierfeld,26,10.0,5.851,171,Erzgebirgskreis,0,1,1
-83,Zwönitz,27,20.0,11.927,168,Erzgebirgskreis,1,3,2
+81,Oelsnitz/Erzgeb.,25,20.0,10.950999999999999,183,Erzgebirgskreis,2,4,2
+82,Grünhain-Beierfeld,26,10.0,5.851,171,Erzgebirgskreis,2,3,1
+83,Zwönitz,27,20.0,11.927,168,Erzgebirgskreis,3,5,2
 84,Burkhardtsdorf,28,10.0,6.117999999999999,163,Erzgebirgskreis,0,1,1
-85,Aue-Bad Schlema,29,6.0,20.352999999999998,0,Erzgebirgskreis,2,2,0
+85,Aue-Bad Schlema,29,2.0,20.352999999999998,0,Erzgebirgskreis,0,0,0
 86,Auerbach,29,2.0,2.455,0,Erzgebirgskreis,0,0,0
 87,Bockau,29,2.0,2.225,0,Erzgebirgskreis,0,0,0
 88,Börnichen/Erzgeb.,29,2.0,985.0,0,Erzgebirgskreis,0,0,0
@@ -40,7 +40,7 @@
 95,Gornsdorf,29,2.0,1.911,0,Erzgebirgskreis,0,0,0
 96,Großolbersdorf,29,2.0,2.7960000000000003,0,Erzgebirgskreis,0,0,0
 97,Heidersdorf,29,2.0,784.0,0,Erzgebirgskreis,0,0,0
-98,Jahnsdorf/Erzgeb.,29,2.0,5.476,0,Erzgebirgskreis,0,0,0
+98,Jahnsdorf/Erzgeb.,29,6.0,5.476,0,Erzgebirgskreis,2,2,0
 99,Johanngeorgenstadt,29,2.0,3.897,0,Erzgebirgskreis,0,0,0
 100,Königswalde,29,2.0,2.22,0,Erzgebirgskreis,0,0,0
 101,Neukirchen/Erzgeb.,29,2.0,6.907,0,Erzgebirgskreis,0,0,0
@@ -51,10 +51,10 @@
 106,Scheibenberg,29,2.0,2.083,0,Erzgebirgskreis,0,0,0
 107,Schlettau,29,2.0,2.3680000000000003,0,Erzgebirgskreis,0,0,0
 108,Schönheide,29,2.0,4.3660000000000005,0,Erzgebirgskreis,0,0,0
-109,Stollberg/Erzgeb.,29,6.0,11.3,0,Erzgebirgskreis,2,2,0
+109,Stollberg/Erzgeb.,29,6.0,11.3,0,Erzgebirgskreis,3,3,0
 110,Stützengrün,29,2.0,3.1460000000000004,0,Erzgebirgskreis,0,0,0
 111,Tannenberg,29,2.0,1.101,0,Erzgebirgskreis,0,0,0
 112,Thalheim/Erzgeb.,29,2.0,5.952000000000001,0,Erzgebirgskreis,0,0,0
 113,Thermalbad Wiesenbad,29,2.0,3.242,0,Erzgebirgskreis,0,0,0
 114,Wolkenstein,29,2.0,3.8989999999999996,0,Erzgebirgskreis,0,0,0
-115,Zschorlau,29,2.0,5.235,0,Erzgebirgskreis,0,0,0
+115,Zschorlau,29,6.0,5.235,0,Erzgebirgskreis,1,1,0
