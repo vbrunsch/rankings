@@ -75,6 +75,8 @@ elif mon == 'August':
     mon = '08'
 elif mon == 'September':
     mon = '09'
+elif mon == ' September':
+    mon = '09'
 elif mon == 'Oktober':
     mon = '10'
 elif mon == 'November':
