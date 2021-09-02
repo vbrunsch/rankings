@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()- timedelta(days = 1)
+tod = pd.Timestamp.today()#- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
