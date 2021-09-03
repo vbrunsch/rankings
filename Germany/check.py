@@ -19,7 +19,7 @@ print('https://alb-donau-kreis.maps.arcgis.com/apps/dashboards/24f948a52d2a41d4b
 print()
 print()
 
-df = pd.read_csv('https://raw.githubusercontent.com/vbrunsch/rankings/main/Germany/Bayern/Ansbach/data/Ansbach_current.csv',index_col=0)
+df = pd.read_csv('https://raw.githubusercontent.com/vbrunsch/rankings/main/Germany/Bayern/Ansbach/data/Ansbach_current1.csv',index_col=0)
 print('Today(if Sa, expect 0):')
 print(tod)
 print('Ansbach')
