@@ -28,6 +28,7 @@ for d in data['sheetNames']:
     focus['Unknown Local (Community)'] = focus['Unknown Local (Community)'].astype(float)
     focus['Under investigation']=focus['Under investigation'].replace(r'\s+',np.nan,regex=True).replace('',np.nan)
     focus['Under investigation']=focus['Under investigation'].fillna(0)
+    focus = focus.replace({',':''}, regex=True)
     focus['Under investigation'] = focus['Under investigation'].astype(float)
     #focus['local transmission'] = focus['Unknown Local (Community)']#+focus['Under investigation']+focus['Known Local']
     ave = focus[['Under investigation']]
