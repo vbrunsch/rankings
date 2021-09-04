@@ -4,8 +4,8 @@
 name: Update Australia States and Territories Rankings
 
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '58 */6 * * *'
 
