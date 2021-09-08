@@ -28,7 +28,7 @@ old_uck.index.name = None
 old_uck = old_uck.join(new)
 #print(old_uck)
 
-tod = pd.Timestamp.today()- timedelta(hours=4)
+tod = pd.Timestamp.today()- timedelta(hours=6)
 tod = tod.date()
 tod2 = tod.strftime('%m/%d/%Y')
 tod = tod.strftime('%-m/%-d/%Y')
@@ -51,7 +51,7 @@ try:
     yea = re.findall('\. .* (....)', matches[0])[0]
 except:
     day = re.findall('(..)\.', matches[0])[0]
-    mon = re.findall('\.(.*) ', matches[0])[0]
+    mon = re.findall('\.(..)', matches[0])[0]
     yea = re.findall('\..* (....)', matches[0])[0]
 
 
