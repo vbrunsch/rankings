@@ -7,7 +7,7 @@ import tabula
 import pandas as pd
 neu = pd.DataFrame()
 
-for x in range(1,15):
+for x in range(0,14):
     to = pd.Timestamp.today() -timedelta(days=x)
     if to.month == 1:
         mon = 'Januar%20' + str(to.year)
