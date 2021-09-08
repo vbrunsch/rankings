@@ -7,7 +7,7 @@ import tabula
 import pandas as pd
 neu = pd.DataFrame()
 
-for x in range(0,14):
+for x in range(1,15):
     to = pd.Timestamp.today() -timedelta(days=x)
     if to.month == 1:
         mon = 'Januar%20' + str(to.year)
@@ -64,6 +64,8 @@ for x in range(0,14):
         df = pd.DataFrame(data = [8,8,21,7,7,0,4,3,5,1,10,74], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
     elif tod in ['01.05.2021','02.05.2021','24.05.2021','19.06.2021','20.06.2021','23.06.2021'] or to.weekday()>4:
         df = pd.DataFrame(data = [0,0,0,0,0,0,0,0,0,0,0,0], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
+    elif tod == '07.09.2021':
+        df = pd.DataFrame(data = [13,7,23,1,1,0,3,0,3,1,8,60], columns=[tod], index = ['Andernach', 'Bendorf', 'Koblenz','Mayen','VG Maifeld','VG Mendig','VG Pellenz','VG Rhein-Mosel','VG Vallendar','VG Vordereifel','VG Weißenthurm','Summe'])
     elif tod in ['03.05.2021','04.05.2021','06.05.2021','07.05.2021']:
         df = dfs[0]
         print(df)
