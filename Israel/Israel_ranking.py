@@ -14,8 +14,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-chromedriver_url = "https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip"
+#93.0.4577.15
+#91.0.4472.19
+chromedriver_url = "https://chromedriver.storage.googleapis.com/93.0.4577.15/chromedriver_linux64.zip"
 resp = urlopen(chromedriver_url)
 with ZipFile(BytesIO(resp.read()), 'r') as zipObj:
     zipObj.extractall()
@@ -223,7 +224,7 @@ if not df_new.equals(df_old):
     tab = tab[['Rank', 'Area', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
     s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
-    toti = datetime.datetime.today().date()# - timedelta(days = 2)
+    toti = datetime.datetime.today().date() - timedelta(days = 1)
     if toti.weekday() <5:
         toti = "<center><caption>Wednesday, " + str(toti) + "</caption></center>"
     else:
@@ -401,7 +402,7 @@ if not df_new.equals(df_old):
 
     import datetime
     from datetime import timedelta
-    toti = datetime.datetime.today().date()
+    toti = datetime.datetime.today().date() - timedelta(days = 1)
     if toti.weekday() <5:
         told = toti - timedelta(days = 3)
         told = "<center><caption>Sunday, " + str(told) + "</caption></center>"
