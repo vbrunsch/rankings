@@ -22,7 +22,7 @@ jobs:
     - name: Install Chromium
       run: |
         sudo apt-get update
-        sudo apt-get install xvfb chromium-browser=1:93.0.4577.15-0ubuntu0.20.04.2
+        sudo apt-get install xvfb chromium-browser=1:85.0.4183.83-0ubuntu0.20.04.2
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
