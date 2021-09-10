@@ -226,7 +226,7 @@ if not df_new.equals(df_old):
 
     toti = datetime.datetime.today().date() - timedelta(days = 1)
     if toti.weekday() <5:
-        toti = "<center><caption>Thursday, " + str(toti) + "</caption></center>"
+        toti = "<center><caption>Wednesday, " + str(toti) + "</caption></center>"
     else:
         toti = "<center><caption>Sunday, " + str(toti) + "</caption></center>"
 
@@ -404,11 +404,11 @@ if not df_new.equals(df_old):
     from datetime import timedelta
     toti = datetime.datetime.today().date() - timedelta(days = 1)
     if toti.weekday() <5:
-        told = toti - timedelta(days = 4)
+        told = toti - timedelta(days = 3)
         told = "<center><caption>Sunday, " + str(told) + "</caption></center>"
     else:
-        told = toti - timedelta(days = 3)
-        told = "<center><caption>Thursday, " + str(told) + "</caption></center>"
+        told = toti - timedelta(days = 4)
+        told = "<center><caption>Wednesday, " + str(told) + "</caption></center>"
 
     try:        
         with open(f'Israel_old.html', 'w', encoding="utf-8") as out:
