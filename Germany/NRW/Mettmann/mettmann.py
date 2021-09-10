@@ -28,27 +28,30 @@ htmlParse = BeautifulSoup(html, 'html.parser')
 lin = re.findall('"(\/Aktuelle-Meldungen\/Corona-Virus-[0-9]*-*[0-9]*-Infizierte.*?)"', str(htmlParse))
 print(lin[0])
 
-url2 = 'https://www.kreis-mettmann-corona.de' + lin[0]
-url2 = url2.replace('amp;','')
-#url2 = 'https://www.kreis-mettmann-corona.de/Aktuelle-Meldungen/Corona-Virus-130-Infizierte-23-510-Genesene-Inzidenz-18-7.php?object=tx,3535.5.1&ModID=7&FID=3535.324.1&NavID=3535.12&La=1&kat=3535.3'
-html2 = urllib.request.urlopen(url2)
-htmlParse2 = BeautifulSoup(html2, 'html.parser')
-lin2 = re.findall('"(\/media.*?g\.PNG.*)"', str(htmlParse2))
-imp = re.findall('" href="\/media\/custom\/(.*?g\.PNG.*?)"', str(htmlParse2))
-print(lin2)
-im_p = '"' + 'https://www.kreis-mettmann-corona.de' + lin2[1] + '"'
+if 1 == 0:
+ 
+ url2 = 'https://www.kreis-mettmann-corona.de' + lin[0]
+ url2 = url2.replace('amp;','')
+ #url2 = 'https://www.kreis-mettmann-corona.de/Aktuelle-Meldungen/Corona-Virus-130-Infizierte-23-510-Genesene-Inzidenz-18-7.php?object=tx,3535.5.1&ModID=7&FID=3535.324.1&NavID=3535.12&La=1&kat=3535.3'
+ html2 = urllib.request.urlopen(url2)
+ htmlParse2 = BeautifulSoup(html2, 'html.parser')
+ lin2 = re.findall('"(\/media.*?g\.PNG.*)"', str(htmlParse2))
+ imp = re.findall('" href="\/media\/custom\/(.*?g\.PNG.*?)"', str(htmlParse2))
+ print(lin2)
+ im_p = '"' + 'https://www.kreis-mettmann-corona.de' + lin2[1] + '"'
 
-os.system(f"wget {im_p}")
-#$wget ${im_p}
+ os.system(f"wget {im_p}")
+ #$wget ${im_p}
 
-ext_i = pytesseract.image_to_string(Image.open(imp[0]))
+ ext_i = pytesseract.image_to_string(Image.open(imp[0]))
 
 
-infa = re.findall('[^\/].*?\/.*?\/([0-9]*)[^\/0-9]',ext_i)
-infa = infa[2:]
-infint = list(map(int, infa))
-infnp = np.array(infint)
-inf = infnp[infnp>1000]
+ infa = re.findall('[^\/].*?\/.*?\/([0-9]*)[^\/0-9]',ext_i)
+ infa = infa[2:]
+ infint = list(map(int, infa))
+ infnp = np.array(infint)
+ inf = infnp[infnp>1000]
+inf =  [2378,2949,1461,1843,2894,2204,2472,1228,4512,5391,27332]
 gem = ['Erkrath','Hilden','Haan','Heiligenhaus','Langenfeld','Mettmann','Monheim','Wülfrath','Ratingen','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Haan','Heiligenhaus','Hilden','Langenfeld','Mettmann','Monheim','Ratingen','Velbert','Wülfrath','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']
