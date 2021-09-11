@@ -5,7 +5,7 @@ name: Update LK Mettmann Communities Rankings
 #
 on:
   #push:
-   #branches: [ main ]
+    #branches: [ main ]
   schedule:
     - cron: '54 18 * * *'
 
