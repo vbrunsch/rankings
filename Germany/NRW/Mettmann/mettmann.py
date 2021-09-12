@@ -25,8 +25,8 @@ from datetime import timedelta
 url = 'https://www.kreis-mettmann-corona.de/Aktuelle-Meldungen/'
 html = urllib.request.urlopen(url)
 htmlParse = BeautifulSoup(html, 'html.parser')
-#lin = re.findall('"(\/Aktuelle-Meldungen\/Corona-Virus-[0-9]*-*[0-9]*-Infizierte.*?)"', str(htmlParse))
-lin = re.findall('"(\/Aktuelle-Meldungen\/Der-Sachstand.*?)"', str(htmlParse))
+lin = re.findall('"(\/Aktuelle-Meldungen\/Corona-Virus-[0-9]*-*[0-9]*-Infizierte.*?)"', str(htmlParse))
+#lin = re.findall('"(\/Aktuelle-Meldungen\/Der-Sachstand.*?)"', str(htmlParse))
 print(lin[0])
 
 #if 1 == 0:
@@ -36,8 +36,8 @@ url2 = url2.replace('amp;','')
 #url2 = 'https://www.kreis-mettmann-corona.de/Aktuelle-Meldungen/Corona-Virus-130-Infizierte-23-510-Genesene-Inzidenz-18-7.php?object=tx,3535.5.1&ModID=7&FID=3535.324.1&NavID=3535.12&La=1&kat=3535.3'
 html2 = urllib.request.urlopen(url2)
 htmlParse2 = BeautifulSoup(html2, 'html.parser')
-lin2 = re.findall('"(\/media.*?g\.JPG.*)"', str(htmlParse2))
-imp = re.findall('" href="\/media\/custom\/(.*?g\.JPG.*?)"', str(htmlParse2))
+lin2 = re.findall('"(\/media.*?g\.PNG.*)"', str(htmlParse2))
+imp = re.findall('" href="\/media\/custom\/(.*?g\.PNG.*?)"', str(htmlParse2))
 print(lin2)
 im_p = '"' + 'https://www.kreis-mettmann-corona.de' + lin2[1] + '"'
 
@@ -59,7 +59,7 @@ gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfel
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Langenfeld','Ratingen','Kreis Mettmann','Heiligenhaus','Mettmann','Velbert']
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = ['Gesamtfallzahlen']
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/Mettmann/data/Mettmann_{tod}.csv')
