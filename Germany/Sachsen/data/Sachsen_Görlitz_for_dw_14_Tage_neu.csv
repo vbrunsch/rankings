@@ -1,54 +1,54 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-116,Dürrhennersdorf,1,20.0,986.0,2028,Görlitz,0,2,2
-117,Rietschen,2,40.0,2.529,1582,Görlitz,0,4,4
-118,Schönau-Berzdorf a.d. Eigen,3,20.0,1.46,137,Görlitz,0,2,2
-119,Beiersdorf,4,10.0,1.14,877,Görlitz,0,1,1
-120,Kodersdorf,5,20.0,2.4219999999999997,826,Görlitz,0,2,2
-121,Oybin,6,10.0,1.358,736,Görlitz,0,1,1
-122,Hainewalde,7,10.0,1.511,662,Görlitz,0,1,1
-123,Jonsdorf,8,10.0,1.548,646,Görlitz,1,2,1
-124,Mittelherwigsdorf,9,20.0,3.634,55,Görlitz,1,3,2
-125,Markersdorf,10,20.0,3.9010000000000002,513,Görlitz,7,9,2
-126,Schöpstal,11,10.0,2.396,417,Görlitz,0,1,1
-127,Görlitz,12,130.0,55.98,232,Görlitz,2,15,13
-128,Boxberg/O.L.,13,10.0,4.402,227,Görlitz,0,1,1
-129,Rothenburg/O.L.,14,10.0,4.458,224,Görlitz,1,2,1
-130,Niesky,15,20.0,9.343,214,Görlitz,0,2,2
-131,Reichenbach/O.L.,16,10.0,4.915,203,Görlitz,0,1,1
-132,Oderwitz,17,10.0,5.002,20,Görlitz,0,1,1
-133,Großschönau,18,10.0,5.3629999999999995,186,Görlitz,0,1,1
-134,Ebersbach-Neugersdorf,19,20.0,11.853,169,Görlitz,0,2,2
-135,Zittau,20,30.0,25.086,12,Görlitz,5,8,3
-136,Löbau,21,10.0,14.456,69,Görlitz,1,2,1
-137,Weißwasser/O.L.,22,10.0,15.886,63,Görlitz,0,1,1
-138,Bad Muskau,23,2.0,3.6860000000000004,0,Görlitz,0,0,0
-139,Bernstadt a.d. Eigen,23,2.0,3.3539999999999996,0,Görlitz,0,0,0
-140,Bertsdorf-Hörnitz,23,6.0,2.086,0,Görlitz,1,1,0
-141,Gablenz,23,2.0,1.595,0,Görlitz,0,0,0
-142,Groß Düben,23,2.0,1.069,0,Görlitz,0,0,0
-143,Großschweidnitz,23,2.0,1.2590000000000001,0,Görlitz,0,0,0
-144,Hähnichen,23,2.0,1.247,0,Görlitz,0,0,0
-145,Herrnhut,23,6.0,5.837000000000001,0,Görlitz,2,2,0
-146,Hohendubrau,23,2.0,1.882,0,Görlitz,0,0,0
-147,Horka,23,2.0,1.694,0,Görlitz,0,0,0
-148,Königshain,23,2.0,1.179,0,Görlitz,0,0,0
-149,Kottmar,23,6.0,7.236000000000001,0,Görlitz,1,1,0
-150,Krauschwitz i.d. O.L.,23,2.0,3.469,0,Görlitz,0,0,0
-151,Kreba-Neudorf,23,2.0,856.0,0,Görlitz,0,0,0
-152,Lawalde,23,2.0,1.835,0,Görlitz,0,0,0
-153,Leutersdorf,23,6.0,3.483,0,Görlitz,1,1,0
-154,Mücka,23,2.0,959.0,0,Görlitz,0,0,0
-155,Neißeaue,23,2.0,1.706,0,Görlitz,0,0,0
-156,Neusalza-Spremberg,23,6.0,3.3,0,Görlitz,1,1,0
-157,Olbersdorf,23,2.0,4.663,0,Görlitz,0,0,0
-158,Oppach,23,2.0,2.3280000000000003,0,Görlitz,0,0,0
-159,Ostritz,23,2.0,2.241,0,Görlitz,0,0,0
-160,Quitzdorf am See,23,2.0,1.24,0,Görlitz,0,0,0
-161,Rosenbach,23,2.0,1.571,0,Görlitz,0,0,0
-162,Schleife,23,2.0,2.4,0,Görlitz,0,0,0
-163,Schönbach,23,6.0,1.09,0,Görlitz,1,1,0
-164,Seifhennersdorf,23,2.0,3.66,0,Görlitz,0,0,0
-165,Trebendorf,23,2.0,854.0,0,Görlitz,0,0,0
-166,Vierkirchen,23,2.0,1.663,0,Görlitz,0,0,0
-167,Waldhufen,23,2.0,2.37,0,Görlitz,0,0,0
-168,Weißkeißel,23,6.0,1.284,0,Görlitz,1,1,0
+116,Rothenburg/O.L.,1,120.0,4.419,2716,Görlitz,1,13,12
+117,Königshain,2,30.0,1.165,2575,Görlitz,0,3,3
+118,Markersdorf,3,100.0,3.891,257,Görlitz,2,12,10
+119,Dürrhennersdorf,4,10.0,951.0,1052,Görlitz,2,3,1
+120,Beiersdorf,5,10.0,1.124,89,Görlitz,1,2,1
+121,Weißkeißel,6,10.0,1.246,803,Görlitz,0,1,1
+122,Niesky,7,60.0,9.163,655,Görlitz,2,8,6
+123,Neusalza-Spremberg,8,20.0,3.23,619,Görlitz,0,2,2
+124,Vierkirchen,9,10.0,1.6469999999999998,607,Görlitz,0,1,1
+125,Krauschwitz i.d. O.L.,10,20.0,3.386,591,Görlitz,0,2,2
+126,Neißeaue,11,10.0,1.6969999999999998,589,Görlitz,0,1,1
+127,Herrnhut,12,30.0,5.747000000000001,522,Görlitz,0,3,3
+128,Görlitz,13,260.0,55.528,468,Görlitz,13,39,26
+129,Kodersdorf,14,10.0,2.37,422,Görlitz,2,3,1
+130,Kottmar,15,20.0,7.136,28,Görlitz,0,2,2
+131,Seifhennersdorf,16,10.0,3.6239999999999997,276,Görlitz,0,1,1
+132,Bad Muskau,17,10.0,3.68,272,Görlitz,0,1,1
+133,Olbersdorf,18,10.0,4.525,221,Görlitz,0,1,1
+134,Ebersbach-Neugersdorf,19,20.0,11.581,173,Görlitz,2,4,2
+135,Zittau,20,30.0,24.545,122,Görlitz,3,6,3
+136,Bernstadt a.d. Eigen,21,2.0,3.2739999999999996,0,Görlitz,0,0,0
+137,Bertsdorf-Hörnitz,21,2.0,2.042,0,Görlitz,0,0,0
+138,Boxberg/O.L.,21,6.0,4.32,0,Görlitz,1,1,0
+139,Gablenz,21,2.0,1.5859999999999999,0,Görlitz,0,0,0
+140,Groß Düben,21,2.0,1.075,0,Görlitz,0,0,0
+141,Großschönau,21,6.0,5.266,0,Görlitz,1,1,0
+142,Großschweidnitz,21,2.0,1.274,0,Görlitz,0,0,0
+143,Hähnichen,21,2.0,1.2309999999999999,0,Görlitz,0,0,0
+144,Hainewalde,21,6.0,1.518,0,Görlitz,1,1,0
+145,Hohendubrau,21,2.0,1.859,0,Görlitz,0,0,0
+146,Horka,21,2.0,1.662,0,Görlitz,0,0,0
+147,Jonsdorf,21,6.0,1.499,0,Görlitz,1,1,0
+148,Kreba-Neudorf,21,2.0,855.0,0,Görlitz,0,0,0
+149,Lawalde,21,2.0,1.795,0,Görlitz,0,0,0
+150,Leutersdorf,21,2.0,3.475,0,Görlitz,0,0,0
+151,Löbau,21,6.0,14.282,0,Görlitz,1,1,0
+152,Mittelherwigsdorf,21,6.0,3.55,0,Görlitz,2,2,0
+153,Mücka,21,2.0,957.0,0,Görlitz,0,0,0
+154,Oderwitz,21,6.0,4.919,0,Görlitz,1,1,0
+155,Oppach,21,2.0,2.313,0,Görlitz,0,0,0
+156,Ostritz,21,2.0,2.219,0,Görlitz,0,0,0
+157,Oybin,21,6.0,1.3430000000000002,0,Görlitz,1,1,0
+158,Quitzdorf am See,21,2.0,1.237,0,Görlitz,0,0,0
+159,Reichenbach/O.L.,21,6.0,4.888999999999999,0,Görlitz,1,1,0
+160,Rietschen,21,6.0,2.512,0,Görlitz,4,4,0
+161,Rosenbach,21,2.0,1.5619999999999998,0,Görlitz,0,0,0
+162,Schleife,21,2.0,2.416,0,Görlitz,0,0,0
+163,Schönau-Berzdorf a.d. Eigen,21,6.0,1.473,0,Görlitz,2,2,0
+164,Schönbach,21,2.0,1.078,0,Görlitz,0,0,0
+165,Schöpstal,21,6.0,2.39,0,Görlitz,1,1,0
+166,Trebendorf,21,2.0,822.0,0,Görlitz,0,0,0
+167,Waldhufen,21,2.0,2.398,0,Görlitz,0,0,0
+168,Weißwasser/O.L.,21,6.0,15.493,0,Görlitz,1,1,0
