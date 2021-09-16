@@ -52,6 +52,7 @@ infa = infa[2:]
 infint = list(map(int, infa))
 infnp = np.array(infint)
 inf = infnp[infnp>1000]
+inf[-1] = inf[-1] + 600
 #inf =  [2378,2949,1461,1843,2894,2204,2472,1228,4512,5391,27332]
 #gem = ['Erkrath','Hilden','Haan','Heiligenhaus','Langenfeld','Mettmann','Monheim','Wülfrath','Ratingen','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Haan','Heiligenhaus','Hilden','Langenfeld','Mettmann','Monheim','Ratingen','Velbert','Wülfrath','Kreis Mettmann']
