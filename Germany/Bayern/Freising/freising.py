@@ -20,6 +20,7 @@ tod = to.strftime('%d.%m.%Y')
 pdf_path = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_{tod}.pdf'
 pdf_path2 = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Fallzahlen_nach_Gemeinden_{tod}.pdf'
 pdf_path3 = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2020/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_{tod}.pdf'
+pdf_path4 = f'https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_{tod}.pdf'
 
 try:
   dfs = tabula.read_pdf(pdf_path, stream=True)
@@ -30,7 +31,10 @@ except:
     try:
       dfs = tabula.read_pdf(pdf_path3, stream=True)
     except:
-      print('no new data for Freising')
+      try:
+        dfs = tabula.read_pdf(pdf_path4, stream=True)
+      except:
+        print('no new data for Freising')
 
 if tod == '28.06.2021':
   dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_28.6.2021.pdf', stream= True)
