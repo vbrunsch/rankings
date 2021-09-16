@@ -43,8 +43,8 @@ except:
 df = df[['Gesamtfallzahlen']]
 df = df.astype(int)
 print(df)
-#df.to_csv(f'Germany/NRW/Wesel/data/Wesel_{tod}.csv')
-df = pd.read_csv(f'Germany/NRW/Wesel/data/Wesel_{tod}.csv', index_col = 0)
+df.to_csv(f'Germany/NRW/Wesel/data/Wesel_{tod}.csv')
+#df = pd.read_csv(f'Germany/NRW/Wesel/data/Wesel_{tod}.csv', index_col = 0)
 
 da7 = to - timedelta(days = 7)
 da7s = da7.strftime('%m_%d_%Y')
