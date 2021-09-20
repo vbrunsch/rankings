@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 print('a')
+df_o = pd.DataFrame()
 #df_o = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1")
 print('b')
 df = df_o[df_o['RESULTADO_LAB']==1]
