@@ -3,10 +3,10 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1")
-#df = df_o[df_o['RESULTADO_LAB']==1]
-#df = df[df['ENTIDAD_RES']<33]
-#df = df[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
+df_o = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1")
+df = df_o[df_o['RESULTADO_LAB']==1]
+df = df[df['ENTIDAD_RES']<33]
+df = df[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
 
 cat_states = pd.read_csv('Mexico/Mexico_Cat_States.csv')
 cat_muns = pd.read_csv('Mexico/Mexico_Cat_Municipalities.csv')
