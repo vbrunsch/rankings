@@ -4,8 +4,8 @@
 name: Update Mexico Municipalities Rankings
 
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '50 */6 * * *'
 
