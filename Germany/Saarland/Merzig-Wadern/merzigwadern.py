@@ -6,7 +6,7 @@ import pandas as pd
 to = pd.Timestamp.today()
 tod = to.strftime('%d.%m.%Y')
 
-googleSheetId = '1PDaRlOzlHGu-r-eFRl8N5lLa-_EHvvaGQ1jNvC-WYEs'
+googleSheetId = '1fzcae82oBRRskXA9uTQ6nWXbN9_4MdTi674hdBx7cBI'
 worksheetName = 'Merzig-Wadern'
 URL = 'https://docs.google.com/spreadsheets/d/{0}/gviz/tq?tqx=out:csv&sheet={1}'.format(
 	googleSheetId,
