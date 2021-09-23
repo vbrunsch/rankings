@@ -21,7 +21,7 @@ t3 = requests.get(que).text
 
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
@@ -33,7 +33,7 @@ infy = re.findall('INFIZIER_4":(.*?),',t3)
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = [tod]
 df[yes] = infy
-#df = df[24:]
+df = df[-24:]
 print(df)
 df.to_csv(f'Germany/NRW/Steinfurt/data/Steinfurt_{tod}.csv')
 
