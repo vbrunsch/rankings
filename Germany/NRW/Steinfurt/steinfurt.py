@@ -21,7 +21,7 @@ t3 = requests.get(que).text
 
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
