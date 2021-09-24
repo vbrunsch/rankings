@@ -3,11 +3,23 @@
 
 import pandas as pd
 
-df_o = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1")
+df_chunk = pd.read_csv('http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip', encoding = "ISO-8859-1", chunksize=1000000)
+chunk_list = []  # append each chunk df here 
 
-df = df_o[df_o['RESULTADO_LAB']==1]
-df = df[df['ENTIDAD_RES']<33]
-df = df[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
+# Each chunk is in df format
+for chunk in df_chunk:
+    chunk = chunk[chunk['RESULTADO_LAB']==1]
+    chunk = chunk[chunk['ENTIDAD_RES']<33]
+    chunk = chunk[['FECHA_INGRESO','ENTIDAD_RES','MUNICIPIO_RES']]
+    print(chunk)  
+    # perform data filtering 
+    #chunk_filter = chunk_preprocessing(chunk)
+    
+    # Once the data filtering is done, append the chunk to list
+    chunk_list.append(chunk)
+    
+# concat the list into dataframe 
+df = pd.concat(chunk_list)
 
 cat_states = pd.read_csv('Mexico/Mexico_Cat_States.csv')
 cat_muns = pd.read_csv('Mexico/Mexico_Cat_Municipalities.csv')
