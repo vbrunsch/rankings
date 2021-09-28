@@ -55,13 +55,19 @@ infnp = np.array(infint)
 inf = infnp[infnp>1000]
 #inf[-1] = inf[-1] + 600
 #inf =  [2378,2949,1461,1843,2894,2204,2472,1228,4512,5391,27332]
-gem = ['Erkrath','Hilden','Haan','Heiligenhaus','Langenfeld','Mettmann','Monheim','Wülfrath','Ratingen','Velbert','Kreis Mettmann']
+gempar = re.findall('(?:ERKRATH|MONHEIM|HILDEN|LFRATH|HAAN|HEILIGENHAUS|LANGENFELD|METTMANN|RATINGEN|VELBERT|KREIS METTMANN)',ext_i)
+#print(gempar)
+if gempar == ['ERKRATH', 'HILDEN', 'MONHEIM', 'HAAN', 'HEILIGENHAUS', 'LANGENFELD', 'METTMANN', 'RATINGEN', 'VELBERT', 'LFRATH', 'KREIS METTMANN']:
+  gem = ['Erkrath','Hilden','Haan','Heiligenhaus','Langenfeld','Mettmann','Monheim','Wülfrath','Ratingen','Velbert','Kreis Mettmann']
+elif gempar == ['ERKRATH', 'HILDEN', 'MONHEIM', 'HAAN', 'LANGENFELD', 'RATINGEN', 'LFRATH', 'HEILIGENHAUS', 'METTMANN', 'VELBERT', 'KREIS METTMANN']:
+  gem = ['Erkrath','Hilden','Haan','Langenfeld','Monheim','Wülfrath','Ratingen','Heiligenhaus','Mettmann','Velbert','Kreis Mettmann']
+#gem = ['Erkrath','Hilden','Haan','Heiligenhaus','Langenfeld','Mettmann','Monheim','Wülfrath','Ratingen','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Haan','Heiligenhaus','Hilden','Langenfeld','Mettmann','Monheim','Ratingen','Velbert','Wülfrath','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Langenfeld','Ratingen','Kreis Mettmann','Heiligenhaus','Mettmann','Velbert']
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = ['Gesamtfallzahlen']
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/Mettmann/data/Mettmann_{tod}.csv')
