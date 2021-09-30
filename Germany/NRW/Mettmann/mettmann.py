@@ -68,7 +68,7 @@ elif gempar == ['ERKRATH', 'HILDEN', 'MONHEIM', 'HAAN', 'LANGENFELD', 'RATINGEN'
 inf = [2500,3046,1532,2985,2576,1263,4860,1917,2269,5590,28538]
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = ['Gesamtfallzahlen']
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/Mettmann/data/Mettmann_{tod}.csv')
