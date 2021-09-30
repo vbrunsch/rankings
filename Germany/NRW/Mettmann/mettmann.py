@@ -65,6 +65,7 @@ elif gempar == ['ERKRATH', 'HILDEN', 'MONHEIM', 'HAAN', 'LANGENFELD', 'RATINGEN'
 #gem = ['Erkrath','Haan','Heiligenhaus','Hilden','Langenfeld','Mettmann','Monheim','Ratingen','Velbert','Wülfrath','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Langenfeld','Ratingen','Kreis Mettmann','Heiligenhaus','Mettmann','Velbert']
+inf = [2500,3046,1532,2985,2576,1263,4860,1917,2269,5590,28538]
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = ['Gesamtfallzahlen']
 to = pd.Timestamp.today()# - timedelta(days = 1)
