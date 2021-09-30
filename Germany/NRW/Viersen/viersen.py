@@ -7,32 +7,37 @@ import requests
 import re
 import urllib.request
 
-html_page = urllib.request.urlopen("https://www.presse-service.de/meldungen.aspx?ps_id=1381")
-soup = BeautifulSoup(html_page)
-links = []
+#html_page = urllib.request.urlopen("https://www.presse-service.de/meldungen.aspx?ps_id=1381")
+#soup = BeautifulSoup(html_page)
+#links = []
 
-for link in soup.findAll('a', attrs={'href': re.compile("^https://www.presse-service.de/data")}):
-    links.append(link.get('href'))
+#for link in soup.findAll('a', attrs={'href': re.compile("^https://www.presse-service.de/data")}):
+#    links.append(link.get('href'))
 
-for i in links:
-  t3 = requests.get(i).text
-  t4 = re.findall('Meldungsdatum: (.*?)<',t3)
-  t5 = re.findall('(.*?) verteilen sich wie folgt auf die ',t3)
-  from datetime import timedelta
-  to = pd.Timestamp.today()# - timedelta(days = 1)
-  tod = to.strftime('%m_%d_%Y')
-  tos = to.strftime('%d.%m.%Y')
-  if tos == t4[0] and t5:
-    dfs = pd.read_html(i)
-    df = dfs[1]
-    df.columns = df.iloc[0]
-    df = df[1:]
-    df = df.set_index('Kommune')
-    df = df.astype(int)
-    df.to_csv(f'Germany/NRW/Viersen/data/Viersen_{tod}.csv')
-    print(df)
+#for i in links:
+#  t3 = requests.get(i).text
+#  t4 = re.findall('Meldungsdatum: (.*?)<',t3)
+#  t5 = re.findall('(.*?) verteilen sich wie folgt auf die ',t3)
+#  from datetime import timedelta
+#  to = pd.Timestamp.today()# - timedelta(days = 1)
+#  tod = to.strftime('%m_%d_%Y')
+#  tos = to.strftime('%d.%m.%Y')
+#  if tos == t4[0] and t5:
+#    dfs = pd.read_html(i)
+#    df = dfs[1]
+#    df.columns = df.iloc[0]
+#    df = df[1:]
+#    df = df.set_index('Kommune')
+#    df = df.astype(int)
+#    df.to_csv(f'Germany/NRW/Viersen/data/Viersen_{tod}.csv')
+#    print(df)
 
 import numpy as np
+
+from datetime import timedelta
+to = pd.Timestamp.today() - timedelta(days = 1)
+tod = to.strftime('%m_%d_%Y')
+df = pd.read_csv(f'Germany/NRW/Viersen/data/Viersen_{tod}.csv', index_col = 0)
 
 da7 = to - timedelta(days = 7)
 da7s = da7.strftime('%m_%d_%Y')
