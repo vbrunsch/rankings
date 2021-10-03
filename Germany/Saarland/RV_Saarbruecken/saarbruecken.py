@@ -7,7 +7,7 @@ import pandas as pd
 import re
 import requests
 
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 todf = to.strftime('%Y-%m-%d')
 tod = to.strftime('%m_%d_%Y')
 
@@ -38,7 +38,7 @@ dfy = pd.read_csv(f'Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_{yes}.
 
 neu = pd.read_csv('Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_neu.csv', index_col='Stadt/Gemeinde')
 
-neu[tod] = df['Fälle gesamt'].astype(int).values-dfy['Fälle summiert'].astype(int).values
+neu[tod] = df['Fälle gesamt'].astype(int).values-dfy['Fälle gesamt'].astype(int).values
 
 neu.to_csv('Germany/Saarland/RV_Saarbruecken/data/RV_Saarbruecken_neu.csv')
 
