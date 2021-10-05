@@ -65,6 +65,8 @@ elif gempar == ['ERKRATH', 'HILDEN', 'MONHEIM', 'LFRATH', 'HAAN', 'HEILIGENHAUS'
   gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']
 elif gempar == ['ERKRATH', 'HAAN', 'HEILIGENHAUS', 'HILDEN', 'LANGENFELD', 'METTMANN', 'MONHEIM', 'RATINGEN', 'VELBERT', 'LFRATH', 'KREIS METTMANN']:
   gem = ['Erkrath','Haan','Heiligenhaus','Hilden','Langenfeld','Mettmann','Monheim','Ratingen','Velbert','Wülfrath','Kreis Mettmann']
+elif gempar == ['ERKRATH', 'HILDEN', 'MONHEIM', 'LFRATH', 'HAAN', 'LANGENFELD', 'RATINGEN', 'HEILIGENHAUS', 'METTMANN', 'VELBERT', 'KREIS METTMANN']:
+  gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Langenfeld','Ratingen','Heiligenhaus','Mettmann','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Haan','Heiligenhaus','Langenfeld','Mettmann','Monheim','Wülfrath','Ratingen','Velbert','Kreis Mettmann']
 #gem = ['Erkrath','Haan','Heiligenhaus','Hilden','Langenfeld','Mettmann','Monheim','Ratingen','Velbert','Wülfrath','Kreis Mettmann']
 #gem = ['Erkrath','Hilden','Monheim','Wülfrath','Haan','Heiligenhaus','Langenfeld','Mettmann','Ratingen','Velbert','Kreis Mettmann']
@@ -72,7 +74,7 @@ elif gempar == ['ERKRATH', 'HAAN', 'HEILIGENHAUS', 'HILDEN', 'LANGENFELD', 'METT
 #inf = [2500,3046,1532,2985,2576,1263,4860,1917,2269,5590,28538]
 df = pd.DataFrame(data = inf, index = gem)
 df.columns = ['Gesamtfallzahlen']
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 print(df)
 df.to_csv(f'Germany/NRW/Mettmann/data/Mettmann_{tod}.csv')
