@@ -4,8 +4,8 @@
 name: Update LK Soest Communities Rankings
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
     - cron: '22 20 * * 1,2,3,4,5'
 
