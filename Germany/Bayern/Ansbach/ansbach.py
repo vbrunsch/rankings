@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()#- timedelta(days = 1)
+tod = pd.Timestamp.today()- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
@@ -35,7 +35,7 @@ print(tod)
 if day[0] == tod[1]:
     pdf_path = 'https://www.landkreis-ansbach.de' + lin[0]
     dfs = tabula.read_pdf(pdf_path, stream=True)
-    df = dfs[0][:-2]
+    df = dfs[0][:-3]
     neu = df.copy()
     neu.fillna(0, inplace=True)
     neu = neu.replace({'\+ ':''}, regex=True)
