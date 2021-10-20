@@ -12,7 +12,7 @@ t3 = requests.get(que).text
 #print(htmlParse)
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 
