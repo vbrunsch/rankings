@@ -30,7 +30,7 @@ df = pd.DataFrame(data = [bed[0],emm[0],gel[0],goc[0],iss[0],kal[0],ker[0],kev[0
 df['Gesamtfallzahlen'] = df['Gesamtfallzahlen'].str.replace('\.','')
 df = df.astype(int)
 from datetime import timedelta
-to = pd.Timestamp.today()- timedelta(days = 1)
+to = pd.Timestamp.today()#- timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/NRW/Kleve/data/Kleve_{tod}.csv')
 print(df)
