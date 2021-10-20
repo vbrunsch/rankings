@@ -5,7 +5,7 @@ df = dfs[dfs['District/County Town'].str.contains(', SK')]
 
 df['District/County Town'] = df['District/County Town'].str.replace(', SK', '')
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/NRW/SKs/data/SKs_{tod}.csv')
 
