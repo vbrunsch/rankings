@@ -2,7 +2,7 @@ from datetime import timedelta
 import pandas as pd
 
 dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
-to = pd.Timestamp.today() - timedelta(days=1)
+to = pd.Timestamp.today()# - timedelta(days=1)
 tod = to.strftime('%m_%d_%Y')
 df = dfs[1]
 df = df.set_index(df.columns[0])
