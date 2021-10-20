@@ -21,7 +21,7 @@ t3 = requests.get(que).text
 htmlParse = BeautifulSoup(t3, 'html.parser')
 
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('GEMEINDE_1":"(.*?)"',t3)
