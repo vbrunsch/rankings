@@ -4,8 +4,8 @@
 name: Update Landkreis Kleve Communities Rankings
 
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '55 19 * * 0,1,2,3,4,5'
 
