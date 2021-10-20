@@ -18,7 +18,7 @@ que = f'https://utility.arcgis.com/usrsvcs/servers/ea0358e5c68e43728e4ff87217f44
 
 t3 = requests.get(que).text
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 gem = re.findall('GEMEINDE":"(.*?)"',t3)
