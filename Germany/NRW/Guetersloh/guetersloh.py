@@ -6,7 +6,7 @@ import requests
 import re
 from datetime import datetime
 from datetime import timedelta
-to1 = pd.Timestamp.today() - timedelta(days = 1)
+to1 = pd.Timestamp.today()# - timedelta(days = 1)
 to2 = pd.Timestamp('2021-06-01')
 td = to1-to2
 td_mins = int(round(td.total_seconds()/86400))
@@ -19,7 +19,7 @@ que = f'https://webgis.kreis-guetersloh.de/wss/service/ags-relay/agskreisgt/gues
 t3 = requests.get(que).text
 htmlParse = BeautifulSoup(t3, 'html.parser')
 
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 ye = to - timedelta(days = 1)
 yes = ye.strftime('%m_%d_%Y')
