@@ -24,6 +24,7 @@ for d in data['sheetNames']:
     focus.columns = ['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation']
     focus['Overseas'].replace('', np.nan, inplace=True)
     focus = focus.dropna()
+    focus['Known Local'] = focus['Known Local'].str.replace(',','')
     focus['Known Local'] = focus['Known Local'].astype(float)
     focus['Unknown Local (Community)'] = focus['Unknown Local (Community)'].astype(float)
     focus['Under investigation']=focus['Under investigation'].replace(r'\s+',np.nan,regex=True).replace('',np.nan)
