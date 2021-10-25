@@ -3,7 +3,7 @@ Westerheim,4,4,4.0,Westerheim
 Schelklingen,10,22,10.0,Schelklingen
 Laichingen,19,22,19.0,Laichingen
 Heroldstatt,0,0,0.2,Heroldstatt
-Allmendingen,5,5,5.0,Allmendingen
+Allmendingen,6,6,6.0,Allmendingen
 Blaubeuren,14,18,14.0,Blaubeuren
 Merklingen,1,1,1.0,Merklingen
 Berghülen,0,0,0.2,Berghülen
@@ -11,21 +11,21 @@ Nellingen,2,5,2.0,Nellingen
 Altheim (bei Ehingen),0,0,0.2,Altheim (bei Ehingen)
 Öpfingen,5,17,5.0,Öpfingen
 Oberdischingen,8,12,8.0,Oberdischingen
-Erbach,27,60,27.0,Erbach
-Blaustein,31,47,31.0,Blaustein
-Dornstadt,21,33,21.0,Dornstadt
+Erbach,29,62,29.0,Erbach
+Blaustein,32,48,32.0,Blaustein
+Dornstadt,22,33,22.0,Dornstadt
 Amstetten,6,9,6.0,Amstetten
-Lonsee,4,9,4.0,Lonsee
+Lonsee,3,7,3.0,Lonsee
 Westerstetten,2,4,2.0,Westerstetten
-Beimerstetten,1,2,1.0,Beimerstetten
-Weidenstetten,1,2,1.0,Weidenstetten
-Staig,0,5,0.6,Staig
+Beimerstetten,2,3,2.0,Beimerstetten
+Weidenstetten,2,3,2.0,Weidenstetten
+Staig,0,4,0.6,Staig
 Altheim (Alb),4,7,4.0,Altheim (Alb)
 Holzkirch,0,0,0.2,Holzkirch
 Breitingen,0,0,0.2,Breitingen
 Illerkirchberg,14,15,14.0,Illerkirchberg
 Bernstadt,10,11,10.0,Bernstadt
-Langenau,29,51,29.0,Langenau
+Langenau,30,52,30.0,Langenau
 Neenstetten,0,1,0.6,Neenstetten
 Börslingen,0,0,0.2,Börslingen
 Ballendorf,0,3,0.6,Ballendorf
@@ -37,15 +37,15 @@ Asselfingen,2,6,2.0,Asselfingen
 Balzheim,2,3,2.0,Balzheim
 Grundsheim,1,1,1.0,Grundsheim
 Oberstadion,0,0,0.2,Oberstadion
-Emerkingen,0,0,0.2,Emerkingen
+Emerkingen,2,2,2.0,Emerkingen
 Obermarchtal,5,7,5.0,Obermarchtal
 Unterwachingen,0,0,0.2,Unterwachingen
 Unterstadion,0,0,0.2,Unterstadion
 Dietenheim,13,22,13.0,Dietenheim
 Hausen am Bussen,1,1,1.0,Hausen am Bussen
-Ehingen (Donau),62,90,62.0,Ehingen (Donau)
-Munderkingen,5,7,5.0,Munderkingen
-Rottenacker,6,6,6.0,Rottenacker
+Ehingen (Donau),61,91,61.0,Ehingen (Donau)
+Munderkingen,6,8,6.0,Munderkingen
+Rottenacker,8,8,8.0,Rottenacker
 Untermarchtal,1,1,1.0,Untermarchtal
 Lauterach,3,3,3.0,Lauterach
 Illerrieden,14,17,14.0,Illerrieden
@@ -54,4 +54,4 @@ Griesingen,1,1,1.0,Griesingen
 Hüttisheim,1,1,1.0,Hüttisheim
 Emeringen,0,0,0.2,Emeringen
 Rechtenstein,0,0,0.2,Rechtenstein
-Ulm,268,450,268.0,Ulm
+Ulm,276,463,276.0,Ulm
