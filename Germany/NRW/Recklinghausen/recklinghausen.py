@@ -54,7 +54,7 @@ df_neu['Gesamtfallzahlen'] = df_neu['Gesamtfallzahlen'].str.replace('\.','')
 df_neu['Neu'] = df_neu['Neu'].str.replace('\.','')
 df_neu = df_neu.astype(int)
 from datetime import timedelta
-to = pd.Timestamp.today() - timedelta(days = 1)
+to = pd.Timestamp.today()# - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df_neu.to_csv(f'Germany/NRW/Recklinghausen/data/Recklinghausen_{tod}.csv')
 print(df_neu)
