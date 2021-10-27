@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()#- timedelta(days = 1)
+tod = pd.Timestamp.today()- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
@@ -40,9 +40,11 @@ if day[0] == tod[1]:
     neu.fillna(0, inplace=True)
     neu = neu.replace({'\+ ':''}, regex=True)
     neu = neu.replace({'\- ':'-'}, regex=True)
+    neu = neu.replace({' ':''}, regex=True)
+    neu = neu.replace({'\.':''}, regex=True)
     neu = neu.set_index(neu.columns[0])
     neu = neu[[neu.columns[0]]]
-    neu[neu.columns[0]][-1] = neu[neu.columns[0]][-1]*1000
+    #neu[neu.columns[0]][-1] = neu[neu.columns[0]][-1]*1000
     neu[neu.columns[0]][-1] = int(neu[neu.columns[0]][-1])
     neu = neu.astype(str)
     print(neu)
