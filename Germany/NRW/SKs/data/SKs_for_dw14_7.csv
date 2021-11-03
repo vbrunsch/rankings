@@ -1,118 +1,118 @@
 ,last7,last14,mix,Gemeinde
-Emden,16,29,16.0,Emden
-Zweibrücken,35,47,35.0,Zweibrücken
-Pirmasens,23,57,23.0,Pirmasens
-Hof,38,76,38.0,Hof
-Frankfurt (Oder),54,77,54.0,Frankfurt (Oder)
-Brandenburg a.d.Havel,57,78,57.0,Brandenburg a.d.Havel
-Neustadt a.d.Weinstraße,49,82,49.0,Neustadt a.d.Weinstraße
-Bayreuth,43,83,43.0,Bayreuth
-Coburg,45,90,45.0,Coburg
-Ansbach,53,96,53.0,Ansbach
-Landau i.d.Pfalz,64,97,64.0,Landau i.d.Pfalz
-Kaiserslautern,47,102,47.0,Kaiserslautern
-Wilhelmshaven,58,105,58.0,Wilhelmshaven
-Delmenhorst,61,108,61.0,Delmenhorst
-Weiden i.d.OPf.,74,112,74.0,Weiden i.d.OPf.
-Trier,72,116,72.0,Trier
-Frankenthal,69,121,69.0,Frankenthal
-Oldenburg,87,127,87.0,Oldenburg
-Neumünster,66,129,66.0,Neumünster
-Flensburg,84,131,84.0,Flensburg
-Koblenz,84,133,84.0,Koblenz
-Schwerin,78,138,78.0,Schwerin
-Suhl,68,138,68.0,Suhl
-Amberg,67,144,67.0,Amberg
-Aschaffenburg,106,145,106.0,Aschaffenburg
-Schwabach,96,158,96.0,Schwabach
-Salzgitter,100,167,100.0,Salzgitter
-Remscheid,106,173,106.0,Remscheid
+Emden,21,37,21.0,Emden
+Zweibrücken,31,46,31.0,Zweibrücken
+Pirmasens,18,57,18.0,Pirmasens
+Bayreuth,42,73,42.0,Bayreuth
+Hof,39,80,39.0,Hof
+Frankfurt (Oder),58,81,58.0,Frankfurt (Oder)
+Brandenburg a.d.Havel,52,81,52.0,Brandenburg a.d.Havel
+Neustadt a.d.Weinstraße,47,81,47.0,Neustadt a.d.Weinstraße
+Kaiserslautern,42,88,42.0,Kaiserslautern
+Coburg,48,93,48.0,Coburg
+Landau i.d.Pfalz,69,101,69.0,Landau i.d.Pfalz
+Wilhelmshaven,57,104,57.0,Wilhelmshaven
+Weiden i.d.OPf.,75,113,75.0,Weiden i.d.OPf.
+Frankenthal,68,114,68.0,Frankenthal
+Trier,71,115,71.0,Trier
+Delmenhorst,65,116,65.0,Delmenhorst
+Ansbach,80,128,80.0,Ansbach
+Schwerin,73,129,73.0,Schwerin
+Neumünster,67,130,67.0,Neumünster
+Suhl,68,137,68.0,Suhl
+Oldenburg,100,138,100.0,Oldenburg
+Flensburg,88,139,88.0,Flensburg
+Aschaffenburg,108,146,108.0,Aschaffenburg
+Koblenz,82,146,82.0,Koblenz
+Amberg,69,150,69.0,Amberg
+Schwabach,103,167,103.0,Schwabach
+Salzgitter,104,170,104.0,Salzgitter
+Remscheid,111,177,111.0,Remscheid
 Dessau-Roßlau,114,178,114.0,Dessau-Roßlau
-Bamberg,124,189,124.0,Bamberg
-Bottrop,127,190,127.0,Bottrop
-Kaufbeuren,127,193,127.0,Kaufbeuren
-Speyer,104,197,104.0,Speyer
-Wolfsburg,90,198,90.0,Wolfsburg
-Passau,137,198,137.0,Passau
-Osnabrück,116,200,116.0,Osnabrück
-Memmingen,111,202,111.0,Memmingen
-Erlangen,126,222,126.0,Erlangen
-Solingen,139,235,139.0,Solingen
-Worms,138,236,138.0,Worms
-Mülheim a.d.Ruhr,137,243,137.0,Mülheim a.d.Ruhr
-Hamm,144,245,144.0,Hamm
-Lübeck,143,249,143.0,Lübeck
-Baden-Baden,147,260,147.0,Baden-Baden
-Herne,167,272,167.0,Herne
-Braunschweig,157,274,157.0,Braunschweig
-Bremerhaven,155,280,155.0,Bremerhaven
-Kassel,188,291,188.0,Kassel
-Heidelberg,158,292,158.0,Heidelberg
-Oberhausen,198,292,198.0,Oberhausen
-Schweinfurt,152,299,152.0,Schweinfurt
-Landshut,190,313,190.0,Landshut
-Darmstadt,186,314,186.0,Darmstadt
-Cottbus,173,340,173.0,Cottbus
-Straubing,182,350,182.0,Straubing
-Halle,241,381,241.0,Halle
-Kiel,218,383,218.0,Kiel
-Kempten,248,388,248.0,Kempten
-Mainz,199,397,199.0,Mainz
-Jena,221,406,221.0,Jena
-Magdeburg,195,409,195.0,Magdeburg
-Gera,248,412,248.0,Gera
-Potsdam,221,414,221.0,Potsdam
-Weimar,235,415,235.0,Weimar
-Ludwigshafen,248,421,248.0,Ludwigshafen
-Würzburg,277,425,277.0,Würzburg
-Krefeld,245,435,245.0,Krefeld
-Hagen,257,452,257.0,Hagen
-Rostock,260,457,260.0,Rostock
-Rosenheim,233,458,233.0,Rosenheim
-Offenbach,280,468,280.0,Offenbach
-Leverkusen,302,468,302.0,Leverkusen
-Münster,282,470,282.0,Münster
-Bonn,302,472,302.0,Bonn
-Wiesbaden,340,488,340.0,Wiesbaden
-Gelsenkirchen,278,490,278.0,Gelsenkirchen
-Fürth,297,492,297.0,Fürth
-Berlin Treptow-Köpenick,333,544,333.0,Berlin Treptow-Köpenick
-Berlin Marzahn-Hellersdorf,317,548,317.0,Berlin Marzahn-Hellersdorf
-Mönchengladbach,318,556,318.0,Mönchengladbach
-Ulm,299,556,299.0,Ulm
-Heilbronn,351,609,351.0,Heilbronn
-Berlin Steglitz-Zehlendorf,343,639,343.0,Berlin Steglitz-Zehlendorf
-Ingolstadt,369,644,369.0,Ingolstadt
-Wuppertal,393,651,393.0,Wuppertal
-Berlin Lichtenberg,378,659,378.0,Berlin Lichtenberg
-Bochum,376,664,376.0,Bochum
-Berlin Spandau,414,706,414.0,Berlin Spandau
-Bremen,424,748,424.0,Bremen
-Bielefeld,438,773,438.0,Bielefeld
-Pforzheim,458,778,458.0,Pforzheim
-Freiburg i.Breisgau,410,780,410.0,Freiburg i.Breisgau
-Essen,482,802,482.0,Essen
-Berlin Charlottenburg-Wilmersdorf,452,820,452.0,Berlin Charlottenburg-Wilmersdorf
-Duisburg,515,877,515.0,Duisburg
-Berlin Reinickendorf,493,907,493.0,Berlin Reinickendorf
-Karlsruhe,537,932,537.0,Karlsruhe
-Mannheim,542,957,542.0,Mannheim
-Berlin Friedrichshain-Kreuzberg,506,964,506.0,Berlin Friedrichshain-Kreuzberg
-Berlin Pankow,593,975,593.0,Berlin Pankow
-Berlin Tempelhof-Schöneberg,542,1009,542.0,Berlin Tempelhof-Schöneberg
-Chemnitz,586,1016,586.0,Chemnitz
-Regensburg,543,1100,543.0,Regensburg
-Berlin Neukölln,631,1130,631.0,Berlin Neukölln
-Dortmund,721,1133,721.0,Dortmund
-Augsburg,710,1225,710.0,Augsburg
-Berlin Mitte,685,1279,685.0,Berlin Mitte
-Erfurt,698,1314,698.0,Erfurt
-Leipzig,838,1396,838.0,Leipzig
-Düsseldorf,848,1506,848.0,Düsseldorf
-Stuttgart,1216,2128,1216.0,Stuttgart
-Nürnberg,1206,2153,1206.0,Nürnberg
-Frankfurt am Main,1364,2241,1364.0,Frankfurt am Main
-Köln,1722,2768,1722.0,Köln
-Dresden,1902,3290,1902.0,Dresden
-Hamburg,2298,4358,2298.0,Hamburg
-München,2378,5222,2378.0,München
+Bamberg,118,189,118.0,Bamberg
+Speyer,103,192,103.0,Speyer
+Bottrop,112,192,112.0,Bottrop
+Kaufbeuren,125,195,125.0,Kaufbeuren
+Memmingen,113,204,113.0,Memmingen
+Passau,136,207,136.0,Passau
+Worms,116,213,116.0,Worms
+Osnabrück,119,214,119.0,Osnabrück
+Erlangen,131,222,131.0,Erlangen
+Wolfsburg,124,226,124.0,Wolfsburg
+Mülheim a.d.Ruhr,133,236,133.0,Mülheim a.d.Ruhr
+Baden-Baden,136,251,136.0,Baden-Baden
+Lübeck,115,256,115.0,Lübeck
+Hamm,154,264,154.0,Hamm
+Solingen,152,265,152.0,Solingen
+Herne,149,275,149.0,Herne
+Bremerhaven,150,276,150.0,Bremerhaven
+Braunschweig,162,284,162.0,Braunschweig
+Schweinfurt,151,289,151.0,Schweinfurt
+Oberhausen,187,289,187.0,Oberhausen
+Kassel,187,294,187.0,Kassel
+Heidelberg,167,299,167.0,Heidelberg
+Darmstadt,172,317,172.0,Darmstadt
+Landshut,198,322,198.0,Landshut
+Cottbus,169,338,169.0,Cottbus
+Straubing,183,350,183.0,Straubing
+Kiel,218,377,218.0,Kiel
+Halle,248,387,248.0,Halle
+Kempten,254,393,254.0,Kempten
+Weimar,218,410,218.0,Weimar
+Jena,229,413,229.0,Jena
+Magdeburg,222,414,222.0,Magdeburg
+Mainz,210,419,210.0,Mainz
+Würzburg,259,422,259.0,Würzburg
+Ludwigshafen,237,422,237.0,Ludwigshafen
+Potsdam,231,424,231.0,Potsdam
+Krefeld,239,442,239.0,Krefeld
+Hagen,243,447,243.0,Hagen
+Rostock,246,450,246.0,Rostock
+Leverkusen,300,467,300.0,Leverkusen
+Gera,261,475,261.0,Gera
+Münster,288,482,288.0,Münster
+Rosenheim,230,485,230.0,Rosenheim
+Fürth,301,495,301.0,Fürth
+Wiesbaden,342,495,342.0,Wiesbaden
+Offenbach,279,496,279.0,Offenbach
+Bonn,327,507,327.0,Bonn
+Gelsenkirchen,285,511,285.0,Gelsenkirchen
+Berlin Treptow-Köpenick,370,557,370.0,Berlin Treptow-Köpenick
+Ulm,293,559,293.0,Ulm
+Mönchengladbach,313,561,313.0,Mönchengladbach
+Berlin Marzahn-Hellersdorf,357,583,357.0,Berlin Marzahn-Hellersdorf
+Heilbronn,344,600,344.0,Heilbronn
+Ingolstadt,359,645,359.0,Ingolstadt
+Berlin Steglitz-Zehlendorf,372,645,372.0,Berlin Steglitz-Zehlendorf
+Bochum,373,681,373.0,Bochum
+Wuppertal,405,684,405.0,Wuppertal
+Berlin Lichtenberg,410,700,410.0,Berlin Lichtenberg
+Berlin Spandau,411,724,411.0,Berlin Spandau
+Bielefeld,430,768,430.0,Bielefeld
+Freiburg i.Breisgau,400,771,400.0,Freiburg i.Breisgau
+Bremen,431,772,431.0,Bremen
+Pforzheim,413,780,413.0,Pforzheim
+Essen,479,789,479.0,Essen
+Berlin Charlottenburg-Wilmersdorf,440,833,440.0,Berlin Charlottenburg-Wilmersdorf
+Duisburg,520,864,520.0,Duisburg
+Karlsruhe,517,932,517.0,Karlsruhe
+Berlin Reinickendorf,508,940,508.0,Berlin Reinickendorf
+Mannheim,528,954,528.0,Mannheim
+Berlin Friedrichshain-Kreuzberg,508,957,508.0,Berlin Friedrichshain-Kreuzberg
+Chemnitz,575,1024,575.0,Chemnitz
+Berlin Tempelhof-Schöneberg,533,1030,533.0,Berlin Tempelhof-Schöneberg
+Berlin Pankow,627,1050,627.0,Berlin Pankow
+Regensburg,518,1096,518.0,Regensburg
+Berlin Neukölln,680,1150,680.0,Berlin Neukölln
+Dortmund,718,1152,718.0,Dortmund
+Augsburg,697,1199,697.0,Augsburg
+Berlin Mitte,715,1317,715.0,Berlin Mitte
+Erfurt,697,1335,697.0,Erfurt
+Leipzig,862,1413,862.0,Leipzig
+Düsseldorf,816,1507,816.0,Düsseldorf
+Stuttgart,961,1969,961.0,Stuttgart
+Nürnberg,1156,2136,1156.0,Nürnberg
+Frankfurt am Main,1322,2262,1322.0,Frankfurt am Main
+Köln,1653,2768,1653.0,Köln
+Dresden,2069,3554,2069.0,Dresden
+Hamburg,2373,4402,2373.0,Hamburg
+München,2531,5484,2531.0,München
