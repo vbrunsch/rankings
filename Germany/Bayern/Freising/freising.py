@@ -42,6 +42,8 @@ elif tod == '08.07.2021':
   dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Gemeindezahlen_08.07.2021__002_.pdf', stream= True)
 elif tod == '30.07.2021':
   dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2020/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_30.07.2021_neu.pdf', stream= True)
+elif tod == '02.11.2021':
+  dfs = tabula.read_pdf('https://landkreis-freising.de/fileadmin/user_upload/Aktuelles_News/2021/Corona/Fallzahlen/Fallzahlen_nach_Gemeinden_2.11.2021.pdf', stream= True)
 
 df = pd.DataFrame()
 try:
