@@ -22,14 +22,14 @@ kon = pd.DataFrame()
 zus = pd.DataFrame()
 we = 0
 
-for x in range(0,14): # CHANGE HERE
+for x in range(1,15): # CHANGE HERE
     x = x + we*2
     m = 0
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
-    while m == 0 and x < 14: # CHANGE HERE
+    while m == 0 and x < 15: # CHANGE HERE
         for url in ['https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=2#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=3#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=4#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=5#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=6#list_586a9b2b']:
-            if tod == '27.04.2021':
+            if tod == '30.10.2021':
               m = m + 1
               neu[tod] = 0
               unb[tod] = 0
@@ -65,7 +65,7 @@ for x in range(0,14): # CHANGE HERE
                             new_row = {'Unnamed: 0':'Stadt Worms', 'Neue Fälle':7, 'Unbekannter Infektionsherd':7, 'Einreisende / Reiserückkehrer':0, 'Kontakt zu positiv getesteter Person':0}
                             df = df.append(new_row, ignore_index = True)
                             df = df.reindex([7,0,1,2,3,4,5,6])
-                          elif tod in ['14.09.2021']:
+                          elif tod in ['01.11.2021']:
                             df = pd.read_csv('Germany/RP/Worms/data/worms_null.csv')
                           else:
                             df = df[3]
