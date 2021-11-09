@@ -1,5 +1,6 @@
 from datetime import timedelta
 import pandas as pd
+import html5lib
 
 dfs = pd.read_html('https://www.saarpfalz-kreis.de/leben-soziales-gesundheit/gesundheit/coronavirus')
 to = pd.Timestamp.today() - timedelta(days=1)
