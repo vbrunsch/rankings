@@ -20,7 +20,7 @@ try:
       t4 = re.findall('Meldungsdatum: (.*?)<',t3)
       t5 = re.findall('(.*?) verteilen sich wie folgt auf die ',t3)
       from datetime import timedelta
-      to = pd.Timestamp.today() - timedelta(days = 1)
+      to = pd.Timestamp.today()# - timedelta(days = 1)
       tod = to.strftime('%m_%d_%Y')
       tos = to.strftime('%d.%m.%Y')
       if tos == t4[0] and t5:
@@ -36,7 +36,7 @@ try:
 except:
     
     from datetime import timedelta
-    to = pd.Timestamp.today() - timedelta(days = 1)
+    to = pd.Timestamp.today()# - timedelta(days = 1)
     tod = to.strftime('%m_%d_%Y')
     df = pd.read_csv(f'Germany/NRW/Viersen/data/Viersen_{tod}.csv', index_col = 0)
 import numpy as np
