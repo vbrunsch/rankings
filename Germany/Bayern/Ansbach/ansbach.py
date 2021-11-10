@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()#- timedelta(days = 1)
+tod = pd.Timestamp.today()- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
@@ -42,22 +42,27 @@ if day[0] == tod[1]:
     neu = neu.replace({'\- ':'-'}, regex=True)
     neu = neu.set_index(neu.columns[0])
     neu = neu[[neu.columns[0]]]
-    neu = neu.replace({' ':''}, regex=True)
-    neu = neu.replace({'\.':''}, regex=True)
+    neu[[neu.columns[0]]] = np.where((neu - neu.astype(int)== 0), neu, neu*1000)
+    neu = neu.astype(int)
+    #neu = neu.astype(str)
+    #neu = neu.replace({' ':''}, regex=True)
+    #print(neu)
+    #neu = neu.replace({'\.':''}, regex=True)
     #neu[neu.columns[0]][-1] = neu[neu.columns[0]][-1]*1000
-    neu[neu.columns[0]][-1] = int(neu[neu.columns[0]][-1])
-    neu = neu.astype(str)
-    print(neu)
-    neu = neu.replace({'\.0':''}, regex=True)
-    neu = neu.replace({'\.':''}, regex=True)
+    #neu[neu.columns[0]][-1] = int(neu[neu.columns[0]][-1])
+    #neu = neu.astype(str)
+    #print(neu)
+    #neu = neu.replace({'\.0':''}, regex=True)
+    #neu = neu.replace({'\.':''}, regex=True)
     print(neu)
     neu = neu.astype(int)
-    neu.to_csv(f'Ansbach_{tod}.csv')
+    neu.to_csv(f'Germany/Bayern/Ansbach_{tod}.csv')
 else:
-    df = pd.read_csv(f'Germany/Bayern/Ansbach/data/Ansbach_Null.csv')
+    df = pd.read_csv(f'Germany/Bayern/Ansbach_Null.csv')
     df.set_index('Stadt/Markt/Gemeinde', inplace = True)
     neu = df.copy()
-    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
+    neu.to_csv(f'Germany/Bayern/Ansbach_{tod}.csv')
+    
 
 tog = neu.copy()
 cur = pd.read_csv('Germany/Bayern/Ansbach/data/Ansbach_current1.csv', index_col = 0)
