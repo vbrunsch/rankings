@@ -14,7 +14,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-tod = pd.Timestamp.today()- timedelta(days = 1)
+tod = pd.Timestamp.today()#- timedelta(days = 1)
 tod = tod.strftime('%d.%m.%Y')
 #yes = pd.Timestamp.today() - timedelta(days = 1)
 #yes = yes.strftime('%d.%m.%Y')
@@ -56,12 +56,12 @@ if day[0] == tod[1]:
     #neu = neu.replace({'\.':''}, regex=True)
     print(neu)
     neu = neu.astype(int)
-    neu.to_csv(f'Germany/Bayern/Ansbach_{tod}.csv')
+    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
 else:
     df = pd.read_csv(f'Germany/Bayern/Ansbach_Null.csv')
     df.set_index('Stadt/Markt/Gemeinde', inplace = True)
     neu = df.copy()
-    neu.to_csv(f'Germany/Bayern/Ansbach_{tod}.csv')
+    neu.to_csv(f'Germany/Bayern/Ansbach/data/Ansbach_{tod}.csv')
     
 
 tog = neu.copy()
