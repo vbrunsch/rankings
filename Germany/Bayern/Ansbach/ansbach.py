@@ -1,5 +1,5 @@
 import os
-
+import numpy as np
 from datetime import timedelta
 import tabula
 import bs4
