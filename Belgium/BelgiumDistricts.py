@@ -13,7 +13,7 @@ import pandas as pd
 mun = pd.DataFrame()
 now = datetime.date.today()
 yesterday = now - timedelta(days=1)
-start = now - timedelta(days=20)
+start = now - timedelta(days=17)
 date_list = pd.date_range(start=start,end=yesterday).tolist()
 for d in date_list:  
     if d.weekday() in [1,2,3,4,5]:
