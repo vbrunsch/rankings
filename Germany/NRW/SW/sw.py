@@ -26,7 +26,7 @@ gem = ['Bad Berleburg','Bad Laasphe','Burbach','Erndtebrück','Freudenberg','Hil
 infy = re.findall('Datum:.*?(..\...\.....)', t)
 
 df = pd.DataFrame(data = inf, index = gem)
-df.columns = [infy[0]]
+df.columns = [infy[-1]]
 df = df.astype(int)
 print(df)
 df.to_csv(f'Germany/NRW/SW/data/Siegen-Wittgenstein_{tod}.csv')
