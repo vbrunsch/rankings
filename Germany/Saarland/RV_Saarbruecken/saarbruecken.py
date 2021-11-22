@@ -7,7 +7,7 @@ import pandas as pd
 import re
 import requests
 
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 todf = to.strftime('%Y-%m-%d')
 tod = to.strftime('%m_%d_%Y')
 
@@ -18,8 +18,12 @@ lin = re.findall('a href="(.*)" title="Tägliche Fallzahl-Statistik aus dem Regi
 try:
   link = lin[0].replace('amp;', '')
 except:
-  lin = re.findall('a href="(.*)" title="Fallzahl-Statistik', str(htmlParse))
-  link = lin[0].replace('amp;', '')
+  try:
+    lin = re.findall('a href="(.*)" title="Fallzahl-Statistik', str(htmlParse))
+    link = lin[0].replace('amp;', '')
+  except:
+    lin = re.findall('a href="(.*)" title="Wochenend', str(htmlParse))
+    link = lin[0].replace('amp;', '')
 tab = pd.read_html(link)
 df = tab[0]
 df.columns = df.iloc[0]
