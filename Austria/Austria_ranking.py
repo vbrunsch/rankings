@@ -11,7 +11,7 @@ import pandas as pd
 
 
 bez = pd.DataFrame()
-now = datetime.date.today()
+now = datetime.date.today()- datetime.timedelta(days=1)
 yes = now - datetime.timedelta(days=1)
 date_time = now.strftime("%Y%m%d")
 date_time_y = yes.strftime("%Y%m%d")
