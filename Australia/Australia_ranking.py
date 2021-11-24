@@ -21,7 +21,10 @@ for d in data['sheetNames']:
     focus = focus.iloc[1:].set_index('')
     focus.index.name = None
     #focus = focus.rename({focus.columns(0): 'Overseas', focus.columns(1): 'Known Local', focus.columns(2): 'Unknown Local (Community)', focus.columns(3): 'Interstate travel', focus.columns(4): 'Under investigation'}, axis=1)
-    focus.columns = ['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation']
+    try:
+      focus.columns = ['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation','Local - all']
+    except:
+      focus.columns = ['Overseas','Known Local','Unknown Local (Community)','Interstate travel','Under investigation']
     focus['Overseas'].replace('', np.nan, inplace=True)
     focus = focus.dropna()
     focus['Known Local'] = focus['Known Local'].str.replace(',','')
