@@ -9,7 +9,7 @@ dfs = pd.read_html('https://www.kreis-unna.de/nachrichten/n/update-coronavirus-1
 
 
 from datetime import timedelta
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 df = dfs[1]
