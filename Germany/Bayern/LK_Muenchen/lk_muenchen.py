@@ -18,12 +18,13 @@ try:
 except:
     df['Fälle seit Vortagsmeldung'] = df['Fälle seit letzter Meldung'].replace('\+','', regex = True)
 df = df.replace('\.','',regex=True)
+df = df.replace('\*','',regex=True)
 df['Infizierte gesamt'] = df['Infizierte gesamt'].replace('v',892, regex = True)
 df = df.astype(float)
 df[np.isnan(df)] = 0
 df = df.astype(int)
 print(df)
-to = pd.Timestamp.today()# - timedelta(days = 1)
+to = pd.Timestamp.today() - timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 df.to_csv(f'Germany/Bayern/LK_Muenchen/data/LK_München_{tod}.csv')
 
