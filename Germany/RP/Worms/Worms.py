@@ -22,12 +22,12 @@ kon = pd.DataFrame()
 zus = pd.DataFrame()
 we = 0
 
-for x in range(0,14): # CHANGE HERE
+for x in range(1,15): # CHANGE HERE
     x = x + we*2
     m = 0
     tod = pd.Timestamp.today() -timedelta(days=x)
     tod = tod.strftime('%d.%m.%Y')
-    while m == 0 and x < 14: # CHANGE HERE
+    while m == 0 and x < 15: # CHANGE HERE
         for url in ['https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=2#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=3#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=4#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=5#list_586a9b2b','https://www.kreis-alzey-worms.eu/verwaltung/aktuelles/?pageId586a9b2b=6#list_586a9b2b']:
             if tod == '30.10.2021':
               m = m + 1
@@ -55,8 +55,8 @@ for x in range(0,14): # CHANGE HERE
                           link = 'https://www.kreis-alzey-worms.eu/'+ lin[0]
                         df = pd.read_html(link, encoding = 'utf-8')
                         try:
-                          if tod in ['16.09.2021']:
-                            df = df[4]
+                          if tod in ['29.11.2021']:
+                            df = df[2]
                             #df = df.drop([df.columns[1],df.columns[2]], axis=1)
                             df = df.drop([0, 2])
                             #df = df[:-1]
