@@ -1,38 +1,38 @@
 ,Gemeinde,Unnamed: 0,Neuzugänge letzten 7 Tage_x,Einwohner,7-Tages-Inzidenz,Landkreis,Neuzugänge letzten 7 Tage_y,Neuzugänge letzten 14 Tage,Neuzugänge letzten 7 Tage
-343,Neumark,1,640.0,2.9530000000000003,2.1673,Vogtlandkreis,85,149,64
-344,Grünbach,2,320.0,1.641,1.95,Vogtlandkreis,11,43,32
-345,Pausa-Mühltroff,3,940.0,4.835,1.9442,Vogtlandkreis,59,153,94
-346,Tirpersdorf,4,260.0,1.3630000000000002,1.9076,Vogtlandkreis,8,34,26
-347,Neuensalz,5,380.0,2.07,1.8357,Vogtlandkreis,23,61,38
-348,Bergen,6,170.0,966.0,1.7598,Vogtlandkreis,14,31,17
-349,Steinberg,7,470.0,2.7,1.7407,Vogtlandkreis,30,77,47
-350,Eichigt,8,200.0,1.156,1.7301,Vogtlandkreis,35,55,20
-351,Oelsnitz/Vogtl.,9,1640.0,10.012,1.6380000000000001,Vogtlandkreis,115,279,164
-352,Adorf/Vogtl.,10,740.0,4.813,1.5375,Vogtlandkreis,52,126,74
-353,Theuma,11,150.0,1.018,1.4735,Vogtlandkreis,11,26,15
-354,Rosenbach/Vogtl.,12,600.0,4.1080000000000005,1.4606,Vogtlandkreis,78,138,60
-355,Rodewisch,13,870.0,6.2989999999999995,1.3812,Vogtlandkreis,79,166,87
-356,Auerbach/Vogtl.,14,2450.0,17.92,1.3672,Vogtlandkreis,280,525,245
-357,Weischlitz,15,780.0,5.74,1.3589,Vogtlandkreis,62,140,78
-358,Werda,16,200.0,1.476,1.355,Vogtlandkreis,11,31,20
-359,Markneukirchen,17,990.0,7.329,1.3508,Vogtlandkreis,55,154,99
-360,Muldenhammer,18,390.0,2.98,1.3087,Vogtlandkreis,75,114,39
-361,Plauen,19,8250.0,63.604,1.2971,Vogtlandkreis,766,1591,825
-362,Treuen,20,1000.0,7.776,1.286,Vogtlandkreis,74,174,100
-363,Limbach,21,180.0,1.41,1.2766,Vogtlandkreis,14,32,18
-364,Falkenstein/Vogtl.,22,950.0,7.824,1.2142,Vogtlandkreis,84,179,95
-365,Triebel/Vogtl.,23,140.0,1.198,1.1686,Vogtlandkreis,31,45,14
-366,Netzschkau,24,440.0,3.7910000000000004,1.1606,Vogtlandkreis,39,83,44
-367,Reichenbach im Vogtland,25,2060.0,20.13,1.0233,Vogtlandkreis,156,362,206
-368,Ellefeld,26,250.0,2.509,9964.0,Vogtlandkreis,32,57,25
-369,Elsterberg,27,360.0,3.7889999999999997,9501.0,Vogtlandkreis,35,71,36
-370,Lengenfeld,28,630.0,7.007999999999999,899.0,Vogtlandkreis,61,124,63
-371,Mühlental,29,110.0,1.264,8703.0,Vogtlandkreis,15,26,11
-372,Heinsdorfergrund,30,160.0,1.9469999999999998,8218.0,Vogtlandkreis,22,38,16
-373,Pöhl,31,200.0,2.464,8117.0,Vogtlandkreis,29,49,20
-374,Bösenbrunn,32,90.0,1.1159999999999999,8065.0,Vogtlandkreis,11,20,9
-375,Bad Elster,33,290.0,3.614,8024.0,Vogtlandkreis,46,75,29
-376,Bad Brambach,34,130.0,1.751,7424.0,Vogtlandkreis,13,26,13
-377,Klingenthal,35,570.0,7.974,7148.0,Vogtlandkreis,55,112,57
-378,Schöneck/Vogtl.,36,210.0,3.094,6787.0,Vogtlandkreis,27,48,21
-379,Neustadt/Vogtl.,37,60.0,973.0,6166.0,Vogtlandkreis,9,15,6
+343,Steinberg,1,530.0,2.7,1.963,Vogtlandkreis,32,85,53
+344,Pausa-Mühltroff,2,910.0,4.835,1.8821,Vogtlandkreis,73,164,91
+345,Neumark,3,530.0,2.9530000000000003,1.7948,Vogtlandkreis,79,132,53
+346,Neuensalz,4,370.0,2.07,1.7874,Vogtlandkreis,32,69,37
+347,Theuma,5,180.0,1.018,1.7682,Vogtlandkreis,17,35,18
+348,Tirpersdorf,6,230.0,1.3630000000000002,1.6875,Vogtlandkreis,13,36,23
+349,Grünbach,7,260.0,1.641,1.5844,Vogtlandkreis,13,39,26
+350,Rosenbach/Vogtl.,8,650.0,4.1080000000000005,1.5823,Vogtlandkreis,66,131,65
+351,Bergen,9,140.0,966.0,1.4493,Vogtlandkreis,14,28,14
+352,Triebel/Vogtl.,10,160.0,1.198,1.3356,Vogtlandkreis,28,44,16
+353,Muldenhammer,11,390.0,2.98,1.3087,Vogtlandkreis,62,101,39
+354,Oelsnitz/Vogtl.,12,1310.0,10.012,1.3084,Vogtlandkreis,123,254,131
+355,Limbach,13,180.0,1.41,1.2766,Vogtlandkreis,14,32,18
+356,Eichigt,14,140.0,1.156,1.2111,Vogtlandkreis,33,47,14
+357,Plauen,15,7520.0,63.604,1.1823,Vogtlandkreis,749,1501,752
+358,Markneukirchen,16,820.0,7.329,1.1188,Vogtlandkreis,67,149,82
+359,Adorf/Vogtl.,17,530.0,4.813,1.1012,Vogtlandkreis,58,111,53
+360,Weischlitz,18,630.0,5.74,1.0976,Vogtlandkreis,73,136,63
+361,Werda,19,160.0,1.476,1.084,Vogtlandkreis,11,27,16
+362,Netzschkau,20,410.0,3.7910000000000004,1.0815,Vogtlandkreis,38,79,41
+363,Ellefeld,21,270.0,2.509,1.0761,Vogtlandkreis,29,56,27
+364,Rodewisch,22,660.0,6.2989999999999995,1.0478,Vogtlandkreis,95,161,66
+365,Auerbach/Vogtl.,23,1860.0,17.92,1.0379,Vogtlandkreis,255,441,186
+366,Heinsdorfergrund,24,190.0,1.9469999999999998,9759.0,Vogtlandkreis,16,35,19
+367,Mühlental,25,120.0,1.264,9494.0,Vogtlandkreis,17,29,12
+368,Treuen,26,720.0,7.776,9259.0,Vogtlandkreis,86,158,72
+369,Falkenstein/Vogtl.,27,690.0,7.824,8819.0,Vogtlandkreis,81,150,69
+370,Reichenbach im Vogtland,28,1610.0,20.13,7998.0,Vogtlandkreis,179,340,161
+371,Bösenbrunn,29,80.0,1.1159999999999999,7168.0,Vogtlandkreis,14,22,8
+372,Lengenfeld,30,470.0,7.007999999999999,6707.0,Vogtlandkreis,65,112,47
+373,Klingenthal,31,520.0,7.974,6521.0,Vogtlandkreis,54,106,52
+374,Pöhl,32,150.0,2.464,6088.0,Vogtlandkreis,29,44,15
+375,Bad Elster,33,210.0,3.614,5811.0,Vogtlandkreis,46,67,21
+376,Bad Brambach,34,90.0,1.751,514.0,Vogtlandkreis,17,26,9
+377,Neustadt/Vogtl.,35,50.0,973.0,5139.0,Vogtlandkreis,7,12,5
+378,Schöneck/Vogtl.,36,150.0,3.094,4848.0,Vogtlandkreis,32,47,15
+379,Elsterberg,37,170.0,3.7889999999999997,4487.0,Vogtlandkreis,42,59,17
