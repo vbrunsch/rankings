@@ -4,8 +4,8 @@
 name: Update LK Gießen Communities Rankings
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   schedule:
     - cron: '58 21 * * *'
 
