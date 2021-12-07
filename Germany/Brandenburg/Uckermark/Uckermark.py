@@ -50,9 +50,14 @@ try:
     mon = re.findall('\. (.*)&nbsp; ', matches[0])[0]
     yea = re.findall('\. .* (....)', matches[0])[0]
 except:
-    day = re.findall('(..)\.', matches[0])[0]
-    mon = re.findall('\.(..)', matches[0])[0]
-    yea = re.findall('\..* (....)', matches[0])[0]
+    try:
+        day = re.findall('(..)\.', matches[0])[0]
+        mon = re.findall('\.(..)', matches[0])[0]
+        yea = re.findall('\..* (....)', matches[0])[0]
+    except:
+        day = re.findall('(..)\.', matches[0])[0]
+        mon = re.findall('\.(..)', matches[0])[0]
+        yea = re.findall('\..*(....)', matches[0])[0]
 
 
 
