@@ -8,7 +8,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 import numpy as np
 
-to = pd.Timestamp.today()#- timedelta(days = 1)  # HERE
+to = pd.Timestamp.today()- timedelta(days = 1)  # HERE
 tod = to.strftime('%m_%d_%Y')
 
 url_s = 'https://www.siegen-wittgenstein.de/Kreisverwaltung/Aktuelles/Pressemeldungen/index.php?ModID=255&object=tx%2C3417.5&La=1&NavID=2170.61&text=neuinfiziert%2Fgenesen&kat=2170.8&monat=&jahr=&kuo=1'
@@ -22,6 +22,8 @@ path = path.replace('amp;','')
 
 t = requests.get(path).text
 inf = re.findall('li.*>.*?&nbsp.*?([0-9]+)\/.*?<', t)
+if not inf:
+  inf = re.findall('bull.*?([0-9]+)\/.*?<', t)
 gem = ['Bad Berleburg','Bad Laasphe','Burbach','Erndtebrück','Freudenberg','Hilchenbach','Kreuztal','Netphen','Neunkirchen','Siegen','Wilnsdorf']
 infy = re.findall('Datum:.*?(..\...\.....)', t)
 
