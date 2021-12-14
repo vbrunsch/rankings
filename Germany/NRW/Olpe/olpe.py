@@ -12,7 +12,7 @@ import re
 import requests
 neu = pd.DataFrame()
 
-to = pd.Timestamp.today()#- timedelta(days = 1)
+to = pd.Timestamp.today()- timedelta(days = 1)
 tod = to.strftime('%m_%d_%Y')
 
 url_s = 'https://www.kreis-olpe.de/Themen/Coronavirus/Corona-Virus-Alle-Infos-auf-einen-Blick/'
@@ -26,7 +26,7 @@ pdf_path = 'https://www.kreis-olpe.de' + pdf[0]
 dfs = tabula.read_pdf(pdf_path, stream=True)
 df = dfs[0]
 df = df[2:]
-df = df[[df.columns[0],df.columns[1],df.columns[2]]]
+df = df[[df.columns[0],df.columns[1],df.columns[3]]]
 df.columns = ['Gem','last14','Gesamtfallzahlen']
 df = df.set_index('Gem')
 df['Gesamtfallzahlen'] = df['Gesamtfallzahlen'].str.replace('\.','')
