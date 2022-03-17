@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('/rankings/gdp/OECD_GDP_from2018Q4.csv')
+df = pd.read_csv('gdp/OECD_GDP_from2018Q4.csv')
 df = df[['Country','TIME','Value']]
 df['Value'] = df['Value']/4000000
 df['PctChange'] = df['Value'].pct_change()
