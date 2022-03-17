@@ -82,7 +82,7 @@ for i in df['Country'].unique():
                     yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Quarterly GDP in trillion 2015 US$'),
                     font=dict(size=18),showlegend = True, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed'))
     fig = go.Figure(data=data, layout=layout)
-    fig.show()
+    #fig.show()
 
     
 
@@ -95,7 +95,7 @@ for i in df['Country'].unique():
                     yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Quarterly GDP in trillion 2015 US$'),
                     font=dict(size=18),showlegend = True, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed'))
     fig = go.Figure(data=data, layout=layout)
-    fig.show()
+    #fig.show()
 
     
 
