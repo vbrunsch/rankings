@@ -72,7 +72,7 @@ for i in df['Country'].unique():
       y=dft['SlopeVal'], name = '2019 rate', marker_color = px.colors.qualitative.G10[2],line = dict(width=4, dash = 'dash'))
   q4_2019 = go.Scatter(
       x=dft.index,
-      y=np.full(len(dft.index),dft['Value'].iloc[4]), name = '2019 Q4 GDP', marker_color = px.colors.qualitative.G10[1],line = dict(width=4, dash = 'dash'))
+      y=np.full(len(dft.index),dft['Value'].iloc[4]), name = '2019 Q4 GDP', marker_color = px.colors.qualitative.G10[0],line = dict(width=4, dash = 'dash'))
 
 
   data = [q4_2019,slope,gdp]
