@@ -128,21 +128,39 @@ for i in range(0,9):
 fig.write_html(r'Acc_GDP_Gain_Loss_rate2.html',config=dict(
                   displayModeBar=False), default_height = '550px', default_width = '900px' )
 
+dfc2 = dfc2[['Australia','Belgium','Korea','Netherlands','New Zealand','Sweden','Switzerland','Canada','Japan','Italy','Germany','France','United Kingdom','United States','India','China','EU (27)','OECD - Europe', 'OECD - Total']]
 layout = dict(template="simple_white", title = 'Accumulated GDP Gain/Loss with respect to 2019-Q4 GDP', title_x = 0.5, xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
                     yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Trillion US$ (2015)'),
                     font=dict(size=18),showlegend = True)#, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed'))
 
-colors = px.colors.qualitative.Plotly
+colors = px.colors.qualitative.G10
+# marker_color = px.colors.qualitative.G10[1],line = dict(width=4, dash = 'dash'))
 fig = go.Figure(layout = layout)
-for i in range(0,10):
-  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color=colors[i])))
-#fig.show()
+for i in range(0,7):
+  #if i == 8:
+  #  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color='black', width = 4)))  
+  #else:
+  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color=colors[i], width = 4)))
+fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_1.html',config=dict(
                   displayModeBar=False), default_height = '550px', default_width = '900px' )
 
 fig = go.Figure(layout = layout)
-for i in range(0,9):
-  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+10]], mode = 'lines', name = dfc2.columns[i+10], line=dict(color=colors[i])))
-#fig.show()
+for i in range(0,6):
+  #if i in [7,8,9]:
+  #  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+9]], mode = 'lines', name = dfc2.columns[i+9], line=dict(color=colors[i],width = 4, dash = 'dash')))
+  #else:
+  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+7]], mode = 'lines', name = dfc2.columns[i+7], line=dict(color=colors[i],width = 4)))
+fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_2.html',config=dict(
+                  displayModeBar=False), default_height = '550px', default_width = '900px' )
+
+fig = go.Figure(layout = layout)
+for i in range(0,6):
+  #if i in [7,8,9]:
+  #  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+9]], mode = 'lines', name = dfc2.columns[i+9], line=dict(color=colors[i],width = 4, dash = 'dash')))
+  #else:
+  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+13]], mode = 'lines', name = dfc2.columns[i+13], line=dict(color=colors[i],width = 4)))
+fig.show()
+fig.write_html(r'Acc_GDP_Gain_Loss_Q4_3.html',config=dict(
                   displayModeBar=False), default_height = '550px', default_width = '900px' )
