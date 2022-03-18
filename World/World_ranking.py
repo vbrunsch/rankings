@@ -32,7 +32,7 @@ do_not_include = ['Antigua and Barbuda', 'Angola', 'Benin', 'Botswana',
                   'Saint Vincent and the Grenadines', 'Sao Tome and Principe',
                   'Seychelles', 'Sierra Leone', 'South Sudan', 'Suriname', 'Syria', 
                   'Tanzania', 'Togo', 'Uganda', 'West Bank and Gaza',
-                  'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe']
+                  'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe','Summer Olympics 2020','Winter Olympics 2022']
 
 cols = ['Country','COVID-free days','Total cases in the last 14 days','Last7','Previous7']
 to_ca = []
