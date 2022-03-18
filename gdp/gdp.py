@@ -78,29 +78,47 @@ for i in df['Country'].unique():
   data = [q4_2019,slope,gdp]
 
   if i == 'European Union – 27 countries (from 01/02/2020)':
-    layout = dict(template="simple_white", title = 'European Union - 27 countries', title_x = 0.5, xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
-                    yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Quarterly GDP in trillion 2015 US$'),
-                    font=dict(size=18),showlegend = True, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed'))
+    layout = dict(template="simple_white", xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
+                    yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Quarterly GDP in trillion US$ (2015)',title_font_size = 17),
+                    font=dict(size=18),showlegend = True, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed',font=dict(size= 10),bgcolor = 'rgba(0,0,0,0)'),
+                    margin=go.layout.Margin(
+                        l=0, #left margin
+                        r=0, #right margin
+                        b=0, #bottom margin
+                        t=0  #top margin
+                    ))
     fig = go.Figure(data=data, layout=layout)
+    fig.add_annotation(text="European Union - 27 countries",
+                  xref="paper", yref="paper",
+                  x=0, y=1, showarrow=False)
     #fig.show()
 
     
 
     fig.write_html(r'EU_GDP.html',config=dict(
-                  displayModeBar=False), default_height = '550px', default_width = '900px' )
+                  displayModeBar=False), default_height = '400px', default_width = '700px' )
 
   else:
 
-    layout = dict(template="simple_white", title = i, title_x = 0.5, xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
-                    yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Quarterly GDP in trillion 2015 US$'),
-                    font=dict(size=18),showlegend = True, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed'))
+    layout = dict(template="simple_white", xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
+                    yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Quarterly GDP in trillion US$ (2015)',title_font_size = 17),
+                    font=dict(size=18),showlegend = True, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed',font=dict(size= 10),bgcolor = 'rgba(0,0,0,0)'),
+                    margin=go.layout.Margin(
+                        l=0, #left margin
+                        r=0, #right margin
+                        b=0, #bottom margin
+                        t=0  #top margin
+                    ))
     fig = go.Figure(data=data, layout=layout)
+    fig.add_annotation(text=i,
+                  xref="paper", yref="paper",
+                  x=0, y=1, showarrow=False)
     #fig.show()
 
     
 
     fig.write_html(r'%s_GDP.html'%i,config=dict(
-                  displayModeBar=False), default_height = '550px', default_width = '900px' )
+                  displayModeBar=False), default_height = '400px', default_width = '700px' )
 
 dfc = dfl.cumsum()
 dfc = dfc*-1
@@ -128,10 +146,10 @@ for i in range(0,9):
 fig.write_html(r'Acc_GDP_Gain_Loss_rate2.html',config=dict(
                   displayModeBar=False), default_height = '550px', default_width = '900px' )
 
-dfc2 = dfc2[['Australia','Belgium','Korea','Netherlands','New Zealand','Sweden','Switzerland','Canada','Japan','Italy','Germany','France','United Kingdom','United States','India','China','EU (27)','OECD - Europe', 'OECD - Total']]
-layout = dict(template="simple_white", title = 'Accumulated GDP Gain/Loss with respect to 2019-Q4 GDP', title_x = 0.5, xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
+dfc2 = dfc2[['Australia','Belgium','Korea','Netherlands','New Zealand','Sweden','Switzerland','Canada','Japan','Italy','Germany','France','United Kingdom','India','China','United States','EU (27)','OECD - Europe', 'OECD - Total']]
+layout = dict(template="simple_white", title = 'Accumulated GDP Loss relative to Q4 2019', title_x = 0.5, xaxis = dict(showgrid=False, ticks='outside', mirror=True,showline=True, tickformat = '%d-%b'),
                     yaxis = dict(showgrid=False, ticks='outside', mirror = True, showline = True, title = 'Trillion US$ (2015)'),
-                    font=dict(size=18),showlegend = True)#, legend=dict(xanchor='right', x = 0.98, yanchor='bottom', y = 0.1,traceorder='reversed'))
+                    font=dict(size=18),showlegend = True, legend=dict(xanchor='left', x = 0, yanchor='bottom', y = 0,font=dict(size= 10),bgcolor = 'rgba(0,0,0,0)'))#,traceorder='normal'))
 
 colors = px.colors.qualitative.G10
 # marker_color = px.colors.qualitative.G10[1],line = dict(width=4, dash = 'dash'))
@@ -143,7 +161,7 @@ for i in range(0,7):
   fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color=colors[i], width = 4)))
 fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_1.html',config=dict(
-                  displayModeBar=False), default_height = '550px', default_width = '900px' )
+                  displayModeBar=False), default_height = '400px', default_width = '700px' )
 
 fig = go.Figure(layout = layout)
 for i in range(0,6):
@@ -153,7 +171,7 @@ for i in range(0,6):
   fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+7]], mode = 'lines', name = dfc2.columns[i+7], line=dict(color=colors[i],width = 4)))
 fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_2.html',config=dict(
-                  displayModeBar=False), default_height = '550px', default_width = '900px' )
+                  displayModeBar=False), default_height = '400px', default_width = '700px' )
 
 fig = go.Figure(layout = layout)
 for i in range(0,6):
@@ -163,4 +181,4 @@ for i in range(0,6):
   fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+13]], mode = 'lines', name = dfc2.columns[i+13], line=dict(color=colors[i],width = 4)))
 fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_3.html',config=dict(
-                  displayModeBar=False), default_height = '550px', default_width = '900px' )
+                  displayModeBar=False), default_height = '400px', default_width = '700px' )
