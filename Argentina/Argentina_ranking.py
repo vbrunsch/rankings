@@ -4,15 +4,27 @@
 import pandas as pd
 import numpy as np
 
+df_chunk = pd.read_csv('https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.zip', chunksize=1000000)
+chunk_list = []  # append each chunk df here 
 
-focus = pd.read_csv('https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.zip')
+# Each chunk is in df format
+for focus1 in df_chunk:
+    focus1 = focus1[['residencia_provincia_nombre', 'residencia_departamento_nombre', 'fecha_apertura','clasificacion_resumen']]
+    focus1 = focus1[focus1['clasificacion_resumen']=='Confirmado']
+    focus1['casos'] = 1
+    #focus = focus2.set_index(['fecha_apertura'])
+    focus1 = focus1[focus1.residencia_departamento_nombre != 'SIN ESPECIFICAR']
+    focus1 = focus1[focus1.residencia_provincia_nombre != 'SIN ESPECIFICAR']
+    print(focus1)  
+    # perform data filtering 
+    #chunk_filter = chunk_preprocessing(chunk)
+    
+    # Once the data filtering is done, append the chunk to list
+    chunk_list.append(focus1)
+    
+# concat the list into dataframe 
+focus = pd.concat(chunk_list)
 
-focus = focus[['residencia_provincia_nombre', 'residencia_departamento_nombre', 'fecha_apertura','clasificacion_resumen']]
-focus = focus[focus['clasificacion_resumen']=='Confirmado']
-focus['casos'] = 1
-#focus = focus2.set_index(['fecha_apertura'])
-focus = focus[focus.residencia_departamento_nombre != 'SIN ESPECIFICAR']
-focus = focus[focus.residencia_provincia_nombre != 'SIN ESPECIFICAR']
 focus['combined']=focus['residencia_departamento_nombre']+', '+focus['residencia_provincia_nombre']
 confirm = focus.groupby(['combined']).sum().T
 
