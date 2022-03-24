@@ -8,45 +8,48 @@ import geopandas as gpd
 import json, requests
 from json import loads
 
-baseURL = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_hubv/FeatureServer/0"
-fields = "*"
-# Get record extract limit
-urlstring = baseURL + "?f=json"
-j = urllib.request.urlopen(urlstring)
-js = json.load(j)
-maxrcn = int(js["maxRecordCount"])
-print(("Record extract limit: %s" % maxrcn))
+final_gdf = pd.DataFrame()
+for i in ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16']:  
+  baseURL = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_" + i + "_hubv/FeatureServer/0"
+  fields = "*"
+  # Get record extract limit
+  urlstring = baseURL + "?f=json"
+  j = urllib.request.urlopen(urlstring)
+  js = json.load(j)
+  maxrcn = int(js["maxRecordCount"])
+  print(("Record extract limit: %s" % maxrcn))
 
-# Get object ids of features
-where = "1=1"#"Meldedatum>=CURRENT_TIMESTAMP-20"
-urlstring = baseURL + "/query?where={}&returnIdsOnly=true&f=json".format(where)
-j = urllib.request.urlopen(urlstring)
-js = json.load(j)
-idfield = js["objectIdFieldName"]
-idlist = js["objectIds"]
-idlist.sort()
-numrec = len(idlist)
-print(("Number of target records: %s" % numrec))
+  # Get object ids of features
+  where = "1=1"#"Meldedatum>=CURRENT_TIMESTAMP-20"
+  urlstring = baseURL + "/query?where={}&returnIdsOnly=true&f=json".format(where)
+  j = urllib.request.urlopen(urlstring)
+  js = json.load(j)
+  idfield = js["objectIdFieldName"]
+  idlist = js["objectIds"]
+  idlist.sort()
+  numrec = len(idlist)
+  print(("Number of target records: %s" % numrec))
 
-# Gather features
-print("Gathering records…")
-fs = dict()
-fslist = []
-for i in range(0, numrec, maxrcn):
-  torec = i + (maxrcn - 1)
-  if torec > numrec:
-    torec = numrec - 1
-  fromid = idlist[i]
-  toid = idlist[torec]
-  where = "{} >= {} and {} <= {}".format(idfield, fromid, idfield, toid)
-  print( " {}".format(where))
-  urlstring = baseURL + "/query?where={}&returnGeometry=true&outFields={}&f=geojson".format(where,fields)
-  resp = requests.get(urlstring, verify = False)
-  data = resp.json() 
-  gdf = gpd.GeoDataFrame.from_features(data['features'])
-  #merge data
-  fslist.append(gdf)
-final_gdf = pd.concat(fslist)
+  # Gather features
+  print("Gathering records…")
+  fs = dict()
+  fslist = []
+  for i in range(0, numrec, maxrcn):
+    torec = i + (maxrcn - 1)
+    if torec > numrec:
+      torec = numrec - 1
+    fromid = idlist[i]
+    toid = idlist[torec]
+    where = "{} >= {} and {} <= {}".format(idfield, fromid, idfield, toid)
+    print( " {}".format(where))
+    urlstring = baseURL + "/query?where={}&returnGeometry=true&outFields={}&f=geojson".format(where,fields)
+    resp = requests.get(urlstring, verify = False)
+    data = resp.json() 
+    gdf = gpd.GeoDataFrame.from_features(data['features'])
+    #merge data
+    fslist.append(gdf)
+  inter_gdf = pd.concat(fslist)
+final_gdf = final_gdf.append(inter_gdf)
 
 
 #df = gpd.read_file('https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson')
