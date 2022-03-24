@@ -49,7 +49,7 @@ for i in ['01','02','03','04','05','06','07','08','09','10','11','12','13','14',
     #merge data
     fslist.append(gdf)
   inter_gdf = pd.concat(fslist)
-final_gdf = final_gdf.append(inter_gdf)
+  final_gdf = final_gdf.append(inter_gdf)
 
 
 #df = gpd.read_file('https://opendata.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0.geojson')
