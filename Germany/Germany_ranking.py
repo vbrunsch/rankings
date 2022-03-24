@@ -8,7 +8,7 @@ import geopandas as gpd
 import json, requests
 from json import loads
 
-baseURL = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_01_hubv/FeatureServer/0"
+baseURL = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_hubv/FeatureServer/0"
 fields = "*"
 # Get record extract limit
 urlstring = baseURL + "?f=json"
