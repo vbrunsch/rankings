@@ -18,7 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 #95.0.4638.54
 #93.0.4577.15
 #91.0.4472.19
-chromedriver_url = "https://chromedriver.storage.googleapis.com/95.0.4638.54/chromedriver_linux64.zip"
+chromedriver_url = "https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip"
 resp = urlopen(chromedriver_url)
 with ZipFile(BytesIO(resp.read()), 'r') as zipObj:
     zipObj.extractall()
