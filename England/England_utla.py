@@ -7,22 +7,26 @@ from datetime import timedelta
 import pandas as pd
 
 
-url = "https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv"
+url = "https://api.coronavirus.data.gov.uk/v2/data?areaType=utla&metric=newCasesBySpecimenDate&format=csv"
 df = pd.read_csv(url)
-focus = df.copy().drop(['Area code','Cumulative lab-confirmed cases','Cumulative lab-confirmed cases rate'], axis=1).set_index(['Specimen date'])
-#Upper Tier Local Authority
-focus = focus[focus['Area type']=='utla']
-focus = focus.drop(['Area type'], axis =1)
-confirm = focus.groupby('Area name').sum().T
+
+focus = df.copy().drop(['areaCode','areaType'], axis=1).set_index(['date'])
+#Lower Tier Local Authority
+confirm = focus.groupby('areaName').sum().T
+print(focus.head(5))
+
 focus = focus.iloc[::-1]
+print(focus.head(5))
+
 focus.index.name = None
+print(focus.head(5))
 
 cols=['District (utla)','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
 
 for d in confirm.columns:
-    n = focus[focus['Area name']== d]
-    ave = n.drop(['Area name'], axis = 1)
+    n = focus[focus['areaName']== d]
+    ave = n.drop(['areaName'], axis = 1)
     ave = ave[:-2]
     ave = ave.to_numpy()
     las = len(ave)-14
