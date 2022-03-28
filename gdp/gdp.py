@@ -1,27 +1,40 @@
 import pandas as pd
 import numpy as np
+#!pip install cif
+from cif import cif
+data = cif.createDataFrameFromOECD(countries = ['AUS','BEL','CAN','FRA','DEU','ITA','JPN','KOR','NLD','NZL','SWE','CHE','GBR','USA','EU27_2020','OECDE','OECD','IND'], dsname = 'QNA', subject = ['B1_GE'], measure = ['VPVOBARSA'], frequency = 'Q', startDate = '2018-Q4')#, endDate = '2022-Q1')
 
-df = pd.read_csv('gdp/OECD_GDP_from2018Q4.csv')
-df = df[['Country','TIME','Value']]
+df = data[0]
+df.index.name = None
+df.columns = ['Australia','Belgium','Canada','France','Germany','Italy','Japan','Korea','Netherlands','New Zealand','Sweden','Switzerland','United Kingdom','United States','European Union – 27 countries (from 01/02/2020)','OECD - Europe','OECD - Total','India']
+df = df.reset_index(inplace=False)
+df.rename(columns = {'index':'TIME'}, inplace = True)
+df = df.melt(id_vars=['TIME'])
+df.columns = ['TIME','Country','Value']
+df= df[['Country','TIME','Value']]
 df['Value'] = df['Value']/4000000
 df['PctChange'] = df['Value'].pct_change()
+print(df)
+
+d_ch = cif.createDataFrameFromOECD(countries = ['CHN'], dsname = 'QNA', subject = ['B1_GE'], measure = ['GPSA'], frequency = 'Q', startDate = '2018-Q4')#, endDate = '2022-Q1')
+
+ch = d_ch[0]
+ch.columns = ['China']
+cc = []
+for i in ch['China']:
+  cc.append(i)
+#print(cc)
 
 # China real GDP for 2019 in million 2015 US Dollar was $19892289.6925
-cc = [1.5, 1, 1.2, 1.4, 1.3, -10.5, 11.6, 3.4, 2.6, 0.3, 1.3, 0.7, 1.6]
-
 df.loc[len(df.index)] = ['China', '2018-Q4',4.73669583183, cc[0]/100]
 df.loc[len(df.index)] = ['China', '2019-Q1',4.78406279015, cc[1]/100]
 df.loc[len(df.index)] = ['China', '2019-Q2',4.84147154363, cc[2]/100]
 df.loc[len(df.index)] = ['China', '2019-Q3',4.90925214524, cc[3]/100]
 df.loc[len(df.index)] = ['China', '2019-Q4',19892289.6925/4000000, cc[4]/100]
-df.loc[len(df.index)] = ['China', '2020-Q1',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[5]/100, cc[5]/100]
-df.loc[len(df.index)] = ['China', '2020-Q2',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[6]/100, cc[6]/100]
-df.loc[len(df.index)] = ['China', '2020-Q3',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[7]/100, cc[7]/100]
-df.loc[len(df.index)] = ['China', '2020-Q4',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[8]/100, cc[8]/100]
-df.loc[len(df.index)] = ['China', '2021-Q1',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[9]/100, cc[9]/100]
-df.loc[len(df.index)] = ['China', '2021-Q2',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[10]/100, cc[10]/100]
-df.loc[len(df.index)] = ['China', '2021-Q3',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[11]/100, cc[11]/100]
-df.loc[len(df.index)] = ['China', '2021-Q4',df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[12]/100, cc[12]/100]
+
+tcc = ['2018-Q4','2019-Q1','2019-Q2','2019-Q3','2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4','2022-Q1','2022-Q2','2022-Q3','2022-Q4','2023-Q1','2023-Q2','2023-Q3','2023-Q4','2024-Q1','2024-Q2','2024-Q3','2024-Q4','2025-Q1','2025-Q2','2025-Q3','2025-Q4','2026-Q1','2026-Q2','2026-Q3','2026-Q4','2027-Q1','2027-Q2','2027-Q3','2027-Q4','2028-Q1','2028-Q2','2028-Q3','2028-Q4','2029-Q1','2029-Q2','2029-Q3','2029-Q4','2030-Q1','2030-Q2','2030-Q3','2030-Q4']
+for i in range(5,len(cc)):
+  df.loc[len(df.index)] = ['China', tcc[i],df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[i]/100, cc[i]/100]
 
 dfl = pd.DataFrame()
 dfl2 = pd.DataFrame()
@@ -31,7 +44,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import plotly.express as px
 for i in df['Country'].unique():
-  if i != 'New Zealand' and i!= 'OECD - Total':
+  try:
     dft = df[df['Country']==i]
     rate = dft['PctChange'][1:5].mean()
     dft['SlopeVal'] = (np.arange(len(dft)) + -4)*rate*dft['Value'].iloc[4] + dft['Value'].iloc[4]
@@ -45,7 +58,7 @@ for i in df['Country'].unique():
     ax = dft['Value'].plot(grid=True, label="GDP in %s in trillion (2015) US$"%i, legend=True, title = i)
     plt.axhline(y=dft['Value'][4], color='g', linestyle='-')
     dft['SlopeVal'].plot(grid=True, label="2019 rate", legend=True)
-  else:
+  except:
     dft = df[df['Country']==i]
     rate = dft['PctChange'][1:5].mean()
     dft['SlopeVal'] = (np.arange(len(dft)) + -4)*rate*dft['Value'].iloc[4] + dft['Value'].iloc[4]
