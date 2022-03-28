@@ -4,8 +4,8 @@
 name: Update GDP
 
 on:
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '15 6 * * *'
 
@@ -30,7 +30,7 @@ jobs:
         pip uninstall matplotlib
         pip install jupyter
         pip install matplotlib
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements6.txt ]; then pip install -r requirements6.txt; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
