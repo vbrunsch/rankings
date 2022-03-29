@@ -227,10 +227,10 @@ if not df_new.equals(df_old):
     s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
     toti = datetime.datetime.today().date()# - timedelta(days = 1)
-    if toti.weekday() <5:
-        toti = "<center><caption>Wednesday, " + str(toti) + "</caption></center>"
-    else:
-        toti = "<center><caption>Sunday, " + str(toti) + "</caption></center>"
+    #if toti.weekday() <5:
+    toti = "<center><caption>Wednesday, " + str(toti) + "</caption></center>"
+    #else:
+    #    toti = "<center><caption>Sunday, " + str(toti) + "</caption></center>"
 
     try:        
         with open(f'Israel_new.html', 'w', encoding="utf-8") as out:
@@ -405,12 +405,12 @@ if not df_new.equals(df_old):
     import datetime
     from datetime import timedelta
     toti = datetime.datetime.today().date()# - timedelta(days = 1)
-    if toti.weekday() <5:
-        told = toti - timedelta(days = 3)
-        told = "<center><caption>Sunday, " + str(told) + "</caption></center>"
-    else:
-        told = toti - timedelta(days = 4)
-        told = "<center><caption>Wednesday, " + str(told) + "</caption></center>"
+    #if toti.weekday() <5:
+    told = toti - timedelta(days = 7)
+    told = "<center><caption>Wednesday, " + str(told) + "</caption></center>"
+    #else:
+    #    told = toti - timedelta(days = 4)
+    #    told = "<center><caption>Wednesday, " + str(told) + "</caption></center>"
 
     try:        
         with open(f'Israel_old.html', 'w', encoding="utf-8") as out:
