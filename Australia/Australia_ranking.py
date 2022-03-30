@@ -350,7 +350,7 @@ x = date.today()
 d = x.weekday()
 day =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 totime = datetime.datetime.now()
-toti = 'Last Update: '+day[d]+ ', '+ totime.strftime('%Y-%m-%d, %H:%M:%S') + ' ' + totime.astimezone().tzname()
+toti = '<center><caption>'+'Last Update: '+day[d]+ ', '+ totime.strftime('%Y-%m-%d, %H:%M:%S') + ' ' + totime.astimezone().tzname() + </caption></center>
 
 try:        
     with open(f'Australia.html', 'w', encoding="utf-8") as out:
