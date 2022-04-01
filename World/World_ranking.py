@@ -280,11 +280,19 @@ tab = tab.drop(['Trend','Pct Change'], axis = 1)
 tab = tab[['Rank', 'Country', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
+import datetime
+from datetime import date
+x = date.today()
+d = x.weekday()
+day =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+totime = datetime.datetime.now()
+toti = '<center><caption>'+'Last Update: '+day[d]+ ', '+ totime.strftime('%Y-%m-%d, %H:%M:%S') + ' ' + totime.astimezone().tzname() + '</caption></center>'
+
 try:        
     with open(f'World.html', 'w', encoding="utf-8") as out:
         body = s.render().replace('&#x2197;','<span style="color: red"> &#x2197;</span>') # red arrow up
         body = body.replace('&#x2198','<span style="color: green"> &#x2198;</span>') # green arrow down
-        content = top + body + bottom
+        content = top + toti + body + bottom
         out.write(content)
 except Exception as e:
     print(f'Error:\n{e}')
