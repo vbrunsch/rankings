@@ -18,7 +18,7 @@ date_list = pd.date_range(start=start,end=yesterday).tolist()
 for d in date_list:  
     if d.weekday() in [1,2,3,4,5]:
         date_time = d.strftime("%Y%m%d")
-        if date_time != '20211102' and date_time != '20211112':
+        try:#if date_time != '20211102' and date_time != '20211112':
           url = f"https://epistat.sciensano.be/Data/{date_time}/COVID19BE_CASES_MUNI_CUM_{date_time}.csv"
           print(d)
           df = pd.read_csv(url)
@@ -42,7 +42,7 @@ for d in date_list:
               mun = df.copy()
           else:
               mun = mun.join(df)
-        else:
+        except:
           mun[d] = mun[mun.columns[-1]]
 mun = mun.T
 
