@@ -29,7 +29,7 @@ df = df[df['Year'] > 2019] # filter out rows with year = 1970,...etc
 df['Date'] = pd.to_datetime(df.Date, dayfirst=True)
 
 
-for item in ['Haryana','Himachal Pradesh']#list(pop.keys()):
+for item in ['Haryana','Himachal Pradesh']: #list(pop.keys()):
     state = item # can choose any state from df.Region.unique()
     threshold = 1 # x cases per million population
     offset_days = 60 # keep the most recent 60 days
