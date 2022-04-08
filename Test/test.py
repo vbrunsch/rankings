@@ -71,12 +71,18 @@ for item in ['Haryana','Himachal Pradesh']: #list(pop.keys()):
         #print(str(len(b))+' days until \ndaily cases\n<'+str(threshold)+' /Mppl')
         try:
             if len(b)==2:
-              angle = np.rad2deg(slope)
+              dy = b[-1] - b[0]
+              dx = len(focus)+len(b) - len(focus)
+              angle = np.rad2deg(np.arctan2(dy, dx))
+              #angle = np.rad2deg(slope)
               plt.text(len(focus)+1, b[0], str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(len(focus)+len(b)-19, b[0]), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
               #ax.annotate(s=str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             elif len(b) >2:
-              angle = np.rad2deg(slope)
+              dy = b[-1] - b[0]
+              dx = len(focus)+len(b) - len(focus)
+              angle = np.rad2deg(np.arctan2(dy, dx))
+              #angle = np.rad2deg(slope)
               plt.text(len(focus)+1, b[0], str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             
