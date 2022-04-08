@@ -29,7 +29,7 @@ df = df[df['Year'] > 2019] # filter out rows with year = 1970,...etc
 df['Date'] = pd.to_datetime(df.Date, dayfirst=True)
 
 
-for item in ['Haryana','Himachal Pradesh']: #list(pop.keys()):
+for item in ['Haryana','Himachal Pradesh','Delhi']: #list(pop.keys()):
     state = item # can choose any state from df.Region.unique()
     threshold = 1 # x cases per million population
     offset_days = 60 # keep the most recent 60 days
@@ -75,7 +75,7 @@ for item in ['Haryana','Himachal Pradesh']: #list(pop.keys()):
               dx = len(focus)+len(b) - len(focus)
               angle = np.rad2deg(np.arctan2(dy, dx))
               #angle = np.rad2deg(slope)
-              plt.text(len(focus)+1, b[0], str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',transform_rotates_text=True)
+              plt.text(len(focus)+1, b[0], str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(len(focus)+len(b)-19, b[0]), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
               #ax.annotate(s=str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             elif len(b) >2:
@@ -83,7 +83,7 @@ for item in ['Haryana','Himachal Pradesh']: #list(pop.keys()):
               dx = len(focus)+len(b) - len(focus)
               angle = np.rad2deg(np.arctan2(dy, dx))
               #angle = np.rad2deg(slope)
-              plt.text(len(focus)+1, b[0], str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',transform_rotates_text=True)
+              plt.text(len(focus)+1, b[0], str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             
         except:
@@ -91,7 +91,7 @@ for item in ['Haryana','Himachal Pradesh']: #list(pop.keys()):
             print(str(len(b))+' days until \ndaily cases\n<'+str(threshold)+' /Mppl')  
         #ax.plot(date_list,[pop[state]/1e6* threshold for x in range(0,len(date_list))],'--', label='1/Mppl', linewidth=2)
         plt.title(state, fontsize=30)
-        #plt.tight_layout()
+        plt.tight_layout()
         plt.savefig('images/'+state+'_1.png')
     except:
         print(item)
