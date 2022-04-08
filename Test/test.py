@@ -62,7 +62,7 @@ for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys(
         #print(date_list)                                                                                                                    
         ax.plot(date_list,[pop[state]/1e6* threshold for x in range(0,len(date_list))],'--', label=str(threshold)+'/Mppl', linewidth=2)
         #threshold=1
-        ax.legend(prop={'size': 20})
+        ax.legend(prop={'size': 20}, loc = 'lower right')
         ax.tick_params(labelsize=22)
         ax.xaxis.set_major_locator(plt.MaxNLocator(8))
         #ax.set_ylim(bottom=1, )    
@@ -83,7 +83,7 @@ for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys(
               dx = len(focus)+len(b) - len(focus)
               angle = np.rad2deg(np.arctan2(dy, dx))
               #angle = np.rad2deg(slope)
-              plt.text(len(focus)+1, b[0], str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
+              plt.text(len(focus)+ int(len(b)/4), b[int(len(b)/4)],str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             
         except:
