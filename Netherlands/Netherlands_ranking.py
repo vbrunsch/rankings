@@ -5,10 +5,10 @@ import pandas as pd
 import numpy as np
 df = pd.DataFrame
 df_new = pd.read_csv('https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.csv', error_bad_lines = False, warn_bad_lines = False)
-df = df_new['Version;Date_of_report;Municipality_code;Municipality_name;Province;Total_reported;Hospital_admission;Deceased'].str.split(';', expand=True)
+df = df_new['Version;Date_of_report;Date_of_publication;Municipality_code;Municipality_name;Province;Total_reported;Hospital_admission;Deceased'].str.split(';', expand=True)
 #pd.concat([df, df['Date_of_report;Municipality_code;Municipality_name;Province;Total_reported;Hospital_admission;Deceased'].str.split(';', expand=True)], axis=1)
-df.columns = ['Version','Date_of_report','Municipality_code','Municipality_name','Province','Total_reported','Hospital_admission','Deceased']
-focus = df.copy().drop(['Version','Municipality_code','Hospital_admission','Deceased'], axis=1).set_index(['Date_of_report'])
+df.columns = ['Version','Date_of_report','Date_of_publication','Municipality_code','Municipality_name','Province','Total_reported','Hospital_admission','Deceased']
+focus = df.copy().drop(['Version','Municipality_code','Hospital_admission','Deceased','Date_of_publication'], axis=1).set_index(['Date_of_report'])
 focus = focus[focus.Municipality_name != '']
 focus['Province'] = focus['Province'].replace('Fryslân','Friesland')
 focus['combined'] = focus['Municipality_name'] + ', '+ focus['Province']
