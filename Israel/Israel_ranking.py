@@ -14,11 +14,59 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-#96.0.4664.18
-#95.0.4638.54
-#93.0.4577.15
-#91.0.4472.19
-chromedriver_url = "https://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_linux64.zip"
+
+import platform
+from bs4 import BeautifulSoup
+
+# Get correct Chromedriver version
+def chrome_version():
+    osname = platform.system()
+    if osname == 'Darwin':
+        installpath = "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+    elif osname == 'Windows':
+        installpath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    elif osname == 'Linux':
+        installpath = "/usr/bin/google-chrome"
+    else:
+        raise NotImplemented(f"Unknown OS '{osname}'")
+
+    verstr = os.popen(f"{installpath} --version").read().strip('Google Chrome ').strip()
+    return verstr
+
+
+# Chrome version
+cr_v = chrome_version()
+# short
+cr_vs = re.findall('(.*?)\..*',cr_v)[0]
+
+# ChromeDriver Download Website
+cdd = urlopen('https://chromedriver.chromium.org/downloads').read()
+
+# Get first three paragraphs
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(cdd, 'html.parser')
+tex1 = soup.find_all('p')[0].text
+tex2 = soup.find_all('p')[1].text
+tex3 = soup.find_all('p')[2].text
+
+# Find matching Chrome version
+ve1 = re.findall('Chrome version (.*?),',tex1)[0]
+ve2 = re.findall('Chrome version (.*?),',tex2)[0]
+ve3 = re.findall('Chrome version (.*?),',tex3)[0]
+
+if cr_vs == ve1:
+  cd_v = re.findall('ChromeDriver (.*)',tex1)[0]
+elif cr_vs == ve2:
+  cd_v = re.findall('ChromeDriver (.*)',tex2)[0]
+elif cr_vs == ve3:
+  cd_v = re.findall('ChromeDriver (.*)',tex3)[0]
+
+chromedriver_url = "https://chromedriver.storage.googleapis.com/"+cd_v+"/chromedriver_linux64.zip"
+
+print(chromedriver_url)
+
+#chromedriver_url = "https://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_linux64.zip"
+
 resp = urlopen(chromedriver_url)
 with ZipFile(BytesIO(resp.read()), 'r') as zipObj:
     zipObj.extractall()
