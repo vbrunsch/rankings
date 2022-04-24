@@ -44,6 +44,7 @@ tcc = ['2018-Q4','2019-Q1','2019-Q2','2019-Q3','2019-Q4','2020-Q1','2020-Q2','20
 for i in range(5,len(cc)):
   df.loc[len(df.index)] = ['China', tcc[i],df['Value'][len(df)-1]+df['Value'][len(df)-1]*cc[i]/100, cc[i]/100]
 
+clist = ['China','Australia','Belgium','Canada','France','Germany','Italy','Japan','Korea','Netherlands','New Zealand','Sweden','Switzerland','United Kingdom','United States','European Union – 27 countries (from 01/02/2020)','OECD - Europe','OECD - Total','India']
 dfl = pd.DataFrame()
 dfl2 = pd.DataFrame()
 import matplotlib.pyplot as plt
@@ -51,7 +52,7 @@ import plotly
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import plotly.express as px
-for i in df['Country'].unique():
+for i in clist:
   try:
     dft = df[df['Country']==i]
     rate = dft['PctChange'][1:5].mean()
@@ -67,24 +68,27 @@ for i in df['Country'].unique():
     plt.axhline(y=dft['Value'][4], color='g', linestyle='-')
     dft['SlopeVal'].plot(grid=True, label="2019 rate", legend=True)
   except:
-    dft = df[df['Country']==i]
-    rate = dft['PctChange'][1:5].mean()
-    dft['SlopeVal'] = (np.arange(len(dft)) + -4)*rate*dft['Value'].iloc[4] + dft['Value'].iloc[4]
-    dft2 = dft['SlopeVal'][4:]-dft['Value'][4:]
-    dft2.loc[len(dft2.index)] = np.nan
-    dft3 = dft['Value'].iloc[4]-dft['Value'][4:]
-    dft3.loc[len(dft3.index)] = np.nan
-    dfl[i] = dft2.values
-    dfl2[i] = dft3.values
-    dft = dft.set_index('TIME')
-    print(rate)
-    fig = plt.figure(figsize = (8,8))
-    ax = dft['Value'].plot(grid=True, label="GDP in %s in trillion (2015) US$"%i, legend=True, title = i)
-    plt.axhline(y=dft['Value'][4], color='g', linestyle='-')
-    dft['SlopeVal'].plot(grid=True, label="2019 rate", legend=True)
-
-    #ax.axline((3, 12), slope=rate, color='C0', label='2019 rate')
-    #ax.set_xticklabels(df.TIME)
+          
+      dft = df[df['Country']==i]
+      rate = dft['PctChange'][1:5].mean()
+      dft['SlopeVal'] = (np.arange(len(dft)) + -4)*rate*dft['Value'].iloc[4] + dft['Value'].iloc[4]
+      dft2 = dft['SlopeVal'][4:]-dft['Value'][4:]
+      dft2 = dft2.reset_index(drop=True)
+      dft2.loc[len(dft2.index)] = np.nan
+      dft3 = dft['Value'].iloc[4]-dft['Value'][4:]
+      dft3 = dft3.reset_index(drop=True)
+      dft3.loc[len(dft3.index)] = np.nan
+      dfl[i] = dft2.values
+      dfl2[i] = dft3.values
+      dft = dft.set_index('TIME')
+      print(rate)
+      fig = plt.figure(figsize = (8,8))
+      ax = dft['Value'].plot(grid=True, label="GDP in %s in trillion (2015) US$"%i, legend=True, title = i)
+      plt.axhline(y=dft['Value'][4], color='g', linestyle='-')
+      dft['SlopeVal'].plot(grid=True, label="2019 rate", legend=True)
+    
+      #ax.axline((3, 12), slope=rate, color='C0', label='2019 rate')
+      #ax.set_xticklabels(df.TIME)
   gdp = go.Scatter(
       x=dft.index,
       y=dft['Value'], name = 'GDP', marker_color = px.colors.qualitative.D3[2], line = dict(width=4))
@@ -185,7 +189,7 @@ for i in range(0,7):
   #if i == 8:
   #  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color='black', width = 4)))  
   #else:
-  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color=colors[i], width = 4)))
+  fig.add_traces(go.Scatter(x=tcc[4:4+dfc2[dfc2.columns[i]].count()], y = dfc2[dfc2.columns[i]], mode = 'lines', name = dfc2.columns[i], line=dict(color=colors[i], width = 4)))
 fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_1.html',config=dict(
                   displayModeBar=False), default_height = '400px', default_width = '700px' )
@@ -196,7 +200,7 @@ for i in range(0,6):
   #if i in [7,8,9]:
   #  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+9]], mode = 'lines', name = dfc2.columns[i+9], line=dict(color=colors[i],width = 4, dash = 'dash')))
   #else:
-  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+7]], mode = 'lines', name = dfc2.columns[i+7], line=dict(color=colors[i],width = 4)))
+  fig.add_traces(go.Scatter(x=tcc[4:4+dfc2[dfc2.columns[i+7]].count()], y = dfc2[dfc2.columns[i+7]], mode = 'lines', name = dfc2.columns[i+7], line=dict(color=colors[i],width = 4)))
 fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_2.html',config=dict(
                   displayModeBar=False), default_height = '400px', default_width = '700px' )
@@ -206,7 +210,7 @@ for i in range(0,6):
   #if i in [7,8,9]:
   #  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+9]], mode = 'lines', name = dfc2.columns[i+9], line=dict(color=colors[i],width = 4, dash = 'dash')))
   #else:
-  fig.add_traces(go.Scatter(x=['2019-Q4','2020-Q1','2020-Q2','2020-Q3','2020-Q4','2021-Q1','2021-Q2','2021-Q3','2021-Q4'], y = dfc2[dfc2.columns[i+13]], mode = 'lines', name = dfc2.columns[i+13], line=dict(color=colors[i],width = 4)))
+  fig.add_traces(go.Scatter(x=tcc[4:4+dfc2[dfc2.columns[i+13]].count()], y = dfc2[dfc2.columns[i+13]], mode = 'lines', name = dfc2.columns[i+13], line=dict(color=colors[i],width = 4)))
 fig.show()
 fig.write_html(r'Acc_GDP_Gain_Loss_Q4_3.html',config=dict(
                   displayModeBar=False), default_height = '400px', default_width = '700px' )
