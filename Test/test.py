@@ -1,3 +1,6 @@
+import plotly
+import plotly.graph_objs as go
+import plotly.tools as tls
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,23 +16,23 @@ print(date_list)
 def linear_fit(x, a, b):
     return  a*x+b
 
-pop= {"Andaman and Nicobar Islands":434192, "Andhra Pradesh":90959737, "Arunachal Pradesh":1382611, 
-      "Assam":35607039, "Bihar":104099452, "Chandigarh":1169000, "Chhattisgarh":29436231, 
-      "Dadra and Nagar Haveli and Daman and Diu":585764, "Goa":1458545, "Gujarat":60439692,
-      'Haryana':25351462, 'Himachal Pradesh':7451955, 'Jammu and Kashmir':13606320, 
-      'Jharkhand':38471, 'Karnataka':67562686, 'Kerala':35699443, 'Ladakh':274289, 
-      'Lakshadweep':64473, 'Madhya Pradesh':85047748, 'Maharashtra':
-112374333, 'Manipur':2855794, 'Meghalaya':3366710, 'Mizoram':1239244, 'Nagaland':1980602, 
-      'Odisha':47645822, 'Puducherry':877010, 'Punjab':30141373, 'Rajasthan':81032689, 
-      'Sikkim':619000, 'Tamil Nadu':77841267, 'Telangana':38510982, 'Tripura':4071, 
-      'Uttar Pradesh':237882725, 'Uttarakhand':11250858, 'West Bengal':100580953, "Delhi":31181000}
+pop= {'Mizoram':1239244}#Andaman and Nicobar Islands":434192, "Andhra Pradesh":90959737, "Arunachal Pradesh":1382611, 
+      #"Assam":35607039, "Bihar":104099452, "Chandigarh":1169000, "Chhattisgarh":29436231, 
+      #"Dadra and Nagar Haveli and Daman and Diu":585764, "Goa":1458545, "Gujarat":60439692,
+      #'Haryana':25351462, 'Himachal Pradesh':7451955, 'Jammu and Kashmir':13606320, 
+      #'Jharkhand':38471, 'Karnataka':67562686, 'Kerala':35699443, 'Ladakh':274289, 
+      #'Lakshadweep':64473, 'Madhya Pradesh':85047748, 'Maharashtra':
+#112374333, 'Manipur':2855794, 'Meghalaya':3366710, 'Nagaland':1980602, 
+      #'Odisha':47645822, 'Puducherry':877010, 'Punjab':30141373, 'Rajasthan':81032689, 
+      #'Sikkim':619000, 'Tamil Nadu':77841267, 'Telangana':38510982, 'Tripura':4071, 
+      #'Uttar Pradesh':237882725, 'Uttarakhand':11250858, 'West Bengal':100580953, "Delhi":31181000}
 df = pd.read_csv('https://prsindia.org/covid-19/cases/download')
 df['Year'] = df['Date'].apply(lambda x : int(x.split('/')[2]))
 df = df[df['Year'] > 2019] # filter out rows with year = 1970,...etc
 df['Date'] = pd.to_datetime(df.Date, dayfirst=True)
 
 
-for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys()):
+for item in list(pop.keys()):
     state = item # can choose any state from df.Region.unique()
     threshold = 1 # x cases per million population
     offset_days = 60 # keep the most recent 60 days
@@ -53,7 +56,7 @@ for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys(
 
         b = np.array([focus.values[-1]])
 
-        while b[-1] > pop[state] / 1e6 * threshold and slope <0 :
+        while b[-1] > pop[state] / 1e6 * threshold and slope <-0.001 :
             b = np.append(b, b[-1]*(1+slope))
         numdays=len(b)+10
         base = datetime.date.today()
@@ -75,7 +78,7 @@ for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys(
               dx = len(focus)+len(b) - len(focus)
               angle = np.rad2deg(np.arctan2(dy, dx))
               #angle = np.rad2deg(slope)
-              plt.text(len(focus)+1, b[0], str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
+              plt.text(len(focus), b[0], str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(len(focus)+len(b)-19, b[0]), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
               #ax.annotate(s=str(len(b)-1)+' day until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             elif len(b) >2:
@@ -83,7 +86,7 @@ for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys(
               dx = len(focus)+len(b) - len(focus)
               angle = np.rad2deg(np.arctan2(dy, dx))
               #angle = np.rad2deg(slope)
-              plt.text(len(focus)+ int(len(b)/4), b[int(len(b)/4)],str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
+              plt.text(len(focus)+ int(len(b)/4), b[int(len(b)/4)], str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', ha='left', va='bottom', rotation=angle, rotation_mode='anchor',c='C4', size = 20,transform_rotates_text=True)
               #ax.annotate(s=str(len(b)-1)+' days until \ndaily cases\n<'+str(threshold)+' /Mppl', xy=(0.9, b[0]), xycoords = ax.get_yaxis_transform(), fontsize=20, ha='center', c='C4')#len(focus)+len(b)-9
             
         except:
@@ -92,8 +95,32 @@ for item in ['Haryana','Himachal Pradesh','Delhi','Chandigarh']: #list(pop.keys(
         #ax.plot(date_list,[pop[state]/1e6* threshold for x in range(0,len(date_list))],'--', label='1/Mppl', linewidth=2)
         plt.title(state, fontsize=30)
         plt.tight_layout()
-        plt.savefig('images/'+state+'_1.png')
+        plotly_fig = tls.mpl_to_plotly(fig)
+        updatemenus = list([dict(
+            type = "buttons",
+            direction = "left",
+            buttons=list([
+                dict(label='Log',
+                 method='update',
+                 args=[{'visible': [True, True, True, True, True, True]},{'yaxis': {'type': 'log'}}]),
+            dict(label='Linear',
+                 method='update',
+                 args=[{'visible': [True, True, True, True, True, True]},
+                       {'yaxis': {'type': 'linear'}}])
+            ]),
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=0,
+            xanchor="left",
+            y=1.14,
+            yanchor="top"
+        )])
+        layout = dict(updatemenus=updatemenus)#, title='Example')
+        fig = go.Figure(data = plotly_fig.data, layout=plotly_fig.layout)
+        fig.layout.update(layout,title_x=0.5)
+        fig.write_html(r'%s.html'%item)
+
+        #plt.savefig('images/'+state+'_1.png')
     except:
         print(item)
         continue
-
