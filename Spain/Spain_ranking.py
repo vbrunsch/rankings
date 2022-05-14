@@ -1,27 +1,74 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+from scipy import optimize
+import datetime
 import pandas as pd
+import seaborn as sns
+import json
 import numpy as np
+import os
+numb=10
+from datetime import date
+#date_of_analysis='03/07/21'                                                                                                                                                      
+date_of_analysis=date.today().strftime("%m/%d/%y")
+print(date_of_analysis)
 
-#
-#df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/datos_provincias.csv')
-df = pd.read_csv('https://cnecovid.isciii.es/covid19/resources/casos_tecnica_provincia.csv')
-df['provincia_iso'].fillna('NA', inplace = True)
-ab = pd.read_csv(r'Spain_Abbrev.csv')
-ab['Abbrev'].fillna('NA', inplace = True)
+# Main Data Source JRC
+df = pd.read_csv('https://raw.githubusercontent.com/ec-jrc/COVID-19/master/data-by-region/jrc-covid-19-all-days-by-regions.csv')
+# change nan in regions to country names
+regionnan = pd.isnull(df["Region"])
+df["Region"].iloc[regionnan] = df[regionnan]["CountryName"]
 
-focus = df.copy().drop(['num_casos_prueba_pcr','num_casos_prueba_test_ac','num_casos_prueba_ag','num_casos_prueba_elisa','num_casos_prueba_desconocida'], axis=1).set_index(['fecha'])
-confirm = focus.groupby('provincia_iso').sum().T
+output_directory="output_spain"
+spain=df[df["CountryName"]=="Spain"]
 
-cols=['Province','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
+
+#all_countries={'Spain':spain}
+
+
+df3=spain
+df3.rename(columns = {'Date':'date', 'Region':'province'}, inplace = True)
+e_dataframe1=pd.pivot_table(df3, values='CumulativePositive', index=['date'],columns=['province'],aggfunc=np.mean)
+e_dataframe1 = e_dataframe1.fillna(0).astype(int)
+e_dataframe1 = e_dataframe1.diff().fillna(0)
+
+e_dataframe1['Date'] = pd.to_datetime(e_dataframe1.index)
+e_dataframe1.index = pd.to_datetime(e_dataframe1.index)
+e_dataframe1['dated'] = e_dataframe1.Date.diff().dt.days
+
+e_dataframe1 = e_dataframe1.drop('Date', axis = 1)
+
+dates = pd.date_range(e_dataframe1.index.min(), e_dataframe1.index.max())
+
+e_dataframe1 = e_dataframe1.reindex(dates)
+
+
+
+for i in e_dataframe1.columns:
+  e_dataframe1['datem'] = e_dataframe1[i] % e_dataframe1['dated']
+  e_dataframe1['dateq'] = e_dataframe1[i]//e_dataframe1['dated']
+  e_dataframe1 = e_dataframe1.fillna(0)
+
+  e_dataframe1[i] = e_dataframe1['dateq']+e_dataframe1['datem']
+  e_dataframe1 = e_dataframe1.drop('datem',axis = 1)
+
+  for index, row in e_dataframe1.iloc[::-1].iterrows():
+    if row['dated'] > 1:
+      dq = row['dateq']
+    elif row['dated'] == 0:
+      e_dataframe1[i].loc[index]=dq
+
+  e_dataframe1 = e_dataframe1.drop('dateq',axis = 1)
+
+e_dataframe1 = e_dataframe1.drop('dated',axis = 1)
+print(e_dataframe1)
+
+cols=['Comunidad Autónoma','COVID-Free Days','New Cases in Last 14 Days', 'Last7', 'Previous7']
 collect = []
-for p in confirm.columns:
+for p in e_dataframe1.columns:
     if p != 'NC':
-        n = focus[focus['provincia_iso']==p]
-        p_long = ab.loc[ab['Abbrev']==p,'Province'].item()
-        ave = n['num_casos']
-        ave.drop(ave.tail(3).index,inplace=True)
+        n = e_dataframe1[p]
+        #p_long = ab.loc[ab['Abbrev']==p,'Province'].item()
+        ave = n
+        ave.drop(ave.tail(4).index,inplace=True)
         las = len(ave)-14
         last_forteen = ave[las:].sum()
         if last_forteen < 0:
@@ -45,11 +92,11 @@ for p in confirm.columns:
                 i = 0
             i = i - 1
 
-        collect.append((p_long,
+        collect.append((p,
                         c,
-                        last_forteen,
-                        last7,
-                        prev7))
+                        int(last_forteen),
+                        int(last7),
+                        int(prev7)))
 
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
@@ -68,7 +115,7 @@ tab['PercentChange'] = 100*(tab['Last7'] - tab['Previous7'])/(tab['Last7']+tab['
 tab['PercentChange'] = tab['PercentChange'].fillna(0.0)
 
 tab = tab.drop(['Previous7'], axis = 1)
-tab.columns = ['Province', 'COVID-Free Days', 'New Cases in Last 14 Days', 'Last 7 Days', 'Pct Change']
+tab.columns = ['Comunidad Autónoma', 'COVID-Free Days', 'New Cases in Last 14 Days', 'Last 7 Days', 'Pct Change']
 
 def highlighter(s):
     val_1 = s['COVID-Free Days']
@@ -153,7 +200,7 @@ tab['Trend'] = tab['Pct Change'].map(arrow)
 tab['Percent Change'] = tab['Pct Change'].map('{:,.2f}%'.format) + tab['Trend']
 tab = tab.drop(['Trend','Pct Change'], axis = 1)
 
-tab = tab[['Rank', 'Province', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
+tab = tab[['Rank', 'Comunidad Autónoma', 'COVID-Free Days', 'New Cases in Last 14 Days','Last 7 Days','Percent Change']]       
 s = tab.style.apply(highlighter, axis = 1).set_table_styles(styles).hide_index()
 
 import datetime
