@@ -1,10 +1,6 @@
-from scipy import optimize
 import datetime
 import pandas as pd
-import seaborn as sns
-import json
 import numpy as np
-import os
 numb=10
 from datetime import date
 #date_of_analysis='03/07/21'                                                                                                                                                      
