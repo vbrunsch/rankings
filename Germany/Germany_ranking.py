@@ -134,6 +134,7 @@ for country in confirm_LK.columns:
                     population
                     ))
 
+all_lks[11000] = all_lks[11001]+all_lks[11002]+all_lks[11003]+all_lks[11004]+all_lks[11005]+all_lks[11006]+all_lks[11007]+all_lks[11008]+all_lks[11009]+all_lks[11010]+all_lks[11011]+all_lks[11012]
 all_lks.to_csv('German_regions_cases.csv')    
 # Calculate Incidences
 thr = pd.DataFrame(collect, columns=cols)
