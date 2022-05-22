@@ -62,6 +62,7 @@ confirm_LK = focus.groupby('Landkreis').sum().T
 
 cols=['District/County Town','COVID-Free Days','New Cases in Last 14 Days','Last7','Previous7','Postcode','Population']
 import datetime as dt
+all_lks = pd.DataFrame()
 collect = []
 for country in confirm_LK.columns:
     bula = focus[focus['Landkreis']==country]
@@ -80,6 +81,12 @@ for country in confirm_LK.columns:
     idx = pd.date_range('01/26/2020', dt.datetime.today().strftime("%m/%d/%Y"))
     bula2 = bula2.reindex(idx, fill_value=0)
     bula2.drop(bula2.tail(2).index,inplace=True)
+    
+    idzips = bula2['IdLandkreis'].unique()
+    for i in idzips:
+      if i not in [0,'0']:
+        idzip = i
+    all_lks[idzip]= bula2['Total']
     # print(bula2)
 
     ave = bula2['Total']
@@ -127,6 +134,7 @@ for country in confirm_LK.columns:
                     population
                     ))
 
+all_lks.to_csv('German_regions_cases.csv')    
 # Calculate Incidences
 thr = pd.DataFrame(collect, columns=cols)
 fin = thr.sort_values(['COVID-Free Days'], ascending=[False])
